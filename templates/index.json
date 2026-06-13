@@ -7,18 +7,42 @@
           "type": "slide",
           "settings": {
             "heading": "Up to 28,200+ new hairs in 3 months.",
-            "subheading": "Clinically inspired hair growth serum powered by Rootalix™. Visible results in as little as 90 days.",
-            "show_email_capture": true,
-            "button_label": "Join",
-            "show_badges": true,
-            "badge_1": "U.S. dermatologist tested",
-            "badge_2": "Clinically proven results",
-            "badge_3": "100% drug-free formula"
+            "subheading": "Based on a 3-month clinical study where participants saw an average of 10,000 new hairs and a maximum of 28,200.",
+            "button_label": "Shop the Serum",
+            "powered_by_text": "Powered by Rootalix™"
+          }
+        },
+        "feature_1": {
+          "type": "feature",
+          "settings": {
+            "title": "92% success rate",
+            "text": "92% of users saw a visible reduction in shedding within 4 weeks."
+          }
+        },
+        "feature_2": {
+          "type": "feature",
+          "settings": {
+            "title": "Zero side effect",
+            "text": "Zero side effects. No hormonal disruption. No impact on sex drive."
+          }
+        },
+        "feature_3": {
+          "type": "feature",
+          "settings": {
+            "title": "Botanical-powered",
+            "text": "Saw Palmetto, Green Tea, Larch Wood, Oleanolic Acid"
           }
         }
       },
-      "block_order": ["slide_1"],
-      "settings": {}
+      "block_order": ["slide_1", "feature_1", "feature_2", "feature_3"],
+      "settings": {
+        "show_trust_bar": true,
+        "trust_text": "Excellent 683 reviews on",
+        "trust_rating": 5,
+        "show_trustpilot": true,
+        "show_google": true,
+        "show_slider_controls": true
+      }
     },
     "kaza_brand_statement": {
       "type": "kaza-brand-statement",

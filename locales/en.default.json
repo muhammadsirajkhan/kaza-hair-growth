@@ -65,16 +65,23 @@
   "sections": {
     "kaza_hero": {
       "name": "Hero banner",
-      "email_label": "Email address",
-      "email_placeholder": "Enter your email",
-      "join": "Join",
+      "next": "Next",
+      "prev": "Prev",
+      "settings": {
+        "show_trust_bar": "Show trust bar",
+        "trust_text": "Trust label",
+        "show_trustpilot": "Show Trustpilot",
+        "show_google": "Show Google",
+        "show_slider_controls": "Show slider controls",
+        "powered_by_text": "Powered by text",
+        "product_image_info": "Optional. Leave empty when the background image includes the product."
+      },
       "blocks": {
         "slide": {
-          "name": "Slide",
-          "settings": {
-            "show_email_capture": "Show email capture",
-            "show_badges": "Show feature badges"
-          }
+          "name": "Slide"
+        },
+        "feature": {
+          "name": "Feature callout"
         }
       }
     },

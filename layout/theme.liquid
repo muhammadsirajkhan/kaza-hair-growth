@@ -22,6 +22,7 @@
     {% # Load and preload the critical CSS %}
     {{ 'critical.css' | asset_url | stylesheet_tag: preload: true }}
     {{ 'kaza-base.css' | asset_url | stylesheet_tag }}
+    {{ 'kaza-sections.css' | asset_url | stylesheet_tag }}
 
     {% # Social, title, etc. %}
     {% render 'meta-tags' %}
