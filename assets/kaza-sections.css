@@ -634,7 +634,7 @@
 
 .kaza-hero__controls {
   position: absolute;
-  bottom: 1.75rem;
+  bottom: 0;
   right: 0;
   left: 0;
   display: flex;
@@ -743,64 +743,185 @@
   background: var(--kaza-white);
 }
 
+.kaza-our-story__intro {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-bottom: clamp(3rem, 6vw, 5rem);
+}
+
+.kaza-our-story__badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.4375rem 1.125rem;
+  border: 1px solid var(--kaza-black);
+  border-radius: var(--kaza-radius-pill);
+  font-size: 0.6875rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  color: var(--kaza-black);
+  margin-bottom: 1.75rem;
+}
+
+.kaza-our-story__intro-text {
+  font-size: clamp(1.375rem, 2.8vw, 2.125rem);
+  font-weight: 500;
+  line-height: 1.45;
+  letter-spacing: -0.01em;
+  color: var(--kaza-black);
+  /* max-width: 46rem; */
+  margin-inline: auto;
+}
+
+.kaza-our-story__divider {
+  width: 100%;
+  height: 0.875rem;
+  margin-top: 2.5rem;
+  background: repeating-linear-gradient(115deg,
+      #d8d8d8 0,
+      #d8d8d8 1px,
+      transparent 1px,
+      transparent 9px);
+  opacity: 0.85;
+}
+
 .kaza-our-story__grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: clamp(2rem, 5vw, 4rem);
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: clamp(2.5rem, 5vw, 5rem);
   align-items: center;
 }
 
-.kaza-our-story__image {
-  width: 100%;
-  aspect-ratio: 4 / 5;
-  object-fit: cover;
-  border-radius: var(--kaza-radius-card);
+.kaza-our-story__media-frame {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  margin: 0;
+  border-radius: 18px;
+  overflow: hidden;
+  background: #f3f3f3;
+  min-height: 100%;
 }
 
-.kaza-our-story__placeholder {
+.kaza-our-story__media-label {
+  display: flex;
+  /* align-items: center; */
+  justify-content: center;
+  width: 4rem;
+  padding-block: 3.5rem;
+  background: #efefef;
+  margin: 0;
+}
+
+.kaza-our-story__media-label span {
+  writing-mode: vertical-rl;
+  transform: rotate(-360deg);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #383838;
+  white-space: nowrap;
+}
+
+.kaza-our-story__media-image {
+  position: relative;
+  overflow: hidden;
+}
+
+.kaza-our-story__image {
+  display: block;
   width: 100%;
-  aspect-ratio: 4 / 5;
-  border-radius: var(--kaza-radius-card);
-  background: var(--kaza-beige);
+  height: 100%;
+  min-height: clamp(18rem, 36vw, 28rem);
+  object-fit: cover;
+  object-position: center;
 }
 
 .kaza-our-story__content {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 1.5rem;
+  gap: 0;
+}
+
+.kaza-our-story__heading {
+  font-size: clamp(2rem, 3.5vw, 2.75rem);
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  color: var(--kaza-black);
+  margin-bottom: 1.5rem;
 }
 
 .kaza-our-story__text {
   font-size: 1rem;
   line-height: 1.7;
-  color: var(--kaza-gray);
+  color: #4a4a4a;
+  max-width: 36rem;
 }
 
 .kaza-our-story__text p+p {
-  margin-top: 1rem;
+  margin-top: 1.125rem;
+}
+
+.kaza-our-story__cta {
+  margin-top: 2rem;
+  padding: 0.9375rem 1.75rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  text-transform: none;
+  gap: 0.625rem;
+}
+
+.kaza-our-story__cta-icon {
+  width: 1rem;
+  height: 1rem;
+  flex-shrink: 0;
 }
 
 .kaza-our-story__rating {
   display: flex;
   align-items: center;
-  gap: 0.75rem;
+  gap: 0.625rem;
   flex-wrap: wrap;
+  margin-top: 1.25rem;
 }
 
 .kaza-our-story__rating-text {
-  font-size: 0.875rem;
-  color: var(--kaza-gray);
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: var(--kaza-black);
+}
+
+.kaza-our-story__rating .kaza-stars svg {
+  width: 1rem;
+  height: 1rem;
 }
 
 @media (max-width: 767px) {
+  .kaza-our-story__intro {
+    margin-bottom: 2.5rem;
+  }
+
   .kaza-our-story__grid {
     grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .kaza-our-story__media-label {
+    width: 2.25rem;
   }
 
   .kaza-our-story__content {
     align-items: center;
     text-align: center;
+  }
+
+  .kaza-our-story__text {
+    max-width: none;
   }
 
   .kaza-our-story__rating {

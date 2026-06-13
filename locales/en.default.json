@@ -91,6 +91,12 @@
     "kaza_our_story": {
       "name": "Our story",
       "settings": {
+        "show_intro": "Show intro",
+        "intro_header": "Intro",
+        "story_header": "Story",
+        "badge_text": "Badge text",
+        "intro_text": "Intro text",
+        "image_label": "Image vertical label",
         "show_rating": "Show rating"
       }
     },

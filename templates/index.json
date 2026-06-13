@@ -44,21 +44,19 @@
         "show_slider_controls": true
       }
     },
-    "kaza_brand_statement": {
-      "type": "kaza-brand-statement",
-      "settings": {
-        "text": "At KAZA, we believe everyone deserves fuller, healthier hair. Our science-backed formulas combine nature and innovation to deliver visible results — without compromise."
-      }
-    },
     "kaza_our_story": {
       "type": "kaza-our-story",
       "settings": {
+        "show_intro": true,
+        "badge_text": "Welcome to Kaza",
+        "intro_text": "Kaza is built for men who take their appearance seriously and want products that match that mindset — clean, modern, and engineered to work.",
+        "image_label": "Welcome to Kaza",
         "heading": "Our story",
-        "text": "<p>KAZA was born from a simple mission: create a hair growth solution that actually works. After years of research and testing, we developed Rootalix™ — a breakthrough plant-based compound that targets hair follicles at the root.</p><p>Today, thousands of customers trust KAZA to restore their confidence and their hair.</p>",
-        "button_label": "Read about us",
+        "text": "<p>Kaza was created with a simple objective: give men a hair growth solution that actually performs. No gimmicks. No empty promises. Just real science, clean formulation, and measurable results.</p><p>We focus on early-stage thinning — the point where action matters most. Our serum is powered by Rootalix™, a proprietary botanical-bioactive complex designed to fuel follicle activity, strengthen roots, and support visible density improvements. Every ingredient serves a purpose. Nothing extra. Nothing watered down.</p>",
+        "button_label": "Read About Us",
         "show_rating": true,
         "rating": 5,
-        "rating_text": "4.9/5 based on 10,000+ reviews"
+        "rating_text": "5000+ Verified 5-star Reviews "
       }
     },
     "kaza_why_choose": {
@@ -137,7 +135,6 @@
   },
   "order": [
     "kaza_hero",
-    "kaza_brand_statement",
     "kaza_our_story",
     "kaza_why_choose",
     "kaza_rootalix",
