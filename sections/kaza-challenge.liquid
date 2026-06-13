@@ -1,0 +1,292 @@
+<section class="kaza-challenge full-width" data-kaza-testimonials>
+  <div class="kaza-container">
+    {% if section.settings.heading != blank %}
+      <h2 class="kaza-section-heading kaza-challenge__heading">{{ section.settings.heading }}</h2>
+    {% endif %}
+
+    <div class="kaza-challenge__comparison">
+      <div class="kaza-challenge__image-wrap">
+        {% if section.settings.before_image != blank %}
+          {{ section.settings.before_image | image_url: width: 600 | image_tag: loading: 'lazy', alt: section.settings.before_image.alt | default: 'Before', class: 'kaza-challenge__image' }}
+        {% else %}
+          {{ 'collection-1' | placeholder_svg_tag: 'kaza-challenge__placeholder' }}
+        {% endif %}
+        <span class="kaza-challenge__label">{{ 'sections.kaza_challenge.before' | t }}</span>
+      </div>
+
+      {% if section.settings.badge_text != blank %}
+        <div class="kaza-challenge__badge">{{ section.settings.badge_text }}</div>
+      {% endif %}
+
+      <div class="kaza-challenge__image-wrap">
+        {% if section.settings.after_image != blank %}
+          {{ section.settings.after_image | image_url: width: 600 | image_tag: loading: 'lazy', alt: section.settings.after_image.alt | default: 'After', class: 'kaza-challenge__image' }}
+        {% else %}
+          {{ 'collection-2' | placeholder_svg_tag: 'kaza-challenge__placeholder' }}
+        {% endif %}
+        <span class="kaza-challenge__label">{{ 'sections.kaza_challenge.after' | t }}</span>
+      </div>
+    </div>
+
+    {% if section.blocks.size > 0 %}
+      <div class="kaza-challenge__testimonials">
+        {% for block in section.blocks %}
+          <div
+            class="kaza-challenge__testimonial{% if forloop.first %} is-active{% endif %}"
+            data-kaza-testimonial
+            {{ block.shopify_attributes }}
+          >
+            {% render 'kaza-star-rating', rating: block.settings.rating, label: block.settings.quote %}
+            {% if block.settings.quote != blank %}
+              <blockquote class="kaza-challenge__quote">{{ block.settings.quote }}</blockquote>
+            {% endif %}
+            {% if block.settings.author != blank %}
+              <cite class="kaza-challenge__author">{{ block.settings.author }}</cite>
+            {% endif %}
+          </div>
+        {% endfor %}
+
+        {% if section.blocks.size > 1 %}
+          <div class="kaza-challenge__nav">
+            <button type="button" class="kaza-challenge__arrow" data-kaza-testimonial-prev aria-label="{{ 'general.accessibility.previous' | t }}">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg>
+            </button>
+            <button type="button" class="kaza-challenge__arrow" data-kaza-testimonial-next aria-label="{{ 'general.accessibility.next' | t }}">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg>
+            </button>
+          </div>
+        {% endif %}
+      </div>
+    {% endif %}
+  </div>
+</section>
+
+{% stylesheet %}
+  .kaza-challenge {
+    padding-block: var(--kaza-section-y);
+    background: var(--kaza-beige);
+    text-align: center;
+  }
+
+  .kaza-challenge__heading {
+    margin-bottom: 3rem;
+  }
+
+  .kaza-challenge__comparison {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0;
+    margin-bottom: 3rem;
+    position: relative;
+  }
+
+  .kaza-challenge__image-wrap {
+    position: relative;
+    flex: 1;
+    max-width: 280px;
+  }
+
+  .kaza-challenge__image,
+  .kaza-challenge__placeholder {
+    width: 100%;
+    aspect-ratio: 1;
+    object-fit: cover;
+    border-radius: 50%;
+  }
+
+  .kaza-challenge__label {
+    display: block;
+    margin-top: 0.75rem;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
+  .kaza-challenge__badge {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    width: 5rem;
+    height: 5rem;
+    border-radius: 50%;
+    background: var(--kaza-black);
+    color: var(--kaza-white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8125rem;
+    font-weight: 700;
+    line-height: 1.2;
+    border: 3px solid var(--kaza-beige);
+  }
+
+  .kaza-challenge__testimonials {
+    position: relative;
+    max-width: 36rem;
+    margin-inline: auto;
+    min-height: 8rem;
+  }
+
+  .kaza-challenge__testimonial {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .kaza-challenge__testimonial.is-active {
+    display: flex;
+  }
+
+  .kaza-challenge__quote {
+    font-size: clamp(1.125rem, 2.5vw, 1.5rem);
+    line-height: 1.5;
+    font-style: italic;
+    font-weight: 400;
+  }
+
+  .kaza-challenge__author {
+    font-size: 0.875rem;
+    font-style: normal;
+    color: var(--kaza-gray);
+  }
+
+  .kaza-challenge__nav {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 1.5rem;
+  }
+
+  .kaza-challenge__arrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 50%;
+    border: 1px solid var(--kaza-black);
+    background: transparent;
+    cursor: pointer;
+    transition: background var(--kaza-transition);
+  }
+
+  .kaza-challenge__arrow:hover {
+    background: rgba(0, 0, 0, 0.05);
+  }
+
+  @media (max-width: 767px) {
+    .kaza-challenge__comparison {
+      flex-direction: column;
+      gap: 2rem;
+    }
+
+    .kaza-challenge__badge {
+      position: static;
+      transform: none;
+    }
+  }
+{% endstylesheet %}
+
+{% javascript %}
+  (function () {
+    const section = document.querySelector('[data-kaza-testimonials]');
+    if (!section) return;
+
+    const items = [...section.querySelectorAll('[data-kaza-testimonial]')];
+    if (items.length <= 1) return;
+
+    let current = 0;
+
+    const update = () => {
+      items.forEach((item, i) => item.classList.toggle('is-active', i === current));
+    };
+
+    section.querySelector('[data-kaza-testimonial-prev]')?.addEventListener('click', () => {
+      current = (current - 1 + items.length) % items.length;
+      update();
+    });
+
+    section.querySelector('[data-kaza-testimonial-next]')?.addEventListener('click', () => {
+      current = (current + 1) % items.length;
+      update();
+    });
+  })();
+{% endjavascript %}
+
+{% schema %}
+{
+  "name": "t:sections.kaza_challenge.name",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "t:labels.heading",
+      "default": "90-day challenge"
+    },
+    {
+      "type": "image_picker",
+      "id": "before_image",
+      "label": "t:labels.before_image"
+    },
+    {
+      "type": "image_picker",
+      "id": "after_image",
+      "label": "t:labels.after_image"
+    },
+    {
+      "type": "text",
+      "id": "badge_text",
+      "label": "t:labels.badge_text",
+      "default": "90 days"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "testimonial",
+      "name": "t:sections.kaza_challenge.blocks.testimonial.name",
+      "settings": [
+        {
+          "type": "range",
+          "id": "rating",
+          "label": "t:labels.rating",
+          "min": 1,
+          "max": 5,
+          "step": 1,
+          "default": 5
+        },
+        {
+          "type": "textarea",
+          "id": "quote",
+          "label": "t:labels.quote",
+          "default": "My hair is back!"
+        },
+        {
+          "type": "text",
+          "id": "author",
+          "label": "t:labels.author",
+          "default": "James R."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:sections.kaza_challenge.name",
+      "blocks": [
+        {
+          "type": "testimonial",
+          "settings": {
+            "quote": "My hair is back!",
+            "author": "James R."
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

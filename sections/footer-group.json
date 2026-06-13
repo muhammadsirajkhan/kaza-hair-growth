@@ -1,0 +1,29 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "type": "footer",
+  "name": "t:general.footer",
+  "sections": {
+    "footer": {
+      "type": "footer",
+      "settings": {
+        "logo_text": "KAZA™",
+        "description": "Science-backed hair growth for everyone. Powered by Rootalix™.",
+        "show_newsletter": true,
+        "products_menu": "",
+        "company_menu": "",
+        "legal_menu": ""
+      }
+    }
+  },
+  "order": [
+    "footer"
+  ]
+}

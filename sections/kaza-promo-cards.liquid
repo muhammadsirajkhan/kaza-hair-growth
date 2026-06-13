@@ -1,0 +1,177 @@
+<section class="kaza-promo-cards full-width">
+  <div class="kaza-container">
+    <div class="kaza-promo-cards__grid">
+      {% for block in section.blocks %}
+        <div class="kaza-promo-cards__card kaza-promo-cards__card--{{ block.settings.style }}" {{ block.shopify_attributes }}>
+          <div class="kaza-promo-cards__media">
+            {% if block.settings.image != blank %}
+              {{ block.settings.image | image_url: width: 800 | image_tag: loading: 'lazy', alt: block.settings.heading }}
+            {% else %}
+              {{ 'product-1' | placeholder_svg_tag }}
+            {% endif %}
+          </div>
+          <div class="kaza-promo-cards__content">
+            {% if block.settings.heading != blank %}
+              <h3 class="kaza-promo-cards__heading">{{ block.settings.heading }}</h3>
+            {% endif %}
+            {% if block.settings.text != blank %}
+              <p class="kaza-promo-cards__text">{{ block.settings.text }}</p>
+            {% endif %}
+            {% if block.settings.button_label != blank %}
+              {% render 'kaza-button', label: block.settings.button_label, url: block.settings.button_url, style: 'primary' %}
+            {% endif %}
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% stylesheet %}
+  .kaza-promo-cards {
+    padding-block: var(--kaza-section-y);
+    background: var(--kaza-white);
+  }
+
+  .kaza-promo-cards__grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+  }
+
+  .kaza-promo-cards__card {
+    position: relative;
+    border-radius: var(--kaza-radius-card);
+    overflow: hidden;
+    min-height: 420px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .kaza-promo-cards__card--gray {
+    background: var(--kaza-gray-light);
+  }
+
+  .kaza-promo-cards__card--beige {
+    background: var(--kaza-beige);
+  }
+
+  .kaza-promo-cards__media {
+    flex: 1;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    padding: 2rem 2rem 0;
+    overflow: hidden;
+  }
+
+  .kaza-promo-cards__media img,
+  .kaza-promo-cards__media svg {
+    max-height: 280px;
+    width: auto;
+    object-fit: contain;
+  }
+
+  .kaza-promo-cards__content {
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+  }
+
+  .kaza-promo-cards__heading {
+    font-size: 1.375rem;
+    font-weight: 700;
+    line-height: 1.2;
+  }
+
+  .kaza-promo-cards__text {
+    font-size: 0.9375rem;
+    line-height: 1.6;
+    color: var(--kaza-gray);
+    max-width: 28ch;
+  }
+
+  @media (max-width: 767px) {
+    .kaza-promo-cards__grid {
+      grid-template-columns: 1fr;
+    }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "t:sections.kaza_promo_cards.name",
+  "max_blocks": 2,
+  "blocks": [
+    {
+      "type": "card",
+      "name": "t:sections.kaza_promo_cards.blocks.card.name",
+      "settings": [
+        {
+          "type": "select",
+          "id": "style",
+          "label": "t:labels.background_style",
+          "options": [
+            { "value": "gray", "label": "t:options.background_style.gray" },
+            { "value": "beige", "label": "t:options.background_style.beige" }
+          ],
+          "default": "gray"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "t:labels.image"
+        },
+        {
+          "type": "text",
+          "id": "heading",
+          "label": "t:labels.heading",
+          "default": "No prescription needed"
+        },
+        {
+          "type": "textarea",
+          "id": "text",
+          "label": "t:labels.text",
+          "default": "Start your hair growth journey today without a doctor visit."
+        },
+        {
+          "type": "text",
+          "id": "button_label",
+          "label": "t:labels.button_label",
+          "default": "Shop now"
+        },
+        {
+          "type": "url",
+          "id": "button_url",
+          "label": "t:labels.button_url"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:sections.kaza_promo_cards.name",
+      "blocks": [
+        {
+          "type": "card",
+          "settings": {
+            "style": "gray",
+            "heading": "No prescription needed",
+            "text": "Start your hair growth journey today without a doctor visit."
+          }
+        },
+        {
+          "type": "card",
+          "settings": {
+            "style": "beige",
+            "heading": "Bio-hacked plant science",
+            "text": "Rootalix™ combines ancient botanicals with modern bio-hacking."
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

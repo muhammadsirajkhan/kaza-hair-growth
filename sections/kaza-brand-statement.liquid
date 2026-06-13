@@ -1,0 +1,43 @@
+<section class="kaza-brand-statement full-width">
+  <div class="kaza-container">
+    {% if section.settings.text != blank %}
+      <p class="kaza-brand-statement__text">{{ section.settings.text }}</p>
+    {% endif %}
+  </div>
+</section>
+
+{% stylesheet %}
+  .kaza-brand-statement {
+    padding-block: var(--kaza-section-y);
+    background: var(--kaza-white);
+    text-align: center;
+  }
+
+  .kaza-brand-statement__text {
+    font-size: clamp(1.125rem, 2.5vw, 1.375rem);
+    line-height: 1.65;
+    max-width: 52rem;
+    margin-inline: auto;
+    color: var(--kaza-black);
+    font-weight: 400;
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "t:sections.kaza_brand_statement.name",
+  "settings": [
+    {
+      "type": "textarea",
+      "id": "text",
+      "label": "t:labels.text",
+      "default": "At KAZA, we believe everyone deserves fuller, healthier hair. Our science-backed formulas combine nature and innovation to deliver visible results — without compromise."
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:sections.kaza_brand_statement.name"
+    }
+  ]
+}
+{% endschema %}

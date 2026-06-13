@@ -1,0 +1,170 @@
+<section class="kaza-our-story full-width">
+  <div class="kaza-container">
+    <div class="kaza-our-story__grid">
+      <div class="kaza-our-story__media">
+        {% if section.settings.image != blank %}
+          {{ section.settings.image | image_url: width: 800 | image_tag: loading: 'lazy', alt: section.settings.heading, class: 'kaza-our-story__image' }}
+        {% else %}
+          {{ 'lifestyle-1' | placeholder_svg_tag: 'kaza-our-story__placeholder' }}
+        {% endif %}
+      </div>
+
+      <div class="kaza-our-story__content">
+        {% if section.settings.heading != blank %}
+          <h2 class="kaza-section-heading">{{ section.settings.heading }}</h2>
+        {% endif %}
+
+        {% if section.settings.text != blank %}
+          <div class="kaza-our-story__text">{{ section.settings.text }}</div>
+        {% endif %}
+
+        {% if section.settings.button_label != blank %}
+          {% render 'kaza-button', label: section.settings.button_label, url: section.settings.button_url, style: 'primary' %}
+        {% endif %}
+
+        {% if section.settings.show_rating %}
+          <div class="kaza-our-story__rating">
+            {% render 'kaza-star-rating', rating: section.settings.rating, label: section.settings.rating_text %}
+            {% if section.settings.rating_text != blank %}
+              <span class="kaza-our-story__rating-text">{{ section.settings.rating_text }}</span>
+            {% endif %}
+          </div>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</section>
+
+{% stylesheet %}
+  .kaza-our-story {
+    padding-block: var(--kaza-section-y);
+    background: var(--kaza-white);
+  }
+
+  .kaza-our-story__grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: clamp(2rem, 5vw, 4rem);
+    align-items: center;
+  }
+
+  .kaza-our-story__image {
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    object-fit: cover;
+    border-radius: var(--kaza-radius-card);
+  }
+
+  .kaza-our-story__placeholder {
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    border-radius: var(--kaza-radius-card);
+    background: var(--kaza-beige);
+  }
+
+  .kaza-our-story__content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.5rem;
+  }
+
+  .kaza-our-story__text {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: var(--kaza-gray);
+  }
+
+  .kaza-our-story__text p + p {
+    margin-top: 1rem;
+  }
+
+  .kaza-our-story__rating {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+  }
+
+  .kaza-our-story__rating-text {
+    font-size: 0.875rem;
+    color: var(--kaza-gray);
+  }
+
+  @media (max-width: 767px) {
+    .kaza-our-story__grid {
+      grid-template-columns: 1fr;
+    }
+
+    .kaza-our-story__content {
+      align-items: center;
+      text-align: center;
+    }
+
+    .kaza-our-story__rating {
+      justify-content: center;
+    }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "t:sections.kaza_our_story.name",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "t:labels.image"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "t:labels.heading",
+      "default": "Our story"
+    },
+    {
+      "type": "richtext",
+      "id": "text",
+      "label": "t:labels.text",
+      "default": "<p>KAZA was born from a simple mission: create a hair growth solution that actually works. After years of research and testing, we developed Rootalix™ — a breakthrough plant-based compound that targets hair follicles at the root.</p><p>Today, thousands of customers trust KAZA to restore their confidence and their hair.</p>"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "t:labels.button_label",
+      "default": "Read about us"
+    },
+    {
+      "type": "url",
+      "id": "button_url",
+      "label": "t:labels.button_url"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_rating",
+      "label": "t:sections.kaza_our_story.settings.show_rating",
+      "default": true
+    },
+    {
+      "type": "range",
+      "id": "rating",
+      "label": "t:labels.rating",
+      "min": 1,
+      "max": 5,
+      "step": 1,
+      "default": 5
+    },
+    {
+      "type": "text",
+      "id": "rating_text",
+      "label": "t:labels.rating_text",
+      "default": "4.9/5 based on 10,000+ reviews"
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:sections.kaza_our_story.name"
+    }
+  ]
+}
+{% endschema %}

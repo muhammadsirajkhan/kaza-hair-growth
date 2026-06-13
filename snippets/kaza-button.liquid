@@ -1,0 +1,31 @@
+{% doc %}
+  Renders a KAZA styled button or link.
+
+  @param {string} label - Button text
+  @param {string} [url] - Link URL (renders as anchor when provided)
+  @param {string} [style] - primary, secondary, or outline
+  @param {string} [type] - button type when rendered as button
+  @param {string} [class] - Additional CSS classes
+  @param {boolean} [rect] - Use sharp rectangular corners
+  @param {boolean} [invert] - White background with black text
+{% enddoc %}
+
+{% liquid
+  assign btn_style = style | default: 'primary'
+  assign btn_class = 'kaza-btn kaza-btn--' | append: btn_style
+  if rect
+    assign btn_class = btn_class | append: ' kaza-btn--rect'
+  endif
+  if invert
+    assign btn_class = btn_class | append: ' kaza-btn--invert'
+  endif
+  if class != blank
+    assign btn_class = btn_class | append: ' ' | append: class
+  endif
+%}
+
+{% if url != blank %}
+  <a href="{{ url }}" class="{{ btn_class }}">{{ label }}</a>
+{% else %}
+  <button type="{{ type | default: 'button' }}" class="{{ btn_class }}">{{ label }}</button>
+{% endif %}

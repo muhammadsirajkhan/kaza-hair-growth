@@ -1,0 +1,308 @@
+<footer class="kaza-footer full-width">
+  <div class="kaza-container kaza-footer__main">
+    <div class="kaza-footer__brand">
+      <a href="{{ routes.root_url }}" class="kaza-footer__logo">{{ section.settings.logo_text | default: 'KAZA™' }}</a>
+      {% if section.settings.description != blank %}
+        <p class="kaza-footer__description">{{ section.settings.description }}</p>
+      {% endif %}
+
+      {% if section.settings.show_newsletter %}
+        {% form 'customer', class: 'kaza-footer__newsletter' %}
+          <input type="hidden" name="contact[tags]" value="newsletter">
+          <label class="kaza-visually-hidden" for="FooterEmail">{{ 'sections.kaza_footer.email_label' | t }}</label>
+          <input
+            id="FooterEmail"
+            type="email"
+            name="contact[email]"
+            placeholder="{{ 'sections.kaza_footer.email_placeholder' | t }}"
+            required
+            autocomplete="email"
+          >
+          <button type="submit" class="kaza-btn kaza-btn--secondary">{{ 'sections.kaza_footer.join' | t }}</button>
+        {% endform %}
+      {% endif %}
+
+      {% if section.settings.cta_label != blank %}
+        <div class="kaza-footer__cta">
+          {% render 'kaza-button', label: section.settings.cta_label, url: section.settings.cta_url, style: 'secondary' %}
+        </div>
+      {% endif %}
+    </div>
+
+    {% if section.settings.products_menu != blank %}
+      <div class="kaza-footer__column">
+        <h3 class="kaza-footer__heading">{{ 'sections.kaza_footer.products' | t }}</h3>
+        <ul class="kaza-footer__links">
+          {% for link in section.settings.products_menu.links %}
+            <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+          {% endfor %}
+        </ul>
+      </div>
+    {% endif %}
+
+    {% if section.settings.company_menu != blank %}
+      <div class="kaza-footer__column">
+        <h3 class="kaza-footer__heading">{{ 'sections.kaza_footer.company' | t }}</h3>
+        <ul class="kaza-footer__links">
+          {% for link in section.settings.company_menu.links %}
+            <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+          {% endfor %}
+        </ul>
+      </div>
+    {% endif %}
+
+    <div class="kaza-footer__column">
+      <h3 class="kaza-footer__heading">{{ 'sections.kaza_footer.social_media' | t }}</h3>
+      <ul class="kaza-footer__social">
+        {% if section.settings.social_instagram != blank %}
+          <li>
+            <a href="{{ section.settings.social_instagram }}" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
+            </a>
+          </li>
+        {% endif %}
+        {% if section.settings.social_facebook != blank %}
+          <li>
+            <a href="{{ section.settings.social_facebook }}" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+            </a>
+          </li>
+        {% endif %}
+        {% if section.settings.social_twitter != blank %}
+          <li>
+            <a href="{{ section.settings.social_twitter }}" target="_blank" rel="noopener noreferrer" aria-label="X">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            </a>
+          </li>
+        {% endif %}
+      </ul>
+    </div>
+  </div>
+
+  <div class="kaza-footer__bar">
+    <div class="kaza-container kaza-footer__bar-inner">
+      <p class="kaza-footer__copyright">
+        &copy; {{ 'now' | date: '%Y' }} {{ shop.name }}. {{ 'sections.kaza_footer.all_rights' | t }}
+      </p>
+      <div class="kaza-footer__legal">
+        {% for link in section.settings.legal_menu.links %}
+          <a href="{{ link.url }}">{{ link.title }}</a>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</footer>
+
+{% stylesheet %}
+  .kaza-footer {
+    background: var(--kaza-black);
+    color: var(--kaza-white);
+  }
+
+  .kaza-footer__main {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr 1fr;
+    gap: 3rem;
+    padding-block: 4rem;
+  }
+
+  .kaza-footer__logo {
+    font-size: 1.25rem;
+    font-weight: 800;
+    letter-spacing: 0.1em;
+    text-decoration: none;
+    color: var(--kaza-white);
+    text-transform: uppercase;
+  }
+
+  .kaza-footer__description {
+    margin-top: 1rem;
+    font-size: 0.875rem;
+    line-height: 1.6;
+    opacity: 0.7;
+    max-width: 28ch;
+  }
+
+  .kaza-footer__newsletter {
+    display: flex;
+    margin-top: 1.5rem;
+    max-width: 22rem;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: var(--kaza-radius-pill);
+    padding: 0.25rem;
+    overflow: hidden;
+  }
+
+  .kaza-footer__newsletter input[type='email'] {
+    flex: 1;
+    border: none;
+    padding: 0.75rem 1rem;
+    background: transparent;
+    color: var(--kaza-white);
+    min-width: 0;
+  }
+
+  .kaza-footer__newsletter input[type='email']::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+  }
+
+  .kaza-footer__newsletter .kaza-btn {
+    padding: 0.625rem 1.25rem;
+    font-size: 0.75rem;
+  }
+
+  .kaza-footer__cta {
+    margin-top: 1rem;
+  }
+
+  .kaza-footer__heading {
+    font-size: 0.8125rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 1.25rem;
+  }
+
+  .kaza-footer__links {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .kaza-footer__links a {
+    font-size: 0.875rem;
+    color: rgba(255, 255, 255, 0.7);
+    text-decoration: none;
+    transition: color var(--kaza-transition);
+  }
+
+  .kaza-footer__links a:hover {
+    color: var(--kaza-white);
+  }
+
+  .kaza-footer__social {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    gap: 1rem;
+  }
+
+  .kaza-footer__social a {
+    display: flex;
+    color: var(--kaza-white);
+    opacity: 0.8;
+    transition: opacity var(--kaza-transition);
+  }
+
+  .kaza-footer__social a:hover {
+    opacity: 1;
+  }
+
+  .kaza-footer__bar {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-block: 1.25rem;
+  }
+
+  .kaza-footer__bar-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .kaza-footer__copyright {
+    font-size: 0.75rem;
+    opacity: 0.5;
+  }
+
+  .kaza-footer__legal {
+    display: flex;
+    gap: 1.5rem;
+  }
+
+  .kaza-footer__legal a {
+    font-size: 0.75rem;
+    color: rgba(255, 255, 255, 0.5);
+    text-decoration: none;
+  }
+
+  .kaza-footer__legal a:hover {
+    color: var(--kaza-white);
+  }
+
+  @media (max-width: 767px) {
+    .kaza-footer__main {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "t:sections.kaza_footer.name",
+  "settings": [
+    {
+      "type": "text",
+      "id": "logo_text",
+      "label": "t:labels.logo_text",
+      "default": "KAZA™"
+    },
+    {
+      "type": "textarea",
+      "id": "description",
+      "label": "t:labels.description",
+      "default": "Science-backed hair growth for everyone. Powered by Rootalix™."
+    },
+    {
+      "type": "checkbox",
+      "id": "show_newsletter",
+      "label": "t:sections.kaza_footer.settings.show_newsletter",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "cta_label",
+      "label": "t:labels.cta_label"
+    },
+    {
+      "type": "url",
+      "id": "cta_url",
+      "label": "t:labels.cta_url"
+    },
+    {
+      "type": "link_list",
+      "id": "products_menu",
+      "label": "t:sections.kaza_footer.settings.products_menu"
+    },
+    {
+      "type": "link_list",
+      "id": "company_menu",
+      "label": "t:sections.kaza_footer.settings.company_menu"
+    },
+    {
+      "type": "link_list",
+      "id": "legal_menu",
+      "label": "t:sections.kaza_footer.settings.legal_menu"
+    },
+    {
+      "type": "url",
+      "id": "social_instagram",
+      "label": "t:labels.social_instagram"
+    },
+    {
+      "type": "url",
+      "id": "social_facebook",
+      "label": "t:labels.social_facebook"
+    },
+    {
+      "type": "url",
+      "id": "social_twitter",
+      "label": "t:labels.social_twitter"
+    }
+  ]
+}
+{% endschema %}

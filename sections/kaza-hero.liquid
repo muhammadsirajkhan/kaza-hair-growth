@@ -1,0 +1,427 @@
+<div class="kaza-hero full-width" data-kaza-hero>
+  <div class="kaza-hero__slides">
+    {% for block in section.blocks %}
+      <div
+        class="kaza-hero__slide{% if forloop.first %} is-active{% endif %}"
+        data-kaza-hero-slide
+        {{ block.shopify_attributes }}
+      >
+        {% if block.settings.background_image != blank %}
+          <div class="kaza-hero__bg">
+            {{ block.settings.background_image | image_url: width: 2400 | image_tag: loading: 'eager', fetchpriority: 'high', alt: block.settings.heading }}
+          </div>
+        {% endif %}
+        <div class="kaza-hero__overlay"></div>
+
+        <div class="kaza-hero__content kaza-container">
+          <div class="kaza-hero__text">
+            {% if block.settings.heading != blank %}
+              <h1 class="kaza-hero__heading">{{ block.settings.heading }}</h1>
+            {% endif %}
+            {% if block.settings.subheading != blank %}
+              <p class="kaza-hero__subheading">{{ block.settings.subheading }}</p>
+            {% endif %}
+
+            {% if block.settings.show_email_capture %}
+              {% form 'customer', class: 'kaza-hero__form' %}
+                <input type="hidden" name="contact[tags]" value="newsletter">
+                <label class="kaza-visually-hidden" for="HeroEmail-{{ block.id }}">{{ 'sections.kaza_hero.email_label' | t }}</label>
+                <input
+                  id="HeroEmail-{{ block.id }}"
+                  type="email"
+                  name="contact[email]"
+                  placeholder="{{ 'sections.kaza_hero.email_placeholder' | t }}"
+                  required
+                  autocomplete="email"
+                >
+                <button type="submit" class="kaza-btn kaza-btn--secondary">{{ block.settings.button_label | default: 'sections.kaza_hero.join' | t }}</button>
+              {% endform %}
+            {% elsif block.settings.button_label != blank %}
+              <a href="{{ block.settings.button_url | default: routes.all_products_collection_url }}" class="kaza-btn kaza-btn--secondary">
+                {{ block.settings.button_label }}
+              </a>
+            {% endif %}
+          </div>
+
+          <div class="kaza-hero__visual">
+            {% if block.settings.product_image != blank %}
+              <div class="kaza-hero__product">
+                {{ block.settings.product_image | image_url: width: 800 | image_tag: loading: 'eager', alt: block.settings.heading }}
+              </div>
+            {% endif %}
+
+            {% if block.settings.show_badges %}
+              <ul class="kaza-hero__badges">
+                {% if block.settings.badge_1 != blank %}
+                  <li class="kaza-hero__badge">{{ block.settings.badge_1 }}</li>
+                {% endif %}
+                {% if block.settings.badge_2 != blank %}
+                  <li class="kaza-hero__badge">{{ block.settings.badge_2 }}</li>
+                {% endif %}
+                {% if block.settings.badge_3 != blank %}
+                  <li class="kaza-hero__badge">{{ block.settings.badge_3 }}</li>
+                {% endif %}
+              </ul>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+
+  {% if section.blocks.size > 1 %}
+    <div class="kaza-hero__controls kaza-container">
+      <button type="button" class="kaza-hero__arrow" data-kaza-hero-prev aria-label="{{ 'general.accessibility.previous' | t }}">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg>
+      </button>
+      <span class="kaza-hero__counter" data-kaza-hero-counter>01 / {{ section.blocks.size | prepend: '0' | slice: -2, 2 }}</span>
+      <button type="button" class="kaza-hero__arrow" data-kaza-hero-next aria-label="{{ 'general.accessibility.next' | t }}">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg>
+      </button>
+    </div>
+  {% endif %}
+</div>
+
+{% stylesheet %}
+  .kaza-hero {
+    position: relative;
+    min-height: clamp(520px, 90vh, 780px);
+    background: var(--kaza-black);
+    color: var(--kaza-white);
+    overflow: hidden;
+  }
+
+  .kaza-hero__slide {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.6s ease, visibility 0.6s ease;
+  }
+
+  .kaza-hero__slide.is-active {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .kaza-hero__bg {
+    position: absolute;
+    inset: 0;
+  }
+
+  .kaza-hero__bg img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .kaza-hero__overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, rgba(0, 0, 0, 0.75) 0%, rgba(0, 0, 0, 0.35) 55%, rgba(0, 0, 0, 0.2) 100%);
+  }
+
+  .kaza-hero__content {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 2rem;
+    min-height: clamp(520px, 90vh, 780px);
+    padding-block: 6rem 4rem;
+  }
+
+  .kaza-hero__heading {
+    font-size: clamp(2rem, 5vw, 3.25rem);
+    font-weight: 800;
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    text-transform: uppercase;
+    max-width: 14ch;
+  }
+
+  .kaza-hero__subheading {
+    margin-top: 1.25rem;
+    font-size: clamp(0.9375rem, 1.5vw, 1.0625rem);
+    line-height: 1.6;
+    max-width: 38ch;
+    opacity: 0.9;
+  }
+
+  .kaza-hero__form {
+    display: flex;
+    margin-top: 2rem;
+    max-width: 28rem;
+    background: var(--kaza-white);
+    border-radius: var(--kaza-radius-pill);
+    padding: 0.25rem;
+    overflow: hidden;
+  }
+
+  .kaza-hero__form input[type='email'] {
+    flex: 1;
+    border: none;
+    padding: 0.875rem 1.25rem;
+    background: transparent;
+    color: var(--kaza-black);
+    min-width: 0;
+  }
+
+  .kaza-hero__form input[type='email']::placeholder {
+    color: var(--kaza-gray);
+  }
+
+  .kaza-hero__form .kaza-btn {
+    padding: 0.75rem 1.5rem;
+    flex-shrink: 0;
+  }
+
+  .kaza-hero__content > .kaza-btn {
+    margin-top: 2rem;
+  }
+
+  .kaza-hero__visual {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .kaza-hero__product img {
+    max-height: clamp(280px, 45vh, 480px);
+    width: auto;
+    margin-inline: auto;
+    filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.4));
+  }
+
+  .kaza-hero__badges {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    list-style: none;
+    padding: 0;
+  }
+
+  .kaza-hero__badge {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 0.6875rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    max-width: 9rem;
+    line-height: 1.3;
+  }
+
+  .kaza-hero__badge::before {
+    content: '';
+    flex-shrink: 0;
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 50%;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    background: rgba(255, 255, 255, 0.08);
+  }
+
+  .kaza-hero__controls {
+    position: absolute;
+    bottom: 2rem;
+    right: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 1rem;
+    z-index: 2;
+  }
+
+  .kaza-hero__arrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 50%;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    background: transparent;
+    color: var(--kaza-white);
+    cursor: pointer;
+    transition: background var(--kaza-transition);
+  }
+
+  .kaza-hero__arrow:hover {
+    background: rgba(255, 255, 255, 0.1);
+  }
+
+  .kaza-hero__counter {
+    font-size: 0.8125rem;
+    letter-spacing: 0.1em;
+    opacity: 0.8;
+  }
+
+  @media (max-width: 767px) {
+    .kaza-hero__content {
+      grid-template-columns: 1fr;
+      padding-block: 5.5rem 6rem;
+      text-align: center;
+    }
+
+    .kaza-hero__heading {
+      max-width: none;
+      margin-inline: auto;
+    }
+
+    .kaza-hero__subheading {
+      margin-inline: auto;
+    }
+
+    .kaza-hero__form {
+      margin-inline: auto;
+      flex-direction: column;
+      border-radius: var(--kaza-radius-card);
+      padding: 0.5rem;
+    }
+
+    .kaza-hero__badges {
+      position: static;
+      transform: none;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-top: 1.5rem;
+    }
+
+    .kaza-hero__badge {
+      max-width: none;
+    }
+
+    .kaza-hero__controls {
+      justify-content: center;
+    }
+  }
+{% endstylesheet %}
+
+{% javascript %}
+  (function () {
+    const hero = document.querySelector('[data-kaza-hero]');
+    if (!hero) return;
+
+    const slides = [...hero.querySelectorAll('[data-kaza-hero-slide]')];
+    if (slides.length <= 1) return;
+
+    let current = 0;
+    const counter = hero.querySelector('[data-kaza-hero-counter]');
+    const total = String(slides.length).padStart(2, '0');
+
+    const update = () => {
+      slides.forEach((slide, i) => slide.classList.toggle('is-active', i === current));
+      if (counter) {
+        counter.textContent = `${String(current + 1).padStart(2, '0')} / ${total}`;
+      }
+    };
+
+    hero.querySelector('[data-kaza-hero-prev]')?.addEventListener('click', () => {
+      current = (current - 1 + slides.length) % slides.length;
+      update();
+    });
+
+    hero.querySelector('[data-kaza-hero-next]')?.addEventListener('click', () => {
+      current = (current + 1) % slides.length;
+      update();
+    });
+  })();
+{% endjavascript %}
+
+{% schema %}
+{
+  "name": "t:sections.kaza_hero.name",
+  "max_blocks": 5,
+  "blocks": [
+    {
+      "type": "slide",
+      "name": "t:sections.kaza_hero.blocks.slide.name",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "background_image",
+          "label": "t:labels.background_image"
+        },
+        {
+          "type": "text",
+          "id": "heading",
+          "label": "t:labels.heading",
+          "default": "Up to 28,200+ new hairs in 3 months."
+        },
+        {
+          "type": "textarea",
+          "id": "subheading",
+          "label": "t:labels.subheading",
+          "default": "Clinically inspired hair growth serum powered by Rootalix™. Visible results in as little as 90 days."
+        },
+        {
+          "type": "checkbox",
+          "id": "show_email_capture",
+          "label": "t:sections.kaza_hero.blocks.slide.settings.show_email_capture",
+          "default": true
+        },
+        {
+          "type": "text",
+          "id": "button_label",
+          "label": "t:labels.button_label",
+          "default": "Join"
+        },
+        {
+          "type": "url",
+          "id": "button_url",
+          "label": "t:labels.button_url"
+        },
+        {
+          "type": "image_picker",
+          "id": "product_image",
+          "label": "t:labels.product_image"
+        },
+        {
+          "type": "checkbox",
+          "id": "show_badges",
+          "label": "t:sections.kaza_hero.blocks.slide.settings.show_badges",
+          "default": true
+        },
+        {
+          "type": "text",
+          "id": "badge_1",
+          "label": "t:labels.badge_1",
+          "default": "U.S. dermatologist tested"
+        },
+        {
+          "type": "text",
+          "id": "badge_2",
+          "label": "t:labels.badge_2",
+          "default": "Clinically proven results"
+        },
+        {
+          "type": "text",
+          "id": "badge_3",
+          "label": "t:labels.badge_3",
+          "default": "100% drug-free formula"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:sections.kaza_hero.name",
+      "blocks": [
+        {
+          "type": "slide"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

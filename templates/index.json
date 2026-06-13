@@ -1,0 +1,125 @@
+{
+  "sections": {
+    "kaza_hero": {
+      "type": "kaza-hero",
+      "blocks": {
+        "slide_1": {
+          "type": "slide",
+          "settings": {
+            "heading": "Up to 28,200+ new hairs in 3 months.",
+            "subheading": "Clinically inspired hair growth serum powered by Rootalix™. Visible results in as little as 90 days.",
+            "show_email_capture": true,
+            "button_label": "Join",
+            "show_badges": true,
+            "badge_1": "U.S. dermatologist tested",
+            "badge_2": "Clinically proven results",
+            "badge_3": "100% drug-free formula"
+          }
+        }
+      },
+      "block_order": ["slide_1"],
+      "settings": {}
+    },
+    "kaza_brand_statement": {
+      "type": "kaza-brand-statement",
+      "settings": {
+        "text": "At KAZA, we believe everyone deserves fuller, healthier hair. Our science-backed formulas combine nature and innovation to deliver visible results — without compromise."
+      }
+    },
+    "kaza_our_story": {
+      "type": "kaza-our-story",
+      "settings": {
+        "heading": "Our story",
+        "text": "<p>KAZA was born from a simple mission: create a hair growth solution that actually works. After years of research and testing, we developed Rootalix™ — a breakthrough plant-based compound that targets hair follicles at the root.</p><p>Today, thousands of customers trust KAZA to restore their confidence and their hair.</p>",
+        "button_label": "Read about us",
+        "show_rating": true,
+        "rating": 5,
+        "rating_text": "4.9/5 based on 10,000+ reviews"
+      }
+    },
+    "kaza_why_choose": {
+      "type": "kaza-why-choose",
+      "blocks": {
+        "float_1": { "type": "floating", "settings": { "text": "Clinically proven" } },
+        "float_2": { "type": "floating", "settings": { "text": "Natural ingredients" } },
+        "float_3": { "type": "floating", "settings": { "text": "No side effects" } },
+        "float_4": { "type": "floating", "settings": { "text": "Safe for all hair types" } },
+        "feature_1": { "type": "feature", "settings": { "title": "Visible results in 90 days", "text": "Our clinically tested formula delivers measurable hair growth within three months." } },
+        "feature_2": { "type": "feature", "settings": { "title": "Natural plant science", "text": "Powered by Rootalix™, our proprietary blend of bio-active botanicals." } },
+        "feature_3": { "type": "feature", "settings": { "title": "No prescription needed", "text": "Get started today — no doctor visit or prescription required." } }
+      },
+      "block_order": ["float_1", "float_2", "float_3", "float_4", "feature_1", "feature_2", "feature_3"],
+      "settings": {
+        "heading": "Why choose Kaza™"
+      }
+    },
+    "kaza_rootalix": {
+      "type": "kaza-rootalix",
+      "blocks": {
+        "f1": { "type": "feature", "settings": { "position": "top-left", "title": "Reduces hair loss" } },
+        "f2": { "type": "feature", "settings": { "position": "bottom-left", "title": "Promotes growth" } },
+        "f3": { "type": "feature", "settings": { "position": "top-right", "title": "Strengthens roots" } },
+        "f4": { "type": "feature", "settings": { "position": "bottom-right", "title": "Nourishes scalp" } }
+      },
+      "block_order": ["f1", "f2", "f3", "f4"],
+      "settings": {
+        "heading": "Powered by Rootalix™"
+      }
+    },
+    "kaza_promo_cards": {
+      "type": "kaza-promo-cards",
+      "blocks": {
+        "card_1": { "type": "card", "settings": { "style": "gray", "heading": "No prescription needed", "text": "Start your hair growth journey today without a doctor visit.", "button_label": "Shop now" } },
+        "card_2": { "type": "card", "settings": { "style": "beige", "heading": "Bio-hacked plant science", "text": "Rootalix™ combines ancient botanicals with modern bio-hacking.", "button_label": "Shop now" } }
+      },
+      "block_order": ["card_1", "card_2"],
+      "settings": {}
+    },
+    "kaza_how_it_works": {
+      "type": "kaza-how-it-works",
+      "blocks": {
+        "step_1": { "type": "step", "settings": { "step_number": "Step 1", "title": "Apply", "text": "Apply a few drops directly to your scalp each evening." } },
+        "step_2": { "type": "step", "settings": { "step_number": "Step 2", "title": "Absorb", "text": "Rootalix™ penetrates deep into hair follicles." } },
+        "step_3": { "type": "step", "settings": { "step_number": "Step 3", "title": "Grow", "text": "Watch new, healthy hair emerge within 90 days." } }
+      },
+      "block_order": ["step_1", "step_2", "step_3"],
+      "settings": {
+        "heading": "How it works",
+        "button_label": "Get started"
+      }
+    },
+    "kaza_challenge": {
+      "type": "kaza-challenge",
+      "blocks": {
+        "testimonial_1": { "type": "testimonial", "settings": { "rating": 5, "quote": "My hair is back!", "author": "James R." } }
+      },
+      "block_order": ["testimonial_1"],
+      "settings": {
+        "heading": "90-day challenge",
+        "badge_text": "90 days"
+      }
+    },
+    "kaza_benefits": {
+      "type": "kaza-benefits",
+      "blocks": {
+        "b1": { "type": "benefit", "settings": { "title": "Fast shipping", "text": "Free shipping on all orders" } },
+        "b2": { "type": "benefit", "settings": { "title": "90-day money back", "text": "Full refund if not satisfied" } },
+        "b3": { "type": "benefit", "settings": { "title": "Secure payment", "text": "256-bit SSL encryption" } },
+        "b4": { "type": "benefit", "settings": { "title": "24/7 support", "text": "We're here to help anytime" } }
+      },
+      "block_order": ["b1", "b2", "b3", "b4"],
+      "settings": {}
+    }
+  },
+  "order": [
+    "kaza_hero",
+    "kaza_brand_statement",
+    "kaza_our_story",
+    "kaza_why_choose",
+    "kaza_rootalix",
+    "kaza_promo_cards",
+    "kaza_how_it_works",
+    "kaza_challenge",
+    "kaza_benefits"
+  ]
+}

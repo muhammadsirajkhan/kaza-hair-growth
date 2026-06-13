@@ -1,0 +1,217 @@
+{
+  "404": {
+    "title": "404",
+    "not_found": "Page not found.",
+    "back_to_shopping": "Back to shopping"
+  },
+  "blog": {
+    "article_comments": "Comments",
+    "article_metadata_html": "{{ date }} by {{ author }}",
+    "comment_form_body": "Comment",
+    "comment_form_email": "Email",
+    "comment_form_name": "Name",
+    "comment_form_submit": "Post",
+    "comment_form_title": "Add a comment"
+  },
+  "cart": {
+    "checkout": "Checkout",
+    "title": "Cart",
+    "update": "Update",
+    "remove": "Remove"
+  },
+  "customers": {
+    "login": {
+      "email": "Email",
+      "password": "Password",
+      "submit": "Sign in",
+      "title": "Login"
+    }
+  },
+  "collections": {
+    "title": "Collections"
+  },
+  "general": {
+    "accessibility": {
+      "main_navigation": "Main navigation",
+      "menu": "Menu",
+      "previous": "Previous",
+      "next": "Next"
+    },
+    "search": {
+      "title": "Search"
+    },
+    "kaza_brand": "KAZA brand colors"
+  },
+  "gift_card": {
+    "add_to_apple_wallet": "Add to Apple Wallet",
+    "card": "Gift card",
+    "expired": "This gift card has expired",
+    "expires_on": "Expires on {{ expires_on }}",
+    "use_at_checkout": "Use this gift card at checkout"
+  },
+  "password": {
+    "title": "This shop is private",
+    "password": "Password",
+    "enter": "Enter"
+  },
+  "search": {
+    "title": "Search",
+    "placeholder": "Search articles, pages, or products",
+    "submit": "Search",
+    "no_results_html": "No results found for {{ terms }}",
+    "results_for_html": "{{ count }} results found for {{ terms }}"
+  },
+  "sections": {
+    "kaza_hero": {
+      "name": "Hero banner",
+      "email_label": "Email address",
+      "email_placeholder": "Enter your email",
+      "join": "Join",
+      "blocks": {
+        "slide": {
+          "name": "Slide",
+          "settings": {
+            "show_email_capture": "Show email capture",
+            "show_badges": "Show feature badges"
+          }
+        }
+      }
+    },
+    "kaza_brand_statement": {
+      "name": "Brand statement"
+    },
+    "kaza_our_story": {
+      "name": "Our story",
+      "settings": {
+        "show_rating": "Show rating"
+      }
+    },
+    "kaza_why_choose": {
+      "name": "Why choose Kaza",
+      "blocks": {
+        "floating": {
+          "name": "Floating badge"
+        },
+        "feature": {
+          "name": "Feature card"
+        }
+      }
+    },
+    "kaza_rootalix": {
+      "name": "Powered by Rootalix",
+      "blocks": {
+        "feature": {
+          "name": "Feature callout"
+        }
+      }
+    },
+    "kaza_promo_cards": {
+      "name": "Promotional cards",
+      "blocks": {
+        "card": {
+          "name": "Card"
+        }
+      }
+    },
+    "kaza_how_it_works": {
+      "name": "How it works",
+      "blocks": {
+        "step": {
+          "name": "Step"
+        }
+      }
+    },
+    "kaza_challenge": {
+      "name": "90-day challenge",
+      "before": "Before",
+      "after": "After",
+      "blocks": {
+        "testimonial": {
+          "name": "Testimonial"
+        }
+      }
+    },
+    "kaza_benefits": {
+      "name": "Benefits",
+      "blocks": {
+        "benefit": {
+          "name": "Benefit"
+        }
+      }
+    },
+    "kaza_footer": {
+      "name": "Footer",
+      "products": "Products",
+      "company": "Company",
+      "social_media": "Social media",
+      "all_rights": "All rights reserved.",
+      "email_label": "Email address",
+      "email_placeholder": "Your email",
+      "join": "Join",
+      "settings": {
+        "show_newsletter": "Show newsletter signup",
+        "products_menu": "Products menu",
+        "company_menu": "Company menu",
+        "legal_menu": "Legal menu"
+      }
+    },
+    "kaza_header": {
+      "name": "Header",
+      "settings": {
+        "enable_sticky": "Enable sticky header",
+        "show_nav_chevrons": "Show navigation chevrons",
+        "overlay_on_hero": "Overlay on hero",
+        "overlay_on_hero_info": "Header sits over the hero with a transparent background until scroll."
+      }
+    }
+  },
+  "labels": {
+    "logo": "Logo",
+    "logo_text": "Logo text",
+    "heading": "Heading",
+    "subheading": "Subheading",
+    "text": "Text",
+    "title": "Title",
+    "description": "Description",
+    "image": "Image",
+    "background_image": "Background image",
+    "product_image": "Product image",
+    "center_image": "Center image",
+    "before_image": "Before image",
+    "after_image": "After image",
+    "button_label": "Button label",
+    "button_url": "Button URL",
+    "cta_label": "CTA label",
+    "cta_url": "CTA URL",
+    "icon": "Icon",
+    "badge_1": "Badge 1",
+    "badge_2": "Badge 2",
+    "badge_3": "Badge 3",
+    "badge_text": "Badge text",
+    "rating": "Rating",
+    "rating_text": "Rating text",
+    "quote": "Quote",
+    "author": "Author",
+    "step_number": "Step number",
+    "position": "Position",
+    "background_style": "Background style",
+    "social_instagram": "Instagram URL",
+    "social_facebook": "Facebook URL",
+    "social_twitter": "X (Twitter) URL",
+    "kaza_beige": "Beige",
+    "kaza_gold": "Gold accent",
+    "kaza_accent_black": "Accent black"
+  },
+  "options": {
+    "position": {
+      "top_left": "Top left",
+      "bottom_left": "Bottom left",
+      "top_right": "Top right",
+      "bottom_right": "Bottom right"
+    },
+    "background_style": {
+      "gray": "Light gray",
+      "beige": "Beige"
+    }
+  }
+}

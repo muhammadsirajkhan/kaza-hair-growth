@@ -1,0 +1,436 @@
+<header
+  class="kaza-header full-width{% if section.settings.enable_sticky %} kaza-header--sticky{% endif %}{% if section.settings.overlay_on_hero %} kaza-header--overlay{% endif %}"
+  data-kaza-header
+>
+  <div class="kaza-header__inner kaza-container">
+    <div class="kaza-header__logo">
+      {% render 'kaza-logo', logo: section.settings.logo, text: section.settings.logo_text %}
+    </div>
+
+    <nav class="kaza-header__nav kaza-hide-mobile" aria-label="{{ 'general.accessibility.main_navigation' | t }}">
+      {% for link in section.settings.menu.links %}
+        {% if link.links != blank %}
+          <details class="kaza-header__nav-item">
+            <summary class="kaza-header__nav-link">
+              <span>{{ link.title | escape }}</span>
+              {% if section.settings.show_nav_chevrons %}
+                <svg class="kaza-header__chevron" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 4.5 6 8l3.5-3.5" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              {% endif %}
+            </summary>
+            <ul class="kaza-header__dropdown" role="list">
+              {% for child_link in link.links %}
+                <li>
+                  <a href="{{ child_link.url }}" class="kaza-header__dropdown-link{% if child_link.active %} kaza-header__dropdown-link--active{% endif %}">
+                    {{ child_link.title | escape }}
+                  </a>
+                </li>
+              {% endfor %}
+            </ul>
+          </details>
+        {% else %}
+          <a href="{{ link.url }}" class="kaza-header__nav-link{% if link.active %} kaza-header__nav-link--active{% endif %}">
+            <span>{{ link.title | escape }}</span>
+            {% if section.settings.show_nav_chevrons %}
+              <svg class="kaza-header__chevron" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 4.5 6 8l3.5-3.5" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            {% endif %}
+          </a>
+        {% endif %}
+      {% endfor %}
+    </nav>
+
+    <div class="kaza-header__actions">
+      <span class="kaza-header__divider kaza-hide-mobile" aria-hidden="true"></span>
+
+      <a href="{{ routes.cart_url }}" class="kaza-header__cart" aria-label="{{ 'cart.title' | t }}">
+        {% if cart.item_count > 0 %}
+          <span class="kaza-header__cart-badge">{{ cart.item_count }}</span>
+        {% endif %}
+        <svg class="kaza-header__cart-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path d="M6 6h15l-1.5 9h-12z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
+          <path d="M6 6 5 3H2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="9" cy="20" r="1.25" fill="currentColor"/>
+          <circle cx="18" cy="20" r="1.25" fill="currentColor"/>
+        </svg>
+      </a>
+
+      {% if section.settings.cta_label != blank %}
+        <div class="kaza-header__cta-wrap kaza-hide-mobile">
+          {% render 'kaza-button',
+            label: section.settings.cta_label,
+            url: section.settings.cta_url | default: routes.all_products_collection_url,
+            style: 'primary',
+            rect: true,
+            invert: true,
+            class: 'kaza-header__cta'
+          %}
+        </div>
+      {% endif %}
+
+      <button
+        type="button"
+        class="kaza-header__menu-toggle kaza-hide-desktop"
+        aria-expanded="false"
+        aria-controls="KazaMobileNav"
+        aria-label="{{ 'general.accessibility.menu' | t }}"
+        data-kaza-menu-toggle
+      >
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </div>
+
+  <nav id="KazaMobileNav" class="kaza-header__mobile-nav kaza-hide-desktop" hidden data-kaza-mobile-nav>
+    {% for link in section.settings.menu.links %}
+      <a href="{{ link.url }}" class="kaza-header__mobile-link">{{ link.title | escape }}</a>
+      {% if link.links != blank %}
+        {% for child_link in link.links %}
+          <a href="{{ child_link.url }}" class="kaza-header__mobile-link kaza-header__mobile-link--child">{{ child_link.title | escape }}</a>
+        {% endfor %}
+      {% endif %}
+    {% endfor %}
+    {% if section.settings.cta_label != blank %}
+      {% render 'kaza-button',
+        label: section.settings.cta_label,
+        url: section.settings.cta_url | default: routes.all_products_collection_url,
+        style: 'primary',
+        rect: true,
+        invert: true,
+        class: 'kaza-header__mobile-cta'
+      %}
+    {% endif %}
+  </nav>
+</header>
+
+{% stylesheet %}
+  .kaza-header {
+    position: relative;
+    z-index: 100;
+    width: 100%;
+    background: #000000;
+    color: var(--kaza-white);
+  }
+
+  .kaza-header--sticky {
+    position: sticky;
+    top: 0;
+  }
+
+  .kaza-header--overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: transparent;
+  }
+
+  .kaza-header--overlay.is-scrolled {
+    position: sticky;
+    background: #000000;
+  }
+
+  .kaza-header__inner {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    gap: 1.5rem;
+    min-height: var(--kaza-header-height);
+  }
+
+  .kaza-header__logo {
+    justify-self: start;
+  }
+
+  .kaza-header__nav {
+    justify-self: center;
+    display: flex;
+    align-items: center;
+    gap: clamp(1.25rem, 2.5vw, 2.25rem);
+  }
+
+  .kaza-header__nav-item {
+    position: relative;
+  }
+
+  .kaza-header__nav-item summary {
+    list-style: none;
+  }
+
+  .kaza-header__nav-item summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .kaza-header__nav-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.375rem;
+    font-size: var(--kaza-header-nav-size);
+    font-weight: 500;
+    letter-spacing: var(--kaza-header-nav-tracking);
+    text-transform: uppercase;
+    text-decoration: none;
+    color: var(--kaza-white);
+    white-space: nowrap;
+    cursor: pointer;
+    transition: opacity var(--kaza-transition);
+  }
+
+  .kaza-header__nav-link:hover,
+  .kaza-header__nav-item[open] > .kaza-header__nav-link {
+    opacity: 0.75;
+  }
+
+  .kaza-header__chevron {
+    width: 0.625rem;
+    height: 0.625rem;
+    flex-shrink: 0;
+    opacity: 0.85;
+  }
+
+  .kaza-header__dropdown {
+    position: absolute;
+    top: calc(100% + 0.75rem);
+    left: 50%;
+    transform: translateX(-50%);
+    min-width: 11rem;
+    margin: 0;
+    padding: 0.5rem 0;
+    list-style: none;
+    background: #000000;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    z-index: 10;
+  }
+
+  .kaza-header__dropdown-link {
+    display: block;
+    padding: 0.625rem 1.25rem;
+    font-size: var(--kaza-header-nav-size);
+    font-weight: 500;
+    letter-spacing: var(--kaza-header-nav-tracking);
+    text-transform: uppercase;
+    text-decoration: none;
+    color: var(--kaza-white);
+    transition: background-color var(--kaza-transition);
+  }
+
+  .kaza-header__dropdown-link:hover,
+  .kaza-header__dropdown-link--active {
+    background: rgba(255, 255, 255, 0.08);
+  }
+
+  .kaza-header__actions {
+    justify-self: end;
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+  }
+
+  .kaza-header__divider {
+    width: 1px;
+    height: 1.5rem;
+    background: rgba(255, 255, 255, 0.22);
+    flex-shrink: 0;
+  }
+
+  .kaza-header__cart {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 1.75rem;
+    height: 1.75rem;
+    color: var(--kaza-white);
+    text-decoration: none;
+  }
+
+  .kaza-header__cart-icon {
+    width: 1.375rem;
+    height: 1.375rem;
+  }
+
+  .kaza-header__cart-badge {
+    position: absolute;
+    top: -0.125rem;
+    left: -0.125rem;
+    min-width: 1rem;
+    height: 1rem;
+    padding: 0 0.1875rem;
+    border-radius: 50%;
+    background: var(--kaza-white);
+    color: #000000;
+    font-size: 0.5625rem;
+    font-weight: 700;
+    line-height: 1rem;
+    text-align: center;
+    z-index: 1;
+  }
+
+  .kaza-header__cta-wrap {
+    flex-shrink: 0;
+  }
+
+  .kaza-header__cta {
+    min-width: 9.5rem;
+  }
+
+  .kaza-header__menu-toggle {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    width: 2.5rem;
+    height: 2.5rem;
+    padding: 0;
+    background: none;
+    border: none;
+    color: var(--kaza-white);
+    cursor: pointer;
+  }
+
+  .kaza-header__menu-toggle span {
+    display: block;
+    width: 1.375rem;
+    height: 1.5px;
+    margin-inline: auto;
+    background: currentColor;
+    transition: transform var(--kaza-transition), opacity var(--kaza-transition);
+  }
+
+  .kaza-header__mobile-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    padding: 0.5rem var(--page-margin) 1.5rem;
+    background: #000000;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .kaza-header__mobile-nav[hidden] {
+    display: none;
+  }
+
+  .kaza-header__mobile-link {
+    font-size: 0.8125rem;
+    font-weight: 500;
+    letter-spacing: var(--kaza-header-nav-tracking);
+    text-transform: uppercase;
+    text-decoration: none;
+    color: var(--kaza-white);
+    padding-block: 0.875rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .kaza-header__mobile-link--child {
+    padding-inline-start: 1.25rem;
+    opacity: 0.75;
+  }
+
+  .kaza-header__mobile-cta {
+    margin-top: 1.25rem;
+    width: 100%;
+  }
+
+  @media (max-width: 767px) {
+    .kaza-header__inner {
+      grid-template-columns: 1fr auto;
+    }
+
+    .kaza-header__logo {
+      grid-column: 1;
+    }
+
+    .kaza-header__actions {
+      grid-column: 2;
+    }
+  }
+{% endstylesheet %}
+
+{% javascript %}
+  (function () {
+    const header = document.querySelector('[data-kaza-header]');
+    if (!header) return;
+
+    const toggle = header.querySelector('[data-kaza-menu-toggle]');
+    const mobileNav = header.querySelector('[data-kaza-mobile-nav]');
+
+    if (toggle && mobileNav) {
+      toggle.addEventListener('click', () => {
+        const isOpen = toggle.getAttribute('aria-expanded') === 'true';
+        toggle.setAttribute('aria-expanded', String(!isOpen));
+        mobileNav.hidden = isOpen;
+      });
+    }
+
+    if (header.classList.contains('kaza-header--overlay')) {
+      const onScroll = () => {
+        header.classList.toggle('is-scrolled', window.scrollY > 24);
+      };
+      window.addEventListener('scroll', onScroll, { passive: true });
+      onScroll();
+    }
+
+    header.querySelectorAll('.kaza-header__nav-item').forEach((item) => {
+      item.addEventListener('toggle', () => {
+        if (!item.open) return;
+        header.querySelectorAll('.kaza-header__nav-item[open]').forEach((other) => {
+          if (other !== item) other.open = false;
+        });
+      });
+    });
+  })();
+{% endjavascript %}
+
+{% schema %}
+{
+  "name": "t:sections.kaza_header.name",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "logo",
+      "label": "t:labels.logo"
+    },
+    {
+      "type": "text",
+      "id": "logo_text",
+      "label": "t:labels.logo_text",
+      "default": "KAZA"
+    },
+    {
+      "type": "link_list",
+      "id": "menu",
+      "label": "t:labels.menu",
+      "default": "main-menu"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_nav_chevrons",
+      "label": "t:sections.kaza_header.settings.show_nav_chevrons",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "cta_label",
+      "label": "t:labels.cta_label",
+      "default": "Get the serum"
+    },
+    {
+      "type": "url",
+      "id": "cta_url",
+      "label": "t:labels.cta_url"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_sticky",
+      "label": "t:sections.kaza_header.settings.enable_sticky",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "overlay_on_hero",
+      "label": "t:sections.kaza_header.settings.overlay_on_hero",
+      "default": false,
+      "info": "t:sections.kaza_header.settings.overlay_on_hero_info"
+    }
+  ]
+}
+{% endschema %}

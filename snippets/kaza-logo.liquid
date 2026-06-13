@@ -1,0 +1,57 @@
+{% doc %}
+  Renders the KAZA wordmark logo with stylized letterforms.
+
+  @param {image} [logo] - Optional logo image override
+  @param {string} [text] - Fallback text when no image is provided
+  @param {string} [class] - Additional CSS classes for the link
+{% enddoc %}
+
+<a href="{{ routes.root_url }}" class="kaza-logo{% if class != blank %} {{ class }}{% endif %}">
+  {% if logo != blank %}
+    {{ logo | image_url: width: 240 | image_tag: alt: shop.name, class: 'kaza-logo__image', widths: '120, 180, 240' }}
+  {% else %}
+    <span class="kaza-logo__wordmark" aria-label="{{ text | default: 'KAZA' | escape }}">
+      <span class="kaza-logo__letters" aria-hidden="true">
+        K<svg class="kaza-logo__a" viewBox="0 0 18 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M1 24 L9 2 L17 24" fill="none" stroke="currentColor" stroke-width="2.75" stroke-linecap="round" stroke-linejoin="round"/></svg>Z<svg class="kaza-logo__a" viewBox="0 0 18 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M1 24 L9 2 L17 24" fill="none" stroke="currentColor" stroke-width="2.75" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </span>
+    </span>
+  {% endif %}
+</a>
+
+{% stylesheet %}
+  .kaza-logo {
+    display: inline-flex;
+    align-items: center;
+    text-decoration: none;
+    color: #e5e5e5;
+    flex-shrink: 0;
+  }
+
+  .kaza-logo__image {
+    display: block;
+    max-height: 1.75rem;
+    width: auto;
+  }
+
+  .kaza-logo__wordmark {
+    display: inline-flex;
+    align-items: center;
+  }
+
+  .kaza-logo__letters {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.0625rem;
+    font-size: 1.625rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    line-height: 1;
+    text-transform: uppercase;
+  }
+
+  .kaza-logo__a {
+    width: 0.95em;
+    height: 1.05em;
+    margin-inline-start: -0.05em;
+  }
+{% endstylesheet %}
