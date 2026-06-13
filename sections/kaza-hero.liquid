@@ -6,9 +6,24 @@
         data-kaza-hero-slide
         {{ block.shopify_attributes }}
       >
-        {% if block.settings.background_image != blank %}
+        {% liquid
+          assign hero_background = block.settings.background_image
+          assign hero_background_alt = block.settings.heading | default: shop.name
+        %}
+        {% if hero_background != blank %}
           <div class="kaza-hero__bg">
-            {{ block.settings.background_image | image_url: width: 2400 | image_tag: loading: 'eager', fetchpriority: 'high', alt: block.settings.heading }}
+            {{ hero_background | image_url: width: 2400 | image_tag: loading: 'eager', fetchpriority: 'high', alt: hero_background_alt }}
+          </div>
+        {% else %}
+          <div class="kaza-hero__bg">
+            <img
+              src="{{ 'hero.webp' | asset_url }}"
+              alt="{{ hero_background_alt | escape }}"
+              loading="eager"
+              fetchpriority="high"
+              width="2400"
+              height="1200"
+            >
           </div>
         {% endif %}
         <div class="kaza-hero__overlay"></div>

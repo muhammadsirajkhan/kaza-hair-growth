@@ -40,7 +40,8 @@
     "search": {
       "title": "Search"
     },
-    "kaza_brand": "KAZA brand colors"
+    "kaza_brand": "KAZA brand colors",
+    "satoshi_font_info": "This theme uses the Satoshi brand font loaded from theme assets."
   },
   "gift_card": {
     "add_to_apple_wallet": "Add to Apple Wallet",

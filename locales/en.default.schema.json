@@ -32,7 +32,8 @@
     "sidebar": "Sidebar",
     "text": "Text",
     "theme": "Theme",
-    "typography": "Typography"
+    "typography": "Typography",
+    "satoshi_font_info": "This theme uses the Satoshi brand font loaded from theme assets."
   },
   "labels": {
     "alignment": "Alignment",
