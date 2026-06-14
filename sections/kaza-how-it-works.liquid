@@ -1,44 +1,89 @@
 <section class="kaza-how-it-works full-width">
   <div class="kaza-container">
-    {% if section.settings.heading != blank %}
-      <h2 class="kaza-section-heading kaza-how-it-works__heading">{{ section.settings.heading }}</h2>
-    {% endif %}
+    <div class="kaza-how-it-works__header">
+      {% if section.settings.badge_text != blank %}
+        <span class="kaza-how-it-works__badge">{{ section.settings.badge_text }}</span>
+      {% endif %}
 
-    {% if section.settings.subheading != blank %}
-      <p class="kaza-section-subheading kaza-how-it-works__subheading">{{ section.settings.subheading }}</p>
-    {% endif %}
+      {% if section.settings.heading_prefix != blank or section.settings.heading_highlight != blank %}
+        <h2 class="kaza-how-it-works__heading">
+          {% if section.settings.heading_prefix != blank %}
+            <span class="kaza-how-it-works__heading-prefix">{{ section.settings.heading_prefix }}</span>
+          {% endif %}
+          {% if section.settings.heading_highlight != blank %}
+            <span class="kaza-how-it-works__heading-highlight">{{ section.settings.heading_highlight }}</span>
+          {% endif %}
+        </h2>
+      {% endif %}
+
+      {% if section.settings.subheading != blank %}
+        <p class="kaza-section-subheading kaza-how-it-works__subheading">{{ section.settings.subheading }}</p>
+      {% endif %}
+    </div>
 
     <div class="kaza-how-it-works__steps">
+      {% assign step_index = 0 %}
       {% for block in section.blocks %}
-        <div class="kaza-how-it-works__step" {{ block.shopify_attributes }}>
-          <div class="kaza-how-it-works__step-media">
-            {% if block.settings.image != blank %}
-              {{ block.settings.image | image_url: width: 400 | image_tag: loading: 'lazy', alt: block.settings.title }}
-            {% else %}
-              {{ 'image' | placeholder_svg_tag }}
+        {% if block.type == 'step' %}
+          {% assign step_index = step_index | plus: 1 %}
+          {% liquid
+            assign step_image = block.settings.image
+            if step_image == blank
+              case step_index
+                when 1
+                  assign step_image_fallback = 'image-1.webp'
+                when 2
+                  assign step_image_fallback = 'image-2.webp'
+                when 3
+                  assign step_image_fallback = 'image-3.webp'
+                else
+                  assign step_image_fallback = 'image-1.webp'
+              endcase
+            endif
+          %}
+          <article class="kaza-how-it-works__step" {{ block.shopify_attributes }}>
+            <div class="kaza-how-it-works__step-media">
+              {% if step_image != blank %}
+                {{ step_image | image_url: width: 480 | image_tag: loading: 'lazy', alt: block.settings.title }}
+              {% else %}
+                <img
+                  src="{{ step_image_fallback | asset_url }}"
+                  alt="{{ block.settings.title | escape }}"
+                  width="480"
+                  height="480"
+                  loading="lazy"
+                >
+              {% endif %}
+            </div>
+            {% if block.settings.title != blank %}
+              <h3 class="kaza-how-it-works__step-title">{{ block.settings.title }}</h3>
             {% endif %}
-          </div>
-          {% if block.settings.step_number != blank %}
-            <span class="kaza-how-it-works__step-num">{{ block.settings.step_number }}</span>
-          {% endif %}
-          {% if block.settings.title != blank %}
-            <h3 class="kaza-how-it-works__step-title">{{ block.settings.title }}</h3>
-          {% endif %}
-          {% if block.settings.text != blank %}
-            <p class="kaza-how-it-works__step-text">{{ block.settings.text }}</p>
-          {% endif %}
-        </div>
+            {% if block.settings.text != blank %}
+              <p class="kaza-how-it-works__step-text">{{ block.settings.text }}</p>
+            {% endif %}
+          </article>
+        {% endif %}
       {% endfor %}
     </div>
 
     {% if section.settings.button_label != blank %}
       <div class="kaza-how-it-works__cta">
-        {% render 'kaza-button', label: section.settings.button_label, url: section.settings.button_url, style: 'primary' %}
+        <a
+          href="{{ section.settings.button_url | default: routes.all_products_collection_url }}"
+          class="kaza-btn kaza-btn--primary kaza-how-it-works__cta-btn"
+        >
+          {{ section.settings.button_label }}
+          <svg class="kaza-how-it-works__cta-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M6 6h15l-1.5 9h-12z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
+            <path d="M6 6 5 3H2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <circle cx="9" cy="20" r="1.25" fill="currentColor"/>
+            <circle cx="18" cy="20" r="1.25" fill="currentColor"/>
+          </svg>
+        </a>
       </div>
     {% endif %}
   </div>
 </section>
-
 
 {% schema %}
 {
@@ -46,20 +91,33 @@
   "settings": [
     {
       "type": "text",
-      "id": "heading",
-      "label": "t:labels.heading",
-      "default": "How it works"
+      "id": "badge_text",
+      "label": "t:sections.kaza_how_it_works.settings.badge_text",
+      "default": "Welcome to Kaza"
+    },
+    {
+      "type": "text",
+      "id": "heading_prefix",
+      "label": "t:sections.kaza_how_it_works.settings.heading_prefix",
+      "default": "How it"
+    },
+    {
+      "type": "text",
+      "id": "heading_highlight",
+      "label": "t:sections.kaza_how_it_works.settings.heading_highlight",
+      "default": "Works"
     },
     {
       "type": "textarea",
       "id": "subheading",
-      "label": "t:labels.subheading"
+      "label": "t:labels.subheading",
+      "default": "Real performance. Visible results. Made for men who want impact, not excuses."
     },
     {
       "type": "text",
       "id": "button_label",
       "label": "t:labels.button_label",
-      "default": "Get started"
+      "default": "Shop the Serum"
     },
     {
       "type": "url",
@@ -79,21 +137,15 @@
         },
         {
           "type": "text",
-          "id": "step_number",
-          "label": "t:labels.step_number",
-          "default": "Step 1"
-        },
-        {
-          "type": "text",
           "id": "title",
           "label": "t:labels.title",
-          "default": "Apply"
+          "default": "Block"
         },
         {
           "type": "textarea",
           "id": "text",
           "label": "t:labels.text",
-          "default": "Apply a few drops directly to your scalp each evening."
+          "default": "Topical DHT Defense (Oleanolic Acid)"
         }
       ]
     }
@@ -102,9 +154,27 @@
     {
       "name": "t:sections.kaza_how_it_works.name",
       "blocks": [
-        { "type": "step", "settings": { "step_number": "Step 1", "title": "Apply", "text": "Apply a few drops directly to your scalp each evening." } },
-        { "type": "step", "settings": { "step_number": "Step 2", "title": "Absorb", "text": "Rootalix™ penetrates deep into hair follicles." } },
-        { "type": "step", "settings": { "step_number": "Step 3", "title": "Grow", "text": "Watch new, healthy hair emerge within 90 days." } }
+        {
+          "type": "step",
+          "settings": {
+            "title": "Block",
+            "text": "Topical DHT Defense (Oleanolic Acid)"
+          }
+        },
+        {
+          "type": "step",
+          "settings": {
+            "title": "Anchor",
+            "text": "Biotinoyl Tripeptide-1."
+          }
+        },
+        {
+          "type": "step",
+          "settings": {
+            "title": "Grow",
+            "text": "Redensyl (DHQG + EGCG)."
+          }
+        }
       ]
     }
   ]

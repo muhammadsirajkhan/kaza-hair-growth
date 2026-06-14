@@ -1,103 +1,167 @@
-<footer class="kaza-footer full-width">
+<footer class="kaza-footer full-width" data-kaza-footer>
   <div class="kaza-container kaza-footer__main">
     <div class="kaza-footer__brand">
-      <a href="{{ routes.root_url }}" class="kaza-footer__logo">{{ section.settings.logo_text | default: 'KAZA™' }}</a>
+      {% if section.settings.logo != blank %}
+        {% render 'kaza-logo', logo: section.settings.logo, text: section.settings.logo_text, class: 'kaza-footer__logo-link' %}
+      {% else %}
+        <a href="{{ routes.root_url }}" class="kaza-footer__logo">{{ section.settings.logo_text | default: 'KAZA™' }}</a>
+      {% endif %}
+
       {% if section.settings.description != blank %}
         <p class="kaza-footer__description">{{ section.settings.description }}</p>
       {% endif %}
 
-      {% if section.settings.show_newsletter %}
-        {% form 'customer', class: 'kaza-footer__newsletter' %}
-          <input type="hidden" name="contact[tags]" value="newsletter">
-          <label class="kaza-visually-hidden" for="FooterEmail">{{ 'sections.kaza_footer.email_label' | t }}</label>
-          <input
-            id="FooterEmail"
-            type="email"
-            name="contact[email]"
-            placeholder="{{ 'sections.kaza_footer.email_placeholder' | t }}"
-            required
-            autocomplete="email"
-          >
-          <button type="submit" class="kaza-btn kaza-btn--secondary">{{ 'sections.kaza_footer.join' | t }}</button>
-        {% endform %}
-      {% endif %}
-
       {% if section.settings.cta_label != blank %}
-        <div class="kaza-footer__cta">
-          {% render 'kaza-button', label: section.settings.cta_label, url: section.settings.cta_url, style: 'secondary' %}
-        </div>
+        <a
+          href="{{ section.settings.cta_url | default: routes.all_products_collection_url }}"
+          class="kaza-btn kaza-btn--rect kaza-btn--invert kaza-footer__cta"
+        >
+          {{ section.settings.cta_label }}
+          <svg class="kaza-footer__cta-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
       {% endif %}
     </div>
 
-    {% if section.settings.products_menu != blank %}
-      <div class="kaza-footer__column">
-        <h3 class="kaza-footer__heading">{{ 'sections.kaza_footer.products' | t }}</h3>
-        <ul class="kaza-footer__links">
-          {% for link in section.settings.products_menu.links %}
-            <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+    <div class="kaza-footer__column">
+      <h2 class="kaza-footer__heading">{{ section.settings.navigation_heading }}</h2>
+      <ul class="kaza-footer__links">
+        {% if section.settings.navigation_menu != blank %}
+          {% for link in section.settings.navigation_menu.links %}
+            <li><a href="{{ link.url }}">{{ link.title | escape }}</a></li>
           {% endfor %}
-        </ul>
-      </div>
-    {% endif %}
-
-    {% if section.settings.company_menu != blank %}
-      <div class="kaza-footer__column">
-        <h3 class="kaza-footer__heading">{{ 'sections.kaza_footer.company' | t }}</h3>
-        <ul class="kaza-footer__links">
-          {% for link in section.settings.company_menu.links %}
-            <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+        {% else %}
+          {% for block in section.blocks %}
+            {% if block.type == 'nav_link' %}
+              <li {{ block.shopify_attributes }}>
+                <a href="{{ block.settings.url | default: '#' }}">{{ block.settings.title | escape }}</a>
+              </li>
+            {% endif %}
           {% endfor %}
-        </ul>
-      </div>
-    {% endif %}
+        {% endif %}
+      </ul>
+    </div>
 
     <div class="kaza-footer__column">
-      <h3 class="kaza-footer__heading">{{ 'sections.kaza_footer.social_media' | t }}</h3>
-      <ul class="kaza-footer__social">
-        {% if section.settings.social_instagram != blank %}
-          <li>
-            <a href="{{ section.settings.social_instagram }}" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
-            </a>
-          </li>
-        {% endif %}
-        {% if section.settings.social_facebook != blank %}
-          <li>
-            <a href="{{ section.settings.social_facebook }}" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
-            </a>
-          </li>
-        {% endif %}
-        {% if section.settings.social_twitter != blank %}
-          <li>
-            <a href="{{ section.settings.social_twitter }}" target="_blank" rel="noopener noreferrer" aria-label="X">
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
-            </a>
-          </li>
-        {% endif %}
+      <h2 class="kaza-footer__heading">{{ section.settings.contact_heading }}</h2>
+      <ul class="kaza-footer__contact">
+        <li class="kaza-footer__contact-row">
+          <span class="kaza-footer__contact-icon" aria-hidden="true">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"><path d="M12 21s7-4.5 7-10a7 7 0 1 0-14 0c0 5.5 7 10 7 10z" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="11" r="2.5" stroke="currentColor" stroke-width="1.5"/></svg>
+          </span>
+          <span class="kaza-footer__contact-body">
+            <span class="kaza-footer__contact-label">{{ section.settings.office_sublabel }}</span>
+            <span class="kaza-footer__contact-value">{{ section.settings.office_text }}</span>
+          </span>
+        </li>
+        <li class="kaza-footer__contact-row">
+          <span class="kaza-footer__contact-icon" aria-hidden="true">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"><rect x="3" y="5" width="18" height="14" rx="2" stroke="currentColor" stroke-width="1.5"/><path d="m3 7 9 6 9-6" stroke="currentColor" stroke-width="1.5"/></svg>
+          </span>
+          <span class="kaza-footer__contact-body">
+            <span class="kaza-footer__contact-label">{{ section.settings.email_sublabel }}</span>
+            {% if section.settings.email != blank %}
+              <a href="mailto:{{ section.settings.email }}" class="kaza-footer__contact-value kaza-footer__contact-link">{{ section.settings.email }}</a>
+            {% endif %}
+          </span>
+        </li>
+        <li class="kaza-footer__contact-row">
+          <span class="kaza-footer__contact-icon" aria-hidden="true">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.5"/><path d="M3 12h18M12 3c2.5 2.8 3.8 5.8 3.8 9S14.5 18.2 12 21M12 3C9.5 5.8 8.2 8.8 8.2 12s1.3 6.2 3.8 9" stroke="currentColor" stroke-width="1.5"/></svg>
+          </span>
+          <span class="kaza-footer__contact-body">
+            <span class="kaza-footer__contact-label">{{ section.settings.language_sublabel }}</span>
+            <span class="kaza-footer__contact-value">{{ section.settings.language_text }}</span>
+          </span>
+        </li>
+      </ul>
+    </div>
+
+    <div class="kaza-footer__column">
+      <h2 class="kaza-footer__heading">{{ section.settings.social_heading }}</h2>
+      <ul class="kaza-footer__social-list">
+        {% for block in section.blocks %}
+          {% if block.type == 'social_link' %}
+            <li {{ block.shopify_attributes }}>
+              <a
+                href="{{ block.settings.url | default: '#' }}"
+                class="kaza-footer__social-card"
+                {% if block.settings.url != blank %}target="_blank" rel="noopener noreferrer"{% endif %}
+              >
+                {% case block.settings.network %}
+                  {% when 'facebook' %}
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg>
+                  {% when 'instagram' %}
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="1.5"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg>
+                  {% when 'linkedin' %}
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2" stroke="currentColor" stroke-width="1.5"/><path d="M8 11v6M8 8v.01M12 17v-4c0-1.1.9-2 2-2s2 .9 2 2v4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+                  {% when 'youtube' %}
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="2" y="6" width="20" height="12" rx="3" stroke="currentColor" stroke-width="1.5"/><path d="m10 10 4 2-4 2v-4z" fill="currentColor"/></svg>
+                {% endcase %}
+                <span>{{ block.settings.title | escape }}</span>
+              </a>
+            </li>
+          {% endif %}
+        {% endfor %}
       </ul>
     </div>
   </div>
 
   <div class="kaza-footer__bar">
-    <div class="kaza-container kaza-footer__bar-inner">
-      <p class="kaza-footer__copyright">
-        &copy; {{ 'now' | date: '%Y' }} {{ shop.name }}. {{ 'sections.kaza_footer.all_rights' | t }}
-      </p>
-      <div class="kaza-footer__legal">
-        {% for link in section.settings.legal_menu.links %}
-          <a href="{{ link.url }}">{{ link.title }}</a>
-        {% endfor %}
+    <div class="kaza-container">
+      <div class="kaza-footer__bar-divider">
+        {% if section.settings.show_back_to_top %}
+          <button type="button" class="kaza-footer__back-to-top" data-kaza-back-to-top aria-label="{{ 'sections.kaza_footer.back_to_top' | t }}">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+        {% endif %}
+      </div>
+
+      <div class="kaza-footer__bar-inner">
+        <p class="kaza-footer__copyright">{{ section.settings.copyright_text }}</p>
+        <nav class="kaza-footer__legal" aria-label="{{ 'sections.kaza_footer.legal_navigation' | t }}">
+          {% if section.settings.legal_menu != blank %}
+            {% for link in section.settings.legal_menu.links %}
+              <a href="{{ link.url }}">{{ link.title | escape }}</a>
+            {% endfor %}
+          {% else %}
+            {% if section.settings.legal_terms_label != blank %}
+              <a href="{{ section.settings.legal_terms_url | default: '#' }}">{{ section.settings.legal_terms_label }}</a>
+            {% endif %}
+            {% if section.settings.legal_privacy_label != blank %}
+              <a href="{{ section.settings.legal_privacy_url | default: '#' }}">{{ section.settings.legal_privacy_label }}</a>
+            {% endif %}
+            {% if section.settings.legal_cookie_label != blank %}
+              <a href="{{ section.settings.legal_cookie_url | default: '#' }}">{{ section.settings.legal_cookie_label }}</a>
+            {% endif %}
+          {% endif %}
+        </nav>
       </div>
     </div>
   </div>
 </footer>
 
+{% javascript %}
+  (function () {
+    const button = document.querySelector('[data-kaza-back-to-top]');
+    if (!button) return;
+    button.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  })();
+{% endjavascript %}
 
 {% schema %}
 {
   "name": "t:sections.kaza_footer.name",
+  "max_blocks": 12,
   "settings": [
+    {
+      "type": "image_picker",
+      "id": "logo",
+      "label": "t:labels.logo"
+    },
     {
       "type": "text",
       "id": "logo_text",
@@ -108,18 +172,13 @@
       "type": "textarea",
       "id": "description",
       "label": "t:labels.description",
-      "default": "Science-backed hair growth for everyone. Powered by Rootalix™."
-    },
-    {
-      "type": "checkbox",
-      "id": "show_newsletter",
-      "label": "t:sections.kaza_footer.settings.show_newsletter",
-      "default": true
+      "default": "Kaza Gives You a Science-backed Way to Take Control of Thin Before It Becomes Noticeable. Stronger Roots. Thicker Growth. Real Confidence."
     },
     {
       "type": "text",
       "id": "cta_label",
-      "label": "t:labels.cta_label"
+      "label": "t:labels.cta_label",
+      "default": "Get the serum"
     },
     {
       "type": "url",
@@ -127,14 +186,85 @@
       "label": "t:labels.cta_url"
     },
     {
-      "type": "link_list",
-      "id": "products_menu",
-      "label": "t:sections.kaza_footer.settings.products_menu"
+      "type": "header",
+      "content": "t:sections.kaza_footer.settings.navigation_header"
+    },
+    {
+      "type": "text",
+      "id": "navigation_heading",
+      "label": "t:sections.kaza_footer.settings.navigation_heading",
+      "default": "Navigation"
     },
     {
       "type": "link_list",
-      "id": "company_menu",
-      "label": "t:sections.kaza_footer.settings.company_menu"
+      "id": "navigation_menu",
+      "label": "t:sections.kaza_footer.settings.navigation_menu"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.kaza_footer.settings.contact_header"
+    },
+    {
+      "type": "text",
+      "id": "contact_heading",
+      "label": "t:sections.kaza_footer.settings.contact_heading",
+      "default": "Contact us"
+    },
+    {
+      "type": "text",
+      "id": "office_sublabel",
+      "label": "t:sections.kaza_footer.settings.office_sublabel",
+      "default": "Visit our office"
+    },
+    {
+      "type": "text",
+      "id": "office_text",
+      "label": "t:sections.kaza_footer.settings.office_text",
+      "default": "Loreum ipsum dol-"
+    },
+    {
+      "type": "text",
+      "id": "email_sublabel",
+      "label": "t:sections.kaza_footer.settings.email_sublabel",
+      "default": "Phone number"
+    },
+    {
+      "type": "text",
+      "id": "email",
+      "label": "t:sections.kaza_footer.settings.email",
+      "default": "kaza@gmail.com"
+    },
+    {
+      "type": "text",
+      "id": "language_sublabel",
+      "label": "t:sections.kaza_footer.settings.language_sublabel",
+      "default": "Language"
+    },
+    {
+      "type": "text",
+      "id": "language_text",
+      "label": "t:sections.kaza_footer.settings.language_text",
+      "default": "English (USA)"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.kaza_footer.settings.social_header"
+    },
+    {
+      "type": "text",
+      "id": "social_heading",
+      "label": "t:sections.kaza_footer.settings.social_heading",
+      "default": "Social media"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.kaza_footer.settings.bar_header"
+    },
+    {
+      "type": "text",
+      "id": "copyright_text",
+      "label": "t:sections.kaza_footer.settings.copyright_text",
+      "default": "Copyright © 2025 BY KATA - All Rights Reserved."
     },
     {
       "type": "link_list",
@@ -142,19 +272,108 @@
       "label": "t:sections.kaza_footer.settings.legal_menu"
     },
     {
-      "type": "url",
-      "id": "social_instagram",
-      "label": "t:labels.social_instagram"
+      "type": "text",
+      "id": "legal_terms_label",
+      "label": "t:sections.kaza_footer.settings.legal_terms_label",
+      "default": "Terms of service"
     },
     {
       "type": "url",
-      "id": "social_facebook",
-      "label": "t:labels.social_facebook"
+      "id": "legal_terms_url",
+      "label": "t:sections.kaza_footer.settings.legal_terms_url"
+    },
+    {
+      "type": "text",
+      "id": "legal_privacy_label",
+      "label": "t:sections.kaza_footer.settings.legal_privacy_label",
+      "default": "Privacy policy"
     },
     {
       "type": "url",
-      "id": "social_twitter",
-      "label": "t:labels.social_twitter"
+      "id": "legal_privacy_url",
+      "label": "t:sections.kaza_footer.settings.legal_privacy_url"
+    },
+    {
+      "type": "text",
+      "id": "legal_cookie_label",
+      "label": "t:sections.kaza_footer.settings.legal_cookie_label",
+      "default": "Cookie policy"
+    },
+    {
+      "type": "url",
+      "id": "legal_cookie_url",
+      "label": "t:sections.kaza_footer.settings.legal_cookie_url"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_back_to_top",
+      "label": "t:sections.kaza_footer.settings.show_back_to_top",
+      "default": true
+    }
+  ],
+  "blocks": [
+    {
+      "type": "nav_link",
+      "name": "t:sections.kaza_footer.blocks.nav_link.name",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "t:labels.title",
+          "default": "Link"
+        },
+        {
+          "type": "url",
+          "id": "url",
+          "label": "t:labels.button_url"
+        }
+      ]
+    },
+    {
+      "type": "social_link",
+      "name": "t:sections.kaza_footer.blocks.social_link.name",
+      "settings": [
+        {
+          "type": "select",
+          "id": "network",
+          "label": "t:sections.kaza_footer.blocks.social_link.settings.network",
+          "options": [
+            { "value": "facebook", "label": "Facebook" },
+            { "value": "instagram", "label": "Instagram" },
+            { "value": "linkedin", "label": "LinkedIn" },
+            { "value": "youtube", "label": "YouTube" }
+          ],
+          "default": "facebook"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "t:labels.title",
+          "default": "Facebook"
+        },
+        {
+          "type": "url",
+          "id": "url",
+          "label": "t:labels.button_url"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:sections.kaza_footer.name",
+      "blocks": [
+        { "type": "nav_link", "settings": { "title": "Plans & Pricing" } },
+        { "type": "nav_link", "settings": { "title": "About us" } },
+        { "type": "nav_link", "settings": { "title": "Tutorials" } },
+        { "type": "nav_link", "settings": { "title": "FAQ" } },
+        { "type": "nav_link", "settings": { "title": "Resources" } },
+        { "type": "nav_link", "settings": { "title": "Contact" } },
+        { "type": "social_link", "settings": { "network": "facebook", "title": "Facebook" } },
+        { "type": "social_link", "settings": { "network": "instagram", "title": "Instagram" } },
+        { "type": "social_link", "settings": { "network": "linkedin", "title": "Linkedin" } },
+        { "type": "social_link", "settings": { "network": "youtube", "title": "Youtube" } }
+      ]
     }
   ]
 }

@@ -1,0 +1,89 @@
+{% doc %}
+  Renders a before/after image comparison slider.
+
+  @param {image} [before_image] - Before image
+  @param {image} [after_image] - After image
+  @param {string} [before_fallback] - Asset filename fallback for before image
+  @param {string} [after_fallback] - Asset filename fallback for after image
+  @param {string} [handle_text] - Label on the drag handle
+  @param {number} [initial_position] - Initial handle position (0-100)
+{% enddoc %}
+
+{% liquid
+  assign position = initial_position | default: 50
+  if position < 0
+    assign position = 0
+  endif
+  if position > 100
+    assign position = 100
+  endif
+  assign before_alt = 'sections.kaza_challenge.before' | t
+  assign after_alt = 'sections.kaza_challenge.after' | t
+  assign slider_label = 'sections.kaza_challenge.slider_label' | t
+  assign before_label = 'sections.kaza_challenge.before' | t
+  assign after_label = 'sections.kaza_challenge.after' | t
+  if handle_text != blank
+    assign handle_label = handle_text
+  else
+    assign handle_label = 'sections.kaza_challenge.handle_label' | t
+  endif
+%}
+
+<div
+  class="kaza-ba-slider"
+  data-kaza-ba-slider
+  style="--kaza-ba-position: {{ position }}%;"
+>
+  <div class="kaza-ba-slider__viewport">
+    <span class="kaza-ba-slider__side-label kaza-ba-slider__side-label--before">{{ before_label }}</span>
+    <span class="kaza-ba-slider__side-label kaza-ba-slider__side-label--after">{{ after_label }}</span>
+
+    <div class="kaza-ba-slider__before">
+      {% if before_image != blank %}
+        {{ before_image | image_url: width: 1400 | image_tag: loading: 'lazy', alt: before_alt, class: 'kaza-ba-slider__image' }}
+      {% else %}
+        <img
+          src="{{ before_fallback | default: 'before.webp' | asset_url }}"
+          alt="{{ before_alt | escape }}"
+          class="kaza-ba-slider__image"
+          width="1400"
+          height="875"
+          loading="lazy"
+        >
+      {% endif %}
+    </div>
+
+    <div class="kaza-ba-slider__after" data-kaza-ba-after>
+      {% if after_image != blank %}
+        {{ after_image | image_url: width: 1400 | image_tag: loading: 'lazy', alt: after_alt, class: 'kaza-ba-slider__image kaza-ba-slider__image--after' }}
+      {% else %}
+        <img
+          src="{{ after_fallback | default: 'after.webp' | asset_url }}"
+          alt="{{ after_alt | escape }}"
+          class="kaza-ba-slider__image kaza-ba-slider__image--after"
+          width="1400"
+          height="875"
+          loading="lazy"
+        >
+      {% endif %}
+    </div>
+
+    <div class="kaza-ba-slider__handle" data-kaza-ba-handle aria-hidden="true">
+      <span class="kaza-ba-slider__line"></span>
+    </div>
+
+    <button
+      type="button"
+      class="kaza-ba-slider__control"
+      data-kaza-ba-control
+      style="left: var(--kaza-ba-position);"
+      role="slider"
+      aria-label="{{ slider_label | escape }}"
+      aria-valuemin="0"
+      aria-valuemax="100"
+      aria-valuenow="{{ position | round }}"
+    >
+      <span class="kaza-ba-slider__handle-label">{{ handle_label }}</span>
+    </button>
+  </div>
+</div>

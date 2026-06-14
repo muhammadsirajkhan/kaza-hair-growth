@@ -13,13 +13,37 @@
   "sections": {
     "footer": {
       "type": "footer",
+      "blocks": {
+        "nav_1": { "type": "nav_link", "settings": { "title": "Plans & Pricing" } },
+        "nav_2": { "type": "nav_link", "settings": { "title": "About us" } },
+        "nav_3": { "type": "nav_link", "settings": { "title": "Tutorials" } },
+        "nav_4": { "type": "nav_link", "settings": { "title": "FAQ" } },
+        "nav_5": { "type": "nav_link", "settings": { "title": "Resources" } },
+        "nav_6": { "type": "nav_link", "settings": { "title": "Contact" } },
+        "social_1": { "type": "social_link", "settings": { "network": "facebook", "title": "Facebook" } },
+        "social_2": { "type": "social_link", "settings": { "network": "instagram", "title": "Instagram" } },
+        "social_3": { "type": "social_link", "settings": { "network": "linkedin", "title": "Linkedin" } },
+        "social_4": { "type": "social_link", "settings": { "network": "youtube", "title": "Youtube" } }
+      },
+      "block_order": ["nav_1", "nav_2", "nav_3", "nav_4", "nav_5", "nav_6", "social_1", "social_2", "social_3", "social_4"],
       "settings": {
         "logo_text": "KAZA™",
-        "description": "Science-backed hair growth for everyone. Powered by Rootalix™.",
-        "show_newsletter": true,
-        "products_menu": "",
-        "company_menu": "",
-        "legal_menu": ""
+        "description": "Kaza Gives You a Science-backed Way to Take Control of Thin Before It Becomes Noticeable. Stronger Roots. Thicker Growth. Real Confidence.",
+        "cta_label": "Get the serum",
+        "navigation_heading": "Navigation",
+        "contact_heading": "Contact us",
+        "office_sublabel": "Visit our office",
+        "office_text": "Loreum ipsum dol-",
+        "email_sublabel": "Phone number",
+        "email": "kaza@gmail.com",
+        "language_sublabel": "Language",
+        "language_text": "English (USA)",
+        "social_heading": "Social media",
+        "copyright_text": "Copyright © 2025 BY KATA - All Rights Reserved.",
+        "legal_terms_label": "Terms of service",
+        "legal_privacy_label": "Privacy policy",
+        "legal_cookie_label": "Cookie policy",
+        "show_back_to_top": true
       }
     }
   },
