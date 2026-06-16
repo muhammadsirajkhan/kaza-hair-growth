@@ -1,6 +1,8 @@
 {%- liquid
   assign current_variant = product.selected_or_first_available_variant
   assign product_form_id = 'kaza-product-form-' | append: section.id
+  assign main_image_alt = product.featured_media.alt | default: product.title | escape
+  assign main_image_id = 'kaza-main-img-' | append: section.id
   assign has_selling_plans = false
   if product.selling_plan_groups.size > 0
     assign has_selling_plans = true
@@ -22,8 +24,8 @@
             | image_tag:
               loading: 'eager',
               fetchpriority: 'high',
-              alt: product.featured_media.alt | default: product.title | escape,
-              id: 'kaza-main-img-' | append: section.id,
+              alt: main_image_alt,
+              id: main_image_id,
               class: 'kaza-product__main-img'
           }}
         {%- else -%}
@@ -38,18 +40,19 @@
           aria-label="{{ 'sections.kaza_product.gallery_label' | t }}"
         >
           {%- for media in product.media -%}
+            {%- assign media_alt = media.alt | default: product.title | escape -%}
             <button
               type="button"
               class="kaza-product__thumb{%- if forloop.first %} is-active{%- endif %}"
               data-media-src="{{ media | image_url: width: 1000 }}"
-              aria-label="{{ media.alt | default: product.title | escape }}"
+              aria-label="{{ media_alt }}"
               aria-pressed="{%- if forloop.first -%}true{%- else -%}false{%- endif -%}"
               role="listitem"
             >
               {{
                 media
                 | image_url: width: 160
-                | image_tag: loading: 'lazy', alt: media.alt | default: product.title | escape
+                | image_tag: loading: 'lazy', alt: media_alt
               }}
             </button>
           {%- endfor -%}
