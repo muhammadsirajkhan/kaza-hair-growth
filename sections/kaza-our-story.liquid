@@ -1,9 +1,9 @@
 <section class="kaza-our-story full-width">
   <div class="kaza-container">
     {% if section.settings.show_intro %}
-      <div class="kaza-our-story__intro">
+      <div class="kaza-our-story__intro kaza-section-intro">
         {% if section.settings.badge_text != blank %}
-          <span class="kaza-our-story__badge">{{ section.settings.badge_text }}</span>
+          <span class="kaza-section-pill">{{ section.settings.badge_text }}</span>
         {% endif %}
 
         {% if section.settings.intro_text != blank %}

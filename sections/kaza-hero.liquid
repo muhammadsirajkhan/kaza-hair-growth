@@ -120,13 +120,36 @@
                 {% assign feature_blocks = section.blocks | where: 'type', 'feature' %}
                 {% if feature_blocks.size > 0 %}
                   <div class="kaza-hero__features">
+                    {% assign feature_index = 0 %}
                     {% for feature in feature_blocks %}
+                      {% assign feature_index = feature_index | plus: 1 %}
+                      {% liquid
+                        assign feature_icon = feature.settings.icon
+                        if feature_icon == blank
+                          case feature_index
+                            when 1
+                              assign feature_icon_fallback = 'h1.webp'
+                            when 2
+                              assign feature_icon_fallback = 'h2.webp'
+                            when 3
+                              assign feature_icon_fallback = 'h3.webp'
+                            else
+                              assign feature_icon_fallback = 'h1.webp'
+                          endcase
+                        endif
+                      %}
                       <div class="kaza-hero__feature" {{ feature.shopify_attributes }}>
                         <div class="kaza-hero__feature-icon">
-                          {% if feature.settings.icon != blank %}
-                            {{ feature.settings.icon | image_url: width: 80 | image_tag: loading: 'lazy', alt: '' }}
+                          {% if feature_icon != blank %}
+                            {{ feature_icon | image_url: width: 80 | image_tag: loading: 'lazy', alt: '' }}
                           {% else %}
-                            <span class="kaza-hero__feature-icon-placeholder" aria-hidden="true"></span>
+                            <img
+                              src="{{ feature_icon_fallback | asset_url }}"
+                              alt=""
+                              width="80"
+                              height="80"
+                              loading="lazy"
+                            >
                           {% endif %}
                         </div>
                         <div class="kaza-hero__feature-body">

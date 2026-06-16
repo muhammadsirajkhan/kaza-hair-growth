@@ -1,21 +1,486 @@
-@media only screen and (min-width: 1800px) {}
+/** KAZA responsive overrides — use only the breakpoints defined below */
 
-@media only screen and (min-width: 100px) and (max-width: 1799px) {}
+@media only screen and (min-width: 1800px) {
+  :root {
+    --kaza-container-max: 1400px;
+  }
+}
 
-@media only screen and (min-width: 100px) and (max-width: 1599px) {}
+@media only screen and (min-width: 100px) and (max-width: 1799px) {
+  :root {
+    --kaza-container-max: 1400px;
+    --kaza-section-y: 6.25rem;
+    --kaza-fs-section-pill: 1rem;
+    --kaza-fs-section: 4rem;
+    --kaza-fs-section-content: 1.2rem;
+    --kaza-fs-hero: 3.75rem;
+    --kaza-fs-hero-sub: 1rem;
+    --kaza-fs-story-title: 2.125rem;
+    --kaza-fs-story-content: 2.75rem;
+    --kaza-fs-promo: 1.625rem;
+    --kaza-fs-brand: 1.375rem;
+    --kaza-fs-footer-logo: 2.25rem;
+    --kaza-fs-ba-label: 1.375rem;
+    --kaza-fs-review-title: 1.25rem;
+    --kaza-fs-review-quote: 0.9375rem;
+    --kaza-fs-body-lg: 1.0625rem;
+  }
+}
 
-@media only screen and (min-width: 100px) and (max-width: 1440px) {}
+@media only screen and (min-width: 100px) and (max-width: 1599px) {
+  :root {
+    --kaza-container-max: 1400px;
+  }
+}
 
-@media only screen and (min-width: 100px) and (max-width: 1366px) {}
+@media only screen and (min-width: 100px) and (max-width: 1440px) {
+  :root {
+    --kaza-container-max: 1260px;
+    --kaza-section-y: 5.75rem;
+    --kaza-fs-section-pill: 0.9375rem;
+    --kaza-fs-section: 3.625rem;
+    --kaza-fs-section-content: 1.1rem;
+    --kaza-fs-hero: 3.5rem;
+    --kaza-fs-hero-sub: 0.96875rem;
+    --kaza-fs-story-title: 2rem;
+    --kaza-fs-story-content: 2.5625rem;
+    --kaza-fs-promo: 1.5rem;
+    --kaza-fs-brand: 1.3125rem;
+    --kaza-fs-footer-logo: 2.125rem;
+    --kaza-fs-ba-label: 1.3125rem;
+    --kaza-fs-review-title: 1.1875rem;
+    --kaza-fs-review-quote: 0.90625rem;
+    --kaza-fs-body-lg: 1.03125rem;
+  }
+}
 
-@media only screen and (min-width: 100px) and (max-width: 1299px) {}
+@media only screen and (min-width: 100px) and (max-width: 1366px) {
+  :root {
+    --kaza-container-max: 1260px;
+    --kaza-section-y: 5.5rem;
+    --kaza-fs-section-pill: 0.9375rem;
+    --kaza-fs-section: 3.5rem;
+    --kaza-fs-section-content: 1.0625rem;
+    --kaza-fs-hero: 3.3125rem;
+    --kaza-fs-hero-sub: 0.9375rem;
+    --kaza-fs-story-title: 1.9375rem;
+    --kaza-fs-story-content: 2.4375rem;
+    --kaza-fs-promo: 1.4375rem;
+    --kaza-fs-brand: 1.25rem;
+    --kaza-fs-footer-logo: 2rem;
+    --kaza-fs-ba-label: 1.25rem;
+    --kaza-fs-review-title: 1.125rem;
+    --kaza-fs-review-quote: 0.875rem;
+    --kaza-fs-body-lg: 1rem;
+  }
+}
 
-@media only screen and (min-width: 100px) and (max-width: 1199px) {}
+@media only screen and (min-width: 100px) and (max-width: 1299px) {
+  :root {
+    --kaza-container-max: 1200px;
+    --kaza-section-y: 5.25rem;
+    --kaza-fs-section-pill: 0.875rem;
+    --kaza-fs-section: 3.375rem;
+    --kaza-fs-section-content: 1rem;
+    --kaza-fs-hero: 3.125rem;
+    --kaza-fs-hero-sub: 0.90625rem;
+    --kaza-fs-story-title: 1.875rem;
+    --kaza-fs-story-content: 2.3125rem;
+    --kaza-fs-promo: 1.375rem;
+    --kaza-fs-brand: 1.1875rem;
+    --kaza-fs-footer-logo: 1.9375rem;
+    --kaza-fs-ba-label: 1.1875rem;
+    --kaza-fs-review-title: 1.0625rem;
+    --kaza-fs-review-quote: 0.875rem;
+    --kaza-fs-body-lg: 0.96875rem;
+  }
 
-@media only screen and (min-width: 100px) and (max-width: 991px) {}
+  .kaza-footer__main {
+    grid-template-columns: 1fr 1fr;
+  }
 
-@media only screen and (min-width: 100px) and (max-width: 767px) {}
+  .kaza-footer__brand {
+    grid-column: 1 / -1;
+    max-width: none;
+  }
 
-@media only screen and (min-width: 100px) and (max-width: 599px) {}
+  .kaza-challenge__stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
 
-@media only screen and (min-width: 100px) and (max-width: 399px) {}
+  .kaza-benefits__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media only screen and (min-width: 100px) and (max-width: 1199px) {
+  :root {
+    --kaza-container-max: 1140px;
+    --kaza-section-y: 5rem;
+    --kaza-fs-section-pill: 0.875rem;
+    --kaza-fs-section: 3.25rem;
+    --kaza-fs-section-content: 0.975rem;
+    --kaza-fs-hero: 3rem;
+    --kaza-fs-story-content: 2.1875rem;
+    --kaza-fs-promo: 1.3125rem;
+  }
+}
+
+@media only screen and (min-width: 100px) and (max-width: 991px) {
+  :root {
+    --kaza-container-max: 100%;
+    --kaza-section-y: 4.5rem;
+    --kaza-fs-section-pill: 0.875rem;
+    --kaza-fs-section: 2.75rem;
+    --kaza-fs-section-content: 0.9375rem;
+    --kaza-fs-hero: 2.75rem;
+    --kaza-fs-hero-sub: 0.875rem;
+    --kaza-fs-story-title: 1.75rem;
+    --kaza-fs-story-content: 2rem;
+    --kaza-fs-promo: 1.25rem;
+    --kaza-fs-brand: 1.125rem;
+    --kaza-fs-footer-logo: 1.875rem;
+    --kaza-fs-ba-label: 1.125rem;
+    --kaza-fs-review-title: 1rem;
+    --kaza-fs-body-lg: 0.9375rem;
+  }
+
+  .kaza-why-choose__float {
+    max-width: 10rem;
+    font-size: 0.625rem;
+    padding: 0.5rem 0.875rem;
+  }
+
+  .kaza-why-choose__float img {
+    width: 1.125rem;
+    height: 1.125rem;
+  }
+
+  .kaza-rootalix__feature {
+    max-width: min(14rem, 34vw);
+  }
+
+  .kaza-rootalix__feature-text {
+    font-size: 0.75rem;
+  }
+
+  .kaza-rootalix__feature-icon {
+    width: 2rem;
+    height: 2rem;
+  }
+
+  .kaza-rootalix__feature-icon img {
+    width: 1rem;
+    height: 1rem;
+  }
+}
+
+@media only screen and (min-width: 100px) and (max-width: 767px) {
+  :root {
+    --kaza-container-max: 100%;
+    --kaza-section-y: 3.5rem;
+    --kaza-fs-section-pill: 0.875rem;
+    --kaza-fs-section: 2rem;
+    --kaza-fs-section-content: 0.875rem;
+    --kaza-fs-hero: 2.25rem;
+    --kaza-fs-hero-sub: 0.875rem;
+    --kaza-fs-story-title: 1.375rem;
+    --kaza-fs-story-content: 2rem;
+    --kaza-fs-promo: 1.125rem;
+    --kaza-fs-brand: 1.125rem;
+    --kaza-fs-footer-logo: 1.75rem;
+    --kaza-fs-ba-label: 1.125rem;
+    --kaza-fs-review-title: 1rem;
+    --kaza-fs-review-quote: 0.875rem;
+    --kaza-fs-body-lg: 0.9375rem;
+  }
+
+  .kaza-hide-mobile {
+    display: none !important;
+  }
+
+  .kaza-hide-desktop {
+    display: flex !important;
+  }
+
+  .kaza-header__inner {
+    grid-template-columns: 1fr auto;
+  }
+
+  .kaza-header__logo {
+    grid-column: 1;
+  }
+
+  .kaza-header__actions {
+    grid-column: 2;
+  }
+
+  .kaza-footer__main {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .kaza-footer__bar-inner {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .kaza-footer__legal {
+    justify-content: center;
+  }
+
+  .kaza-hero__content {
+    grid-template-columns: 1fr;
+    padding-block: calc(var(--kaza-header-height) + 1.5rem) 6rem;
+    text-align: center;
+  }
+
+  .kaza-hero__left {
+    align-items: center;
+    max-width: none;
+  }
+
+  .kaza-hero__subheading {
+    max-width: none;
+  }
+
+  .kaza-hero__cta-row {
+    justify-content: center;
+  }
+
+  .kaza-hero__trust {
+    align-items: center;
+  }
+
+  .kaza-hero__trust-logos {
+    justify-content: center;
+  }
+
+  .kaza-hero__right {
+    min-height: auto;
+    justify-content: center;
+  }
+
+  .kaza-hero__features {
+    max-width: none;
+    width: 100%;
+    margin-inline-start: 0;
+  }
+
+  .kaza-hero__product {
+    position: static;
+    margin-bottom: 1rem;
+  }
+
+  .kaza-hero__controls {
+    justify-content: center;
+  }
+
+  .kaza-our-story__intro {
+    margin-bottom: 2.5rem;
+  }
+
+  .kaza-our-story__grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .kaza-our-story__media-label {
+    width: 2.25rem;
+  }
+
+  .kaza-our-story__content {
+    align-items: center;
+    text-align: center;
+  }
+
+  .kaza-our-story__text {
+    max-width: none;
+  }
+
+  .kaza-our-story__rating {
+    justify-content: center;
+  }
+
+  .kaza-why-choose__visual {
+    min-height: auto;
+    flex-direction: column;
+    gap: 1.5rem;
+    padding-bottom: 0.5rem;
+  }
+
+  .kaza-why-choose__arc {
+    display: none;
+  }
+
+  .kaza-why-choose__bg {
+    opacity: 0.35;
+  }
+
+  .kaza-why-choose__portrait {
+    max-height: 16rem;
+  }
+
+  .kaza-why-choose__floats {
+    position: static;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.625rem;
+    width: 100%;
+  }
+
+  .kaza-why-choose__float {
+    position: static;
+    max-width: none;
+    justify-content: flex-start;
+  }
+
+  .kaza-why-choose__cards {
+    grid-template-columns: 1fr;
+  }
+
+  .kaza-rootalix__visual {
+    min-height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    padding-top: 1rem;
+  }
+
+  .kaza-rootalix__product {
+    position: static;
+    transform: none;
+  }
+
+  .kaza-rootalix__product img {
+    max-height: 14rem;
+  }
+
+  .kaza-rootalix__features {
+    position: static;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    width: 100%;
+    max-width: 24rem;
+  }
+
+  .kaza-rootalix__feature {
+    position: static;
+    max-width: none;
+    flex-direction: row !important;
+  }
+
+  .kaza-rootalix__feature--top-left .kaza-rootalix__feature-text,
+  .kaza-rootalix__feature--bottom-left .kaza-rootalix__feature-text {
+    text-align: right;
+  }
+
+  .kaza-rootalix__feature--top-right .kaza-rootalix__feature-text,
+  .kaza-rootalix__feature--bottom-right .kaza-rootalix__feature-text {
+    text-align: left;
+  }
+
+  .kaza-rootalix__feature-line::after {
+    right: 0;
+    left: auto;
+  }
+
+  .kaza-rootalix__feature--top-right .kaza-rootalix__feature-line::after,
+  .kaza-rootalix__feature--bottom-right .kaza-rootalix__feature-line::after {
+    left: 0;
+    right: auto;
+  }
+
+  .kaza-promo-cards__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .kaza-promo-cards__card {
+    min-height: 24rem;
+  }
+
+  .kaza-promo-cards__badge {
+    font-size: 0.5625rem;
+    max-width: 8.5rem;
+  }
+
+  .kaza-promo-cards__badge--1 {
+    bottom: 22%;
+    left: 6%;
+  }
+
+  .kaza-promo-cards__badge--2 {
+    top: 34%;
+    right: 4%;
+  }
+
+  .kaza-how-it-works__steps {
+    grid-template-columns: 1fr;
+  }
+
+  .kaza-ba-slider {
+    width: 100%;
+  }
+
+  .kaza-ba-slider__viewport {
+    aspect-ratio: 4 / 5;
+    border-radius: 1.125rem;
+  }
+
+  .kaza-ba-slider__control {
+    width: 3rem;
+    height: 3rem;
+  }
+
+  .kaza-ba-slider__handle-label {
+    font-size: 0.625rem;
+  }
+
+  .kaza-challenge__reviews-shell {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0;
+  }
+
+  .kaza-challenge__reviews-arrow {
+    display: none;
+  }
+
+  .kaza-challenge__review {
+    flex-basis: min(100%, 20rem);
+  }
+
+  .kaza-challenge__stats {
+    grid-template-columns: 1fr;
+  }
+
+  .kaza-benefits__grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media only screen and (min-width: 100px) and (max-width: 599px) {
+  :root {
+    --kaza-section-y: 3rem;
+    --kaza-fs-section-pill: 0.8125rem;
+    --kaza-fs-section: 1.75rem;
+    --kaza-fs-section-content: 0.8125rem;
+    --kaza-fs-hero: 2rem;
+    --kaza-fs-story-title: 1.3125rem;
+    --kaza-fs-story-content: 1.875rem;
+    --kaza-fs-promo: 1.0625rem;
+  }
+}
+
+@media only screen and (min-width: 100px) and (max-width: 399px) {
+  :root {
+    --kaza-section-y: 2.75rem;
+    --kaza-fs-section-pill: 0.75rem;
+    --kaza-fs-section: 1.625rem;
+    --kaza-fs-section-content: 0.75rem;
+    --kaza-fs-hero: 1.75rem;
+    --kaza-fs-story-content: 1.75rem;
+  }
+}

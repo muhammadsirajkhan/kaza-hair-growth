@@ -227,20 +227,6 @@
   width: 100%;
 }
 
-@media (max-width: 767px) {
-  .kaza-header__inner {
-    grid-template-columns: 1fr auto;
-  }
-
-  .kaza-header__logo {
-    grid-column: 1;
-  }
-
-  .kaza-header__actions {
-    grid-column: 2;
-  }
-}
-
 /* --- footer.liquid --- */
 .kaza-footer {
   background: #000000;
@@ -261,7 +247,7 @@
 .kaza-footer__logo,
 .kaza-footer__logo-link {
   display: inline-block;
-  font-size: clamp(1.75rem, 3vw, 2.25rem);
+  font-size: var(--kaza-fs-footer-logo);
   font-weight: 700;
   letter-spacing: 0.04em;
   text-decoration: none;
@@ -518,34 +504,6 @@
   pointer-events: none;
 }
 
-@media (max-width: 1023px) {
-  .kaza-footer__main {
-    grid-template-columns: 1fr 1fr;
-  }
-
-  .kaza-footer__brand {
-    grid-column: 1 / -1;
-    max-width: none;
-  }
-}
-
-@media (max-width: 767px) {
-  .kaza-footer__main {
-    grid-template-columns: 1fr;
-    gap: 2rem;
-  }
-
-  .kaza-footer__bar-inner {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-  }
-
-  .kaza-footer__legal {
-    justify-content: center;
-  }
-}
-
 /* --- kaza-hero.liquid --- */
 .kaza-hero {
   position: relative;
@@ -605,11 +563,11 @@
   flex-direction: column;
   align-items: flex-start;
   gap: 0;
-  max-width: 34rem;
+  width: 580px;
 }
 
 .kaza-hero__heading {
-  font-size: clamp(2.25rem, 4.8vw, 3.75rem);
+  font-size: var(--kaza-fs-hero);
   font-weight: 700;
   line-height: 0.98;
   letter-spacing: -0.01em;
@@ -618,7 +576,7 @@
 
 .kaza-hero__subheading {
   margin-top: 1.5rem;
-  font-size: clamp(0.875rem, 1.4vw, 1rem);
+  font-size: var(--kaza-fs-hero-sub);
   font-weight: 400;
   line-height: 1.55;
   color: rgba(255, 255, 255, 0.88);
@@ -635,9 +593,9 @@
 
 .kaza-hero__cta {
   padding: 1.125rem 2rem;
-  font-size: 0.8125rem;
+  font-size: 1.2rem;
   font-weight: 700;
-  letter-spacing: 0.06em;
+  letter-spacing: 0;
   text-transform: none;
   gap: 2.75rem;
 }
@@ -649,7 +607,7 @@
 }
 
 .kaza-hero__powered {
-  font-size: 0.8125rem;
+  font-size: 1rem;
   font-weight: 400;
   color: rgba(255, 255, 255, 0.55);
   letter-spacing: 0.01em;
@@ -657,14 +615,17 @@
 
 .kaza-hero__trust {
   display: flex;
-  flex-direction: column;
-  align-items: flex-start;
+  flex-direction: row;
+  align-items: center;
   gap: 0.625rem;
   margin-top: 2.5rem;
+  position: absolute;
+  bottom: 50px;
+  left: -9px;
 }
 
 .kaza-hero__trust-label {
-  font-size: 0.75rem;
+  font-size: 1rem;
   font-weight: 400;
   color: rgba(255, 255, 255, 0.65);
 }
@@ -709,7 +670,7 @@
   align-items: center;
   justify-content: flex-end;
   min-height: 20rem;
-  right: -7.5vw;
+  right: -5.1vw;
 }
 
 .kaza-hero__product {
@@ -732,7 +693,7 @@
   z-index: 2;
   display: flex;
   flex-direction: column;
-  max-width: 17rem;
+  max-width: 20rem;
   margin-inline-start: auto;
 }
 
@@ -751,8 +712,8 @@
 
 .kaza-hero__feature-icon {
   flex-shrink: 0;
-  width: 2.75rem;
-  height: 2.75rem;
+  width: 59px;
+  height: 59px;
   border-radius: 50%;
   background: var(--kaza-white);
   display: flex;
@@ -762,8 +723,8 @@
 }
 
 .kaza-hero__feature-icon img {
-  width: 1.375rem;
-  height: 1.375rem;
+  width: 59px;
+  height: 59px;
   object-fit: contain;
 }
 
@@ -776,7 +737,7 @@
 }
 
 .kaza-hero__feature-title {
-  font-size: 0.6875rem;
+  font-size: 1rem;
   font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -785,7 +746,7 @@
 }
 
 .kaza-hero__feature-text {
-  font-size: 0.75rem;
+  font-size: 0.85rem;
   font-weight: 400;
   line-height: 1.45;
   color: rgba(255, 255, 255, 0.78);
@@ -806,7 +767,7 @@
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  gap: 0.625rem;
+  gap: 0;
   z-index: 3;
   pointer-events: none;
 }
@@ -815,12 +776,12 @@
   pointer-events: auto;
   display: inline-flex;
   align-items: center;
-  padding: 0.625rem 1.125rem;
-  background: rgba(0, 0, 0, 0.45);
+  padding: 1.025rem 1.525rem;
+  background: #6b6b69;
   border: 1px solid rgba(255, 255, 255, 0.35);
   color: var(--kaza-white);
   font-family: inherit;
-  font-size: 0.625rem;
+  font-size: 1.2rem;
   font-weight: 500;
   letter-spacing: 0.12em;
   text-transform: uppercase;
@@ -829,62 +790,13 @@
 }
 
 .kaza-hero__nav-btn:hover {
-  background: rgba(0, 0, 0, 0.65);
+  background: #000;
   border-color: rgba(255, 255, 255, 0.55);
 }
 
 .kaza-hero__nav-btn:focus-visible {
   outline: 2px solid var(--kaza-gold);
   outline-offset: 2px;
-}
-
-@media (max-width: 767px) {
-  .kaza-hero__content {
-    grid-template-columns: 1fr;
-    padding-block: calc(var(--kaza-header-height) + 1.5rem) 6rem;
-    text-align: center;
-  }
-
-  .kaza-hero__left {
-    align-items: center;
-    max-width: none;
-  }
-
-  .kaza-hero__subheading {
-    max-width: none;
-  }
-
-  .kaza-hero__cta-row {
-    justify-content: center;
-  }
-
-  .kaza-hero__trust {
-    align-items: center;
-  }
-
-  .kaza-hero__trust-logos {
-    justify-content: center;
-  }
-
-  .kaza-hero__right {
-    min-height: auto;
-    justify-content: center;
-  }
-
-  .kaza-hero__features {
-    max-width: none;
-    width: 100%;
-    margin-inline-start: 0;
-  }
-
-  .kaza-hero__product {
-    position: static;
-    margin-bottom: 1rem;
-  }
-
-  .kaza-hero__controls {
-    justify-content: center;
-  }
 }
 
 /* --- kaza-brand-statement.liquid --- */
@@ -895,7 +807,7 @@
 }
 
 .kaza-brand-statement__text {
-  font-size: clamp(1.125rem, 2.5vw, 1.375rem);
+  font-size: var(--kaza-fs-brand);
   line-height: 1.65;
   max-width: 52rem;
   margin-inline: auto;
@@ -910,29 +822,11 @@
 }
 
 .kaza-our-story__intro {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
   margin-bottom: clamp(3rem, 6vw, 5rem);
 }
 
-.kaza-our-story__badge {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0.4375rem 1.125rem;
-  border: 1px solid var(--kaza-black);
-  border-radius: var(--kaza-radius-pill);
-  font-size: 0.6875rem;
-  font-weight: 500;
-  letter-spacing: 0.04em;
-  color: var(--kaza-black);
-  margin-bottom: 1.75rem;
-}
-
 .kaza-our-story__intro-text {
-  font-size: clamp(1.375rem, 2.8vw, 2.125rem);
+  font-size: var(--kaza-fs-story-title);
   font-weight: 500;
   line-height: 1.45;
   letter-spacing: -0.01em;
@@ -1013,7 +907,7 @@
 }
 
 .kaza-our-story__heading {
-  font-size: clamp(2rem, 3.5vw, 2.75rem);
+  font-size: var(--kaza-fs-story-content);
   font-weight: 700;
   line-height: 1.1;
   letter-spacing: -0.02em;
@@ -1022,7 +916,7 @@
 }
 
 .kaza-our-story__text {
-  font-size: 1rem;
+  font-size: 1.2rem;
   line-height: 1.7;
   color: #4a4a4a;
   max-width: 36rem;
@@ -1035,7 +929,7 @@
 .kaza-our-story__cta {
   margin-top: 2rem;
   padding: 0.9375rem 1.75rem;
-  font-size: 0.875rem;
+  font-size: 1.2rem;
   font-weight: 600;
   letter-spacing: 0.02em;
   text-transform: none;
@@ -1057,7 +951,7 @@
 }
 
 .kaza-our-story__rating-text {
-  font-size: 0.8125rem;
+  font-size: 1rme;
   font-weight: 500;
   color: var(--kaza-black);
 }
@@ -1067,39 +961,11 @@
   height: 1rem;
 }
 
-@media (max-width: 767px) {
-  .kaza-our-story__intro {
-    margin-bottom: 2.5rem;
-  }
-
-  .kaza-our-story__grid {
-    grid-template-columns: 1fr;
-    gap: 2rem;
-  }
-
-  .kaza-our-story__media-label {
-    width: 2.25rem;
-  }
-
-  .kaza-our-story__content {
-    align-items: center;
-    text-align: center;
-  }
-
-  .kaza-our-story__text {
-    max-width: none;
-  }
-
-  .kaza-our-story__rating {
-    justify-content: center;
-  }
-}
-
 /* --- kaza-why-choose.liquid --- */
 .kaza-why-choose {
   position: relative;
   padding-block: var(--kaza-section-y);
-  /* background: var(--kaza-beige); */
+  background: #f0dacb;
   overflow: hidden;
 }
 
@@ -1126,7 +992,7 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center;
+  object-position: top;
 }
 
 .kaza-why-choose__inner {
@@ -1135,46 +1001,7 @@
 }
 
 .kaza-why-choose__header {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
   margin-bottom: clamp(2.5rem, 5vw, 4rem);
-}
-
-.kaza-why-choose__badge {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0.4375rem 1.125rem;
-  border: 1px solid var(--kaza-black);
-  border-radius: var(--kaza-radius-pill);
-  font-size: 0.6875rem;
-  font-weight: 500;
-  letter-spacing: 0.04em;
-  color: var(--kaza-black);
-  margin-bottom: 1.5rem;
-}
-
-.kaza-why-choose__heading {
-  font-size: clamp(1.875rem, 3.8vw, 2.625rem);
-  line-height: 1.12;
-  letter-spacing: -0.025em;
-  color: var(--kaza-black);
-  margin-bottom: 1rem;
-}
-
-.kaza-why-choose__heading-prefix {
-  font-weight: 400;
-}
-
-.kaza-why-choose__heading-highlight {
-  font-weight: 700;
-}
-
-.kaza-why-choose__subheading {
-  margin-inline: auto;
-  max-width: 36rem;
 }
 
 .kaza-why-choose__visual {
@@ -1221,6 +1048,9 @@
   inset: 0;
   z-index: 3;
   pointer-events: none;
+  width: 1170px;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 .kaza-why-choose__float {
@@ -1228,11 +1058,11 @@
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  padding: 0.5625rem 1rem;
+  padding: 0.3rem 0.3rem;
   background: var(--kaza-white);
   border-radius: var(--kaza-radius-pill);
   box-shadow: var(--kaza-shadow-card);
-  font-size: 14px;
+  font-size: 1rem;
   font-weight: 600;
   line-height: 1.35;
   width: 14.5rem;
@@ -1247,31 +1077,35 @@
 }
 
 .kaza-why-choose__float--top-left {
-  top: 16%;
+  top: 19%;
   left: clamp(0%, 8vw, 10%);
+  flex-direction: row-reverse;
+  text-align: right;
 }
 
 .kaza-why-choose__float--bottom-left {
   /* bottom: 22%; */
   left: clamp(0%, 8vw, 10%);
   top: 36%;
+  flex-direction: row-reverse;
+  text-align: right;
 }
 
 .kaza-why-choose__float--top-right {
   /* top: 20%; */
   right: clamp(0%, 6vw, 8%);
-  bottom: 38%;
+  bottom: 55%;
 }
 
 .kaza-why-choose__float--bottom-right {
-  bottom: 18%;
+  bottom: 38%;
   right: clamp(0%, 6vw, 8%);
 }
 
 .kaza-why-choose__cards {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: clamp(1rem, 2vw, 1.5rem);
+  gap: 0.5rem;
 }
 
 .kaza-why-choose__card {
@@ -1305,58 +1139,6 @@
   color: var(--kaza-gray);
 }
 
-@media (max-width: 991px) {
-  .kaza-why-choose__float {
-    max-width: 10rem;
-    font-size: 0.625rem;
-    padding: 0.5rem 0.875rem;
-  }
-
-  .kaza-why-choose__float img {
-    width: 1.125rem;
-    height: 1.125rem;
-  }
-}
-
-@media (max-width: 767px) {
-  .kaza-why-choose__visual {
-    min-height: auto;
-    flex-direction: column;
-    gap: 1.5rem;
-    padding-bottom: 0.5rem;
-  }
-
-  .kaza-why-choose__arc {
-    display: none;
-  }
-
-  .kaza-why-choose__bg {
-    opacity: 0.35;
-  }
-
-  .kaza-why-choose__portrait {
-    max-height: 16rem;
-  }
-
-  .kaza-why-choose__floats {
-    position: static;
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 0.625rem;
-    width: 100%;
-  }
-
-  .kaza-why-choose__float {
-    position: static;
-    max-width: none;
-    justify-content: flex-start;
-  }
-
-  .kaza-why-choose__cards {
-    grid-template-columns: 1fr;
-  }
-}
-
 /* --- kaza-rootalix.liquid --- */
 .kaza-rootalix {
   position: relative;
@@ -1364,6 +1146,8 @@
   background: var(--kaza-black);
   color: var(--kaza-white);
   overflow: hidden;
+  aspect-ratio: 1903/1362;
+  padding: 0;
 }
 
 .kaza-rootalix__bg {
@@ -1382,10 +1166,10 @@
 .kaza-rootalix__overlay {
   position: absolute;
   inset: 0;
-  background: radial-gradient(ellipse 75% 50% at 50% 0%,
+  /* background: radial-gradient(ellipse 75% 50% at 50% 0%,
       rgba(255, 255, 255, 0.18) 0%,
       rgba(255, 255, 255, 0.06) 38%,
-      transparent 72%);
+      transparent 72%); */
   pointer-events: none;
 }
 
@@ -1395,14 +1179,12 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  height: 100%;
+  justify-content: center;
 }
 
 .kaza-rootalix__header {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  max-width: 42rem;
+  max-width: 58rem;
   margin-bottom: clamp(2.5rem, 5vw, 3.5rem);
 }
 
@@ -1414,45 +1196,18 @@
 }
 
 .kaza-rootalix__rating-text {
-  font-size: 0.75rem;
+  font-size: var(--kaza-fs-section-pill);
   font-weight: 500;
   color: rgba(255, 255, 255, 0.9);
   letter-spacing: 0.01em;
 }
 
-.kaza-rootalix__heading {
-  font-size: clamp(2rem, 4vw, 3rem);
-  line-height: 1.12;
-  letter-spacing: -0.025em;
-  margin-bottom: 1.25rem;
-}
-
-.kaza-rootalix__heading-prefix {
-  font-weight: 500;
-  color: var(--kaza-white);
-}
-
-.kaza-rootalix__heading-highlight {
-  font-weight: 700;
-  background: linear-gradient(180deg, #ffffff 0%, #c8c8c8 55%, #9a9a9a 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-.kaza-rootalix__description {
-  font-size: clamp(0.875rem, 1.4vw, 0.9375rem);
-  line-height: 1.7;
-  color: rgba(255, 255, 255, 0.72);
-  max-width: 38rem;
-}
-
 .kaza-rootalix__visual {
   position: relative;
   width: 100%;
-  max-width: 62rem;
+  max-width: 82rem;
   min-height: clamp(24rem, 46vw, 34rem);
-  margin-bottom: clamp(2.5rem, 5vw, 3.5rem);
+  margin-bottom: clamp(2.5rem, 10vw, 12rem);
 }
 
 .kaza-rootalix__product {
@@ -1476,14 +1231,17 @@
   inset: 0;
   z-index: 3;
   pointer-events: none;
+  width: 1170px;
+  left: 50%;
+  transform: translateX(-49.6%);
 }
 
 .kaza-rootalix__feature {
   position: absolute;
   display: flex;
   align-items: center;
-  gap: 0.75rem;
-  max-width: min(15rem, 30vw);
+  /* gap: 0.75rem; */
+  max-width: 530px;
   pointer-events: auto;
 }
 
@@ -1492,16 +1250,16 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 2.5rem;
-  height: 2.5rem;
+  width: 105px;
+  height: 105px;
   border-radius: 50%;
   border: 1px solid rgba(255, 255, 255, 0.32);
   background: rgba(0, 0, 0, 0.35);
 }
 
 .kaza-rootalix__feature-icon img {
-  width: 1.25rem;
-  height: 1.25rem;
+  width: 59px;
+  height: 59px;
   object-fit: contain;
 }
 
@@ -1509,7 +1267,7 @@
   position: relative;
   flex: 1;
   min-width: 10rem;
-  max-width: 14rem;
+  width: 14rem;
   height: 1px;
   background: rgba(255, 255, 255, 0.38);
   order: 1;
@@ -1533,7 +1291,7 @@
 
 .kaza-rootalix__feature-text {
   flex: 1;
-  font-size: 0.8125rem;
+  font-size: 1rem;
   font-weight: 500;
   line-height: 1.45;
   color: rgba(255, 255, 255, 0.94);
@@ -1547,6 +1305,7 @@
 
 .kaza-rootalix__feature--top-left .kaza-rootalix__feature-text {
   text-align: right;
+  margin-right: 20px;
 }
 
 .kaza-rootalix__feature--top-left .kaza-rootalix__feature-line::after {
@@ -1561,6 +1320,7 @@
 
 .kaza-rootalix__feature--bottom-left .kaza-rootalix__feature-text {
   text-align: right;
+  margin-right: 20px;
 }
 
 .kaza-rootalix__feature--bottom-left .kaza-rootalix__feature-line::after {
@@ -1568,13 +1328,14 @@
 }
 
 .kaza-rootalix__feature--top-right {
-  top: 14%;
+  top: 24%;
   right: clamp(0%, 2vw, 4%);
   flex-direction: row;
 }
 
 .kaza-rootalix__feature--top-right .kaza-rootalix__feature-text {
   text-align: left;
+  margin-left: 20px;
 }
 
 .kaza-rootalix__feature--top-right .kaza-rootalix__feature-line::after {
@@ -1582,13 +1343,14 @@
 }
 
 .kaza-rootalix__feature--bottom-right {
-  bottom: 36%;
+  bottom: 26%;
   right: clamp(0%, 2vw, 4%);
   flex-direction: row;
 }
 
 .kaza-rootalix__feature--bottom-right .kaza-rootalix__feature-text {
   text-align: left;
+  margin-left: 20px;
 }
 
 .kaza-rootalix__feature--bottom-right .kaza-rootalix__feature-line::after {
@@ -1602,16 +1364,18 @@
   flex-direction: column;
   align-items: center;
   gap: 1.125rem;
+  position: absolute;
+  bottom: 30px;
 }
 
 .kaza-rootalix__divider {
   width: 100%;
   height: 1px;
-  background: rgba(255, 255, 255, 0.16);
+  /* background: rgba(255, 255, 255, 0.16); */
 }
 
 .kaza-rootalix__ingredients {
-  font-size: 0.6875rem;
+  font-size: 1rem;
   line-height: 1.65;
   letter-spacing: 0.015em;
   text-align: center;
@@ -1619,87 +1383,16 @@
   max-width: 52rem;
 }
 
-@media (max-width: 991px) {
-  .kaza-rootalix__feature {
-    max-width: min(14rem, 34vw);
-  }
-
-  .kaza-rootalix__feature-text {
-    font-size: 0.75rem;
-  }
-
-  .kaza-rootalix__feature-icon {
-    width: 2rem;
-    height: 2rem;
-  }
-
-  .kaza-rootalix__feature-icon img {
-    width: 1rem;
-    height: 1rem;
-  }
-}
-
-@media (max-width: 767px) {
-  .kaza-rootalix__visual {
-    min-height: auto;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 2rem;
-    padding-top: 1rem;
-  }
-
-  .kaza-rootalix__product {
-    position: static;
-    transform: none;
-  }
-
-  .kaza-rootalix__product img {
-    max-height: 14rem;
-  }
-
-  .kaza-rootalix__features {
-    position: static;
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 1rem;
-    width: 100%;
-    max-width: 24rem;
-  }
-
-  .kaza-rootalix__feature {
-    position: static;
-    max-width: none;
-    flex-direction: row !important;
-  }
-
-  .kaza-rootalix__feature--top-left .kaza-rootalix__feature-text,
-  .kaza-rootalix__feature--bottom-left .kaza-rootalix__feature-text {
-    text-align: right;
-  }
-
-  .kaza-rootalix__feature--top-right .kaza-rootalix__feature-text,
-  .kaza-rootalix__feature--bottom-right .kaza-rootalix__feature-text {
-    text-align: left;
-  }
-
-  .kaza-rootalix__feature-line::after {
-    right: 0;
-    left: auto;
-  }
-
-  .kaza-rootalix__feature--top-right .kaza-rootalix__feature-line::after,
-  .kaza-rootalix__feature--bottom-right .kaza-rootalix__feature-line::after {
-    left: 0;
-    right: auto;
-  }
-}
-
 /* --- kaza-promo-cards.liquid --- */
 .kaza-promo-cards {
   padding-block: var(--kaza-section-y);
   background: var(--kaza-white);
   padding-top: 15px;
+}
+
+.kaza-promo-cards .kaza-container {
+  width: 100%;
+  padding: 0 15px;
 }
 
 .kaza-promo-cards__grid {
@@ -1715,6 +1408,7 @@
   overflow: hidden;
   display: flex;
   flex-direction: column;
+  aspect-ratio: 939/1043;
 }
 
 .kaza-promo-cards__bg {
@@ -1742,17 +1436,17 @@
 }
 
 .kaza-promo-cards__heading {
-  font-size: clamp(1.25rem, 2.1vw, 1.625rem);
+  font-size: var(--kaza-fs-promo);
   font-weight: 700;
   line-height: 1.22;
   letter-spacing: -0.015em;
   color: var(--kaza-black);
-  max-width: 16rem;
+  max-width: 22rem;
   margin: 0;
 }
 
 .kaza-promo-cards__text {
-  font-size: 0.875rem;
+  font-size: 1.2rem;
   line-height: 1.55;
   color: #4a4a4a;
   max-width: 21rem;
@@ -1762,7 +1456,7 @@
 .kaza-promo-cards__btn {
   margin-top: 0.375rem;
   padding: 0.8125rem 1.875rem;
-  font-size: 0.8125rem;
+  font-size: 1.2rem;
   font-weight: 600;
   text-transform: none;
   letter-spacing: 0.02em;
@@ -1808,31 +1502,6 @@
   right: 6%;
 }
 
-@media (max-width: 767px) {
-  .kaza-promo-cards__grid {
-    grid-template-columns: 1fr;
-  }
-
-  .kaza-promo-cards__card {
-    min-height: 24rem;
-  }
-
-  .kaza-promo-cards__badge {
-    font-size: 0.5625rem;
-    max-width: 8.5rem;
-  }
-
-  .kaza-promo-cards__badge--1 {
-    bottom: 22%;
-    left: 6%;
-  }
-
-  .kaza-promo-cards__badge--2 {
-    top: 34%;
-    right: 4%;
-  }
-}
-
 /* --- kaza-how-it-works.liquid --- */
 .kaza-how-it-works {
   padding-block: var(--kaza-section-y);
@@ -1840,46 +1509,7 @@
 }
 
 .kaza-how-it-works__header {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
   margin-bottom: clamp(2.5rem, 5vw, 3.5rem);
-}
-
-.kaza-how-it-works__badge {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0.4375rem 1.125rem;
-  border: 1px solid var(--kaza-black);
-  border-radius: var(--kaza-radius-pill);
-  font-size: 0.6875rem;
-  font-weight: 500;
-  letter-spacing: 0.04em;
-  color: var(--kaza-black);
-  margin-bottom: 1.5rem;
-}
-
-.kaza-how-it-works__heading {
-  font-size: clamp(1.875rem, 3.8vw, 2.625rem);
-  line-height: 1.12;
-  letter-spacing: -0.025em;
-  color: var(--kaza-black);
-  margin-bottom: 1rem;
-}
-
-.kaza-how-it-works__heading-prefix {
-  font-weight: 400;
-}
-
-.kaza-how-it-works__heading-highlight {
-  font-weight: 700;
-}
-
-.kaza-how-it-works__subheading {
-  margin-inline: auto;
-  max-width: 36rem;
 }
 
 .kaza-how-it-works__steps {
@@ -1952,12 +1582,6 @@
   flex-shrink: 0;
 }
 
-@media (max-width: 767px) {
-  .kaza-how-it-works__steps {
-    grid-template-columns: 1fr;
-  }
-}
-
 /* --- kaza-challenge.liquid --- */
 .kaza-challenge {
   background: #f3ede4;
@@ -1968,47 +1592,7 @@
 }
 
 .kaza-challenge__header {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
   margin-bottom: clamp(2.75rem, 5vw, 4rem);
-}
-
-.kaza-challenge__intro-badge {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0.4375rem 1.125rem;
-  border: 1px solid var(--kaza-black);
-  border-radius: var(--kaza-radius-pill);
-  font-size: 0.6875rem;
-  font-weight: 500;
-  letter-spacing: 0.04em;
-  color: var(--kaza-black);
-  margin-bottom: 1.375rem;
-}
-
-.kaza-challenge__heading {
-  font-size: clamp(1.875rem, 3.8vw, 2.625rem);
-  line-height: 1.1;
-  letter-spacing: -0.025em;
-  color: var(--kaza-black);
-  margin-bottom: 0.875rem;
-}
-
-.kaza-challenge__heading-prefix {
-  font-weight: 500;
-}
-
-.kaza-challenge__heading-highlight {
-  font-weight: 700;
-}
-
-.kaza-challenge__subheading {
-  margin-inline: auto;
-  max-width: 36rem;
-  font-weight: 400;
 }
 
 .kaza-challenge__comparison {
@@ -2060,7 +1644,7 @@
   position: absolute;
   top: clamp(0.875rem, 2.5vw, 1.5rem);
   z-index: 5;
-  font-size: clamp(1.125rem, 2.2vw, 1.375rem);
+  font-size: var(--kaza-fs-ba-label);
   font-weight: 500;
   line-height: 1;
   color: var(--kaza-black);
@@ -2223,7 +1807,7 @@
 }
 
 .kaza-challenge__review-title {
-  font-size: clamp(1.0625rem, 2vw, 1.25rem);
+  font-size: var(--kaza-fs-review-title);
   font-weight: 700;
   line-height: 1.25;
   letter-spacing: -0.01em;
@@ -2234,7 +1818,7 @@
 .kaza-challenge__review-quote {
   max-width: 28rem;
   margin: 0;
-  font-size: clamp(0.875rem, 1.6vw, 0.9375rem);
+  font-size: var(--kaza-fs-review-quote);
   font-weight: 400;
   font-style: normal;
   line-height: 1.55;
@@ -2325,49 +1909,6 @@
   color: var(--kaza-gray);
 }
 
-@media (max-width: 1023px) {
-  .kaza-challenge__stats {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (max-width: 767px) {
-  .kaza-ba-slider {
-    width: 100%;
-  }
-
-  .kaza-ba-slider__viewport {
-    aspect-ratio: 4 / 5;
-    border-radius: 1.125rem;
-  }
-
-  .kaza-ba-slider__control {
-    width: 3rem;
-    height: 3rem;
-  }
-
-  .kaza-ba-slider__handle-label {
-    font-size: 0.625rem;
-  }
-
-  .kaza-challenge__reviews-shell {
-    grid-template-columns: minmax(0, 1fr);
-    gap: 0;
-  }
-
-  .kaza-challenge__reviews-arrow {
-    display: none;
-  }
-
-  .kaza-challenge__review {
-    flex-basis: min(100%, 20rem);
-  }
-
-  .kaza-challenge__stats {
-    grid-template-columns: 1fr;
-  }
-}
-
 /* --- kaza-benefits.liquid --- */
 .kaza-benefits {
   padding-block: var(--kaza-section-y);
@@ -2408,18 +1949,6 @@
   font-size: 0.8125rem;
   line-height: 1.5;
   color: var(--kaza-gray);
-}
-
-@media (max-width: 1023px) {
-  .kaza-benefits__grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (max-width: 767px) {
-  .kaza-benefits__grid {
-    grid-template-columns: 1fr;
-  }
 }
 
 /* --- kaza-logo.liquid --- */

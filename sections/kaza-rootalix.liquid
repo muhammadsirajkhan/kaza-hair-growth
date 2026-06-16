@@ -15,7 +15,7 @@
   <div class="kaza-rootalix__overlay" aria-hidden="true"></div>
 
   <div class="kaza-container kaza-rootalix__inner">
-    <div class="kaza-rootalix__header">
+    <div class="kaza-rootalix__header kaza-section-intro kaza-section-intro--dark">
       {% if section.settings.show_rating %}
         <div class="kaza-rootalix__rating">
           {% render 'kaza-star-rating', rating: section.settings.rating, label: section.settings.rating_text %}
@@ -26,18 +26,18 @@
       {% endif %}
 
       {% if section.settings.heading_prefix != blank or section.settings.heading_highlight != blank %}
-        <h2 class="kaza-rootalix__heading">
+        <h2 class="kaza-section-heading">
           {% if section.settings.heading_prefix != blank %}
-            <span class="kaza-rootalix__heading-prefix">{{ section.settings.heading_prefix }}</span>
+            <span class="kaza-section-heading__prefix">{{ section.settings.heading_prefix }}</span>
           {% endif %}
           {% if section.settings.heading_highlight != blank %}
-            <span class="kaza-rootalix__heading-highlight">{{ section.settings.heading_highlight }}</span>
+            <span class="kaza-section-heading__highlight">{{ section.settings.heading_highlight }}</span>
           {% endif %}
         </h2>
       {% endif %}
 
       {% if section.settings.description != blank %}
-        <p class="kaza-rootalix__description">{{ section.settings.description }}</p>
+        <p class="kaza-section-subheading kaza-section-subheading--light">{{ section.settings.description }}</p>
       {% endif %}
     </div>
 
