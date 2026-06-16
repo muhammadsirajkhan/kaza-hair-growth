@@ -1,11 +1,16 @@
 /** KAZA section styles ÃƒÂ¯Ã‚Â¿Ã‚Â½ consolidated */
 
 /* --- header.liquid --- */
+
+body.template-index header.kaza-header {
+  background-color: transparent !important;
+}
+
 .kaza-header {
   position: relative;
   z-index: 100;
   width: 100%;
-  background: #000000;
+  background: #000000 !important;
   color: var(--kaza-white);
 }
 
