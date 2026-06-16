@@ -4,6 +4,7 @@
 
 body.template-index header.kaza-header {
   background-color: transparent !important;
+    
 }
 
 .kaza-header {
@@ -12,6 +13,8 @@ body.template-index header.kaza-header {
   width: 100%;
   background: #000000 !important;
   color: var(--kaza-white);
+    position: relative !important;
+    margin-bottom: 50px !important;
 }
 
 .kaza-header--sticky {
@@ -20,10 +23,11 @@ body.template-index header.kaza-header {
 }
 
 .kaza-header--overlay {
-  position: absolute;
+  position: absolute !important;
   top: 0;
   left: 0;
-  background: transparent;
+  background: transparent !important;
+  margin-bottom: 0px !important;
 }
 
 .kaza-header--overlay.is-scrolled {
