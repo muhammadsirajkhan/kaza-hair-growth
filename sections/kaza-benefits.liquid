@@ -20,60 +20,6 @@
   </div>
 </section>
 
-{% stylesheet %}
-  .kaza-benefits {
-    padding-block: var(--kaza-section-y);
-    background: var(--kaza-beige);
-  }
-
-  .kaza-benefits__grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 1.5rem;
-  }
-
-  .kaza-benefits__card {
-    padding: 1.75rem;
-    text-align: center;
-  }
-
-  .kaza-benefits__icon {
-    margin-bottom: 1rem;
-  }
-
-  .kaza-benefits__icon img {
-    width: 2rem;
-    height: 2rem;
-    margin-inline: auto;
-    object-fit: contain;
-  }
-
-  .kaza-benefits__title {
-    font-size: 0.8125rem;
-    font-weight: 700;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    margin-bottom: 0.5rem;
-  }
-
-  .kaza-benefits__text {
-    font-size: 0.8125rem;
-    line-height: 1.5;
-    color: var(--kaza-gray);
-  }
-
-  @media (max-width: 1023px) {
-    .kaza-benefits__grid {
-      grid-template-columns: repeat(2, 1fr);
-    }
-  }
-
-  @media (max-width: 767px) {
-    .kaza-benefits__grid {
-      grid-template-columns: 1fr;
-    }
-  }
-{% endstylesheet %}
 
 {% schema %}
 {

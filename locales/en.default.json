@@ -40,7 +40,8 @@
     "search": {
       "title": "Search"
     },
-    "kaza_brand": "KAZA brand colors"
+    "kaza_brand": "KAZA brand colors",
+    "satoshi_font_info": "This theme uses the Satoshi brand font loaded from theme assets."
   },
   "gift_card": {
     "add_to_apple_wallet": "Add to Apple Wallet",
@@ -64,16 +65,23 @@
   "sections": {
     "kaza_hero": {
       "name": "Hero banner",
-      "email_label": "Email address",
-      "email_placeholder": "Enter your email",
-      "join": "Join",
+      "next": "Next",
+      "prev": "Prev",
+      "settings": {
+        "show_trust_bar": "Show trust bar",
+        "trust_text": "Trust label",
+        "show_trustpilot": "Show Trustpilot",
+        "show_google": "Show Google",
+        "show_slider_controls": "Show slider controls",
+        "powered_by_text": "Powered by text",
+        "product_image_info": "Optional. Leave empty when the background image includes the product."
+      },
       "blocks": {
         "slide": {
-          "name": "Slide",
-          "settings": {
-            "show_email_capture": "Show email capture",
-            "show_badges": "Show feature badges"
-          }
+          "name": "Slide"
+        },
+        "feature": {
+          "name": "Feature callout"
         }
       }
     },
@@ -83,6 +91,12 @@
     "kaza_our_story": {
       "name": "Our story",
       "settings": {
+        "show_intro": "Show intro",
+        "intro_header": "Intro",
+        "story_header": "Story",
+        "badge_text": "Badge text",
+        "intro_text": "Intro text",
+        "image_label": "Image vertical label",
         "show_rating": "Show rating"
       }
     },
@@ -123,11 +137,18 @@
     },
     "kaza_challenge": {
       "name": "90-day challenge",
-      "before": "Before",
-      "after": "After",
+      "before": "before",
+      "after": "after",
+      "slider_label": "Before and after comparison slider",
+      "handle_label": "Drag",
+      "pagination_label": "Customer reviews",
+      "go_to_review": "Go to review {{ number }}",
       "blocks": {
         "testimonial": {
           "name": "Testimonial"
+        },
+        "benefit": {
+          "name": "Stat card"
         }
       }
     },
@@ -141,18 +162,43 @@
     },
     "kaza_footer": {
       "name": "Footer",
-      "products": "Products",
-      "company": "Company",
-      "social_media": "Social media",
-      "all_rights": "All rights reserved.",
-      "email_label": "Email address",
-      "email_placeholder": "Your email",
-      "join": "Join",
+      "back_to_top": "Back to top",
+      "legal_navigation": "Legal",
       "settings": {
-        "show_newsletter": "Show newsletter signup",
-        "products_menu": "Products menu",
-        "company_menu": "Company menu",
-        "legal_menu": "Legal menu"
+        "navigation_header": "Navigation",
+        "navigation_heading": "Navigation heading",
+        "navigation_menu": "Navigation menu",
+        "contact_header": "Contact",
+        "contact_heading": "Contact heading",
+        "office_sublabel": "Office label",
+        "office_text": "Office text",
+        "email_sublabel": "Email label",
+        "email": "Email address",
+        "language_sublabel": "Language label",
+        "language_text": "Language text",
+        "social_header": "Social media",
+        "social_heading": "Social heading",
+        "bar_header": "Bottom bar",
+        "copyright_text": "Copyright text",
+        "legal_menu": "Legal menu",
+        "legal_terms_label": "Terms label",
+        "legal_terms_url": "Terms URL",
+        "legal_privacy_label": "Privacy label",
+        "legal_privacy_url": "Privacy URL",
+        "legal_cookie_label": "Cookie label",
+        "legal_cookie_url": "Cookie URL",
+        "show_back_to_top": "Show back to top button"
+      },
+      "blocks": {
+        "nav_link": {
+          "name": "Navigation link"
+        },
+        "social_link": {
+          "name": "Social link",
+          "settings": {
+            "network": "Network"
+          }
+        }
       }
     },
     "kaza_header": {

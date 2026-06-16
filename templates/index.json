@@ -7,70 +7,121 @@
           "type": "slide",
           "settings": {
             "heading": "Up to 28,200+ new hairs in 3 months.",
-            "subheading": "Clinically inspired hair growth serum powered by Rootalix™. Visible results in as little as 90 days.",
-            "show_email_capture": true,
-            "button_label": "Join",
-            "show_badges": true,
-            "badge_1": "U.S. dermatologist tested",
-            "badge_2": "Clinically proven results",
-            "badge_3": "100% drug-free formula"
+            "subheading": "Based on a 3-month clinical study where participants saw an average of 10,000 new hairs and a maximum of 28,200.",
+            "button_label": "Shop the Serum",
+            "powered_by_text": "Powered by Rootalix™"
+          }
+        },
+        "feature_1": {
+          "type": "feature",
+          "settings": {
+            "title": "92% success rate",
+            "text": "92% of users saw a visible reduction in shedding within 4 weeks."
+          }
+        },
+        "feature_2": {
+          "type": "feature",
+          "settings": {
+            "title": "Zero side effect",
+            "text": "Zero side effects. No hormonal disruption. No impact on sex drive."
+          }
+        },
+        "feature_3": {
+          "type": "feature",
+          "settings": {
+            "title": "Botanical-powered",
+            "text": "Saw Palmetto, Green Tea, Larch Wood, Oleanolic Acid"
           }
         }
       },
-      "block_order": ["slide_1"],
-      "settings": {}
-    },
-    "kaza_brand_statement": {
-      "type": "kaza-brand-statement",
+      "block_order": ["slide_1", "feature_1", "feature_2", "feature_3"],
       "settings": {
-        "text": "At KAZA, we believe everyone deserves fuller, healthier hair. Our science-backed formulas combine nature and innovation to deliver visible results — without compromise."
+        "show_trust_bar": true,
+        "trust_text": "Excellent 683 reviews on",
+        "trust_rating": 5,
+        "show_trustpilot": true,
+        "show_google": true,
+        "show_slider_controls": true
       }
     },
     "kaza_our_story": {
       "type": "kaza-our-story",
       "settings": {
+        "show_intro": true,
+        "badge_text": "Welcome to Kaza",
+        "intro_text": "Kaza is built for men who take their appearance seriously and want products that match that mindset — clean, modern, and engineered to work.",
+        "image_label": "Welcome to Kaza",
         "heading": "Our story",
-        "text": "<p>KAZA was born from a simple mission: create a hair growth solution that actually works. After years of research and testing, we developed Rootalix™ — a breakthrough plant-based compound that targets hair follicles at the root.</p><p>Today, thousands of customers trust KAZA to restore their confidence and their hair.</p>",
-        "button_label": "Read about us",
+        "text": "<p>Kaza was created with a simple objective: give men a hair growth solution that actually performs. No gimmicks. No empty promises. Just real science, clean formulation, and measurable results.</p><p>We focus on early-stage thinning — the point where action matters most. Our serum is powered by Rootalix™, a proprietary botanical-bioactive complex designed to fuel follicle activity, strengthen roots, and support visible density improvements. Every ingredient serves a purpose. Nothing extra. Nothing watered down.</p>",
+        "button_label": "Read About Us",
         "show_rating": true,
         "rating": 5,
-        "rating_text": "4.9/5 based on 10,000+ reviews"
+        "rating_text": "5000+ Verified 5-star Reviews "
       }
     },
     "kaza_why_choose": {
       "type": "kaza-why-choose",
       "blocks": {
-        "float_1": { "type": "floating", "settings": { "text": "Clinically proven" } },
-        "float_2": { "type": "floating", "settings": { "text": "Natural ingredients" } },
-        "float_3": { "type": "floating", "settings": { "text": "No side effects" } },
-        "float_4": { "type": "floating", "settings": { "text": "Safe for all hair types" } },
-        "feature_1": { "type": "feature", "settings": { "title": "Visible results in 90 days", "text": "Our clinically tested formula delivers measurable hair growth within three months." } },
-        "feature_2": { "type": "feature", "settings": { "title": "Natural plant science", "text": "Powered by Rootalix™, our proprietary blend of bio-active botanicals." } },
-        "feature_3": { "type": "feature", "settings": { "title": "No prescription needed", "text": "Get started today — no doctor visit or prescription required." } }
+        "float_1": { "type": "floating", "settings": { "position": "top-left", "text": "Instantly Activates the follicle" } },
+        "float_2": { "type": "floating", "settings": { "position": "bottom-left", "text": "Reduces shedding" } },
+        "float_3": { "type": "floating", "settings": { "position": "top-right", "text": "Supports fuller Density" } },
+        "float_4": { "type": "floating", "settings": { "position": "bottom-right", "text": "Visible Density Improvements" } },
+        "feature_1": { "type": "feature", "settings": { "title": "Follicle vitality support", "text": "A next-gen catechin system (DHQG + EGCG) paired with Zinc PCA to support a balanced scalp environment and the look of active, energized roots." } },
+        "feature_2": { "type": "feature", "settings": { "title": "Root anchoring appearance", "text": "Oleanolic acid + apigenin + a peptide (biotinoyl tripeptide-1) to support the look of stronger, better-anchored hair at the scalp surface." } },
+        "feature_3": { "type": "feature", "settings": { "title": "Optimized delivery", "text": "Formulated in a lightweight, leave-on base (with DMI + diols) that dries fast and keeps actives where you want them—on your scalp, not your pillow." } }
       },
       "block_order": ["float_1", "float_2", "float_3", "float_4", "feature_1", "feature_2", "feature_3"],
       "settings": {
-        "heading": "Why choose Kaza™"
+        "badge_text": "Welcome to Kaza",
+        "heading_prefix": "Why Choose",
+        "heading_highlight": "Kaza™",
+        "subheading": "Real performance. Visible results. Made for men who want impact, not excuses.",
+        "show_arc": true
       }
     },
     "kaza_rootalix": {
       "type": "kaza-rootalix",
       "blocks": {
-        "f1": { "type": "feature", "settings": { "position": "top-left", "title": "Reduces hair loss" } },
-        "f2": { "type": "feature", "settings": { "position": "bottom-left", "title": "Promotes growth" } },
-        "f3": { "type": "feature", "settings": { "position": "top-right", "title": "Strengthens roots" } },
-        "f4": { "type": "feature", "settings": { "position": "bottom-right", "title": "Nourishes scalp" } }
+        "f1": { "type": "feature", "settings": { "position": "top-left", "title": "Thicker strands over time" } },
+        "f2": { "type": "feature", "settings": { "position": "bottom-left", "title": "Less shedding on brush and in shower" } },
+        "f3": { "type": "feature", "settings": { "position": "top-right", "title": "Healthier scalp feel and appearance" } },
+        "f4": { "type": "feature", "settings": { "position": "bottom-right", "title": "Visible Density Improvements." } }
       },
       "block_order": ["f1", "f2", "f3", "f4"],
       "settings": {
-        "heading": "Powered by Rootalix™"
+        "show_rating": true,
+        "rating": 5,
+        "rating_text": "5000+ Verified 5-star Reviews",
+        "heading_prefix": "Powered by",
+        "heading_highlight": "Rootalix™",
+        "description": "Rootalix™ is Alfin Labs' proprietary active complex designed to support thicker hair and reduce shedding, built for daily, leave-on use and a modern men's routine. No prescriptions, no heaviness, just clean, cosmetic science that fits your life.",
+        "ingredients": "Powered by: DHQG • EGCG • Zinc PCA • Oleanolic Acid • Apigenin • Biotinoyl Tripeptide-1 (2.0% total inclusion)"
       }
     },
     "kaza_promo_cards": {
       "type": "kaza-promo-cards",
       "blocks": {
-        "card_1": { "type": "card", "settings": { "style": "gray", "heading": "No prescription needed", "text": "Start your hair growth journey today without a doctor visit.", "button_label": "Shop now" } },
-        "card_2": { "type": "card", "settings": { "style": "beige", "heading": "Bio-hacked plant science", "text": "Rootalix™ combines ancient botanicals with modern bio-hacking.", "button_label": "Shop now" } }
+        "card_1": {
+          "type": "card",
+          "settings": {
+            "card_layout": "left",
+            "heading": "No Prescription Needed.",
+            "text": "Non-systemic, zero libido impact, no prescription needed.",
+            "button_label": "Shop Now"
+          }
+        },
+        "card_2": {
+          "type": "card",
+          "settings": {
+            "card_layout": "right",
+            "heading": "Bio-Hacked Plant Science",
+            "text": "Saw Palmetto, Green Tea, Larch Wood, Oleanolic Acid are all botanical-derived.",
+            "button_label": "Shop Now",
+            "show_badges": true,
+            "badge_1_text": "Visible Density Improvements.",
+            "badge_2_text": "Supports Fuller Density"
+          }
+        }
       },
       "block_order": ["card_1", "card_2"],
       "settings": {}
@@ -78,48 +129,101 @@
     "kaza_how_it_works": {
       "type": "kaza-how-it-works",
       "blocks": {
-        "step_1": { "type": "step", "settings": { "step_number": "Step 1", "title": "Apply", "text": "Apply a few drops directly to your scalp each evening." } },
-        "step_2": { "type": "step", "settings": { "step_number": "Step 2", "title": "Absorb", "text": "Rootalix™ penetrates deep into hair follicles." } },
-        "step_3": { "type": "step", "settings": { "step_number": "Step 3", "title": "Grow", "text": "Watch new, healthy hair emerge within 90 days." } }
+        "step_1": { "type": "step", "settings": { "title": "Block", "text": "Topical DHT Defense (Oleanolic Acid)" } },
+        "step_2": { "type": "step", "settings": { "title": "Anchor", "text": "Biotinoyl Tripeptide-1." } },
+        "step_3": { "type": "step", "settings": { "title": "Grow", "text": "Redensyl (DHQG + EGCG)." } }
       },
       "block_order": ["step_1", "step_2", "step_3"],
       "settings": {
-        "heading": "How it works",
-        "button_label": "Get started"
+        "badge_text": "Welcome to Kaza",
+        "heading_prefix": "How it",
+        "heading_highlight": "Works",
+        "subheading": "Real performance. Visible results. Made for men who want impact, not excuses.",
+        "button_label": "Shop the Serum"
       }
     },
     "kaza_challenge": {
       "type": "kaza-challenge",
       "blocks": {
-        "testimonial_1": { "type": "testimonial", "settings": { "rating": 5, "quote": "My hair is back!", "author": "James R." } }
+        "testimonial_1": {
+          "type": "testimonial",
+          "settings": {
+            "rating": 5,
+            "title": "My Hair Looks Denser",
+            "quote": "My hair looks denser around the front after a few weeks—love the quick dry."
+          }
+        },
+        "testimonial_2": {
+          "type": "testimonial",
+          "settings": {
+            "rating": 5,
+            "title": "Finally Found My Type",
+            "quote": "A serum that feels legit and clean—exactly the type I was looking for."
+          }
+        },
+        "testimonial_3": {
+          "type": "testimonial",
+          "settings": {
+            "rating": 5,
+            "title": "Finally Seeing Results",
+            "quote": "I've tried the typical stuff before. This actually works without the hassle."
+          }
+        },
+        "benefit_1": {
+          "type": "benefit",
+          "settings": {
+            "title": "92% SUCCESS RATE",
+            "text": "92% of users saw a visible reduction in shedding within 4 weeks."
+          }
+        },
+        "benefit_2": {
+          "type": "benefit",
+          "settings": {
+            "title": "HORMONE SAFE",
+            "text": "No hormonal disruption. No impact on sex drive."
+          }
+        },
+        "benefit_3": {
+          "type": "benefit",
+          "settings": {
+            "title": "BOTANICAL POWERED",
+            "text": "Saw Palmetto, Green Tea, Larch Wood, Oleanolic Acid"
+          }
+        },
+        "benefit_4": {
+          "type": "benefit",
+          "settings": {
+            "title": "12-WEEK DHT SHIELD",
+            "text": "Clinical results show peak anchoring and density improvements in weeks 12"
+          }
+        }
       },
-      "block_order": ["testimonial_1"],
+      "block_order": [
+        "testimonial_1",
+        "testimonial_2",
+        "testimonial_3",
+        "benefit_1",
+        "benefit_2",
+        "benefit_3",
+        "benefit_4"
+      ],
       "settings": {
-        "heading": "90-day challenge",
-        "badge_text": "90 days"
+        "badge_text": "Welcome to Kaza",
+        "heading_prefix": "90-Day",
+        "heading_highlight": "Challenge",
+        "subheading": "Real performance. Visible results. Made for men who want impact, not excuses.",
+        "handle_label": "Drag",
+        "initial_position": 50
       }
-    },
-    "kaza_benefits": {
-      "type": "kaza-benefits",
-      "blocks": {
-        "b1": { "type": "benefit", "settings": { "title": "Fast shipping", "text": "Free shipping on all orders" } },
-        "b2": { "type": "benefit", "settings": { "title": "90-day money back", "text": "Full refund if not satisfied" } },
-        "b3": { "type": "benefit", "settings": { "title": "Secure payment", "text": "256-bit SSL encryption" } },
-        "b4": { "type": "benefit", "settings": { "title": "24/7 support", "text": "We're here to help anytime" } }
-      },
-      "block_order": ["b1", "b2", "b3", "b4"],
-      "settings": {}
     }
   },
   "order": [
     "kaza_hero",
-    "kaza_brand_statement",
     "kaza_our_story",
     "kaza_why_choose",
     "kaza_rootalix",
     "kaza_promo_cards",
     "kaza_how_it_works",
-    "kaza_challenge",
-    "kaza_benefits"
+    "kaza_challenge"
   ]
 }

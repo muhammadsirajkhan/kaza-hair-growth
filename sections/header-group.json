@@ -19,7 +19,7 @@
         "cta_label": "Get the serum",
         "show_nav_chevrons": true,
         "enable_sticky": true,
-        "overlay_on_hero": false
+        "overlay_on_hero": true
       }
     }
   },
