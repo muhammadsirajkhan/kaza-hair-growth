@@ -11,7 +11,59 @@
   "sections": {
     "main": {
       "type": "product",
-      "settings": {}
+      "blocks": {
+        "benefit-1": {
+          "type": "benefit",
+          "settings": {
+            "title": "Thicker strands over time",
+            "text": "Supports thicker, fuller-looking hair by strengthening follicles."
+          }
+        },
+        "benefit-2": {
+          "type": "benefit",
+          "settings": {
+            "title": "Less shedding on brush and in shower",
+            "text": "Supports thicker, fuller-looking hair by strengthening follicles."
+          }
+        },
+        "benefit-3": {
+          "type": "benefit",
+          "settings": {
+            "title": "Healthier scalp feel and appearance",
+            "text": "Supports thicker, fuller-looking hair by strengthening follicles."
+          }
+        },
+        "pill-1": {
+          "type": "subscribe_pill",
+          "settings": {
+            "icon_type": "cancel",
+            "text": "Cancel anytime"
+          }
+        },
+        "pill-2": {
+          "type": "subscribe_pill",
+          "settings": {
+            "icon_type": "check",
+            "text": "Save 20% on your first shipment"
+          }
+        },
+        "pill-3": {
+          "type": "subscribe_pill",
+          "settings": {
+            "icon_type": "delivery",
+            "text": "Then 10% on all Shipments"
+          }
+        }
+      },
+      "block_order": ["benefit-1", "benefit-2", "benefit-3", "pill-1", "pill-2", "pill-3"],
+      "settings": {
+        "subtitle": "Our breakthrough cosmetic active for visibly fuller-looking hair",
+        "powered_by_text": "DHQG \u2022 EGCG \u2022 Zinc PCA \u2022 Oleanolic Acid \u2022 Apigenin \u2022 Biotinoyl Tripeptide-1 (2.0% total inclusion)",
+        "subscribe_label": "Subscribe & Save",
+        "one_time_label": "One Time Purchase",
+        "order_every_label": "Get your order every",
+        "cta_label": "Shop the Serum"
+      }
     }
   },
   "order": [

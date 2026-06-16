@@ -160,6 +160,11 @@
         }
       }
     },
+    "kaza_product": {
+      "powered_by": "Powered by",
+      "gallery_label": "Product images",
+      "interval_aria": "Delivery interval"
+    },
     "kaza_footer": {
       "name": "Footer",
       "back_to_top": "Back to top",

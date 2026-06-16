@@ -256,6 +256,31 @@
         }
       }
     },
+    "kaza_product": {
+      "name": "Product",
+      "settings": {
+        "subtitle": "Product subtitle",
+        "powered_by_text": "Powered by ingredients",
+        "subscribe_label": "Subscribe & Save label",
+        "one_time_label": "One time purchase label",
+        "order_every_label": "Order frequency label",
+        "cta_label": "Button label"
+      },
+      "blocks": {
+        "benefit": {
+          "name": "Benefit row"
+        },
+        "subscribe_pill": {
+          "name": "Subscription benefit",
+          "settings": {
+            "icon_type": "Icon type",
+            "icon_cancel": "Cancel",
+            "icon_check": "Checkmark",
+            "icon_delivery": "Delivery"
+          }
+        }
+      }
+    },
     "kaza_footer": {
       "name": "Footer",
       "settings": {
