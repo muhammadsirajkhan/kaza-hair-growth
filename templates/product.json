@@ -11,62 +11,203 @@
   "sections": {
     "main": {
       "type": "product",
-      "blocks": {
-        "benefit-1": {
-          "type": "benefit",
-          "settings": {
-            "title": "Thicker strands over time",
-            "text": "Supports thicker, fuller-looking hair by strengthening follicles."
-          }
-        },
-        "benefit-2": {
-          "type": "benefit",
-          "settings": {
-            "title": "Less shedding on brush and in shower",
-            "text": "Supports thicker, fuller-looking hair by strengthening follicles."
-          }
-        },
-        "benefit-3": {
-          "type": "benefit",
-          "settings": {
-            "title": "Healthier scalp feel and appearance",
-            "text": "Supports thicker, fuller-looking hair by strengthening follicles."
-          }
-        },
-        "pill-1": {
-          "type": "subscribe_pill",
-          "settings": {
-            "icon_type": "cancel",
-            "text": "Cancel anytime"
-          }
-        },
-        "pill-2": {
-          "type": "subscribe_pill",
-          "settings": {
-            "icon_type": "check",
-            "text": "Save 20% on your first shipment"
-          }
-        },
-        "pill-3": {
-          "type": "subscribe_pill",
-          "settings": {
-            "icon_type": "delivery",
-            "text": "Then 10% on all Shipments"
-          }
-        }
-      },
-      "block_order": ["benefit-1", "benefit-2", "benefit-3", "pill-1", "pill-2", "pill-3"],
       "settings": {
         "subtitle": "Our breakthrough cosmetic active for visibly fuller-looking hair",
-        "powered_by_text": "DHQG \u2022 EGCG \u2022 Zinc PCA \u2022 Oleanolic Acid \u2022 Apigenin \u2022 Biotinoyl Tripeptide-1 (2.0% total inclusion)",
+        "powered_by_text": "DHQG • EGCG • Zinc PCA • Oleanolic Acid • Apigenin • Biotinoyl Tripeptide-1 (2.0% total inclusion)",
         "subscribe_label": "Subscribe & Save",
         "one_time_label": "One Time Purchase",
         "order_every_label": "Get your order every",
         "cta_label": "Shop the Serum"
       }
+    },
+    "kaza_why_choose_Pf3KHL": {
+      "type": "kaza-why-choose",
+      "blocks": {
+        "floating_nJrpHT": {
+          "type": "floating",
+          "settings": {
+            "position": "top-left",
+            "text": "Instantly Activates the follicle"
+          }
+        },
+        "floating_B6zmkD": {
+          "type": "floating",
+          "settings": {
+            "position": "bottom-left",
+            "text": "Reduces shedding"
+          }
+        },
+        "floating_F4YmRq": {
+          "type": "floating",
+          "settings": {
+            "position": "top-right",
+            "text": "Supports fuller Density"
+          }
+        },
+        "floating_qMQYif": {
+          "type": "floating",
+          "settings": {
+            "position": "bottom-right",
+            "text": "Visible Density Improvements"
+          }
+        },
+        "feature_zFDW4m": {
+          "type": "feature",
+          "settings": {
+            "title": "Follicle vitality support",
+            "text": "A next-gen catechin system (DHQG + EGCG) paired with Zinc PCA to support a balanced scalp environment and the look of active, energized roots."
+          }
+        },
+        "feature_DWiMg4": {
+          "type": "feature",
+          "settings": {
+            "title": "Root anchoring appearance",
+            "text": "Oleanolic acid + apigenin + a peptide (biotinoyl tripeptide-1) to support the look of stronger, better-anchored hair at the scalp surface."
+          }
+        },
+        "feature_gziwkt": {
+          "type": "feature",
+          "settings": {
+            "title": "Optimized delivery",
+            "text": "Formulated in a lightweight, leave-on base (with DMI + diols) that dries fast and keeps actives where you want them—on your scalp, not your pillow."
+          }
+        }
+      },
+      "block_order": [
+        "floating_nJrpHT",
+        "floating_B6zmkD",
+        "floating_F4YmRq",
+        "floating_qMQYif",
+        "feature_zFDW4m",
+        "feature_DWiMg4",
+        "feature_gziwkt"
+      ],
+      "name": "t:sections.kaza_why_choose.name",
+      "settings": {
+        "badge_text": "Welcome to Kaza",
+        "heading_prefix": "Why Choose",
+        "heading_highlight": "Kaza™",
+        "subheading": "Real performance. Visible results. Made for men who want impact, not excuses.",
+        "show_arc": true
+      }
+    },
+    "kaza_promo_cards_P7XdUF": {
+      "type": "kaza-promo-cards",
+      "blocks": {
+        "card_TWJ6iL": {
+          "type": "card",
+          "settings": {
+            "card_layout": "left",
+            "heading": "No Prescription Needed.",
+            "text": "Non-systemic, zero libido impact, no prescription needed.",
+            "button_label": "Shop Now",
+            "button_url": "",
+            "show_badges": false,
+            "badge_1_text": "Visible Density Improvements.",
+            "badge_2_text": "Supports Fuller Density"
+          }
+        },
+        "card_4QTbrx": {
+          "type": "card",
+          "settings": {
+            "card_layout": "right",
+            "heading": "Bio-Hacked Plant Science",
+            "text": "Saw Palmetto, Green Tea, Larch Wood, Oleanolic Acid are all botanical-derived.",
+            "button_label": "Shop Now",
+            "button_url": "",
+            "show_badges": true,
+            "badge_1_text": "Visible Density Improvements.",
+            "badge_2_text": "Supports Fuller Density"
+          }
+        }
+      },
+      "block_order": [
+        "card_TWJ6iL",
+        "card_4QTbrx"
+      ],
+      "name": "t:sections.kaza_promo_cards.name",
+      "settings": {}
+    },
+    "kaza_challenge_JwDE9z": {
+      "type": "kaza-challenge",
+      "blocks": {
+        "testimonial_Pz8q7y": {
+          "type": "testimonial",
+          "settings": {
+            "rating": 5,
+            "title": "My Hair Looks Denser",
+            "quote": "My hair looks denser around the front after a few weeks—love the quick dry."
+          }
+        },
+        "testimonial_FAjD3q": {
+          "type": "testimonial",
+          "settings": {
+            "rating": 5,
+            "title": "Finally Found My Type",
+            "quote": "A serum that feels legit and clean—exactly the type I was looking for."
+          }
+        },
+        "testimonial_rEiU6L": {
+          "type": "testimonial",
+          "settings": {
+            "rating": 5,
+            "title": "Finally Seeing Results",
+            "quote": "I've tried the typical stuff before. This actually works without the hassle."
+          }
+        },
+        "benefit_CQ8A6B": {
+          "type": "benefit",
+          "settings": {
+            "title": "92% SUCCESS RATE",
+            "text": "92% of users saw a visible reduction in shedding within 4 weeks."
+          }
+        },
+        "benefit_kHigai": {
+          "type": "benefit",
+          "settings": {
+            "title": "HORMONE SAFE",
+            "text": "No hormonal disruption. No impact on sex drive."
+          }
+        },
+        "benefit_cc98wL": {
+          "type": "benefit",
+          "settings": {
+            "title": "BOTANICAL POWERED",
+            "text": "Saw Palmetto, Green Tea, Larch Wood, Oleanolic Acid"
+          }
+        },
+        "benefit_LHRnty": {
+          "type": "benefit",
+          "settings": {
+            "title": "12-WEEK DHT SHIELD",
+            "text": "Clinical results show peak anchoring and density improvements in weeks 12"
+          }
+        }
+      },
+      "block_order": [
+        "testimonial_Pz8q7y",
+        "testimonial_FAjD3q",
+        "testimonial_rEiU6L",
+        "benefit_CQ8A6B",
+        "benefit_kHigai",
+        "benefit_cc98wL",
+        "benefit_LHRnty"
+      ],
+      "name": "t:sections.kaza_challenge.name",
+      "settings": {
+        "badge_text": "Welcome to Kaza",
+        "heading_prefix": "90-Day",
+        "heading_highlight": "Challenge",
+        "subheading": "Real performance. Visible results. Made for men who want impact, not excuses.",
+        "handle_label": "Drag",
+        "initial_position": 50
+      }
     }
   },
   "order": [
-    "main"
+    "main",
+    "kaza_why_choose_Pf3KHL",
+    "kaza_promo_cards_P7XdUF",
+    "kaza_challenge_JwDE9z"
   ]
 }
