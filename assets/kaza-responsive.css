@@ -145,6 +145,10 @@
     --kaza-fs-body-lg: 0.9375rem;
   }
 
+  .kaza-product__inner {
+    gap: 2rem;
+  }
+
   .kaza-why-choose__float {
     max-width: 10rem;
     font-size: 0.625rem;
@@ -458,6 +462,19 @@
 
   .kaza-benefits__grid {
     grid-template-columns: 1fr;
+  }
+
+  .kaza-product__inner {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .kaza-product__gallery {
+    position: static;
+  }
+
+  .kaza-product__cta {
+    width: 100%;
   }
 }
 

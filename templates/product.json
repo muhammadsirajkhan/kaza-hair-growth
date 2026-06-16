@@ -11,12 +11,33 @@
   "sections": {
     "main": {
       "type": "product",
+      "blocks": {
+        "benefit_1": {
+          "type": "benefit",
+          "settings": {
+            "title": "Thicker strands over time",
+            "text": "Supports thicker, fuller-looking hair by strengthening follicles."
+          }
+        },
+        "benefit_2": {
+          "type": "benefit",
+          "settings": {
+            "title": "Less shedding on brush and in shower",
+            "text": "Supports thicker, fuller-looking hair by strengthening follicles."
+          }
+        },
+        "benefit_3": {
+          "type": "benefit",
+          "settings": {
+            "title": "Healthier scalp feel and appearance",
+            "text": "Supports thicker, fuller-looking hair by strengthening follicles."
+          }
+        }
+      },
+      "block_order": ["benefit_1", "benefit_2", "benefit_3"],
       "settings": {
         "subtitle": "Our breakthrough cosmetic active for visibly fuller-looking hair",
         "powered_by_text": "DHQG • EGCG • Zinc PCA • Oleanolic Acid • Apigenin • Biotinoyl Tripeptide-1 (2.0% total inclusion)",
-        "subscribe_label": "Subscribe & Save",
-        "one_time_label": "One Time Purchase",
-        "order_every_label": "Get your order every",
         "cta_label": "Shop the Serum"
       }
     },

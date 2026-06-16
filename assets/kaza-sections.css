@@ -1960,6 +1960,226 @@ body.template-index header.kaza-header {
   color: var(--kaza-gray);
 }
 
+/* --- product.liquid --- */
+.kaza-product {
+  padding-block: var(--kaza-section-y);
+}
+
+.kaza-product__inner {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: clamp(2rem, 4vw, 4rem);
+  align-items: start;
+}
+
+.kaza-product__gallery {
+  position: sticky;
+  top: calc(var(--kaza-header-height) + 1.5rem);
+  display: flex;
+  flex-direction: column;
+  gap: 0.875rem;
+}
+
+.kaza-product__main-media {
+  border-radius: 1.375rem;
+  overflow: hidden;
+  background: var(--kaza-gray-light);
+  aspect-ratio: 1 / 1;
+}
+
+.kaza-product__main-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.kaza-product__thumbs {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.625rem;
+}
+
+.kaza-product__thumb {
+  aspect-ratio: 1 / 1;
+  border-radius: 0.75rem;
+  overflow: hidden;
+  border: 2px solid transparent;
+  padding: 0;
+  cursor: pointer;
+  background: var(--kaza-gray-light);
+  transition: border-color var(--kaza-transition);
+}
+
+.kaza-product__thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.kaza-product__thumb.is-active,
+.kaza-product__thumb:hover {
+  border-color: var(--kaza-black);
+}
+
+.kaza-product__thumb:focus-visible {
+  outline: 2px solid var(--kaza-gold);
+  outline-offset: 2px;
+}
+
+.kaza-product__content {
+  display: flex;
+  flex-direction: column;
+}
+
+.kaza-product__title {
+  font-size: var(--kaza-fs-section);
+  font-weight: 700;
+  line-height: 1.08;
+  letter-spacing: -0.025em;
+  color: var(--kaza-black);
+  margin: 0 0 0.625rem;
+}
+
+.kaza-product__subtitle {
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.45;
+  color: var(--kaza-black);
+  margin: 0 0 1rem;
+}
+
+.kaza-product__description {
+  font-size: var(--kaza-fs-section-content);
+  line-height: 1.6;
+  color: var(--kaza-black);
+  margin-bottom: 1.5rem;
+}
+
+.kaza-product__description p {
+  margin: 0;
+}
+
+.kaza-product__benefits {
+  margin-bottom: 1.25rem;
+}
+
+.kaza-product__benefit {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding-block: 1rem;
+  border-bottom: 1px dashed #d4cfc4;
+}
+
+.kaza-product__benefit:first-child {
+  border-top: 1px dashed #d4cfc4;
+}
+
+.kaza-product__benefit-icon {
+  flex-shrink: 0;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  background: #ebe4d8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.kaza-product__benefit-icon img {
+  width: 1.625rem;
+  height: 1.625rem;
+  object-fit: contain;
+}
+
+.kaza-product__benefit-body {
+  flex: 1;
+  min-width: 0;
+}
+
+.kaza-product__benefit-title {
+  display: block;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--kaza-black);
+  line-height: 1.35;
+  margin-bottom: 0.25rem;
+}
+
+.kaza-product__benefit-text {
+  font-size: var(--kaza-fs-section-content);
+  line-height: 1.5;
+  color: var(--kaza-gray);
+  margin: 0;
+}
+
+.kaza-product__powered {
+  font-size: 0.875rem;
+  line-height: 1.65;
+  color: var(--kaza-black);
+  margin: 0 0 1.75rem;
+}
+
+.kaza-product__powered strong {
+  font-weight: 700;
+}
+
+.kaza-product__form-footer {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.kaza-product__price-line {
+  display: flex;
+  align-items: baseline;
+  gap: 0.625rem;
+  margin: 0;
+}
+
+.kaza-product__compare-price {
+  font-size: 1rem;
+  font-weight: 400;
+  color: var(--kaza-gray);
+  text-decoration: line-through;
+}
+
+.kaza-product__price {
+  font-size: 1.375rem;
+  font-weight: 700;
+  color: var(--kaza-black);
+  line-height: 1;
+}
+
+.kaza-product__cta {
+  min-width: min(100%, 18rem);
+  padding: 1rem 2rem;
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  text-transform: none;
+  gap: 0.75rem;
+  border-radius: var(--kaza-radius-pill);
+}
+
+.kaza-product__cta-icon {
+  width: 1.125rem;
+  height: 1.125rem;
+  flex-shrink: 0;
+}
+
+.kaza-product__cta:disabled,
+.kaza-product__cta[aria-disabled='true'] {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
 /* --- kaza-logo.liquid --- */
 .kaza-logo {
   display: inline-flex;

@@ -1,66 +1,103 @@
 {%- liquid
   assign current_variant = product.selected_or_first_available_variant
   assign product_form_id = 'kaza-product-form-' | append: section.id
-  assign main_image_alt = product.featured_media.alt | default: product.title | escape
   assign main_image_id = 'kaza-main-img-' | append: section.id
-  assign has_selling_plans = false
-  if product.selling_plan_groups.size > 0
-    assign has_selling_plans = true
-    assign first_plan_group = product.selling_plan_groups.first
-    assign first_selling_plan = first_plan_group.selling_plans.first
+  assign use_product_media = false
+  if product.media.size > 0
+    assign use_product_media = true
   endif
 -%}
 
-<section class="kaza-product full-width" data-section-id="{{ section.id }}">
+<section class="kaza-product full-width" data-kaza-product data-section-id="{{ section.id }}">
   <div class="kaza-container kaza-product__inner">
-
-    {%- comment -%}——— Gallery ———{%- endcomment -%}
     <div class="kaza-product__gallery" id="kaza-gallery-{{ section.id }}">
       <div class="kaza-product__main-media">
-        {%- if product.featured_media -%}
+        {%- if use_product_media -%}
+          {%- assign featured = product.featured_media -%}
+          {%- assign featured_alt = featured.alt | default: product.title | escape -%}
           {{
-            product.featured_media
-            | image_url: width: 1000
+            featured
+            | image_url: width: 1400
             | image_tag:
               loading: 'eager',
               fetchpriority: 'high',
-              alt: main_image_alt,
+              alt: featured_alt,
               id: main_image_id,
               class: 'kaza-product__main-img'
           }}
         {%- else -%}
-          {{ 'product-1' | placeholder_svg_tag: 'kaza-product__main-img kaza-product__main-img--placeholder' }}
+          <img
+            id="{{ main_image_id }}"
+            class="kaza-product__main-img"
+            src="{{ 'pro1.webp' | asset_url }}"
+            alt="{{ product.title | escape }}"
+            width="1400"
+            height="1400"
+            loading="eager"
+            fetchpriority="high"
+          >
         {%- endif -%}
       </div>
 
-      {%- if product.media.size > 1 -%}
+      {%- if use_product_media and product.media.size > 1 -%}
         <div
           class="kaza-product__thumbs"
           role="list"
           aria-label="{{ 'sections.kaza_product.gallery_label' | t }}"
         >
           {%- for media in product.media -%}
-            {%- assign media_alt = media.alt | default: product.title | escape -%}
+            {%- if media.media_type == 'image' -%}
+              {%- assign media_alt = media.alt | default: product.title | escape -%}
+              {%- assign media_src = media | image_url: width: 1400 -%}
+              {%- assign media_srcset = media | image_url: width: 600 | append: ' 600w, ' -%}
+              {%- assign media_srcset = media_srcset | append: media | image_url: width: 900 | append: ' 900w, ' -%}
+              {%- assign media_srcset = media_srcset | append: media | image_url: width: 1200 | append: ' 1200w, ' -%}
+              {%- assign media_srcset = media_srcset | append: media | image_url: width: 1400 | append: ' 1400w' -%}
+              <button
+                type="button"
+                class="kaza-product__thumb{% if forloop.first %} is-active{% endif %}"
+                data-media-src="{{ media_src }}"
+                data-media-srcset="{{ media_srcset }}"
+                data-media-alt="{{ media_alt }}"
+                aria-label="{{ media_alt }}"
+                aria-pressed="{% if forloop.first %}true{% else %}false{% endif %}"
+                role="listitem"
+              >
+                {{ media | image_url: width: 200 | image_tag: loading: 'lazy', alt: media_alt }}
+              </button>
+            {%- endif -%}
+          {%- endfor -%}
+        </div>
+      {%- elsif use_product_media == false -%}
+        <div
+          class="kaza-product__thumbs"
+          role="list"
+          aria-label="{{ 'sections.kaza_product.gallery_label' | t }}"
+        >
+          {%- assign fallback_gallery = 'pro1.webp,pro2.webp,pro3.webp,pro4.webp' | split: ',' -%}
+          {%- for image_name in fallback_gallery -%}
             <button
               type="button"
-              class="kaza-product__thumb{%- if forloop.first %} is-active{%- endif %}"
-              data-media-src="{{ media | image_url: width: 1000 }}"
-              aria-label="{{ media_alt }}"
-              aria-pressed="{%- if forloop.first -%}true{%- else -%}false{%- endif -%}"
+              class="kaza-product__thumb{% if forloop.first %} is-active{% endif %}"
+              data-media-src="{{ image_name | asset_url }}"
+              data-media-alt="{{ product.title | escape }}"
+              aria-label="{{ 'sections.kaza_product.gallery_image' | t: number: forloop.index }}"
+              aria-pressed="{% if forloop.first %}true{% else %}false{% endif %}"
               role="listitem"
             >
-              {{
-                media
-                | image_url: width: 160
-                | image_tag: loading: 'lazy', alt: media_alt
-              }}
+              <img
+                src="{{ image_name | asset_url }}"
+                alt=""
+                width="200"
+                height="200"
+                loading="lazy"
+              >
             </button>
           {%- endfor -%}
         </div>
       {%- endif -%}
     </div>
 
-    {%- comment -%}——— Product info ———{%- endcomment -%}
     <div class="kaza-product__content">
       <h1 class="kaza-product__title">{{ product.title }}</h1>
 
@@ -72,44 +109,54 @@
         <div class="kaza-product__description">{{ product.description }}</div>
       {%- endif -%}
 
-      {%- comment -%}——— Benefit rows ———{%- endcomment -%}
-      {%- assign has_benefits = false -%}
-      {%- for block in section.blocks -%}
-        {%- if block.type == 'benefit' -%}
-          {%- assign has_benefits = true -%}
-          {%- break -%}
-        {%- endif -%}
-      {%- endfor -%}
-
-      {%- if has_benefits -%}
+      {%- assign benefit_blocks = section.blocks | where: 'type', 'benefit' -%}
+      {%- if benefit_blocks.size > 0 -%}
         <div class="kaza-product__benefits">
-          {%- for block in section.blocks -%}
-            {%- if block.type == 'benefit' -%}
-              <div class="kaza-product__benefit" {{ block.shopify_attributes }}>
-                <div class="kaza-product__benefit-icon" aria-hidden="true">
-                  {%- if block.settings.icon != blank -%}
-                    {{
-                      block.settings.icon
-                      | image_url: width: 64
-                      | image_tag: loading: 'lazy', alt: ''
-                    }}
-                  {%- endif -%}
-                </div>
-                <div class="kaza-product__benefit-body">
-                  {%- if block.settings.title != blank -%}
-                    <strong class="kaza-product__benefit-title">{{ block.settings.title }}</strong>
-                  {%- endif -%}
-                  {%- if block.settings.text != blank -%}
-                    <p class="kaza-product__benefit-text">{{ block.settings.text }}</p>
-                  {%- endif -%}
-                </div>
+          {%- assign benefit_index = 0 -%}
+          {%- for block in benefit_blocks -%}
+            {%- assign benefit_index = benefit_index | plus: 1 -%}
+            {%- liquid
+              assign benefit_icon = block.settings.icon
+              if benefit_icon == blank
+                case benefit_index
+                  when 1
+                    assign benefit_icon_fallback = 'p1.webp'
+                  when 2
+                    assign benefit_icon_fallback = 'p2.webp'
+                  when 3
+                    assign benefit_icon_fallback = 'p3.webp'
+                  else
+                    assign benefit_icon_fallback = 'p1.webp'
+                endcase
+              endif
+            -%}
+            <div class="kaza-product__benefit" {{ block.shopify_attributes }}>
+              <div class="kaza-product__benefit-icon" aria-hidden="true">
+                {%- if benefit_icon != blank -%}
+                  {{ benefit_icon | image_url: width: 80 | image_tag: loading: 'lazy', alt: '' }}
+                {%- else -%}
+                  <img
+                    src="{{ benefit_icon_fallback | asset_url }}"
+                    alt=""
+                    width="80"
+                    height="80"
+                    loading="lazy"
+                  >
+                {%- endif -%}
               </div>
-            {%- endif -%}
+              <div class="kaza-product__benefit-body">
+                {%- if block.settings.title != blank -%}
+                  <strong class="kaza-product__benefit-title">{{ block.settings.title }}</strong>
+                {%- endif -%}
+                {%- if block.settings.text != blank -%}
+                  <p class="kaza-product__benefit-text">{{ block.settings.text }}</p>
+                {%- endif -%}
+              </div>
+            </div>
           {%- endfor -%}
         </div>
       {%- endif -%}
 
-      {%- comment -%}——— Powered by ———{%- endcomment -%}
       {%- if section.settings.powered_by_text != blank -%}
         <p class="kaza-product__powered">
           <strong>{{ 'sections.kaza_product.powered_by' | t }}:</strong>
@@ -117,631 +164,73 @@
         </p>
       {%- endif -%}
 
-      {%- comment -%}——— Product form ———{%- endcomment -%}
       {%- form 'product', product, id: product_form_id, novalidate: 'novalidate' -%}
-        <input
-          type="hidden"
-          name="id"
-          id="kaza-variant-id-{{ section.id }}"
-          value="{{ current_variant.id }}"
-        >
+        <input type="hidden" name="id" value="{{ current_variant.id }}">
 
-        <div class="kaza-product__purchase" id="kaza-purchase-{{ section.id }}">
+        <div class="kaza-product__form-footer">
+          <p class="kaza-product__price-line">
+            {%- if current_variant.compare_at_price > current_variant.price -%}
+              <s class="kaza-product__compare-price">{{ current_variant.compare_at_price | money }}</s>
+            {%- endif -%}
+            <span class="kaza-product__price">{{ current_variant.price | money }}</span>
+          </p>
 
-          {%- if has_selling_plans -%}
-            {%- comment -%}——— Subscribe & Save ———{%- endcomment -%}
-            <label
-              class="kaza-product__option kaza-product__option--subscribe is-selected"
-              data-option-type="subscribe"
-            >
-              <input
-                type="radio"
-                name="purchase_type_{{ section.id }}"
-                value="subscribe"
-                class="kaza-visually-hidden"
-                checked
-                aria-label="{{ section.settings.subscribe_label | default: 'Subscribe & Save' }}"
-              >
-              <span class="kaza-product__option-radio" aria-hidden="true"></span>
-              <div class="kaza-product__option-content">
-                <div class="kaza-product__option-top">
-                  <span class="kaza-product__option-label">
-                    {{- section.settings.subscribe_label | default: 'Subscribe & Save' -}}
-                  </span>
-                  <div class="kaza-product__option-pricing">
-                    {%- if current_variant.compare_at_price > current_variant.price -%}
-                      <s class="kaza-product__compare-price">
-                        {{ current_variant.compare_at_price | money }}
-                      </s>
-                    {%- endif -%}
-                    <span class="kaza-product__price">
-                      {{ current_variant.price | money }}
-                    </span>
-                  </div>
-                </div>
-
-                <div class="kaza-product__subscribe-body">
-                  <div class="kaza-product__interval-row">
-                    <label
-                      class="kaza-product__interval-label"
-                      for="kaza-plan-select-{{ section.id }}"
-                    >
-                      {{- section.settings.order_every_label | default: 'Get your order every' -}}
-                    </label>
-                    <div class="kaza-product__select-wrap">
-                      <select
-                        class="kaza-product__interval-select"
-                        id="kaza-plan-select-{{ section.id }}"
-                        aria-label="{{ 'sections.kaza_product.interval_aria' | t }}"
-                      >
-                        {%- for selling_plan in first_plan_group.selling_plans -%}
-                          <option value="{{ selling_plan.id }}">{{ selling_plan.name }}</option>
-                        {%- endfor -%}
-                      </select>
-                      <span class="kaza-product__select-arrow" aria-hidden="true">
-                        <svg width="10" height="6" viewBox="0 0 10 6" fill="none">
-                          <path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                      </span>
-                    </div>
-                  </div>
-
-                  {%- assign has_pills = false -%}
-                  {%- for block in section.blocks -%}
-                    {%- if block.type == 'subscribe_pill' -%}
-                      {%- assign has_pills = true -%}
-                      {%- break -%}
-                    {%- endif -%}
-                  {%- endfor -%}
-
-                  {%- if has_pills -%}
-                    <div class="kaza-product__subscribe-pills">
-                      {%- for block in section.blocks -%}
-                        {%- if block.type == 'subscribe_pill' -%}
-                          <span class="kaza-product__subscribe-pill" {{ block.shopify_attributes }}>
-                            {%- if block.settings.icon_type == 'cancel' -%}
-                              <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
-                                <path d="M9 3L3 9M3 3l6 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-                              </svg>
-                            {%- elsif block.settings.icon_type == 'check' -%}
-                              <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
-                                <path d="M2 6l3 3 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                              </svg>
-                            {%- elsif block.settings.icon_type == 'delivery' -%}
-                              <svg width="16" height="12" viewBox="0 0 16 12" fill="none" aria-hidden="true">
-                                <rect x="0.75" y="2.75" width="9.5" height="7.5" rx="0.75" stroke="currentColor" stroke-width="1.2"/>
-                                <path d="M10.25 4.75h3l1.5 3v2.5h-4.5V4.75z" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round"/>
-                                <circle cx="3.25" cy="10.75" r="1" fill="currentColor"/>
-                                <circle cx="11.75" cy="10.75" r="1" fill="currentColor"/>
-                              </svg>
-                            {%- endif -%}
-                            {{- block.settings.text -}}
-                          </span>
-                        {%- endif -%}
-                      {%- endfor -%}
-                    </div>
-                  {%- endif -%}
-                </div>
-              </div>
-            </label>
-
-            <input
-              type="hidden"
-              name="selling_plan"
-              id="kaza-selling-plan-{{ section.id }}"
-              value="{{ first_selling_plan.id }}"
-            >
-          {%- endif -%}
-
-          {%- comment -%}——— One time purchase ———{%- endcomment -%}
-          <label
-            class="kaza-product__option{%- unless has_selling_plans %} is-selected{%- endunless %}"
-            data-option-type="onetime"
+          <button
+            type="submit"
+            name="add"
+            class="kaza-btn kaza-btn--primary kaza-product__cta"
+            {% unless current_variant.available %}disabled aria-disabled="true"{% endunless %}
           >
-            <input
-              type="radio"
-              name="purchase_type_{{ section.id }}"
-              value="onetime"
-              class="kaza-visually-hidden"
-              {%- unless has_selling_plans -%}checked{%- endunless -%}
-              aria-label="{{ section.settings.one_time_label | default: 'One Time Purchase' }}"
-            >
-            <span class="kaza-product__option-radio" aria-hidden="true"></span>
-            <div class="kaza-product__option-content">
-              <div class="kaza-product__option-top">
-                <span class="kaza-product__option-label">
-                  {{- section.settings.one_time_label | default: 'One Time Purchase' -}}
-                </span>
-                <span class="kaza-product__price">
-                  {{ current_variant.price | money }}
-                </span>
-              </div>
-            </div>
-          </label>
-
+            <span>{{ section.settings.cta_label | default: 'Shop the Serum' }}</span>
+            <svg class="kaza-product__cta-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M6 6h15l-1.5 9h-12z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
+              <path d="M6 6 5 3H2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <circle cx="9" cy="20" r="1.25" fill="currentColor"/>
+              <circle cx="18" cy="20" r="1.25" fill="currentColor"/>
+            </svg>
+          </button>
         </div>
-
-        <button
-          type="submit"
-          class="kaza-btn kaza-btn--primary kaza-product__cta"
-          {%- unless current_variant.available -%}disabled aria-disabled="true"{%- endunless -%}
-        >
-          <span>{{ section.settings.cta_label | default: 'Shop the Serum' }}</span>
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-            <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
-            <line x1="3" y1="6" x2="21" y2="6" stroke="currentColor" stroke-width="2"/>
-            <path d="M16 10a4 4 0 01-8 0" stroke="currentColor" stroke-width="2"/>
-          </svg>
-        </button>
       {%- endform -%}
-
     </div>
   </div>
 </section>
 
-{% stylesheet %}
-.kaza-product {
-  padding-block: var(--kaza-section-y);
-}
-
-.kaza-product__inner {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-  gap: clamp(2rem, 4vw, 4rem);
-  align-items: start;
-}
-
-/* Gallery */
-.kaza-product__gallery {
-  position: sticky;
-  top: calc(var(--kaza-header-height) + 1.5rem);
-  display: flex;
-  flex-direction: column;
-  gap: 0.75rem;
-}
-
-.kaza-product__main-media {
-  border-radius: var(--kaza-radius-card);
-  overflow: hidden;
-  background: var(--kaza-beige);
-  aspect-ratio: 1 / 1;
-}
-
-.kaza-product__main-img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
-
-.kaza-product__main-img--placeholder {
-  width: 100%;
-  height: 100%;
-  display: block;
-  color: var(--kaza-beige-dark);
-}
-
-.kaza-product__thumbs {
-  display: flex;
-  gap: 0.625rem;
-}
-
-.kaza-product__thumb {
-  flex: 1 1 0;
-  min-width: 0;
-  border-radius: var(--kaza-radius-input);
-  overflow: hidden;
-  border: 2px solid transparent;
-  padding: 0;
-  cursor: pointer;
-  background: var(--kaza-beige);
-  transition: border-color var(--kaza-transition);
-  aspect-ratio: 1 / 1;
-}
-
-.kaza-product__thumb img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
-
-.kaza-product__thumb.is-active,
-.kaza-product__thumb:hover {
-  border-color: var(--kaza-black);
-}
-
-.kaza-product__thumb:focus-visible {
-  outline: 2px solid var(--kaza-gold);
-  outline-offset: 2px;
-}
-
-/* Content */
-.kaza-product__content {
-  display: flex;
-  flex-direction: column;
-}
-
-.kaza-product__title {
-  font-size: clamp(2rem, 3.5vw, 2.75rem);
-  font-weight: 700;
-  line-height: 1.1;
-  letter-spacing: -0.02em;
-  color: var(--kaza-black);
-  margin: 0 0 0.5rem;
-}
-
-.kaza-product__subtitle {
-  font-size: 1rem;
-  font-weight: 700;
-  line-height: 1.5;
-  color: var(--kaza-black);
-  margin: 0 0 0.875rem;
-}
-
-.kaza-product__description {
-  font-size: 0.9375rem;
-  line-height: 1.65;
-  color: var(--kaza-gray);
-  margin-bottom: 1.25rem;
-}
-
-.kaza-product__description p {
-  margin: 0;
-}
-
-/* Benefits */
-.kaza-product__benefits {
-  border-top: 1px solid var(--kaza-beige-dark);
-  margin-bottom: 1.25rem;
-}
-
-.kaza-product__benefit {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  padding-block: 0.875rem;
-  border-bottom: 1px solid var(--kaza-beige-dark);
-}
-
-.kaza-product__benefit-icon {
-  flex-shrink: 0;
-  width: 2.75rem;
-  height: 2.75rem;
-  border-radius: 50%;
-  background: var(--kaza-black);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-}
-
-.kaza-product__benefit-icon img {
-  width: 1.375rem;
-  height: 1.375rem;
-  object-fit: contain;
-  filter: brightness(0) invert(1);
-}
-
-.kaza-product__benefit-body {
-  flex: 1;
-  min-width: 0;
-}
-
-.kaza-product__benefit-title {
-  display: block;
-  font-size: 0.6875rem;
-  font-weight: 700;
-  letter-spacing: 0.09em;
-  text-transform: uppercase;
-  color: var(--kaza-black);
-  line-height: 1.4;
-  margin-bottom: 0.1875rem;
-}
-
-.kaza-product__benefit-text {
-  font-size: 0.8125rem;
-  line-height: 1.5;
-  color: var(--kaza-gray);
-  margin: 0;
-}
-
-/* Powered by */
-.kaza-product__powered {
-  font-size: 0.875rem;
-  line-height: 1.65;
-  color: var(--kaza-black);
-  margin: 0 0 1.5rem;
-}
-
-.kaza-product__powered strong {
-  font-weight: 700;
-}
-
-/* Purchase options */
-.kaza-product__purchase {
-  background: var(--kaza-beige);
-  border-radius: var(--kaza-radius-card);
-  padding: 0.3125rem;
-  margin-bottom: 1rem;
-  display: flex;
-  flex-direction: column;
-}
-
-.kaza-product__option {
-  display: flex;
-  align-items: flex-start;
-  gap: 0.875rem;
-  padding: 1rem 1.125rem;
-  border-radius: calc(var(--kaza-radius-card) - 0.3125rem);
-  cursor: pointer;
-  transition: background-color var(--kaza-transition), box-shadow var(--kaza-transition);
-}
-
-.kaza-product__option.is-selected {
-  background: var(--kaza-white);
-  box-shadow: var(--kaza-shadow-card);
-}
-
-.kaza-product__option-radio {
-  flex-shrink: 0;
-  width: 1.125rem;
-  height: 1.125rem;
-  border-radius: 50%;
-  border: 2px solid var(--kaza-beige-dark);
-  background: var(--kaza-white);
-  margin-top: 0.125rem;
-  position: relative;
-  transition: border-color var(--kaza-transition), background-color var(--kaza-transition);
-}
-
-.kaza-product__option.is-selected .kaza-product__option-radio {
-  border-color: #d4704a;
-  background: #d4704a;
-}
-
-.kaza-product__option.is-selected .kaza-product__option-radio::after {
-  content: '';
-  position: absolute;
-  inset: 3px;
-  border-radius: 50%;
-  background: var(--kaza-white);
-}
-
-.kaza-product__option-content {
-  flex: 1;
-  min-width: 0;
-}
-
-.kaza-product__option-top {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 0.75rem;
-}
-
-.kaza-product__option-label {
-  font-size: 0.9375rem;
-  font-weight: 600;
-  color: var(--kaza-black);
-  line-height: 1.3;
-}
-
-.kaza-product__option-pricing {
-  display: flex;
-  align-items: center;
-  gap: 0.4375rem;
-  flex-shrink: 0;
-}
-
-.kaza-product__compare-price {
-  font-size: 0.875rem;
-  font-weight: 400;
-  color: var(--kaza-gray);
-  text-decoration: line-through;
-}
-
-.kaza-product__price {
-  font-size: 1.375rem;
-  font-weight: 700;
-  color: var(--kaza-black);
-  line-height: 1;
-}
-
-.kaza-product__subscribe-body {
-  margin-top: 0.875rem;
-  display: flex;
-  flex-direction: column;
-  gap: 0.75rem;
-}
-
-.kaza-product__option--subscribe:not(.is-selected) .kaza-product__subscribe-body {
-  display: none;
-}
-
-.kaza-product__interval-row {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  flex-wrap: wrap;
-}
-
-.kaza-product__interval-label {
-  font-size: 0.875rem;
-  color: var(--kaza-gray);
-  flex-shrink: 0;
-}
-
-.kaza-product__select-wrap {
-  position: relative;
-  display: inline-flex;
-  align-items: center;
-}
-
-.kaza-product__interval-select {
-  appearance: none;
-  -webkit-appearance: none;
-  border: 1px solid var(--kaza-beige-dark);
-  border-radius: var(--kaza-radius-input);
-  padding: 0.4375rem 2.125rem 0.4375rem 0.75rem;
-  font-size: 0.875rem;
-  font-weight: 500;
-  color: var(--kaza-black);
-  background: var(--kaza-white);
-  font-family: inherit;
-  cursor: pointer;
-  line-height: 1.4;
-  transition: border-color var(--kaza-transition);
-}
-
-.kaza-product__interval-select:focus-visible {
-  outline: 2px solid var(--kaza-gold);
-  outline-offset: 2px;
-  border-color: var(--kaza-black);
-}
-
-.kaza-product__select-arrow {
-  position: absolute;
-  right: 0.625rem;
-  color: var(--kaza-black);
-  pointer-events: none;
-  display: flex;
-  align-items: center;
-}
-
-.kaza-product__subscribe-pills {
-  display: flex;
-  align-items: center;
-  gap: 0.875rem;
-  flex-wrap: wrap;
-}
-
-.kaza-product__subscribe-pill {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.3125rem;
-  font-size: 0.6875rem;
-  color: var(--kaza-gray);
-  white-space: nowrap;
-}
-
-.kaza-product__subscribe-pill svg {
-  flex-shrink: 0;
-  color: var(--kaza-gray);
-}
-
-/* CTA */
-.kaza-product__cta {
-  width: 100%;
-  padding: 1.0625rem 2rem;
-  font-size: 1rem;
-  font-weight: 700;
-  letter-spacing: 0.01em;
-  text-transform: none;
-  gap: 0.75rem;
-}
-
-.kaza-product__cta:disabled,
-.kaza-product__cta[aria-disabled='true'] {
-  opacity: 0.45;
-  cursor: not-allowed;
-}
-
-/* Responsive */
-@media only screen and (max-width: 991px) {
-  .kaza-product__inner {
-    gap: 2rem;
-  }
-
-  .kaza-product__subscribe-pills {
-    gap: 0.5rem;
-  }
-}
-
-@media only screen and (max-width: 767px) {
-  .kaza-product__inner {
-    grid-template-columns: 1fr;
-  }
-
-  .kaza-product__gallery {
-    position: static;
-  }
-
-  .kaza-product__title {
-    font-size: 2rem;
-  }
-}
-{% endstylesheet %}
-
 {% javascript %}
-document.addEventListener('DOMContentLoaded', function () {
-  document.querySelectorAll('.kaza-product').forEach(function (section) {
-    initKazaProduct(section);
-  });
-});
+  (function () {
+    document.querySelectorAll('[data-kaza-product]').forEach((section) => {
+      const gallery = section.querySelector('.kaza-product__gallery');
+      if (!gallery) return;
 
-function initKazaProduct(section) {
-  var gallery = section.querySelector('.kaza-product__gallery');
-  var purchase = section.querySelector('.kaza-product__purchase');
+      const mainImg = gallery.querySelector('.kaza-product__main-img');
+      const thumbs = [...gallery.querySelectorAll('.kaza-product__thumb')];
+      if (!mainImg || thumbs.length <= 1) return;
 
-  // Gallery thumbnail swap
-  if (gallery) {
-    var mainImg = gallery.parentElement.querySelector('.kaza-product__main-img');
-    var thumbs = gallery.querySelectorAll('.kaza-product__thumb');
-
-    thumbs.forEach(function (thumb) {
-      thumb.addEventListener('click', function () {
-        thumbs.forEach(function (t) {
-          t.classList.remove('is-active');
-          t.setAttribute('aria-pressed', 'false');
+      const setActive = (thumb) => {
+        thumbs.forEach((item) => {
+          item.classList.toggle('is-active', item === thumb);
+          item.setAttribute('aria-pressed', item === thumb ? 'true' : 'false');
         });
-        thumb.classList.add('is-active');
-        thumb.setAttribute('aria-pressed', 'true');
-        if (mainImg && thumb.dataset.mediaSrc) {
+
+        if (thumb.dataset.mediaSrc) {
           mainImg.src = thumb.dataset.mediaSrc;
         }
-      });
-    });
-  }
 
-  // Purchase type toggle
-  if (purchase) {
-    var options = purchase.querySelectorAll('.kaza-product__option');
-    var sellingPlanInput = section.querySelector('[name="selling_plan"]');
-    var planSelect = purchase.querySelector('.kaza-product__interval-select');
-
-    purchase.querySelectorAll('input[type="radio"]').forEach(function (radio) {
-      radio.addEventListener('change', function () {
-        if (!radio.checked) return;
-
-        options.forEach(function (o) {
-          o.classList.remove('is-selected');
-        });
-
-        var parentOption = radio.closest('.kaza-product__option');
-        if (parentOption) {
-          parentOption.classList.add('is-selected');
-
-          var type = parentOption.dataset.optionType;
-          if (sellingPlanInput) {
-            if (type === 'subscribe') {
-              sellingPlanInput.disabled = false;
-              if (planSelect) sellingPlanInput.value = planSelect.value;
-            } else {
-              sellingPlanInput.disabled = true;
-            }
-          }
+        if (thumb.dataset.mediaSrcset) {
+          mainImg.srcset = thumb.dataset.mediaSrcset;
+        } else {
+          mainImg.removeAttribute('srcset');
         }
+
+        if (thumb.dataset.mediaAlt) {
+          mainImg.alt = thumb.dataset.mediaAlt;
+        }
+      };
+
+      thumbs.forEach((thumb) => {
+        thumb.addEventListener('click', () => setActive(thumb));
       });
     });
-
-    if (planSelect && sellingPlanInput) {
-      planSelect.addEventListener('change', function () {
-        sellingPlanInput.value = planSelect.value;
-      });
-    }
-  }
-}
+  })();
 {% endjavascript %}
 
 {% schema %}
@@ -758,25 +247,7 @@ function initKazaProduct(section) {
       "type": "textarea",
       "id": "powered_by_text",
       "label": "t:sections.kaza_product.settings.powered_by_text",
-      "default": "DHQG \u2022 EGCG \u2022 Zinc PCA \u2022 Oleanolic Acid \u2022 Apigenin \u2022 Biotinoyl Tripeptide-1 (2.0% total inclusion)"
-    },
-    {
-      "type": "text",
-      "id": "subscribe_label",
-      "label": "t:sections.kaza_product.settings.subscribe_label",
-      "default": "Subscribe & Save"
-    },
-    {
-      "type": "text",
-      "id": "one_time_label",
-      "label": "t:sections.kaza_product.settings.one_time_label",
-      "default": "One Time Purchase"
-    },
-    {
-      "type": "text",
-      "id": "order_every_label",
-      "label": "t:sections.kaza_product.settings.order_every_label",
-      "default": "Get your order every"
+      "default": "DHQG • EGCG • Zinc PCA • Oleanolic Acid • Apigenin • Biotinoyl Tripeptide-1 (2.0% total inclusion)"
     },
     {
       "type": "text",
@@ -789,6 +260,7 @@ function initKazaProduct(section) {
     {
       "type": "benefit",
       "name": "t:sections.kaza_product.blocks.benefit.name",
+      "limit": 6,
       "settings": [
         {
           "type": "image_picker",
@@ -802,34 +274,10 @@ function initKazaProduct(section) {
           "default": "Thicker strands over time"
         },
         {
-          "type": "text",
+          "type": "textarea",
           "id": "text",
           "label": "t:labels.text",
           "default": "Supports thicker, fuller-looking hair by strengthening follicles."
-        }
-      ]
-    },
-    {
-      "type": "subscribe_pill",
-      "name": "t:sections.kaza_product.blocks.subscribe_pill.name",
-      "limit": 5,
-      "settings": [
-        {
-          "type": "select",
-          "id": "icon_type",
-          "label": "t:sections.kaza_product.blocks.subscribe_pill.settings.icon_type",
-          "options": [
-            { "value": "cancel", "label": "t:sections.kaza_product.blocks.subscribe_pill.settings.icon_cancel" },
-            { "value": "check", "label": "t:sections.kaza_product.blocks.subscribe_pill.settings.icon_check" },
-            { "value": "delivery", "label": "t:sections.kaza_product.blocks.subscribe_pill.settings.icon_delivery" }
-          ],
-          "default": "check"
-        },
-        {
-          "type": "text",
-          "id": "text",
-          "label": "t:labels.text",
-          "default": "Save 20% on your first shipment"
         }
       ]
     }
@@ -858,18 +306,6 @@ function initKazaProduct(section) {
             "title": "Healthier scalp feel and appearance",
             "text": "Supports thicker, fuller-looking hair by strengthening follicles."
           }
-        },
-        {
-          "type": "subscribe_pill",
-          "settings": { "icon_type": "cancel", "text": "Cancel anytime" }
-        },
-        {
-          "type": "subscribe_pill",
-          "settings": { "icon_type": "check", "text": "Save 20% on your first shipment" }
-        },
-        {
-          "type": "subscribe_pill",
-          "settings": { "icon_type": "delivery", "text": "Then 10% on all Shipments" }
         }
       ]
     }

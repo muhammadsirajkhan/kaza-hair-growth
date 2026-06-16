@@ -172,7 +172,17 @@
     "kaza_product": {
       "powered_by": "Powered by",
       "gallery_label": "Product images",
-      "interval_aria": "Delivery interval"
+      "gallery_image": "Product image {{ number }}",
+      "blocks": {
+        "benefit": {
+          "name": "Benefit row"
+        }
+      },
+      "settings": {
+        "subtitle": "Product subtitle",
+        "powered_by_text": "Powered by ingredients",
+        "cta_label": "Button label"
+      }
     },
     "kaza_footer": {
       "name": "Footer",
