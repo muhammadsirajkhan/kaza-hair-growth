@@ -34,7 +34,11 @@
           }
         }
       },
-      "block_order": ["benefit_1", "benefit_2", "benefit_3"],
+      "block_order": [
+        "benefit_1",
+        "benefit_2",
+        "benefit_3"
+      ],
       "settings": {
         "subtitle": "Our breakthrough cosmetic active for visibly fuller-looking hair",
         "powered_by_text": "DHQG • EGCG • Zinc PCA • Oleanolic Acid • Apigenin • Biotinoyl Tripeptide-1 (2.0% total inclusion)",
@@ -73,7 +77,12 @@
           }
         }
       },
-      "block_order": ["ingredient_1", "ingredient_2", "ingredient_3", "ingredient_4"],
+      "block_order": [
+        "ingredient_1",
+        "ingredient_2",
+        "ingredient_3",
+        "ingredient_4"
+      ],
       "settings": {
         "badge_text": "Welcome to Kaza",
         "heading_prefix": "What's inside",
@@ -161,7 +170,8 @@
           "settings": {
             "heading": "Visible results with consistency",
             "text": "Use 1–2× daily on clean, dry scalp. Most users report improved density with less shedding over 8–12 weeks of consistent use. Individual results vary.",
-            "steps_heading": "How to Apply"
+            "steps_heading": "How to Apply",
+            "image": "shopify://shop_images/left-new.webp"
           }
         },
         "step_1": {
