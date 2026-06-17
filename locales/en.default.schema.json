@@ -316,6 +316,29 @@
         }
       }
     },
+    "kaza_faq": {
+      "name": "FAQ",
+      "settings": {
+        "badge_text": "Badge text",
+        "heading_prefix": "Heading prefix",
+        "heading_highlight": "Heading highlight",
+        "question": "Question",
+        "answer": "Answer"
+      },
+      "blocks": {
+        "question": {
+          "name": "Question"
+        }
+      }
+    },
+    "kaza_sub_banner": {
+      "name": "Sub banner",
+      "settings": {
+        "heading_prefix": "Heading prefix",
+        "heading_highlight": "Heading highlight",
+        "heading_suffix": "Heading suffix"
+      }
+    },
     "kaza_footer": {
       "name": "Footer",
       "settings": {

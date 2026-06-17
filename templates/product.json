@@ -220,6 +220,60 @@
       ],
       "settings": {}
     },
+    "kaza_faq": {
+      "type": "kaza-faq",
+      "blocks": {
+        "question_1": {
+          "type": "question",
+          "settings": {
+            "question": "Is Rootalix™ a drug?",
+            "answer": "<p>No. Rootalix™ is a cosmetic active used in leave-on scalp products to improve the appearance of density and reduce visible shedding.</p>"
+          }
+        },
+        "question_2": {
+          "type": "question",
+          "settings": {
+            "question": "Can I stack it with caffeine or rosemary?",
+            "answer": "<p>Yes. Rootalix™ is formulated to work alongside caffeine and rosemary—two actives already included in the KAZA Hair Density Serum formula.</p>"
+          }
+        },
+        "question_3": {
+          "type": "question",
+          "settings": {
+            "question": "When will I see results?",
+            "answer": "<p>Most users report visible improvements in shedding and density over 8–12 weeks of consistent daily use. Individual results vary.</p>"
+          }
+        },
+        "question_4": {
+          "type": "question",
+          "settings": {
+            "question": "Is it safe for daily use?",
+            "answer": "<p>Yes. Rootalix™ is designed for daily, leave-on application on clean, dry scalp.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "question_1",
+        "question_2",
+        "question_3",
+        "question_4"
+      ],
+      "settings": {
+        "badge_text": "Welcome to Kaza",
+        "heading_prefix": "Frequently Asked",
+        "heading_highlight": "Questions"
+      }
+    },
+    "kaza_sub_banner": {
+      "type": "kaza-sub-banner",
+      "settings": {
+        "heading_prefix": "Add",
+        "heading_highlight": "Rootalix™",
+        "heading_suffix": "to your routine",
+        "text": "KAZA Hair Density Serum — Powered by Rootalix™, Caffeine, and Rosemary",
+        "button_label": "Shop the Serum"
+      }
+    },
     "kaza_challenge_JwDE9z": {
       "type": "kaza-challenge",
       "blocks": {
@@ -301,6 +355,8 @@
     "kaza_whats_inside",
     "kaza_why_choose_Pf3KHL",
     "kaza_product_promo",
+    "kaza_faq",
+    "kaza_sub_banner",
     "kaza_challenge_JwDE9z"
   ]
 }

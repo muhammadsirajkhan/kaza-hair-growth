@@ -2464,6 +2464,217 @@ body.template-index header.kaza-header {
   color: rgba(255, 255, 255, 0.55);
 }
 
+/* --- kaza-faq.liquid --- */
+.kaza-faq {
+  padding-block: var(--kaza-section-y);
+  background: var(--kaza-white);
+}
+
+.kaza-faq__header {
+  margin-bottom: clamp(2.5rem, 5vw, 3.5rem);
+}
+
+.kaza-faq__list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.875rem;
+  max-width: 100%;
+  margin-inline: auto;
+}
+
+.kaza-faq__item {
+  border: 1px solid #e3e3e3;
+  border-radius: var(--kaza-radius-pill);
+  background: var(--kaza-white);
+  overflow: hidden;
+  transition: background var(--kaza-transition), border-color var(--kaza-transition), box-shadow var(--kaza-transition);
+}
+
+.kaza-faq__item.is-open {
+  border-color: #ececec;
+  background: #f7f7f7;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.04);
+}
+
+.kaza-faq__trigger {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  width: 100%;
+  padding: 1.125rem 1.5rem;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  text-align: left;
+  font: inherit;
+  color: var(--kaza-black);
+}
+
+.kaza-faq__trigger:focus-visible {
+  outline: 2px solid var(--kaza-gold);
+  outline-offset: -2px;
+}
+
+.kaza-faq__question {
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.45;
+  letter-spacing: -0.01em;
+}
+
+.kaza-faq__icon {
+  position: relative;
+  flex-shrink: 0;
+  width: 1.125rem;
+  height: 1.125rem;
+}
+
+.kaza-faq__icon::before,
+.kaza-faq__icon::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  background: var(--kaza-black);
+  transform: translate(-50%, -50%);
+  transition: transform var(--kaza-transition), opacity var(--kaza-transition);
+}
+
+.kaza-faq__icon::before {
+  width: 0.875rem;
+  height: 1.5px;
+}
+
+.kaza-faq__icon::after {
+  width: 1.5px;
+  height: 0.875rem;
+}
+
+.kaza-faq__item.is-open .kaza-faq__icon::after {
+  transform: translate(-50%, -50%) scaleY(0);
+  opacity: 0;
+}
+
+.kaza-faq__panel {
+  padding: 0 1.5rem 1.25rem;
+}
+
+.kaza-faq__answer {
+  font-size: var(--kaza-fs-section-content);
+  line-height: 1.6;
+  color: var(--kaza-gray);
+}
+
+.kaza-faq__answer p {
+  margin: 0;
+}
+
+/* --- kaza-sub-banner.liquid --- */
+.kaza-sub-banner {
+  padding-block: 0 var(--kaza-section-y);
+  background: var(--kaza-white);
+}
+
+.kaza-sub-banner__card {
+  position: relative;
+  min-height: clamp(18rem, 32vw, 24rem);
+  border-radius: 1.75rem;
+  overflow: hidden;
+}
+
+.kaza-sub-banner__bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.kaza-sub-banner__bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.kaza-sub-banner__inner {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  align-items: center;
+  min-height: inherit;
+  padding: clamp(2rem, 4vw, 3rem) clamp(1.5rem, 3vw, 2.5rem);
+}
+
+.kaza-sub-banner__content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1rem;
+  max-width: 26rem;
+}
+
+.kaza-sub-banner__heading {
+  font-size: clamp(1.75rem, 3.2vw, 2.5rem);
+  font-weight: 400;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  color: var(--kaza-white);
+  margin: 0;
+}
+
+.kaza-sub-banner__heading-highlight {
+  font-weight: 700;
+}
+
+.kaza-sub-banner__text {
+  font-size: var(--kaza-fs-section-content);
+  line-height: 1.55;
+  color: rgba(255, 255, 255, 0.82);
+  margin: 0;
+  max-width: 24rem;
+}
+
+.kaza-sub-banner__btn {
+  margin-top: 0.25rem;
+  padding: 0.9375rem 1.75rem;
+  font-size: 1rem;
+  font-weight: 600;
+  text-transform: none;
+  letter-spacing: 0.01em;
+  background: #f3ebe3;
+  border-color: #f3ebe3;
+  color: var(--kaza-black);
+  gap: 0.75rem;
+}
+
+.kaza-sub-banner__btn:hover {
+  opacity: 0.92;
+}
+
+.kaza-sub-banner__btn-icon {
+  width: 1.125rem;
+  height: 1.125rem;
+  flex-shrink: 0;
+}
+
+.kaza-sub-banner__product {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  align-self: end;
+  height: 100%;
+  pointer-events: none;
+}
+
+.kaza-sub-banner__product img {
+  width: min(100%, 26rem);
+  height: auto;
+  object-fit: contain;
+  object-position: right bottom;
+  margin-bottom: -0.5rem;
+}
+
 /* --- kaza-logo.liquid --- */
 .kaza-logo {
   display: inline-flex;

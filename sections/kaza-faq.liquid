@@ -1,0 +1,173 @@
+<section class="kaza-faq full-width" data-kaza-faq>
+  <div class="kaza-container">
+    <div class="kaza-faq__header kaza-section-intro">
+      {% if section.settings.badge_text != blank %}
+        <span class="kaza-section-pill">{{ section.settings.badge_text }}</span>
+      {% endif %}
+
+      {% if section.settings.heading_prefix != blank or section.settings.heading_highlight != blank %}
+        <h2 class="kaza-section-heading">
+          {% if section.settings.heading_prefix != blank %}
+            <span class="kaza-section-heading__prefix">{{ section.settings.heading_prefix }}</span>
+          {% endif %}
+          {% if section.settings.heading_highlight != blank %}
+            <span class="kaza-section-heading__highlight">{{ section.settings.heading_highlight }}</span>
+          {% endif %}
+        </h2>
+      {% endif %}
+    </div>
+
+    {% if section.blocks.size > 0 %}
+      <div class="kaza-faq__list">
+        {% for block in section.blocks %}
+          {% if block.type == 'question' %}
+            <div class="kaza-faq__item" {{ block.shopify_attributes }}>
+              <button
+                type="button"
+                class="kaza-faq__trigger"
+                aria-expanded="{% if forloop.index == 2 %}true{% else %}false{% endif %}"
+                aria-controls="kaza-faq-panel-{{ section.id }}-{{ block.id }}"
+                id="kaza-faq-trigger-{{ section.id }}-{{ block.id }}"
+              >
+                <span class="kaza-faq__question">{{ block.settings.question }}</span>
+                <span class="kaza-faq__icon" aria-hidden="true"></span>
+              </button>
+              <div
+                class="kaza-faq__panel"
+                id="kaza-faq-panel-{{ section.id }}-{{ block.id }}"
+                role="region"
+                aria-labelledby="kaza-faq-trigger-{{ section.id }}-{{ block.id }}"
+                {% unless forloop.index == 2 %}hidden{% endunless %}
+              >
+                {% if block.settings.answer != blank %}
+                  <div class="kaza-faq__answer">{{ block.settings.answer }}</div>
+                {% endif %}
+              </div>
+            </div>
+          {% endif %}
+        {% endfor %}
+      </div>
+    {% endif %}
+  </div>
+</section>
+
+{% javascript %}
+  (function () {
+    document.querySelectorAll('[data-kaza-faq]').forEach((section) => {
+      const items = [...section.querySelectorAll('.kaza-faq__item')];
+
+      items.forEach((item) => {
+        const trigger = item.querySelector('.kaza-faq__trigger');
+        const panel = item.querySelector('.kaza-faq__panel');
+        if (!trigger || !panel) return;
+
+        trigger.addEventListener('click', () => {
+          const isOpen = trigger.getAttribute('aria-expanded') === 'true';
+
+          items.forEach((other) => {
+            const otherTrigger = other.querySelector('.kaza-faq__trigger');
+            const otherPanel = other.querySelector('.kaza-faq__panel');
+            if (!otherTrigger || !otherPanel) return;
+            otherTrigger.setAttribute('aria-expanded', 'false');
+            other.classList.remove('is-open');
+            otherPanel.hidden = true;
+          });
+
+          if (!isOpen) {
+            trigger.setAttribute('aria-expanded', 'true');
+            item.classList.add('is-open');
+            panel.hidden = false;
+          }
+        });
+      });
+
+      items.forEach((item) => {
+        const trigger = item.querySelector('.kaza-faq__trigger');
+        if (trigger?.getAttribute('aria-expanded') === 'true') {
+          item.classList.add('is-open');
+        }
+      });
+    });
+  })();
+{% endjavascript %}
+
+{% schema %}
+{
+  "name": "t:sections.kaza_faq.name",
+  "blocks": [
+    {
+      "type": "question",
+      "name": "t:sections.kaza_faq.blocks.question.name",
+      "settings": [
+        {
+          "type": "text",
+          "id": "question",
+          "label": "t:sections.kaza_faq.settings.question",
+          "default": "Is Rootalix™ a drug?"
+        },
+        {
+          "type": "richtext",
+          "id": "answer",
+          "label": "t:sections.kaza_faq.settings.answer",
+          "default": "<p>No. Rootalix™ is a cosmetic active used in leave-on scalp products to improve the appearance of density and reduce visible shedding.</p>"
+        }
+      ]
+    }
+  ],
+  "settings": [
+    {
+      "type": "text",
+      "id": "badge_text",
+      "label": "t:sections.kaza_faq.settings.badge_text",
+      "default": "Welcome to Kaza"
+    },
+    {
+      "type": "text",
+      "id": "heading_prefix",
+      "label": "t:sections.kaza_faq.settings.heading_prefix",
+      "default": "Frequently Asked"
+    },
+    {
+      "type": "text",
+      "id": "heading_highlight",
+      "label": "t:sections.kaza_faq.settings.heading_highlight",
+      "default": "Questions"
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:sections.kaza_faq.name",
+      "blocks": [
+        {
+          "type": "question",
+          "settings": {
+            "question": "Is Rootalix™ a drug?",
+            "answer": "<p>No. Rootalix™ is a cosmetic active used in leave-on scalp products to improve the appearance of density and reduce visible shedding.</p>"
+          }
+        },
+        {
+          "type": "question",
+          "settings": {
+            "question": "Can I stack it with caffeine or rosemary?",
+            "answer": "<p>Yes. Rootalix™ is formulated to work alongside caffeine and rosemary—two actives already included in the KAZA Hair Density Serum formula.</p>"
+          }
+        },
+        {
+          "type": "question",
+          "settings": {
+            "question": "When will I see results?",
+            "answer": "<p>Most users report visible improvements in shedding and density over 8–12 weeks of consistent daily use. Individual results vary.</p>"
+          }
+        },
+        {
+          "type": "question",
+          "settings": {
+            "question": "Is it safe for daily use?",
+            "answer": "<p>Yes. Rootalix™ is designed for daily, leave-on application on clean, dry scalp.</p>"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

@@ -517,6 +517,34 @@
     max-width: 14rem;
     margin-inline: auto;
   }
+
+  .kaza-faq__trigger {
+    padding: 1rem 1.25rem;
+  }
+
+  .kaza-faq__panel {
+    padding-inline: 1.25rem;
+  }
+
+  .kaza-sub-banner__inner {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    padding: 1.75rem 1.25rem 0;
+  }
+
+  .kaza-sub-banner__content {
+    max-width: none;
+    align-items: center;
+    text-align: center;
+  }
+
+  .kaza-sub-banner__product {
+    justify-content: center;
+  }
+
+  .kaza-sub-banner__product img {
+    width: min(100%, 16rem);
+  }
 }
 
 @media only screen and (min-width: 100px) and (max-width: 599px) {
