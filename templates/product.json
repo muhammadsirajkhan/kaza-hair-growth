@@ -153,41 +153,61 @@
         "show_arc": true
       }
     },
-    "kaza_promo_cards_P7XdUF": {
-      "type": "kaza-promo-cards",
+    "kaza_product_promo": {
+      "type": "kaza-product-promo",
       "blocks": {
-        "card_TWJ6iL": {
-          "type": "card",
+        "consistency_card": {
+          "type": "consistency_card",
           "settings": {
-            "card_layout": "left",
-            "heading": "No Prescription Needed.",
-            "text": "Non-systemic, zero libido impact, no prescription needed.",
-            "button_label": "Shop Now",
-            "button_url": "",
-            "show_badges": false,
-            "badge_1_text": "Visible Density Improvements.",
-            "badge_2_text": "Supports Fuller Density"
+            "heading": "Visible results with consistency",
+            "text": "Use 1–2× daily on clean, dry scalp. Most users report improved density with less shedding over 8–12 weeks of consistent use. Individual results vary.",
+            "steps_heading": "How to Apply"
           }
         },
-        "card_4QTbrx": {
-          "type": "card",
+        "step_1": {
+          "type": "step",
           "settings": {
-            "card_layout": "right",
-            "heading": "Bio-Hacked Plant Science",
-            "text": "Saw Palmetto, Green Tea, Larch Wood, Oleanolic Acid are all botanical-derived.",
-            "button_label": "Shop Now",
-            "button_url": "",
+            "text": "1. After shower or before bed, apply to target areas."
+          }
+        },
+        "step_2": {
+          "type": "step",
+          "settings": {
+            "text": "2. Massage 10–20 seconds."
+          }
+        },
+        "step_3": {
+          "type": "step",
+          "settings": {
+            "text": "3. Leave on—no rinse."
+          }
+        },
+        "step_4": {
+          "type": "step",
+          "settings": {
+            "text": "4. Track progress with monthly photos (same lighting/angle)."
+          }
+        },
+        "men_card": {
+          "type": "men_card",
+          "settings": {
+            "heading": "Built for men",
+            "subheading": "Key Actives — Rootalix™ • Caffeine • Rosemary",
             "show_badges": true,
-            "badge_1_text": "Visible Density Improvements.",
-            "badge_2_text": "Supports Fuller Density"
+            "badge_1_text": "non-oily, fast dry-down subtle finish",
+            "badge_2_text": "Fragrance: none added",
+            "badge_3_text": "Philosophy: For men, by men."
           }
         }
       },
       "block_order": [
-        "card_TWJ6iL",
-        "card_4QTbrx"
+        "consistency_card",
+        "step_1",
+        "step_2",
+        "step_3",
+        "step_4",
+        "men_card"
       ],
-      "name": "t:sections.kaza_promo_cards.name",
       "settings": {}
     },
     "kaza_challenge_JwDE9z": {
@@ -270,7 +290,7 @@
     "main",
     "kaza_whats_inside",
     "kaza_why_choose_Pf3KHL",
-    "kaza_promo_cards_P7XdUF",
+    "kaza_product_promo",
     "kaza_challenge_JwDE9z"
   ]
 }

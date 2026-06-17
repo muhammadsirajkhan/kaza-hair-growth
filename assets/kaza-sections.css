@@ -1511,6 +1511,184 @@ body.template-index header.kaza-header {
   right: 6%;
 }
 
+/* --- kaza-product-promo.liquid --- */
+.kaza-product-promo {
+  padding-block: var(--kaza-section-y);
+  background: var(--kaza-white);
+}
+
+.kaza-product-promo .kaza-container {
+  width: 100%;
+  padding-inline: 15px;
+}
+
+.kaza-product-promo__grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(0.875rem, 1.5vw, 1.25rem);
+}
+
+.kaza-product-promo__card {
+  position: relative;
+  min-height: clamp(28rem, 46vw, 36rem);
+  border-radius: var(--kaza-radius-card);
+  overflow: hidden;
+  aspect-ratio: 939 / 1043;
+}
+
+.kaza-product-promo__card--left {
+  display: flex;
+  flex-direction: column;
+  background: #f5e1d2;
+}
+
+.kaza-product-promo__card--right {
+  display: flex;
+  flex-direction: column;
+}
+
+.kaza-product-promo__bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.kaza-product-promo__bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+}
+
+.kaza-product-promo__content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: clamp(2rem, 3.5vw, 2.75rem) clamp(1.25rem, 2.5vw, 2rem) 0;
+  gap: 0.75rem;
+}
+
+.kaza-product-promo__heading {
+  font-size: var(--kaza-fs-promo);
+  font-weight: 700;
+  line-height: 1.22;
+  letter-spacing: -0.015em;
+  color: var(--kaza-black);
+  max-width: 22rem;
+  margin: 0;
+}
+
+.kaza-product-promo__text {
+  font-size: var(--kaza-fs-section-content);
+  line-height: 1.55;
+  color: #4a4a4a;
+  max-width: 24rem;
+  margin: 0;
+}
+
+.kaza-product-promo__subheading {
+  font-size: var(--kaza-fs-section-content);
+  line-height: 1.5;
+  color: #5a5a5a;
+  max-width: 24rem;
+  margin: 0;
+}
+
+.kaza-product-promo__steps-heading {
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.4;
+  color: var(--kaza-black);
+  margin: 0.5rem 0 0;
+}
+
+.kaza-product-promo__steps {
+  list-style: none;
+  width: min(100%, 22rem);
+  margin: 0.625rem 0 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.kaza-product-promo__step {
+  display: flex;
+  align-items: center;
+  min-height: 2.5rem;
+  padding: 0.625rem 1rem;
+  border-radius: 0.625rem;
+  background: rgba(255, 255, 255, 0.38);
+  font-size: 0.8125rem;
+  line-height: 1.45;
+  color: #3f3f3f;
+  text-align: left;
+}
+
+.kaza-product-promo__media--left {
+  position: relative;
+  z-index: 1;
+  margin-top: auto;
+  width: 100%;
+  line-height: 0;
+}
+
+.kaza-product-promo__media--left img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+  object-position: center bottom;
+}
+
+.kaza-product-promo__badges {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.kaza-product-promo__badge {
+  position: absolute;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4375rem;
+  padding: 0.5rem 0.75rem;
+  background: var(--kaza-white);
+  border-radius: 0.75rem;
+  font-size: 0.625rem;
+  font-weight: 600;
+  line-height: 1.35;
+  color: var(--kaza-black);
+  box-shadow: 0 2px 14px rgba(0, 0, 0, 0.08);
+  max-width: 10.5rem;
+}
+
+.kaza-product-promo__badge img {
+  flex-shrink: 0;
+  width: 0.875rem;
+  height: 0.875rem;
+  object-fit: contain;
+}
+
+.kaza-product-promo__badge--1 {
+  top: 30%;
+  right: 6%;
+}
+
+.kaza-product-promo__badge--2 {
+  top: 46%;
+  left: 6%;
+}
+
+.kaza-product-promo__badge--3 {
+  bottom: 22%;
+  right: 8%;
+}
+
 /* --- kaza-how-it-works.liquid --- */
 .kaza-how-it-works {
   padding-block: var(--kaza-section-y);

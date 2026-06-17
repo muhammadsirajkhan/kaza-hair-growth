@@ -226,6 +226,30 @@
         }
       }
     },
+    "kaza_product_promo": {
+      "name": "Product promo cards",
+      "settings": {
+        "steps_heading": "Steps heading",
+        "show_badges": "Show callout badges",
+        "badge_1_text": "Badge 1 text",
+        "badge_1_icon": "Badge 1 icon",
+        "badge_2_text": "Badge 2 text",
+        "badge_2_icon": "Badge 2 icon",
+        "badge_3_text": "Badge 3 text",
+        "badge_3_icon": "Badge 3 icon"
+      },
+      "blocks": {
+        "consistency_card": {
+          "name": "Consistency card"
+        },
+        "step": {
+          "name": "Application step"
+        },
+        "men_card": {
+          "name": "Built for men card"
+        }
+      }
+    },
     "kaza_how_it_works": {
       "name": "How it works",
       "settings": {

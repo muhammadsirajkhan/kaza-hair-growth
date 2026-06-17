@@ -421,6 +421,35 @@
     right: 4%;
   }
 
+  .kaza-product-promo__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .kaza-product-promo__card {
+    min-height: 24rem;
+    aspect-ratio: auto;
+  }
+
+  .kaza-product-promo__badge {
+    font-size: 0.5625rem;
+    max-width: 8.5rem;
+  }
+
+  .kaza-product-promo__badge--1 {
+    top: 28%;
+    right: 4%;
+  }
+
+  .kaza-product-promo__badge--2 {
+    top: 44%;
+    left: 4%;
+  }
+
+  .kaza-product-promo__badge--3 {
+    bottom: 20%;
+    right: 4%;
+  }
+
   .kaza-how-it-works__steps {
     grid-template-columns: 1fr;
   }
