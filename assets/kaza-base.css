@@ -178,6 +178,12 @@
   -webkit-text-fill-color: transparent;
 }
 
+.kaza-section-pill--dark {
+  border-color: rgba(255, 255, 255, 0.85);
+  background: transparent;
+  color: var(--kaza-white);
+}
+
 .kaza-stars {
   display: inline-flex;
   gap: 0.125rem;

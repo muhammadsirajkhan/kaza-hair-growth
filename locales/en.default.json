@@ -184,6 +184,20 @@
         "cta_label": "Button label"
       }
     },
+    "kaza_whats_inside": {
+      "name": "What's inside",
+      "settings": {
+        "badge_text": "Badge text",
+        "heading_prefix": "Heading prefix",
+        "heading_highlight": "Heading highlight",
+        "footer_text": "Footer text"
+      },
+      "blocks": {
+        "ingredient": {
+          "name": "Ingredient"
+        }
+      }
+    },
     "kaza_footer": {
       "name": "Footer",
       "back_to_top": "Back to top",

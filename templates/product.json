@@ -41,6 +41,47 @@
         "cta_label": "Shop the Serum"
       }
     },
+    "kaza_whats_inside": {
+      "type": "kaza-whats-inside",
+      "blocks": {
+        "ingredient_1": {
+          "type": "ingredient",
+          "settings": {
+            "title": "DHQG & EGCG",
+            "text": "polyphenol technology used in cosmetic literature to support the appearance of healthy follicle activity"
+          }
+        },
+        "ingredient_2": {
+          "type": "ingredient",
+          "settings": {
+            "title": "Zinc PCA",
+            "text": "helps keep the scalp environment balanced and fresh-looking."
+          }
+        },
+        "ingredient_3": {
+          "type": "ingredient",
+          "settings": {
+            "title": "Oleanolic Acid & Apigenin",
+            "text": "botanical actives used in cosmetic formulas to support stronger roots."
+          }
+        },
+        "ingredient_4": {
+          "type": "ingredient",
+          "settings": {
+            "title": "Biotinoyl Tripeptide-1",
+            "text": "a cosmetic peptide used to promote the appearance of thicker, more resilient hair."
+          }
+        }
+      },
+      "block_order": ["ingredient_1", "ingredient_2", "ingredient_3", "ingredient_4"],
+      "settings": {
+        "badge_text": "Welcome to Kaza",
+        "heading_prefix": "What's inside",
+        "heading_highlight": "Rootalix™",
+        "subheading": "the science, simplified",
+        "footer_text": "Total Rootalix™ inclusion: 2.0% in the finished formula. Components are listed individually on the INCI panel for full transparency"
+      }
+    },
     "kaza_why_choose_Pf3KHL": {
       "type": "kaza-why-choose",
       "blocks": {
@@ -227,6 +268,7 @@
   },
   "order": [
     "main",
+    "kaza_whats_inside",
     "kaza_why_choose_Pf3KHL",
     "kaza_promo_cards_P7XdUF",
     "kaza_challenge_JwDE9z"

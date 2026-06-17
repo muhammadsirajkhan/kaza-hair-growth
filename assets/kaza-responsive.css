@@ -476,6 +476,18 @@
   .kaza-product__cta {
     width: 100%;
   }
+
+  .kaza-whats-inside__card {
+    flex-direction: column;
+    align-items: stretch;
+    text-align: center;
+  }
+
+  .kaza-whats-inside__card-media {
+    width: 100%;
+    max-width: 14rem;
+    margin-inline: auto;
+  }
 }
 
 @media only screen and (min-width: 100px) and (max-width: 599px) {
