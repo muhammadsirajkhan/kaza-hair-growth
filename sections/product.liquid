@@ -2,6 +2,7 @@
   assign current_variant = product.selected_or_first_available_variant
   assign product_form_id = 'kaza-product-form-' | append: section.id
   assign main_image_id = 'kaza-main-img-' | append: section.id
+  assign cart_add_url = routes.cart_add_url | append: '.js'
   assign use_product_media = false
   if product.media.size > 0
     assign use_product_media = true
@@ -164,39 +165,155 @@
         </p>
       {%- endif -%}
 
-      {%- form 'product', product, id: product_form_id, novalidate: 'novalidate' -%}
-        <input type="hidden" name="id" value="{{ current_variant.id }}">
+      <div
+        class="kaza-product__form-wrapper"
+        data-kaza-product-form
+        data-cart-add-url="{{ cart_add_url }}"
+        data-cart-url="{{ routes.cart_url }}"
+      >
+        {%- form 'product', product, id: product_form_id, class: 'kaza-product__form', novalidate: 'novalidate' -%}
+          <input type="hidden" name="id" value="{{ current_variant.id }}" data-kaza-variant-id>
+          <input type="hidden" name="quantity" value="1">
 
-        <div class="kaza-product__form-footer">
-          <p class="kaza-product__price-line">
-            {%- if current_variant.compare_at_price > current_variant.price -%}
-              <s class="kaza-product__compare-price">{{ current_variant.compare_at_price | money }}</s>
-            {%- endif -%}
-            <span class="kaza-product__price">{{ current_variant.price | money }}</span>
-          </p>
+          <div class="kaza-product__form-footer">
+            <p class="kaza-product__price-line">
+              {%- if current_variant.compare_at_price > current_variant.price -%}
+                <s class="kaza-product__compare-price">{{ current_variant.compare_at_price | money }}</s>
+              {%- endif -%}
+              <span class="kaza-product__price">{{ current_variant.price | money }}</span>
+            </p>
 
-          <button
-            type="submit"
-            name="add"
-            class="kaza-btn kaza-btn--primary kaza-product__cta"
-            {% unless current_variant.available %}disabled aria-disabled="true"{% endunless %}
-          >
-            <span>{{ section.settings.cta_label | default: 'Shop the Serum' }}</span>
-            <svg class="kaza-product__cta-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-              <path d="M6 6h15l-1.5 9h-12z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
-              <path d="M6 6 5 3H2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-              <circle cx="9" cy="20" r="1.25" fill="currentColor"/>
-              <circle cx="18" cy="20" r="1.25" fill="currentColor"/>
-            </svg>
-          </button>
-        </div>
-      {%- endform -%}
+            {%- unless current_variant.available -%}
+              <p class="kaza-product__status" role="status">{{ 'products.sold_out' | t }}</p>
+            {%- endunless -%}
+
+            <p class="kaza-product__form-error" data-kaza-product-error role="alert" hidden></p>
+
+            <button
+              type="submit"
+              name="add"
+              class="kaza-btn kaza-btn--primary kaza-product__cta"
+              {% unless current_variant.available %}disabled aria-disabled="true"{% endunless %}
+            >
+              <span data-kaza-product-cta-label>
+                {%- if current_variant.available -%}
+                  {%- if section.settings.cta_label != blank -%}
+                    {{ section.settings.cta_label }}
+                  {%- else -%}
+                    {{ 'products.add_to_cart' | t }}
+                  {%- endif -%}
+                {%- else -%}
+                  {{ 'products.sold_out' | t }}
+                {%- endif -%}
+              </span>
+              <svg class="kaza-product__cta-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M6 6h15l-1.5 9h-12z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
+                <path d="M6 6 5 3H2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                <circle cx="9" cy="20" r="1.25" fill="currentColor"/>
+                <circle cx="18" cy="20" r="1.25" fill="currentColor"/>
+              </svg>
+            </button>
+          </div>
+        {%- endform -%}
+      </div>
     </div>
   </div>
 </section>
 
 {% javascript %}
   (function () {
+    const updateCartBadge = (count) => {
+      const cartLink = document.querySelector('.kaza-header__cart');
+      if (!cartLink) return;
+
+      let badge = cartLink.querySelector('.kaza-header__cart-badge');
+      if (count > 0) {
+        if (!badge) {
+          badge = document.createElement('span');
+          badge.className = 'kaza-header__cart-badge';
+          cartLink.insertBefore(badge, cartLink.firstChild);
+        }
+        badge.textContent = String(count);
+      } else if (badge) {
+        badge.remove();
+      }
+    };
+
+    document.querySelectorAll('[data-kaza-product-form]').forEach((wrapper) => {
+      const form = wrapper.querySelector('form');
+      const submitButton = form ? form.querySelector('[type="submit"]') : null;
+      const errorEl = wrapper.querySelector('[data-kaza-product-error]');
+      const cartAddUrl = wrapper.dataset.cartAddUrl;
+      const cartUrl = wrapper.dataset.cartUrl || '/cart';
+
+      if (!form || !submitButton || !cartAddUrl) return;
+
+      form.addEventListener('submit', async (event) => {
+        event.preventDefault();
+
+        if (submitButton.disabled || submitButton.getAttribute('aria-disabled') === 'true') return;
+
+        const variantInput = form.querySelector('[name="id"]');
+        const variantId = variantInput ? variantInput.value : '';
+
+        if (!variantId) {
+          if (errorEl) {
+            errorEl.textContent = 'This product variant is unavailable.';
+            errorEl.hidden = false;
+          }
+          return;
+        }
+
+        submitButton.disabled = true;
+        submitButton.setAttribute('aria-busy', 'true');
+
+        if (errorEl) {
+          errorEl.textContent = '';
+          errorEl.hidden = true;
+        }
+
+        try {
+          const response = await fetch(cartAddUrl, {
+            method: 'POST',
+            headers: {
+              Accept: 'application/json',
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+              items: [{ id: Number(variantId), quantity: 1 }],
+            }),
+          });
+
+          const data = await response.json();
+
+          if (!response.ok) {
+            throw new Error(data.description || data.message || 'Could not add this product to the cart.');
+          }
+
+          const cartResponse = await fetch('/cart.js', {
+            headers: { Accept: 'application/json' },
+          });
+
+          if (cartResponse.ok) {
+            const cart = await cartResponse.json();
+            updateCartBadge(cart.item_count);
+          }
+
+          window.location.assign(cartUrl);
+        } catch (error) {
+          if (errorEl) {
+            errorEl.textContent = error.message || 'Could not add this product to the cart.';
+            errorEl.hidden = false;
+          }
+        } finally {
+          if (submitButton.getAttribute('aria-disabled') !== 'true') {
+            submitButton.disabled = false;
+          }
+          submitButton.removeAttribute('aria-busy');
+        }
+      });
+    });
+
     document.querySelectorAll('[data-kaza-product]').forEach((section) => {
       const gallery = section.querySelector('.kaza-product__gallery');
       if (!gallery) return;

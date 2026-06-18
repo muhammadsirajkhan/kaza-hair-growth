@@ -2358,6 +2358,21 @@ body.template-index header.kaza-header {
   cursor: not-allowed;
 }
 
+.kaza-product__status,
+.kaza-product__form-error {
+  margin: 0;
+  font-size: 0.875rem;
+  line-height: 1.5;
+}
+
+.kaza-product__status {
+  color: var(--kaza-gray);
+}
+
+.kaza-product__form-error {
+  color: #b42318;
+}
+
 /* --- kaza-whats-inside.liquid --- */
 .kaza-whats-inside {
   position: relative;

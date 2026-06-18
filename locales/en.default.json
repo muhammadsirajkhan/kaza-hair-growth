@@ -39,6 +39,10 @@
   "collections": {
     "title": "Collections"
   },
+  "products": {
+    "add_to_cart": "Add to cart",
+    "sold_out": "Sold out"
+  },
   "general": {
     "accessibility": {
       "main_navigation": "Main navigation",
