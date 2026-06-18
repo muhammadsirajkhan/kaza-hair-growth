@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "kaza_hero": {
@@ -9,6 +18,7 @@
             "heading": "Up to 28,200+ new hairs in 3 months.",
             "subheading": "Based on a 3-month clinical study where participants saw an average of 10,000 new hairs and a maximum of 28,200.",
             "button_label": "Shop the Serum",
+            "button_url": "shopify://products/rootalixtm",
             "powered_by_text": "Powered by Rootalix™"
           }
         },
@@ -34,7 +44,12 @@
           }
         }
       },
-      "block_order": ["slide_1", "feature_1", "feature_2", "feature_3"],
+      "block_order": [
+        "slide_1",
+        "feature_1",
+        "feature_2",
+        "feature_3"
+      ],
       "settings": {
         "show_trust_bar": true,
         "trust_text": "Excellent 683 reviews on",
@@ -54,23 +69,74 @@
         "heading": "Our story",
         "text": "<p>Kaza was created with a simple objective: give men a hair growth solution that actually performs. No gimmicks. No empty promises. Just real science, clean formulation, and measurable results.</p><p>We focus on early-stage thinning — the point where action matters most. Our serum is powered by Rootalix™, a proprietary botanical-bioactive complex designed to fuel follicle activity, strengthen roots, and support visible density improvements. Every ingredient serves a purpose. Nothing extra. Nothing watered down.</p>",
         "button_label": "Read About Us",
+        "button_url": "",
         "show_rating": true,
         "rating": 5,
-        "rating_text": "5000+ Verified 5-star Reviews "
+        "rating_text": "5000+ Verified 5-star Reviews"
       }
     },
     "kaza_why_choose": {
       "type": "kaza-why-choose",
       "blocks": {
-        "float_1": { "type": "floating", "settings": { "position": "top-left", "text": "Instantly Activates the follicle" } },
-        "float_2": { "type": "floating", "settings": { "position": "bottom-left", "text": "Reduces shedding" } },
-        "float_3": { "type": "floating", "settings": { "position": "top-right", "text": "Supports fuller Density" } },
-        "float_4": { "type": "floating", "settings": { "position": "bottom-right", "text": "Visible Density Improvements" } },
-        "feature_1": { "type": "feature", "settings": { "title": "Follicle vitality support", "text": "A next-gen catechin system (DHQG + EGCG) paired with Zinc PCA to support a balanced scalp environment and the look of active, energized roots." } },
-        "feature_2": { "type": "feature", "settings": { "title": "Root anchoring appearance", "text": "Oleanolic acid + apigenin + a peptide (biotinoyl tripeptide-1) to support the look of stronger, better-anchored hair at the scalp surface." } },
-        "feature_3": { "type": "feature", "settings": { "title": "Optimized delivery", "text": "Formulated in a lightweight, leave-on base (with DMI + diols) that dries fast and keeps actives where you want them—on your scalp, not your pillow." } }
+        "float_1": {
+          "type": "floating",
+          "settings": {
+            "position": "top-left",
+            "text": "Instantly Activates the follicle"
+          }
+        },
+        "float_2": {
+          "type": "floating",
+          "settings": {
+            "position": "bottom-left",
+            "text": "Reduces shedding"
+          }
+        },
+        "float_3": {
+          "type": "floating",
+          "settings": {
+            "position": "top-right",
+            "text": "Supports fuller Density"
+          }
+        },
+        "float_4": {
+          "type": "floating",
+          "settings": {
+            "position": "bottom-right",
+            "text": "Visible Density Improvements"
+          }
+        },
+        "feature_1": {
+          "type": "feature",
+          "settings": {
+            "title": "Follicle vitality support",
+            "text": "A next-gen catechin system (DHQG + EGCG) paired with Zinc PCA to support a balanced scalp environment and the look of active, energized roots."
+          }
+        },
+        "feature_2": {
+          "type": "feature",
+          "settings": {
+            "title": "Root anchoring appearance",
+            "text": "Oleanolic acid + apigenin + a peptide (biotinoyl tripeptide-1) to support the look of stronger, better-anchored hair at the scalp surface."
+          }
+        },
+        "feature_3": {
+          "type": "feature",
+          "settings": {
+            "title": "Optimized delivery",
+            "text": "Formulated in a lightweight, leave-on base (with DMI + diols) that dries fast and keeps actives where you want them—on your scalp, not your pillow."
+          }
+        }
       },
-      "block_order": ["float_1", "float_2", "float_3", "float_4", "feature_1", "feature_2", "feature_3"],
+      "block_order": [
+        "float_1",
+        "float_2",
+        "float_3",
+        "float_4",
+        "feature_1",
+        "feature_2",
+        "feature_3"
+      ],
       "settings": {
         "badge_text": "Welcome to Kaza",
         "heading_prefix": "Why Choose",
@@ -82,12 +148,41 @@
     "kaza_rootalix": {
       "type": "kaza-rootalix",
       "blocks": {
-        "f1": { "type": "feature", "settings": { "position": "top-left", "title": "Thicker strands over time" } },
-        "f2": { "type": "feature", "settings": { "position": "bottom-left", "title": "Less shedding on brush and in shower" } },
-        "f3": { "type": "feature", "settings": { "position": "top-right", "title": "Healthier scalp feel and appearance" } },
-        "f4": { "type": "feature", "settings": { "position": "bottom-right", "title": "Visible Density Improvements." } }
+        "f1": {
+          "type": "feature",
+          "settings": {
+            "position": "top-left",
+            "title": "Thicker strands over time"
+          }
+        },
+        "f2": {
+          "type": "feature",
+          "settings": {
+            "position": "bottom-left",
+            "title": "Less shedding on brush and in shower"
+          }
+        },
+        "f3": {
+          "type": "feature",
+          "settings": {
+            "position": "top-right",
+            "title": "Healthier scalp feel and appearance"
+          }
+        },
+        "f4": {
+          "type": "feature",
+          "settings": {
+            "position": "bottom-right",
+            "title": "Visible Density Improvements."
+          }
+        }
       },
-      "block_order": ["f1", "f2", "f3", "f4"],
+      "block_order": [
+        "f1",
+        "f2",
+        "f3",
+        "f4"
+      ],
       "settings": {
         "show_rating": true,
         "rating": 5,
@@ -107,7 +202,11 @@
             "card_layout": "left",
             "heading": "No Prescription Needed.",
             "text": "Non-systemic, zero libido impact, no prescription needed.",
-            "button_label": "Shop Now"
+            "button_label": "Shop Now",
+            "button_url": "",
+            "show_badges": false,
+            "badge_1_text": "Visible Density Improvements.",
+            "badge_2_text": "Supports Fuller Density"
           }
         },
         "card_2": {
@@ -117,29 +216,56 @@
             "heading": "Bio-Hacked Plant Science",
             "text": "Saw Palmetto, Green Tea, Larch Wood, Oleanolic Acid are all botanical-derived.",
             "button_label": "Shop Now",
+            "button_url": "",
             "show_badges": true,
             "badge_1_text": "Visible Density Improvements.",
             "badge_2_text": "Supports Fuller Density"
           }
         }
       },
-      "block_order": ["card_1", "card_2"],
+      "block_order": [
+        "card_1",
+        "card_2"
+      ],
       "settings": {}
     },
     "kaza_how_it_works": {
       "type": "kaza-how-it-works",
       "blocks": {
-        "step_1": { "type": "step", "settings": { "title": "Block", "text": "Topical DHT Defense (Oleanolic Acid)" } },
-        "step_2": { "type": "step", "settings": { "title": "Anchor", "text": "Biotinoyl Tripeptide-1." } },
-        "step_3": { "type": "step", "settings": { "title": "Grow", "text": "Redensyl (DHQG + EGCG)." } }
+        "step_1": {
+          "type": "step",
+          "settings": {
+            "title": "Block",
+            "text": "Topical DHT Defense (Oleanolic Acid)"
+          }
+        },
+        "step_2": {
+          "type": "step",
+          "settings": {
+            "title": "Anchor",
+            "text": "Biotinoyl Tripeptide-1."
+          }
+        },
+        "step_3": {
+          "type": "step",
+          "settings": {
+            "title": "Grow",
+            "text": "Redensyl (DHQG + EGCG)."
+          }
+        }
       },
-      "block_order": ["step_1", "step_2", "step_3"],
+      "block_order": [
+        "step_1",
+        "step_2",
+        "step_3"
+      ],
       "settings": {
         "badge_text": "Welcome to Kaza",
         "heading_prefix": "How it",
         "heading_highlight": "Works",
         "subheading": "Real performance. Visible results. Made for men who want impact, not excuses.",
-        "button_label": "Shop the Serum"
+        "button_label": "Shop the Serum",
+        "button_url": ""
       }
     },
     "kaza_challenge": {
