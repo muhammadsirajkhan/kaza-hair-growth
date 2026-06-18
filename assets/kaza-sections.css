@@ -1515,6 +1515,7 @@ body.template-index header.kaza-header {
 .kaza-product-promo {
   padding-block: var(--kaza-section-y);
   background: var(--kaza-white);
+  padding-top: 15px;
 }
 
 .kaza-product-promo .kaza-container {
@@ -1572,12 +1573,12 @@ body.template-index header.kaza-header {
 }
 
 .kaza-product-promo__heading {
-  font-size: var(--kaza-fs-promo);
+  font-size: 2rem;
   font-weight: 700;
   line-height: 1.22;
   letter-spacing: -0.015em;
   color: var(--kaza-black);
-  max-width: 22rem;
+  max-width: 35rem;
   margin: 0;
 }
 
@@ -1585,7 +1586,7 @@ body.template-index header.kaza-header {
   font-size: var(--kaza-fs-section-content);
   line-height: 1.55;
   color: #4a4a4a;
-  max-width: 24rem;
+  max-width: 35rem;
   margin: 0;
 }
 
@@ -1598,7 +1599,7 @@ body.template-index header.kaza-header {
 }
 
 .kaza-product-promo__steps-heading {
-  font-size: 1rem;
+  font-size: 1.2rem;
   font-weight: 600;
   line-height: 1.4;
   color: var(--kaza-black);
@@ -1607,7 +1608,7 @@ body.template-index header.kaza-header {
 
 .kaza-product-promo__steps {
   list-style: none;
-  width: min(100%, 22rem);
+  width: min(100%, 35rem);
   margin: 0.625rem 0 0;
   padding: 0;
   display: flex;
@@ -1622,10 +1623,13 @@ body.template-index header.kaza-header {
   padding: 0.625rem 1rem;
   border-radius: 0.625rem;
   background: rgba(255, 255, 255, 0.38);
-  font-size: 0.8125rem;
+  font-size: 1rem;
   line-height: 1.45;
-  color: #3f3f3f;
+  color: #000;
   text-align: left;
+  background: #000000;
+  background: linear-gradient(90deg, rgba(0, 0, 0, 0.37) 0%, rgba(0, 0, 0, 0.05) 71%, rgba(255, 255, 255, 0) 100%);
+  font-weight: 500;
 }
 
 .kaza-product-promo__media--left {
@@ -1634,6 +1638,9 @@ body.template-index header.kaza-header {
   margin-top: auto;
   width: 100%;
   line-height: 0;
+  position: absolute;
+  inset: 0;
+  z-index: 0;
 }
 
 .kaza-product-promo__media--left img {
@@ -1658,35 +1665,36 @@ body.template-index header.kaza-header {
   gap: 0.4375rem;
   padding: 0.5rem 0.75rem;
   background: var(--kaza-white);
-  border-radius: 0.75rem;
-  font-size: 0.625rem;
+  border-radius: 50px;
+  font-size: 1rem;
   font-weight: 600;
   line-height: 1.35;
   color: var(--kaza-black);
   box-shadow: 0 2px 14px rgba(0, 0, 0, 0.08);
-  max-width: 10.5rem;
+  max-width: 14.5rem;
+  padding: 0.3rem 0.3rem;
 }
 
 .kaza-product-promo__badge img {
   flex-shrink: 0;
-  width: 0.875rem;
-  height: 0.875rem;
+  width: 59px;
+  height: auto;
   object-fit: contain;
 }
 
 .kaza-product-promo__badge--1 {
-  top: 30%;
-  right: 6%;
+  top: 41%;
+  right: 18%;
 }
 
 .kaza-product-promo__badge--2 {
-  top: 46%;
-  left: 6%;
+  top: 54%;
+  left: 17%;
 }
 
 .kaza-product-promo__badge--3 {
   bottom: 22%;
-  right: 8%;
+  right: 13%;
 }
 
 /* --- kaza-how-it-works.liquid --- */
@@ -2257,8 +2265,8 @@ body.template-index header.kaza-header {
 
 .kaza-product__benefit-icon {
   flex-shrink: 0;
-  width: 3rem;
-  height: 3rem;
+  width: 59px;
+  height: 59px;
   border-radius: 50%;
   background: #ebe4d8;
   display: flex;
@@ -2268,8 +2276,8 @@ body.template-index header.kaza-header {
 }
 
 .kaza-product__benefit-icon img {
-  width: 1.625rem;
-  height: 1.625rem;
+  width: 59px;
+  height: 59px;
   object-fit: contain;
 }
 
@@ -2280,7 +2288,7 @@ body.template-index header.kaza-header {
 
 .kaza-product__benefit-title {
   display: block;
-  font-size: 0.6875rem;
+  font-size: 1rem;
   font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -2297,7 +2305,7 @@ body.template-index header.kaza-header {
 }
 
 .kaza-product__powered {
-  font-size: 0.875rem;
+  font-size: 1rem;
   line-height: 1.65;
   color: var(--kaza-black);
   margin: 0 0 1.75rem;
@@ -2329,7 +2337,7 @@ body.template-index header.kaza-header {
 }
 
 .kaza-product__price {
-  font-size: 1.375rem;
+  font-size: 2rem;
   font-weight: 700;
   color: var(--kaza-black);
   line-height: 1;
@@ -2414,7 +2422,7 @@ body.template-index header.kaza-header {
   display: flex;
   flex-direction: column;
   gap: clamp(1rem, 2vw, 1.25rem);
-  max-width: 52rem;
+  /* max-width: 52rem; */
   margin-inline: auto;
 }
 
@@ -2469,9 +2477,9 @@ body.template-index header.kaza-header {
 }
 
 .kaza-whats-inside__footer {
-  max-width: 52rem;
+  /* max-width: 52rem; */
   margin: clamp(2.5rem, 5vw, 3.5rem) auto 0;
-  font-size: 0.875rem;
+  font-size: 1rem;
   line-height: 1.65;
   text-align: center;
   color: rgba(255, 255, 255, 0.55);
@@ -2497,16 +2505,19 @@ body.template-index header.kaza-header {
 
 .kaza-faq__item {
   border: 1px solid #e3e3e3;
-  border-radius: var(--kaza-radius-pill);
+  border-radius: 50px;
   background: var(--kaza-white);
   overflow: hidden;
   transition: background var(--kaza-transition), border-color var(--kaza-transition), box-shadow var(--kaza-transition);
 }
 
 .kaza-faq__item.is-open {
-  border-color: #ececec;
-  background: #f7f7f7;
+  border-color: #fff;
+  background: #fff;
   box-shadow: 0 4px 24px rgba(0, 0, 0, 0.04);
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  border-bottom-left-radius: unset;
+  border-bottom-right-radius: unset;
 }
 
 .kaza-faq__trigger {
@@ -2515,7 +2526,7 @@ body.template-index header.kaza-header {
   justify-content: space-between;
   gap: 1.5rem;
   width: 100%;
-  padding: 1.125rem 1.5rem;
+  padding: 1.125rem 3rem;
   border: 0;
   background: transparent;
   cursor: pointer;
@@ -2530,7 +2541,7 @@ body.template-index header.kaza-header {
 }
 
 .kaza-faq__question {
-  font-size: 1rem;
+  font-size: 1.2rem;
   font-weight: 500;
   line-height: 1.45;
   letter-spacing: -0.01em;
@@ -2570,7 +2581,7 @@ body.template-index header.kaza-header {
 }
 
 .kaza-faq__panel {
-  padding: 0 1.5rem 1.25rem;
+  padding: 0 3rem 1.25rem;
 }
 
 .kaza-faq__answer {
@@ -2587,13 +2598,14 @@ body.template-index header.kaza-header {
 .kaza-sub-banner {
   padding-block: 0 var(--kaza-section-y);
   background: var(--kaza-white);
+  padding-inline: 15px;
 }
 
 .kaza-sub-banner__card {
   position: relative;
   min-height: clamp(18rem, 32vw, 24rem);
   border-radius: 1.75rem;
-  overflow: hidden;
+  /* overflow: hidden; */
 }
 
 .kaza-sub-banner__bg {
@@ -2617,6 +2629,7 @@ body.template-index header.kaza-header {
   align-items: center;
   min-height: inherit;
   padding: clamp(2rem, 4vw, 3rem) clamp(1.5rem, 3vw, 2.5rem);
+  padding-top: 0;
 }
 
 .kaza-sub-banner__content {
@@ -2678,6 +2691,7 @@ body.template-index header.kaza-header {
   align-self: end;
   height: 100%;
   pointer-events: none;
+  margin-top: -100px;
 }
 
 .kaza-sub-banner__product img {
