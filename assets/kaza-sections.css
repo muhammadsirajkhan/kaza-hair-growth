@@ -2940,6 +2940,8 @@ body.template-index header.kaza-header {
   position: absolute;
   inset: 0;
   z-index: 0;
+  border-radius: 1.75rem;
+  overflow: hidden;
 }
 
 .kaza-sub-banner__bg img {
@@ -2953,7 +2955,7 @@ body.template-index header.kaza-header {
   position: relative;
   z-index: 1;
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
   align-items: center;
   min-height: inherit;
   padding: clamp(2rem, 4vw, 3rem) clamp(1.5rem, 3vw, 2.5rem);
@@ -2965,7 +2967,7 @@ body.template-index header.kaza-header {
   flex-direction: column;
   align-items: flex-start;
   gap: 1rem;
-  max-width: 26rem;
+  /* max-width: 26rem; */
 }
 
 .kaza-sub-banner__heading {
@@ -2975,6 +2977,9 @@ body.template-index header.kaza-header {
   letter-spacing: -0.02em;
   color: var(--kaza-white);
   margin: 0;
+  font-size: var(--kaza-fs-section);
+  font-weight: 700;
+  line-height: 1.12;
 }
 
 .kaza-sub-banner__heading-highlight {
@@ -2986,7 +2991,7 @@ body.template-index header.kaza-header {
   line-height: 1.55;
   color: rgba(255, 255, 255, 0.82);
   margin: 0;
-  max-width: 24rem;
+  /* max-width: 24rem; */
 }
 
 .kaza-sub-banner__btn {
@@ -3036,6 +3041,11 @@ body.template-index header.kaza-header {
   background: var(--kaza-white);
 }
 
+.kaza-product-trust .kaza-container {
+  width: 100%;
+  padding-inline: 15px;
+}
+
 .kaza-product-trust__bar {
   display: flex;
   align-items: center;
@@ -3074,8 +3084,8 @@ body.template-index header.kaza-header {
   flex-shrink: 0;
   align-items: center;
   justify-content: center;
-  width: 1.25rem;
-  height: 1.25rem;
+  width: 60px;
+  height: 60px;
 }
 
 .kaza-product-trust__icon img {
@@ -3086,7 +3096,7 @@ body.template-index header.kaza-header {
 }
 
 .kaza-product-trust__text {
-  font-size: 0.8125rem;
+  font-size: 1rem;
   font-weight: 500;
   line-height: 1.35;
   letter-spacing: 0.01em;
