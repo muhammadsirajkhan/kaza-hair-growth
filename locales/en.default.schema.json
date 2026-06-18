@@ -339,6 +339,7 @@
         "shipping_note": "Shipping note",
         "show_continue_shopping": "Show continue shopping link",
         "continue_shopping_url": "Continue shopping URL",
+        "continue_shopping_product": "Continue shopping product",
         "empty_button_label": "Empty cart button label",
         "empty_button_url": "Empty cart button URL"
       }

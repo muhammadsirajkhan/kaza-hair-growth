@@ -1,5 +1,22 @@
 <section class="kaza-cart full-width" data-kaza-cart>
   <div class="kaza-container">
+    {%- liquid
+      assign continue_url = section.settings.continue_shopping_url
+      if continue_url == blank and section.settings.continue_shopping_product != blank
+        assign continue_url = section.settings.continue_shopping_product.url
+      endif
+      if continue_url == blank and cart.item_count > 0
+        assign continue_url = cart.items.first.url
+      endif
+      if continue_url == blank
+        assign continue_url = routes.all_products_collection_url
+      endif
+
+      assign empty_url = section.settings.empty_button_url
+      if empty_url == blank
+        assign empty_url = continue_url
+      endif
+    -%}
     <header class="kaza-cart__header kaza-section-intro">
       {% if section.settings.badge_text != blank %}
         <span class="kaza-section-pill">{{ section.settings.badge_text }}</span>
@@ -35,7 +52,7 @@
         -%}
         {% render 'kaza-button',
           label: empty_label,
-          url: section.settings.empty_button_url | default: routes.all_products_collection_url,
+          url: empty_url,
           style: 'primary',
           class: 'kaza-cart__empty-btn'
         %}
@@ -148,13 +165,21 @@
               </div>
 
               {% if section.settings.show_continue_shopping %}
-                <a href="{{ section.settings.continue_shopping_url | default: routes.all_products_collection_url }}" class="kaza-cart__continue">
+                <a href="{{ continue_url }}" class="kaza-cart__continue">
                   {{ 'cart.continue_shopping' | t }}
                 </a>
               {% endif %}
             </div>
           </aside>
         </div>
+
+        {%- for block in section.blocks -%}
+          {%- if block.type == '@app' -%}
+            <div class="kaza-cart__apps" {{ block.shopify_attributes }}>
+              {%- render block -%}
+            </div>
+          {%- endif -%}
+        {%- endfor -%}
       </form>
     {% endif %}
   </div>
@@ -226,6 +251,11 @@
       "label": "t:sections.kaza_cart.settings.continue_shopping_url"
     },
     {
+      "type": "product",
+      "id": "continue_shopping_product",
+      "label": "t:sections.kaza_cart.settings.continue_shopping_product"
+    },
+    {
       "type": "text",
       "id": "empty_button_label",
       "label": "t:sections.kaza_cart.settings.empty_button_label",
@@ -235,6 +265,11 @@
       "type": "url",
       "id": "empty_button_url",
       "label": "t:sections.kaza_cart.settings.empty_button_url"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "@app"
     }
   ]
 }

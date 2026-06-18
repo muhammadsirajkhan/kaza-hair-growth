@@ -187,6 +187,16 @@
               <p class="kaza-product__status" role="status">{{ 'products.sold_out' | t }}</p>
             {%- endunless -%}
 
+            <div class="kaza-product__subscription">
+              {%- for block in section.blocks -%}
+                {%- if block.type == '@app' -%}
+                  <div {{ block.shopify_attributes }}>
+                    {%- render block -%}
+                  </div>
+                {%- endif -%}
+              {%- endfor -%}
+            </div>
+
             <p class="kaza-product__form-error" data-kaza-product-error role="alert" hidden></p>
 
             <button
@@ -248,15 +258,44 @@
 
       if (!form || !submitButton || !cartAddUrl) return;
 
+      const buildCartItem = (productForm) => {
+        const formData = new FormData(productForm);
+        const variantId = formData.get('id');
+        if (!variantId) return null;
+
+        const item = {
+          id: Number(variantId),
+          quantity: Number(formData.get('quantity') || 1),
+        };
+
+        const sellingPlan = formData.get('selling_plan');
+        if (sellingPlan) {
+          item.selling_plan = Number(sellingPlan);
+        }
+
+        const properties = {};
+        formData.forEach((value, key) => {
+          const match = key.match(/^properties\[(.+)\]$/);
+          if (match && value !== '') {
+            properties[match[1]] = value;
+          }
+        });
+
+        if (Object.keys(properties).length > 0) {
+          item.properties = properties;
+        }
+
+        return item;
+      };
+
       form.addEventListener('submit', async (event) => {
         event.preventDefault();
 
         if (submitButton.disabled || submitButton.getAttribute('aria-disabled') === 'true') return;
 
-        const variantInput = form.querySelector('[name="id"]');
-        const variantId = variantInput ? variantInput.value : '';
+        const cartItem = buildCartItem(form);
 
-        if (!variantId) {
+        if (!cartItem) {
           if (errorEl) {
             errorEl.textContent = 'This product variant is unavailable.';
             errorEl.hidden = false;
@@ -280,7 +319,7 @@
               'Content-Type': 'application/json',
             },
             body: JSON.stringify({
-              items: [{ id: Number(variantId), quantity: 1 }],
+              items: [cartItem],
             }),
           });
 
@@ -374,6 +413,9 @@
     }
   ],
   "blocks": [
+    {
+      "type": "@app"
+    },
     {
       "type": "benefit",
       "name": "t:sections.kaza_product.blocks.benefit.name",

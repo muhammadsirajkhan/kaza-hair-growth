@@ -2322,6 +2322,15 @@ body.template-index header.kaza-header {
   gap: 1rem;
 }
 
+.kaza-product__subscription {
+  width: 100%;
+  margin-bottom: 0.25rem;
+}
+
+.kaza-product__subscription:empty {
+  display: none;
+}
+
 .kaza-product__price-line {
   display: flex;
   align-items: baseline;
@@ -2694,6 +2703,10 @@ body.template-index header.kaza-header {
 
 .kaza-cart__continue:hover {
   color: var(--kaza-black);
+}
+
+.kaza-cart__apps {
+  margin-top: 1.5rem;
 }
 
 /* --- kaza-whats-inside.liquid --- */
