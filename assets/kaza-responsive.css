@@ -545,6 +545,29 @@
   .kaza-sub-banner__product img {
     width: min(100%, 16rem);
   }
+
+  .kaza-cart__layout {
+    grid-template-columns: 1fr;
+  }
+
+  .kaza-cart__summary {
+    position: static;
+  }
+
+  .kaza-cart__item {
+    grid-template-columns: 5.5rem minmax(0, 1fr);
+    gap: 1rem;
+    padding-block: 1.25rem;
+  }
+
+  .kaza-cart__item-top {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .kaza-cart__item-prices {
+    align-items: flex-start;
+  }
 }
 
 @media only screen and (min-width: 100px) and (max-width: 599px) {

@@ -1,37 +1,241 @@
-{% comment %}
-  This section is used in the cart template to render /cart page with an
-  overview of the items in customer's cart.
+<section class="kaza-cart full-width" data-kaza-cart>
+  <div class="kaza-container">
+    <header class="kaza-cart__header kaza-section-intro">
+      {% if section.settings.badge_text != blank %}
+        <span class="kaza-section-pill">{{ section.settings.badge_text }}</span>
+      {% endif %}
 
-  https://shopify.dev/docs/storefronts/themes/architecture/templates/cart
-{% endcomment %}
+      <h1 class="kaza-section-heading">
+        {% if section.settings.heading_prefix != blank %}
+          <span class="kaza-section-heading__prefix">{{ section.settings.heading_prefix }} </span>
+        {% endif %}
+        {% if section.settings.heading_highlight != blank %}
+          <span class="kaza-section-heading__highlight">{{ section.settings.heading_highlight }}</span>
+        {% else %}
+          <span class="kaza-section-heading__highlight">{{ 'cart.title' | t }}</span>
+        {% endif %}
+      </h1>
 
-<h1>{{ 'cart.title' | t }}</h1>
+      {% if cart.item_count > 0 %}
+        <p class="kaza-section-subheading">
+          {{ 'cart.item_count' | t: count: cart.item_count }}
+        </p>
+      {% endif %}
+    </header>
 
-<form action="{{ routes.cart_url }}" method="post">
-  <table>
-    {% for item in cart.items %}
-      <tr>
-        <td>
-          {% render 'image', image: item.image, url: item.url %}
-        </td>
-        <td>
-          <p>{{ item.product.title }}</p>
-          {{ 'cart.remove' | t | link_to: item.url_to_remove }}
-        </td>
-        <td>
-          <input type="text" name="updates[]" value="{{ item.quantity }}">
-          <input type="submit" value="{{ 'cart.update' | t }}">
-        </td>
-      </tr>
-    {% endfor %}
-  </table>
+    {% if cart.item_count == 0 %}
+      <div class="kaza-cart__empty">
+        <p class="kaza-cart__empty-title">{{ 'cart.empty_title' | t }}</p>
+        <p class="kaza-cart__empty-text">{{ 'cart.empty_text' | t }}</p>
+        {%- liquid
+          assign empty_label = section.settings.empty_button_label
+          if empty_label == blank
+            assign empty_label = 'cart.continue_shopping' | t
+          endif
+        -%}
+        {% render 'kaza-button',
+          label: empty_label,
+          url: section.settings.empty_button_url | default: routes.all_products_collection_url,
+          style: 'primary',
+          class: 'kaza-cart__empty-btn'
+        %}
+      </div>
+    {% else %}
+      <form action="{{ routes.cart_url }}" method="post" class="kaza-cart__form" id="KazaCartForm-{{ section.id }}">
+        <div class="kaza-cart__layout">
+          <div class="kaza-cart__items" role="list">
+            {% for item in cart.items %}
+              <article class="kaza-cart__item" role="listitem" data-kaza-cart-item>
+                <a href="{{ item.url }}" class="kaza-cart__item-media" tabindex="-1" aria-hidden="true">
+                  {% if item.image %}
+                    {%- assign item_alt = item.image.alt | default: item.product.title | escape -%}
+                    {{
+                      item.image
+                      | image_url: width: 280
+                      | image_tag: loading: 'lazy', alt: item_alt, class: 'kaza-cart__item-img'
+                    }}
+                  {% else %}
+                    <div class="kaza-cart__item-placeholder" aria-hidden="true"></div>
+                  {% endif %}
+                </a>
 
-  <input type="submit" name="checkout" value="{{ 'cart.checkout' | t }}">
-</form>
+                <div class="kaza-cart__item-body">
+                  <div class="kaza-cart__item-top">
+                    <div class="kaza-cart__item-info">
+                      <a href="{{ item.url }}" class="kaza-cart__item-title">{{ item.product.title | escape }}</a>
+                      {% unless item.product.has_only_default_variant %}
+                        <p class="kaza-cart__item-variant">{{ item.variant.title | escape }}</p>
+                      {% endunless %}
+                      {% if item.selling_plan_allocation %}
+                        <p class="kaza-cart__item-plan">{{ item.selling_plan_allocation.selling_plan.name | escape }}</p>
+                      {% endif %}
+                    </div>
+
+                    <div class="kaza-cart__item-prices">
+                      {% if item.original_line_price != item.final_line_price %}
+                        <s class="kaza-cart__item-compare">{{ item.original_line_price | money }}</s>
+                      {% endif %}
+                      <span class="kaza-cart__item-price">{{ item.final_line_price | money }}</span>
+                    </div>
+                  </div>
+
+                  <div class="kaza-cart__item-actions">
+                    <div class="kaza-cart__qty" data-kaza-qty>
+                      <button
+                        type="button"
+                        class="kaza-cart__qty-btn"
+                        data-kaza-qty-minus
+                        aria-label="{{ 'cart.decrease_quantity' | t: product: item.product.title | escape }}"
+                      >
+                        <span aria-hidden="true">−</span>
+                      </button>
+                      <label class="kaza-cart__qty-label">
+                        <span class="kaza-visually-hidden">{{ 'cart.quantity' | t }}</span>
+                        <input
+                          class="kaza-cart__qty-input"
+                          type="number"
+                          name="updates[]"
+                          value="{{ item.quantity }}"
+                          min="0"
+                          inputmode="numeric"
+                          aria-label="{{ 'cart.quantity' | t }}"
+                          data-kaza-qty-input
+                        >
+                      </label>
+                      <button
+                        type="button"
+                        class="kaza-cart__qty-btn"
+                        data-kaza-qty-plus
+                        aria-label="{{ 'cart.increase_quantity' | t: product: item.product.title | escape }}"
+                      >
+                        <span aria-hidden="true">+</span>
+                      </button>
+                    </div>
+
+                    <a href="{{ item.url_to_remove }}" class="kaza-cart__remove">
+                      {{ 'cart.remove' | t }}
+                    </a>
+                  </div>
+                </div>
+              </article>
+            {% endfor %}
+          </div>
+
+          <aside class="kaza-cart__summary">
+            <div class="kaza-cart__summary-card">
+              <h2 class="kaza-cart__summary-title">{{ 'cart.order_summary' | t }}</h2>
+
+              <dl class="kaza-cart__summary-rows">
+                <div class="kaza-cart__summary-row">
+                  <dt>{{ 'cart.subtotal' | t }}</dt>
+                  <dd>{{ cart.total_price | money_with_currency }}</dd>
+                </div>
+              </dl>
+
+              {% if section.settings.shipping_note != blank %}
+                <p class="kaza-cart__summary-note">{{ section.settings.shipping_note }}</p>
+              {% else %}
+                <p class="kaza-cart__summary-note">{{ 'cart.shipping_note' | t }}</p>
+              {% endif %}
+
+              <div class="kaza-cart__summary-actions">
+                <button type="submit" name="update" class="kaza-btn kaza-btn--outline kaza-cart__update">
+                  {{ 'cart.update' | t }}
+                </button>
+                <button type="submit" name="checkout" class="kaza-btn kaza-btn--primary kaza-cart__checkout">
+                  {{ 'cart.checkout' | t }}
+                </button>
+              </div>
+
+              {% if section.settings.show_continue_shopping %}
+                <a href="{{ section.settings.continue_shopping_url | default: routes.all_products_collection_url }}" class="kaza-cart__continue">
+                  {{ 'cart.continue_shopping' | t }}
+                </a>
+              {% endif %}
+            </div>
+          </aside>
+        </div>
+      </form>
+    {% endif %}
+  </div>
+</section>
+
+{% javascript %}
+  (function () {
+    document.querySelectorAll('[data-kaza-cart]').forEach((section) => {
+      section.querySelectorAll('[data-kaza-qty]').forEach((qty) => {
+        const input = qty.querySelector('[data-kaza-qty-input]');
+        const minus = qty.querySelector('[data-kaza-qty-minus]');
+        const plus = qty.querySelector('[data-kaza-qty-plus]');
+        if (!input || !minus || !plus) return;
+
+        const setValue = (next) => {
+          const value = Math.max(0, next);
+          input.value = String(value);
+        };
+
+        minus.addEventListener('click', () => {
+          setValue(Number(input.value || 0) - 1);
+        });
+
+        plus.addEventListener('click', () => {
+          setValue(Number(input.value || 0) + 1);
+        });
+      });
+    });
+  })();
+{% endjavascript %}
 
 {% schema %}
 {
-  "name": "t:general.cart",
-  "settings": []
+  "name": "t:sections.kaza_cart.name",
+  "settings": [
+    {
+      "type": "text",
+      "id": "badge_text",
+      "label": "t:labels.badge_text",
+      "default": "Welcome to Kaza"
+    },
+    {
+      "type": "text",
+      "id": "heading_prefix",
+      "label": "t:sections.kaza_cart.settings.heading_prefix",
+      "default": "Your"
+    },
+    {
+      "type": "text",
+      "id": "heading_highlight",
+      "label": "t:sections.kaza_cart.settings.heading_highlight",
+      "default": "Cart"
+    },
+    {
+      "type": "text",
+      "id": "shipping_note",
+      "label": "t:sections.kaza_cart.settings.shipping_note",
+      "default": "Shipping and taxes calculated at checkout."
+    },
+    {
+      "type": "checkbox",
+      "id": "show_continue_shopping",
+      "label": "t:sections.kaza_cart.settings.show_continue_shopping",
+      "default": true
+    },
+    {
+      "type": "url",
+      "id": "continue_shopping_url",
+      "label": "t:sections.kaza_cart.settings.continue_shopping_url"
+    },
+    {
+      "type": "text",
+      "id": "empty_button_label",
+      "label": "t:sections.kaza_cart.settings.empty_button_label",
+      "default": "Continue shopping"
+    },
+    {
+      "type": "url",
+      "id": "empty_button_url",
+      "label": "t:sections.kaza_cart.settings.empty_button_url"
+    }
+  ]
 }
 {% endschema %}

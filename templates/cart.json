@@ -11,7 +11,14 @@
   "sections": {
     "main": {
       "type": "cart",
-      "settings": {}
+      "settings": {
+        "badge_text": "Welcome to Kaza",
+        "heading_prefix": "Your",
+        "heading_highlight": "Cart",
+        "shipping_note": "Shipping and taxes calculated at checkout.",
+        "show_continue_shopping": true,
+        "empty_button_label": "Continue shopping"
+      }
     }
   },
   "order": [

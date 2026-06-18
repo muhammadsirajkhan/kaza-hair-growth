@@ -331,6 +331,18 @@
         }
       }
     },
+    "kaza_cart": {
+      "name": "Cart",
+      "settings": {
+        "heading_prefix": "Heading prefix",
+        "heading_highlight": "Heading highlight",
+        "shipping_note": "Shipping note",
+        "show_continue_shopping": "Show continue shopping link",
+        "continue_shopping_url": "Continue shopping URL",
+        "empty_button_label": "Empty cart button label",
+        "empty_button_url": "Empty cart button URL"
+      }
+    },
     "kaza_sub_banner": {
       "name": "Sub banner",
       "settings": {
