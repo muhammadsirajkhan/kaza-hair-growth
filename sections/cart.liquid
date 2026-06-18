@@ -44,18 +44,19 @@
       <div class="kaza-cart__empty">
         <p class="kaza-cart__empty-title">{{ 'cart.empty_title' | t }}</p>
         <p class="kaza-cart__empty-text">{{ 'cart.empty_text' | t }}</p>
-        {%- liquid
+        <a href="/" class="kaza-btn kaza-btn--primary kaza-cart__empty-btn">Continue shopping</a>
+        {% comment %} {%- liquid
           assign empty_label = section.settings.empty_button_label
           if empty_label == blank
             assign empty_label = 'cart.continue_shopping' | t
           endif
-        -%}
-        {% render 'kaza-button',
+        -%} {% endcomment %}
+        {% comment %} {% render 'kaza-button',
           label: empty_label,
           url: empty_url,
           style: 'primary',
           class: 'kaza-cart__empty-btn'
-        %}
+        %} {% endcomment %}
       </div>
     {% else %}
       <form action="{{ routes.cart_url }}" method="post" class="kaza-cart__form" id="KazaCartForm-{{ section.id }}">
@@ -164,11 +165,11 @@
                 </button>
               </div>
 
-              {% if section.settings.show_continue_shopping %}
+              {% comment %} {% if section.settings.show_continue_shopping %}
                 <a href="{{ continue_url }}" class="kaza-cart__continue">
                   {{ 'cart.continue_shopping' | t }}
                 </a>
-              {% endif %}
+              {% endif %} {% endcomment %}
             </div>
           </aside>
         </div>
