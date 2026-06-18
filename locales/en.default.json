@@ -262,6 +262,14 @@
         "heading_suffix": "Heading suffix"
       }
     },
+    "kaza_product_trust": {
+      "name": "Product trust bar",
+      "blocks": {
+        "highlight": {
+          "name": "Highlight"
+        }
+      }
+    },
     "kaza_footer": {
       "name": "Footer",
       "back_to_top": "Back to top",

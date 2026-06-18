@@ -3017,6 +3017,70 @@ body.template-index header.kaza-header {
   margin-bottom: -0.5rem;
 }
 
+/* --- kaza-product-trust.liquid --- */
+.kaza-product-trust {
+  padding-block: 0 clamp(2rem, 4vw, 3rem);
+  background: var(--kaza-white);
+}
+
+.kaza-product-trust__bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  margin: 0;
+  padding: 1.125rem clamp(1.25rem, 3vw, 2.5rem);
+  list-style: none;
+  background: #1a1a1a;
+  border-radius: 0.625rem;
+}
+
+.kaza-product-trust__item {
+  position: relative;
+  display: flex;
+  flex: 1 1 0;
+  align-items: center;
+  justify-content: center;
+  gap: 0.625rem;
+  min-width: 0;
+  padding-inline: clamp(0.5rem, 1.5vw, 1rem);
+}
+
+.kaza-product-trust__item:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  top: 15%;
+  right: 0;
+  width: 1px;
+  height: 70%;
+  background: rgba(255, 255, 255, 0.14);
+}
+
+.kaza-product-trust__icon {
+  display: inline-flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+.kaza-product-trust__icon img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.kaza-product-trust__text {
+  font-size: 0.8125rem;
+  font-weight: 500;
+  line-height: 1.35;
+  letter-spacing: 0.01em;
+  color: var(--kaza-white);
+  white-space: nowrap;
+}
+
 /* --- kaza-logo.liquid --- */
 .kaza-logo {
   display: inline-flex;

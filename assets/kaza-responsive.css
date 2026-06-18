@@ -546,6 +546,34 @@
     width: min(100%, 16rem);
   }
 
+  .kaza-product-trust__bar {
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    gap: 0;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    padding: 1rem 1.25rem;
+  }
+
+  .kaza-product-trust__bar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .kaza-product-trust__item {
+    flex: 0 0 auto;
+    min-width: max-content;
+    padding-inline: 1rem;
+  }
+
+  .kaza-product-trust__item:first-child {
+    padding-left: 0;
+  }
+
+  .kaza-product-trust__text {
+    white-space: nowrap;
+  }
+
   .kaza-cart__layout {
     grid-template-columns: 1fr;
   }

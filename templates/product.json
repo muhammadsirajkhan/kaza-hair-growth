@@ -45,6 +45,49 @@
         "cta_label": "Shop the Serum"
       }
     },
+    "kaza_product_trust": {
+      "type": "kaza-product-trust",
+      "blocks": {
+        "highlight_1": {
+          "type": "highlight",
+          "settings": {
+            "text": "DHT Defense in 12 Weeks"
+          }
+        },
+        "highlight_2": {
+          "type": "highlight",
+          "settings": {
+            "text": "Zero Side Effect"
+          }
+        },
+        "highlight_3": {
+          "type": "highlight",
+          "settings": {
+            "text": "No Artificial Colorants"
+          }
+        },
+        "highlight_4": {
+          "type": "highlight",
+          "settings": {
+            "text": "Traceable Ingredients"
+          }
+        },
+        "highlight_5": {
+          "type": "highlight",
+          "settings": {
+            "text": "Botanical-Powered"
+          }
+        }
+      },
+      "block_order": [
+        "highlight_1",
+        "highlight_2",
+        "highlight_3",
+        "highlight_4",
+        "highlight_5"
+      ],
+      "settings": {}
+    },
     "kaza_whats_inside": {
       "type": "kaza-whats-inside",
       "blocks": {
@@ -352,6 +395,7 @@
   },
   "order": [
     "main",
+    "kaza_product_trust",
     "kaza_whats_inside",
     "kaza_why_choose_Pf3KHL",
     "kaza_product_promo",

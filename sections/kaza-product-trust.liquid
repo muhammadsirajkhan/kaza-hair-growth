@@ -1,0 +1,114 @@
+<section class="kaza-product-trust full-width">
+  <div class="kaza-container">
+    {% if section.blocks.size > 0 %}
+      <ul class="kaza-product-trust__bar" role="list">
+        {% assign trust_index = 0 %}
+        {% for block in section.blocks %}
+          {% if block.type == 'highlight' %}
+            {% assign trust_index = trust_index | plus: 1 %}
+            {% liquid
+              assign trust_icon = block.settings.icon
+              if trust_icon == blank
+                case trust_index
+                  when 1
+                    assign trust_icon_fallback = 'pp1.webp'
+                  when 2
+                    assign trust_icon_fallback = 'pp2.webp'
+                  when 3
+                    assign trust_icon_fallback = 'pp3.webp'
+                  when 4
+                    assign trust_icon_fallback = 'pp4.webp'
+                  when 5
+                    assign trust_icon_fallback = 'pp5.webp'
+                  else
+                    assign trust_icon_fallback = 'pp1.webp'
+                endcase
+              endif
+            %}
+            <li class="kaza-product-trust__item" {{ block.shopify_attributes }}>
+              <span class="kaza-product-trust__icon" aria-hidden="true">
+                {% if trust_icon != blank %}
+                  {{ trust_icon | image_url: width: 48 | image_tag: loading: 'lazy', alt: '' }}
+                {% else %}
+                  <img
+                    src="{{ trust_icon_fallback | asset_url }}"
+                    alt=""
+                    width="20"
+                    height="20"
+                    loading="lazy"
+                  >
+                {% endif %}
+              </span>
+              {% if block.settings.text != blank %}
+                <span class="kaza-product-trust__text">{{ block.settings.text }}</span>
+              {% endif %}
+            </li>
+          {% endif %}
+        {% endfor %}
+      </ul>
+    {% endif %}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "t:sections.kaza_product_trust.name",
+  "max_blocks": 5,
+  "blocks": [
+    {
+      "type": "highlight",
+      "name": "t:sections.kaza_product_trust.blocks.highlight.name",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "icon",
+          "label": "t:labels.icon"
+        },
+        {
+          "type": "text",
+          "id": "text",
+          "label": "t:labels.text",
+          "default": "Trust highlight"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:sections.kaza_product_trust.name",
+      "blocks": [
+        {
+          "type": "highlight",
+          "settings": {
+            "text": "DHT Defense in 12 Weeks"
+          }
+        },
+        {
+          "type": "highlight",
+          "settings": {
+            "text": "Zero Side Effect"
+          }
+        },
+        {
+          "type": "highlight",
+          "settings": {
+            "text": "No Artificial Colorants"
+          }
+        },
+        {
+          "type": "highlight",
+          "settings": {
+            "text": "Traceable Ingredients"
+          }
+        },
+        {
+          "type": "highlight",
+          "settings": {
+            "text": "Botanical-Powered"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
