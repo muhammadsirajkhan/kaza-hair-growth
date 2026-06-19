@@ -4,7 +4,7 @@
 
 body.template-index header.kaza-header {
   background-color: transparent !important;
-
+  position: absolute !important;
 }
 
 .kaza-header {
@@ -29,6 +29,7 @@ body.template-index header.kaza-header {
   /* background: transparent !important; */
   margin-bottom: 0px !important;
   border-bottom: 1px solid #ffffff1a;
+  position: unset !important;
 }
 
 .kaza-header--overlay.is-scrolled {
@@ -998,6 +999,8 @@ body.template-index header.kaza-header {
   padding-block: var(--kaza-section-y);
   background: #f0dacb;
   overflow: hidden;
+  margin-inline: 15px;
+  border-radius: var(--kaza-radius-card);
 }
 
 .kaza-why-choose__bg {
@@ -1179,6 +1182,9 @@ body.template-index header.kaza-header {
   overflow: hidden;
   aspect-ratio: 1903/1362;
   padding: 0;
+  margin-inline: 15px;
+  border-radius: var(--kaza-radius-card);
+  margin-top: 15px;
 }
 
 .kaza-rootalix__bg {
@@ -1538,7 +1544,7 @@ body.template-index header.kaza-header {
 .kaza-product-promo {
   padding-block: var(--kaza-section-y);
   background: var(--kaza-white);
-  padding-top: 15px;
+  padding-block: 15px;
 }
 
 .kaza-product-promo .kaza-container {
@@ -1557,7 +1563,7 @@ body.template-index header.kaza-header {
   min-height: clamp(28rem, 46vw, 36rem);
   border-radius: var(--kaza-radius-card);
   overflow: hidden;
-  aspect-ratio: 939 / 1043;
+  aspect-ratio: 939 / 939;
 }
 
 .kaza-product-promo__card--left {
@@ -1803,6 +1809,10 @@ body.template-index header.kaza-header {
 /* --- kaza-challenge.liquid --- */
 .kaza-challenge {
   background: #f3ede4;
+  border-radius: var(--kaza-radius-card);
+  margin-inline: 15px;
+  overflow: hidden;
+  margin-bottom: 15px;
 }
 
 .kaza-challenge__upper {
@@ -2742,6 +2752,10 @@ body.template-index header.kaza-header {
   background: #000000;
   color: var(--kaza-white);
   overflow: hidden;
+  margin-inline: 15px;
+  margin-top: 15px;
+  /* margin-bottom: 15px; */
+  border-radius: var(--kaza-radius-card);
 }
 
 .kaza-whats-inside__bg {
@@ -2953,6 +2967,8 @@ body.template-index header.kaza-header {
   padding-block: 0 var(--kaza-section-y);
   background: var(--kaza-white);
   padding-inline: 15px;
+  padding-bottom: 15px;
+  margin-top: 60px;
 }
 
 .kaza-sub-banner__card {
@@ -3063,7 +3079,7 @@ body.template-index header.kaza-header {
 
 /* --- kaza-product-trust.liquid --- */
 .kaza-product-trust {
-  padding-block: 0 clamp(2rem, 4vw, 3rem);
+  padding-block: 0 clamp(15px, 4vw, 15px);
   background: var(--kaza-white);
 }
 
@@ -3078,7 +3094,7 @@ body.template-index header.kaza-header {
   justify-content: space-between;
   gap: 0.5rem;
   margin: 0;
-  padding: 1.125rem clamp(1.25rem, 3vw, 2.5rem);
+  padding: 2rem clamp(1.25rem, 3vw, 2.5rem);
   list-style: none;
   background: #1a1a1a;
   border-radius: 0.625rem;
@@ -3090,7 +3106,7 @@ body.template-index header.kaza-header {
   flex: 1 1 0;
   align-items: center;
   justify-content: center;
-  gap: 0.625rem;
+  gap: 1rem;
   min-width: 0;
   padding-inline: clamp(0.5rem, 1.5vw, 1rem);
 }
