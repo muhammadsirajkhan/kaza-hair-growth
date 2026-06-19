@@ -88,52 +88,6 @@
       ],
       "settings": {}
     },
-    "kaza_whats_inside": {
-      "type": "kaza-whats-inside",
-      "blocks": {
-        "ingredient_1": {
-          "type": "ingredient",
-          "settings": {
-            "title": "DHQG & EGCG",
-            "text": "polyphenol technology used in cosmetic literature to support the appearance of healthy follicle activity"
-          }
-        },
-        "ingredient_2": {
-          "type": "ingredient",
-          "settings": {
-            "title": "Zinc PCA",
-            "text": "helps keep the scalp environment balanced and fresh-looking."
-          }
-        },
-        "ingredient_3": {
-          "type": "ingredient",
-          "settings": {
-            "title": "Oleanolic Acid & Apigenin",
-            "text": "botanical actives used in cosmetic formulas to support stronger roots."
-          }
-        },
-        "ingredient_4": {
-          "type": "ingredient",
-          "settings": {
-            "title": "Biotinoyl Tripeptide-1",
-            "text": "a cosmetic peptide used to promote the appearance of thicker, more resilient hair."
-          }
-        }
-      },
-      "block_order": [
-        "ingredient_1",
-        "ingredient_2",
-        "ingredient_3",
-        "ingredient_4"
-      ],
-      "settings": {
-        "badge_text": "Welcome to Kaza",
-        "heading_prefix": "What's inside",
-        "heading_highlight": "Rootalix™",
-        "subheading": "the science, simplified",
-        "footer_text": "Total Rootalix™ inclusion: 2.0% in the finished formula. Components are listed individually on the INCI panel for full transparency"
-      }
-    },
     "kaza_why_choose_Pf3KHL": {
       "type": "kaza-why-choose",
       "blocks": {
@@ -203,6 +157,52 @@
         "heading_highlight": "Kaza™",
         "subheading": "Real performance. Visible results. Made for men who want impact, not excuses.",
         "show_arc": true
+      }
+    },
+    "kaza_whats_inside": {
+      "type": "kaza-whats-inside",
+      "blocks": {
+        "ingredient_1": {
+          "type": "ingredient",
+          "settings": {
+            "title": "DHQG & EGCG",
+            "text": "polyphenol technology used in cosmetic literature to support the appearance of healthy follicle activity"
+          }
+        },
+        "ingredient_2": {
+          "type": "ingredient",
+          "settings": {
+            "title": "Zinc PCA",
+            "text": "helps keep the scalp environment balanced and fresh-looking."
+          }
+        },
+        "ingredient_3": {
+          "type": "ingredient",
+          "settings": {
+            "title": "Oleanolic Acid & Apigenin",
+            "text": "botanical actives used in cosmetic formulas to support stronger roots."
+          }
+        },
+        "ingredient_4": {
+          "type": "ingredient",
+          "settings": {
+            "title": "Biotinoyl Tripeptide-1",
+            "text": "a cosmetic peptide used to promote the appearance of thicker, more resilient hair."
+          }
+        }
+      },
+      "block_order": [
+        "ingredient_1",
+        "ingredient_2",
+        "ingredient_3",
+        "ingredient_4"
+      ],
+      "settings": {
+        "badge_text": "Welcome to Kaza",
+        "heading_prefix": "What's inside",
+        "heading_highlight": "Rootalix™",
+        "subheading": "the science, simplified",
+        "footer_text": "Total Rootalix™ inclusion: 2.0% in the finished formula. Components are listed individually on the INCI panel for full transparency"
       }
     },
     "kaza_product_promo": {
@@ -314,7 +314,8 @@
         "heading_highlight": "Rootalix™",
         "heading_suffix": "to your routine",
         "text": "KAZA Hair Density Serum — Powered by Rootalix™, Caffeine, and Rosemary",
-        "button_label": "Shop the Serum"
+        "button_label": "Shop the Serum",
+        "button_url": ""
       }
     },
     "kaza_challenge_JwDE9z": {
@@ -396,11 +397,11 @@
   "order": [
     "main",
     "kaza_product_trust",
-    "kaza_whats_inside",
     "kaza_why_choose_Pf3KHL",
+    "kaza_whats_inside",
     "kaza_product_promo",
+    "kaza_challenge_JwDE9z",
     "kaza_faq",
-    "kaza_sub_banner",
-    "kaza_challenge_JwDE9z"
+    "kaza_sub_banner"
   ]
 }
