@@ -33,7 +33,7 @@
   --kaza-fs-body-lg: 1.0625rem;
   --kaza-transition: 0.25s ease;
   --kaza-header-height: 5rem;
-  --kaza-header-nav-size: 0.6875rem;
+  --kaza-header-nav-size: 1rem;
   --kaza-header-nav-tracking: 0.14em;
 }
 
@@ -90,10 +90,10 @@
 .kaza-btn--rect {
   border-radius: 0;
   border-width: 0;
-  font-weight: 700;
+  font-weight: 500;
   letter-spacing: 0.1em;
   padding: 0.9375rem 1.75rem;
-  font-size: 0.6875rem;
+  font-size: 1rem;
 }
 
 .kaza-btn--invert {

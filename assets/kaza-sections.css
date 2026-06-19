@@ -28,6 +28,7 @@ body.template-index header.kaza-header {
   left: 0;
   /* background: transparent !important; */
   margin-bottom: 0px !important;
+  border-bottom: 1px solid #ffffff1a;
 }
 
 .kaza-header--overlay.is-scrolled {
@@ -41,6 +42,17 @@ body.template-index header.kaza-header {
   align-items: center;
   gap: 1.5rem;
   min-height: var(--kaza-header-height);
+  position: relative;
+}
+
+.kaza-header__inner::before {
+  content: '';
+  position: absolute;
+  width: 150px;
+  height: 1px;
+  background-color: #ffffff9e;
+  bottom: -1px;
+  left: 0;
 }
 
 .kaza-header__logo {
@@ -150,8 +162,8 @@ body.template-index header.kaza-header {
 }
 
 .kaza-header__cart-icon {
-  width: 1.375rem;
-  height: 1.375rem;
+  width: 1.775rem;
+  height: 1.775rem;
 }
 
 .kaza-header__cart-badge {
@@ -271,7 +283,7 @@ body.template-index header.kaza-header {
 
 .kaza-footer__description {
   margin-top: 1.25rem;
-  font-size: 0.8125rem;
+  font-size: 1rem;
   line-height: 1.65;
   color: #a0a0a0;
 }
@@ -279,9 +291,9 @@ body.template-index header.kaza-header {
 .kaza-footer__cta {
   margin-top: 1.75rem;
   padding: 0.875rem 1.5rem;
-  font-size: 0.6875rem;
+  font-size: 1rem;
   font-weight: 700;
-  letter-spacing: 0.1em;
+  /* letter-spacing: 0.1em; */
   text-transform: uppercase;
   gap: 0.5rem;
 }
@@ -325,7 +337,7 @@ body.template-index header.kaza-header {
 }
 
 .kaza-footer__links a {
-  font-size: 0.875rem;
+  font-size: 1rem;
   font-weight: 400;
   color: var(--kaza-white);
   text-decoration: none;
@@ -384,13 +396,13 @@ body.template-index header.kaza-header {
 }
 
 .kaza-footer__contact-label {
-  font-size: 0.6875rem;
+  font-size: 1rem;
   color: #a0a0a0;
   line-height: 1.3;
 }
 
 .kaza-footer__contact-value {
-  font-size: 0.875rem;
+  font-size: 1rem;
   color: var(--kaza-white);
   line-height: 1.4;
 }
@@ -422,7 +434,7 @@ body.template-index header.kaza-header {
   border-radius: 0.625rem;
   color: var(--kaza-white);
   text-decoration: none;
-  font-size: 0.875rem;
+  font-size: 1rem;
   font-weight: 500;
   transition: background var(--kaza-transition);
 }
@@ -483,7 +495,7 @@ body.template-index header.kaza-header {
 }
 
 .kaza-footer__copyright {
-  font-size: 0.75rem;
+  font-size: 1rem;
   color: var(--kaza-white);
   margin: 0;
 }
@@ -496,7 +508,7 @@ body.template-index header.kaza-header {
 }
 
 .kaza-footer__legal a {
-  font-size: 0.75rem;
+  font-size: 1rem;
   color: var(--kaza-white);
   text-decoration: none;
   transition: opacity var(--kaza-transition);
@@ -881,6 +893,16 @@ body.template-index header.kaza-header {
   padding-block: 3.5rem;
   background: #efefef;
   margin: 0;
+  position: relative;
+}
+
+.kaza-our-story__media-label::before {
+  content: '';
+  position: absolute;
+  width: 1px;
+  height: 66%;
+  background-color: #cdcccc;
+  top: 30%;
 }
 
 .kaza-our-story__media-label span {
@@ -916,7 +938,7 @@ body.template-index header.kaza-header {
 }
 
 .kaza-our-story__heading {
-  font-size: var(--kaza-fs-story-content);
+  font-size: var(--kaza-fs-section);
   font-weight: 700;
   line-height: 1.1;
   letter-spacing: -0.02em;
@@ -946,8 +968,8 @@ body.template-index header.kaza-header {
 }
 
 .kaza-our-story__cta-icon {
-  width: 1rem;
-  height: 1rem;
+  width: 1.6rem;
+  height: 1.6rem;
   flex-shrink: 0;
 }
 
@@ -1135,8 +1157,8 @@ body.template-index header.kaza-header {
 }
 
 .kaza-why-choose__card-title {
-  font-size: 1.0625rem;
-  font-weight: 700;
+  font-size: 1.5rem;
+  font-weight: 500;
   line-height: 1.35;
   margin-bottom: 0.75rem;
   color: var(--kaza-black);
@@ -1417,7 +1439,7 @@ body.template-index header.kaza-header {
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  aspect-ratio: 939/1043;
+  aspect-ratio: 939/939;
 }
 
 .kaza-promo-cards__bg {
@@ -1445,8 +1467,8 @@ body.template-index header.kaza-header {
 }
 
 .kaza-promo-cards__heading {
-  font-size: var(--kaza-fs-promo);
-  font-weight: 700;
+  font-size: 2.8rem;
+  font-weight: 500;
   line-height: 1.22;
   letter-spacing: -0.015em;
   color: var(--kaza-black);
@@ -1483,32 +1505,33 @@ body.template-index header.kaza-header {
   display: inline-flex;
   align-items: center;
   gap: 0.375rem;
-  padding: 0.4375rem 0.6875rem;
-  background: var(--kaza-beige);
+  padding: 0.3rem 0.3rem;
+  background: #fff;
   border-radius: var(--kaza-radius-pill);
-  font-size: 0.625rem;
+  font-size: 1rem;
   font-weight: 600;
   line-height: 1.35;
   color: var(--kaza-black);
   box-shadow: 0 2px 14px rgba(0, 0, 0, 0.08);
   max-width: 9.5rem;
+  max-width: 14.5rem;
 }
 
 .kaza-promo-cards__badge img {
   flex-shrink: 0;
-  width: 0.875rem;
-  height: 0.875rem;
+  width: 59px;
+  height: 59px;
   object-fit: contain;
 }
 
 .kaza-promo-cards__badge--1 {
-  bottom: 24%;
-  left: 8%;
+  bottom: 7%;
+  left: 16%;
 }
 
 .kaza-promo-cards__badge--2 {
-  top: 36%;
-  right: 6%;
+  top: 54%;
+  right: 10%;
 }
 
 /* --- kaza-product-promo.liquid --- */
@@ -1741,11 +1764,11 @@ body.template-index header.kaza-header {
 }
 
 .kaza-how-it-works__step-title {
-  font-size: 1.0625rem;
-  font-weight: 700;
+  font-size: 2rem;
+  font-weight: 500;
   line-height: 1.3;
   color: var(--kaza-black);
-  margin-bottom: 0.375rem;
+  margin-bottom: 2rem;
 }
 
 .kaza-how-it-works__step-text {
@@ -1764,7 +1787,7 @@ body.template-index header.kaza-header {
 
 .kaza-how-it-works__cta-btn {
   padding: 0.9375rem 2rem;
-  font-size: 0.875rem;
+  font-size: 1.2rem;
   font-weight: 600;
   text-transform: none;
   letter-spacing: 0.02em;
@@ -1839,7 +1862,7 @@ body.template-index header.kaza-header {
   position: absolute;
   top: clamp(0.875rem, 2.5vw, 1.5rem);
   z-index: 5;
-  font-size: var(--kaza-fs-ba-label);
+  font-size: 2.2rem;
   font-weight: 500;
   line-height: 1;
   color: var(--kaza-black);
@@ -2002,8 +2025,8 @@ body.template-index header.kaza-header {
 }
 
 .kaza-challenge__review-title {
-  font-size: var(--kaza-fs-review-title);
-  font-weight: 700;
+  font-size: 2.8rem;
+  font-weight: 500;
   line-height: 1.25;
   letter-spacing: -0.01em;
   margin: 0;
@@ -2013,7 +2036,7 @@ body.template-index header.kaza-header {
 .kaza-challenge__review-quote {
   max-width: 28rem;
   margin: 0;
-  font-size: var(--kaza-fs-review-quote);
+  font-size: 1rem;
   font-weight: 400;
   font-style: normal;
   line-height: 1.55;
@@ -2085,13 +2108,16 @@ body.template-index header.kaza-header {
 .kaza-challenge__stat-card {
   padding: clamp(1.5rem, 2.5vw, 1.75rem) clamp(1.25rem, 2vw, 1.5rem);
   text-align: left;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .kaza-challenge__stat-title {
-  font-size: 0.8125rem;
-  font-weight: 700;
-  letter-spacing: 0.05em;
-  line-height: 1.35;
+  font-size: 2.2rem;
+  font-weight: 400;
+  /* letter-spacing: 0.05em; */
+  line-height: 1;
   text-transform: uppercase;
   margin: 0 0 0.625rem;
   color: var(--kaza-black);
@@ -2099,8 +2125,8 @@ body.template-index header.kaza-header {
 
 .kaza-challenge__stat-text {
   margin: 0;
-  font-size: 0.8125rem;
-  line-height: 1.55;
+  font-size: 1rem;
+  line-height: 1.2;
   color: var(--kaza-gray);
 }
 
