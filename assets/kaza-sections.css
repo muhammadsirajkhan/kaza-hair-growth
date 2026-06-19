@@ -983,7 +983,7 @@ body.template-index header.kaza-header {
 }
 
 .kaza-our-story__rating-text {
-  font-size: 1rme;
+  font-size: 1rem;
   font-weight: 500;
   color: var(--kaza-black);
 }
@@ -3013,15 +3013,12 @@ body.template-index header.kaza-header {
 }
 
 .kaza-sub-banner__heading {
-  font-size: clamp(1.75rem, 3.2vw, 2.5rem);
-  font-weight: 400;
-  line-height: 1.15;
-  letter-spacing: -0.02em;
-  color: var(--kaza-white);
-  margin: 0;
   font-size: var(--kaza-fs-section);
   font-weight: 700;
   line-height: 1.12;
+  letter-spacing: -0.02em;
+  color: var(--kaza-white);
+  margin: 0;
 }
 
 .kaza-sub-banner__heading-highlight {

@@ -24,6 +24,7 @@
     --kaza-fs-review-title: 1.25rem;
     --kaza-fs-review-quote: 0.9375rem;
     --kaza-fs-body-lg: 1.0625rem;
+    --kaza-header-nav-size: 1rem;
   }
 }
 
@@ -51,6 +52,104 @@
     --kaza-fs-review-title: 1.1875rem;
     --kaza-fs-review-quote: 0.90625rem;
     --kaza-fs-body-lg: 1.03125rem;
+    --kaza-header-nav-size: 0.9375rem;
+  }
+
+  /* Font sizes — synced from kaza-sections.css */
+  .kaza-promo-cards__heading,
+  .kaza-challenge__review-title {
+    font-size: 2.5rem;
+  }
+
+  .kaza-ba-slider__side-label,
+  .kaza-challenge__stat-title {
+    font-size: 2rem;
+  }
+
+  .kaza-product-promo__heading,
+  .kaza-how-it-works__step-title,
+  .kaza-product__price {
+    font-size: 1.8125rem;
+  }
+
+  .kaza-why-choose__card-title {
+    font-size: 1.375rem;
+  }
+
+  .kaza-cart__empty-title {
+    font-size: 1.25rem;
+  }
+
+  .kaza-hero__cta,
+  .kaza-hero__nav-btn,
+  .kaza-our-story__text,
+  .kaza-our-story__cta,
+  .kaza-promo-cards__text,
+  .kaza-promo-cards__btn,
+  .kaza-product-promo__steps-heading,
+  .kaza-how-it-works__cta-btn,
+  .kaza-faq__question {
+    font-size: 1.1rem;
+  }
+
+  .kaza-footer__description,
+  .kaza-footer__cta,
+  .kaza-footer__heading,
+  .kaza-footer__links a,
+  .kaza-footer__contact-label,
+  .kaza-footer__contact-value,
+  .kaza-hero__powered,
+  .kaza-hero__trust-label,
+  .kaza-hero__feature-title,
+  .kaza-our-story__rating-text,
+  .kaza-why-choose__float,
+  .kaza-rootalix__feature-text,
+  .kaza-rootalix__ingredients,
+  .kaza-promo-cards__badge,
+  .kaza-product-promo__step,
+  .kaza-product-promo__badge,
+  .kaza-challenge__review-quote,
+  .kaza-challenge__stat-text,
+  .kaza-product__subtitle,
+  .kaza-product__benefit-title,
+  .kaza-product__powered,
+  .kaza-product__compare-price,
+  .kaza-product__cta,
+  .kaza-whats-inside__footer,
+  .kaza-sub-banner__btn,
+  .kaza-product-trust__text,
+  .kaza-cart__item-title,
+  .kaza-cart__item-price {
+    font-size: 1rem;
+  }
+
+  .kaza-why-choose__card-text,
+  .kaza-cart__summary-row dt {
+    font-size: 0.9375rem;
+  }
+
+  .kaza-how-it-works__step-text,
+  .kaza-cart__item-variant,
+  .kaza-cart__item-plan {
+    font-size: 0.875rem;
+  }
+
+  .kaza-hero__feature-text {
+    font-size: 0.8125rem;
+  }
+
+  .kaza-hero__trustpilot-text,
+  .kaza-benefits__title,
+  .kaza-benefits__text,
+  .kaza-cart__item-compare,
+  .kaza-cart__summary-note {
+    font-size: 0.8125rem;
+  }
+
+  .kaza-cart__summary-title,
+  .kaza-cart__summary-row dd,
+  .kaza-cart__qty-btn {
+    font-size: 1.0625rem;
   }
 }
 
@@ -72,6 +171,104 @@
     --kaza-fs-review-title: 1.125rem;
     --kaza-fs-review-quote: 0.875rem;
     --kaza-fs-body-lg: 1rem;
+    --kaza-header-nav-size: 0.9375rem;
+  }
+
+  /* Font sizes — synced from kaza-sections.css */
+  .kaza-promo-cards__heading,
+  .kaza-challenge__review-title {
+    font-size: 2.375rem;
+  }
+
+  .kaza-ba-slider__side-label,
+  .kaza-challenge__stat-title {
+    font-size: 1.9375rem;
+  }
+
+  .kaza-product-promo__heading,
+  .kaza-how-it-works__step-title,
+  .kaza-product__price {
+    font-size: 1.75rem;
+  }
+
+  .kaza-why-choose__card-title {
+    font-size: 1.3125rem;
+  }
+
+  .kaza-cart__empty-title {
+    font-size: 1.1875rem;
+  }
+
+  .kaza-hero__cta,
+  .kaza-hero__nav-btn,
+  .kaza-our-story__text,
+  .kaza-our-story__cta,
+  .kaza-promo-cards__text,
+  .kaza-promo-cards__btn,
+  .kaza-product-promo__steps-heading,
+  .kaza-how-it-works__cta-btn,
+  .kaza-faq__question {
+    font-size: 1.0625rem;
+  }
+
+  .kaza-footer__description,
+  .kaza-footer__cta,
+  .kaza-footer__heading,
+  .kaza-footer__links a,
+  .kaza-footer__contact-label,
+  .kaza-footer__contact-value,
+  .kaza-hero__powered,
+  .kaza-hero__trust-label,
+  .kaza-hero__feature-title,
+  .kaza-our-story__rating-text,
+  .kaza-why-choose__float,
+  .kaza-rootalix__feature-text,
+  .kaza-rootalix__ingredients,
+  .kaza-promo-cards__badge,
+  .kaza-product-promo__step,
+  .kaza-product-promo__badge,
+  .kaza-challenge__review-quote,
+  .kaza-challenge__stat-text,
+  .kaza-product__subtitle,
+  .kaza-product__benefit-title,
+  .kaza-product__powered,
+  .kaza-product__compare-price,
+  .kaza-product__cta,
+  .kaza-whats-inside__footer,
+  .kaza-sub-banner__btn,
+  .kaza-product-trust__text,
+  .kaza-cart__item-title,
+  .kaza-cart__item-price {
+    font-size: 1rem;
+  }
+
+  .kaza-why-choose__card-text,
+  .kaza-cart__summary-row dt {
+    font-size: 0.9375rem;
+  }
+
+  .kaza-how-it-works__step-text,
+  .kaza-cart__item-variant,
+  .kaza-cart__item-plan {
+    font-size: 0.875rem;
+  }
+
+  .kaza-hero__feature-text {
+    font-size: 0.8125rem;
+  }
+
+  .kaza-hero__trustpilot-text,
+  .kaza-benefits__title,
+  .kaza-benefits__text,
+  .kaza-cart__item-compare,
+  .kaza-cart__summary-note {
+    font-size: 0.8125rem;
+  }
+
+  .kaza-cart__summary-title,
+  .kaza-cart__summary-row dd,
+  .kaza-cart__qty-btn {
+    font-size: 1.0625rem;
   }
 }
 
@@ -93,6 +290,104 @@
     --kaza-fs-review-title: 1.0625rem;
     --kaza-fs-review-quote: 0.875rem;
     --kaza-fs-body-lg: 0.96875rem;
+    --kaza-header-nav-size: 0.875rem;
+  }
+
+  /* Font sizes — synced from kaza-sections.css */
+  .kaza-promo-cards__heading,
+  .kaza-challenge__review-title {
+    font-size: 2.25rem;
+  }
+
+  .kaza-ba-slider__side-label,
+  .kaza-challenge__stat-title {
+    font-size: 1.875rem;
+  }
+
+  .kaza-product-promo__heading,
+  .kaza-how-it-works__step-title,
+  .kaza-product__price {
+    font-size: 1.6875rem;
+  }
+
+  .kaza-why-choose__card-title {
+    font-size: 1.25rem;
+  }
+
+  .kaza-cart__empty-title {
+    font-size: 1.125rem;
+  }
+
+  .kaza-hero__cta,
+  .kaza-hero__nav-btn,
+  .kaza-our-story__text,
+  .kaza-our-story__cta,
+  .kaza-promo-cards__text,
+  .kaza-promo-cards__btn,
+  .kaza-product-promo__steps-heading,
+  .kaza-how-it-works__cta-btn,
+  .kaza-faq__question {
+    font-size: 1rem;
+  }
+
+  .kaza-footer__description,
+  .kaza-footer__cta,
+  .kaza-footer__heading,
+  .kaza-footer__links a,
+  .kaza-footer__contact-label,
+  .kaza-footer__contact-value,
+  .kaza-hero__powered,
+  .kaza-hero__trust-label,
+  .kaza-hero__feature-title,
+  .kaza-our-story__rating-text,
+  .kaza-why-choose__float,
+  .kaza-rootalix__feature-text,
+  .kaza-rootalix__ingredients,
+  .kaza-promo-cards__badge,
+  .kaza-product-promo__step,
+  .kaza-product-promo__badge,
+  .kaza-challenge__review-quote,
+  .kaza-challenge__stat-text,
+  .kaza-product__subtitle,
+  .kaza-product__benefit-title,
+  .kaza-product__powered,
+  .kaza-product__compare-price,
+  .kaza-product__cta,
+  .kaza-whats-inside__footer,
+  .kaza-sub-banner__btn,
+  .kaza-product-trust__text,
+  .kaza-cart__item-title,
+  .kaza-cart__item-price {
+    font-size: 1rem;
+  }
+
+  .kaza-why-choose__card-text,
+  .kaza-cart__summary-row dt {
+    font-size: 0.9375rem;
+  }
+
+  .kaza-how-it-works__step-text,
+  .kaza-cart__item-variant,
+  .kaza-cart__item-plan {
+    font-size: 0.875rem;
+  }
+
+  .kaza-hero__feature-text {
+    font-size: 0.8125rem;
+  }
+
+  .kaza-hero__trustpilot-text,
+  .kaza-benefits__title,
+  .kaza-benefits__text,
+  .kaza-cart__item-compare,
+  .kaza-cart__summary-note {
+    font-size: 0.8125rem;
+  }
+
+  .kaza-cart__summary-title,
+  .kaza-cart__summary-row dd,
+  .kaza-cart__qty-btn {
+    font-size: 1.0625rem;
   }
 
   .kaza-footer__main {
@@ -123,6 +418,104 @@
     --kaza-fs-hero: 3rem;
     --kaza-fs-story-content: 2.1875rem;
     --kaza-fs-promo: 1.3125rem;
+    --kaza-header-nav-size: 0.875rem;
+  }
+
+  /* Font sizes — synced from kaza-sections.css */
+  .kaza-promo-cards__heading,
+  .kaza-challenge__review-title {
+    font-size: 2.125rem;
+  }
+
+  .kaza-ba-slider__side-label,
+  .kaza-challenge__stat-title {
+    font-size: 1.75rem;
+  }
+
+  .kaza-product-promo__heading,
+  .kaza-how-it-works__step-title,
+  .kaza-product__price {
+    font-size: 1.625rem;
+  }
+
+  .kaza-why-choose__card-title {
+    font-size: 1.1875rem;
+  }
+
+  .kaza-cart__empty-title {
+    font-size: 1.0625rem;
+  }
+
+  .kaza-hero__cta,
+  .kaza-hero__nav-btn,
+  .kaza-our-story__text,
+  .kaza-our-story__cta,
+  .kaza-promo-cards__text,
+  .kaza-promo-cards__btn,
+  .kaza-product-promo__steps-heading,
+  .kaza-how-it-works__cta-btn,
+  .kaza-faq__question {
+    font-size: 0.975rem;
+  }
+
+  .kaza-footer__description,
+  .kaza-footer__cta,
+  .kaza-footer__heading,
+  .kaza-footer__links a,
+  .kaza-footer__contact-label,
+  .kaza-footer__contact-value,
+  .kaza-hero__powered,
+  .kaza-hero__trust-label,
+  .kaza-hero__feature-title,
+  .kaza-our-story__rating-text,
+  .kaza-why-choose__float,
+  .kaza-rootalix__feature-text,
+  .kaza-rootalix__ingredients,
+  .kaza-promo-cards__badge,
+  .kaza-product-promo__step,
+  .kaza-product-promo__badge,
+  .kaza-challenge__review-quote,
+  .kaza-challenge__stat-text,
+  .kaza-product__subtitle,
+  .kaza-product__benefit-title,
+  .kaza-product__powered,
+  .kaza-product__compare-price,
+  .kaza-product__cta,
+  .kaza-whats-inside__footer,
+  .kaza-sub-banner__btn,
+  .kaza-product-trust__text,
+  .kaza-cart__item-title,
+  .kaza-cart__item-price {
+    font-size: 0.975rem;
+  }
+
+  .kaza-why-choose__card-text,
+  .kaza-cart__summary-row dt {
+    font-size: 0.90625rem;
+  }
+
+  .kaza-how-it-works__step-text,
+  .kaza-cart__item-variant,
+  .kaza-cart__item-plan {
+    font-size: 0.875rem;
+  }
+
+  .kaza-hero__feature-text {
+    font-size: 0.8125rem;
+  }
+
+  .kaza-hero__trustpilot-text,
+  .kaza-benefits__title,
+  .kaza-benefits__text,
+  .kaza-cart__item-compare,
+  .kaza-cart__summary-note {
+    font-size: 0.8125rem;
+  }
+
+  .kaza-cart__summary-title,
+  .kaza-cart__summary-row dd,
+  .kaza-cart__qty-btn {
+    font-size: 1rem;
   }
 }
 
@@ -143,6 +536,112 @@
     --kaza-fs-ba-label: 1.125rem;
     --kaza-fs-review-title: 1rem;
     --kaza-fs-body-lg: 0.9375rem;
+    --kaza-header-nav-size: 0.8125rem;
+  }
+
+  /* Font sizes — synced from kaza-sections.css */
+  .kaza-promo-cards__heading,
+  .kaza-challenge__review-title {
+    font-size: 1.875rem;
+  }
+
+  .kaza-ba-slider__side-label,
+  .kaza-challenge__stat-title {
+    font-size: 1.5rem;
+  }
+
+  .kaza-product-promo__heading,
+  .kaza-how-it-works__step-title,
+  .kaza-product__price {
+    font-size: 1.375rem;
+  }
+
+  .kaza-why-choose__card-title {
+    font-size: 1.125rem;
+  }
+
+  .kaza-cart__empty-title {
+    font-size: 1rem;
+  }
+
+  .kaza-hero__cta,
+  .kaza-hero__nav-btn,
+  .kaza-our-story__text,
+  .kaza-our-story__cta,
+  .kaza-promo-cards__text,
+  .kaza-promo-cards__btn,
+  .kaza-product-promo__steps-heading,
+  .kaza-how-it-works__cta-btn,
+  .kaza-faq__question {
+    font-size: 0.9375rem;
+  }
+
+  .kaza-footer__description,
+  .kaza-footer__cta,
+  .kaza-footer__heading,
+  .kaza-footer__links a,
+  .kaza-footer__contact-label,
+  .kaza-footer__contact-value,
+  .kaza-hero__powered,
+  .kaza-hero__trust-label,
+  .kaza-hero__feature-title,
+  .kaza-our-story__rating-text,
+  .kaza-why-choose__float,
+  .kaza-rootalix__feature-text,
+  .kaza-rootalix__ingredients,
+  .kaza-promo-cards__badge,
+  .kaza-product-promo__step,
+  .kaza-product-promo__badge,
+  .kaza-challenge__review-quote,
+  .kaza-challenge__stat-text,
+  .kaza-product__subtitle,
+  .kaza-product__benefit-title,
+  .kaza-product__powered,
+  .kaza-product__compare-price,
+  .kaza-product__cta,
+  .kaza-whats-inside__footer,
+  .kaza-sub-banner__btn,
+  .kaza-product-trust__text,
+  .kaza-cart__item-title,
+  .kaza-cart__item-price {
+    font-size: 0.9375rem;
+  }
+
+  .kaza-why-choose__card-text,
+  .kaza-cart__summary-row dt {
+    font-size: 0.875rem;
+  }
+
+  .kaza-how-it-works__step-text,
+  .kaza-cart__item-variant,
+  .kaza-cart__item-plan {
+    font-size: 0.8125rem;
+  }
+
+  .kaza-hero__feature-text {
+    font-size: 0.75rem;
+  }
+
+  .kaza-hero__trustpilot-text,
+  .kaza-benefits__title,
+  .kaza-benefits__text,
+  .kaza-cart__item-compare,
+  .kaza-cart__summary-note {
+    font-size: 0.75rem;
+  }
+
+  .kaza-cart__summary-title,
+  .kaza-cart__summary-row dd,
+  .kaza-cart__qty-btn {
+    font-size: 1rem;
+  }
+
+  .kaza-ba-slider__handle-label {
+    font-size: 20px;
+  }
+
+  .kaza-our-story__media-label span {
+    font-size: 9px;
   }
 
   .kaza-product__inner {
@@ -151,7 +650,7 @@
 
   .kaza-why-choose__float {
     max-width: 10rem;
-    font-size: 0.625rem;
+    font-size: 0.9375rem;
     padding: 0.5rem 0.875rem;
   }
 
@@ -165,7 +664,7 @@
   }
 
   .kaza-rootalix__feature-text {
-    font-size: 0.75rem;
+    font-size: 0.9375rem;
   }
 
   .kaza-rootalix__feature-icon {
@@ -197,6 +696,115 @@
     --kaza-fs-review-title: 1rem;
     --kaza-fs-review-quote: 0.875rem;
     --kaza-fs-body-lg: 0.9375rem;
+    --kaza-header-nav-size: 0.8125rem;
+  }
+
+  /* Font sizes — synced from kaza-sections.css */
+  .kaza-promo-cards__heading,
+  .kaza-challenge__review-title {
+    font-size: 1.5rem;
+  }
+
+  .kaza-ba-slider__side-label,
+  .kaza-challenge__stat-title {
+    font-size: 1.25rem;
+  }
+
+  .kaza-product-promo__heading,
+  .kaza-how-it-works__step-title,
+  .kaza-product__price {
+    font-size: 1.25rem;
+  }
+
+  .kaza-why-choose__card-title {
+    font-size: 1.0625rem;
+  }
+
+  .kaza-cart__empty-title {
+    font-size: 1rem;
+  }
+
+  .kaza-hero__cta,
+  .kaza-hero__nav-btn,
+  .kaza-our-story__text,
+  .kaza-our-story__cta,
+  .kaza-promo-cards__text,
+  .kaza-promo-cards__btn,
+  .kaza-product-promo__steps-heading,
+  .kaza-how-it-works__cta-btn,
+  .kaza-faq__question {
+    font-size: 0.875rem;
+  }
+
+  .kaza-footer__description,
+  .kaza-footer__cta,
+  .kaza-footer__heading,
+  .kaza-footer__links a,
+  .kaza-footer__contact-label,
+  .kaza-footer__contact-value,
+  .kaza-hero__powered,
+  .kaza-hero__trust-label,
+  .kaza-hero__feature-title,
+  .kaza-our-story__rating-text,
+  .kaza-why-choose__float,
+  .kaza-rootalix__feature-text,
+  .kaza-rootalix__ingredients,
+  .kaza-promo-cards__badge,
+  .kaza-product-promo__step,
+  .kaza-product-promo__badge,
+  .kaza-challenge__review-quote,
+  .kaza-challenge__stat-text,
+  .kaza-product__subtitle,
+  .kaza-product__benefit-title,
+  .kaza-product__powered,
+  .kaza-product__compare-price,
+  .kaza-product__cta,
+  .kaza-whats-inside__footer,
+  .kaza-sub-banner__btn,
+  .kaza-cart__item-title,
+  .kaza-cart__item-price {
+    font-size: 0.875rem;
+  }
+
+  .kaza-product-trust__text {
+    font-size: 0.875rem;
+  }
+
+  .kaza-why-choose__card-text,
+  .kaza-cart__summary-row dt {
+    font-size: 0.8125rem;
+  }
+
+  .kaza-how-it-works__step-text,
+  .kaza-cart__item-variant,
+  .kaza-cart__item-plan {
+    font-size: 0.8125rem;
+  }
+
+  .kaza-hero__feature-text {
+    font-size: 0.75rem;
+  }
+
+  .kaza-hero__trustpilot-text,
+  .kaza-benefits__title,
+  .kaza-benefits__text,
+  .kaza-cart__item-compare,
+  .kaza-cart__summary-note {
+    font-size: 0.75rem;
+  }
+
+  .kaza-cart__summary-title,
+  .kaza-cart__summary-row dd,
+  .kaza-cart__qty-btn {
+    font-size: 0.9375rem;
+  }
+
+  .kaza-ba-slider__handle-label {
+    font-size: 16px;
+  }
+
+  .kaza-our-story__media-label span {
+    font-size: 8px;
   }
 
   .kaza-hide-mobile {
@@ -407,7 +1015,7 @@
   }
 
   .kaza-promo-cards__badge {
-    font-size: 0.5625rem;
+    font-size: 0.875rem;
     max-width: 8.5rem;
   }
 
@@ -431,7 +1039,7 @@
   }
 
   .kaza-product-promo__badge {
-    font-size: 0.5625rem;
+    font-size: 0.875rem;
     max-width: 8.5rem;
   }
 
@@ -469,7 +1077,7 @@
   }
 
   .kaza-ba-slider__handle-label {
-    font-size: 0.625rem;
+    font-size: 16px;
   }
 
   .kaza-challenge__reviews-shell {
@@ -608,6 +1216,115 @@
     --kaza-fs-story-title: 1.3125rem;
     --kaza-fs-story-content: 1.875rem;
     --kaza-fs-promo: 1.0625rem;
+    --kaza-header-nav-size: 0.75rem;
+  }
+
+  /* Font sizes — synced from kaza-sections.css */
+  .kaza-promo-cards__heading,
+  .kaza-challenge__review-title {
+    font-size: 1.375rem;
+  }
+
+  .kaza-ba-slider__side-label,
+  .kaza-challenge__stat-title {
+    font-size: 1.125rem;
+  }
+
+  .kaza-product-promo__heading,
+  .kaza-how-it-works__step-title,
+  .kaza-product__price {
+    font-size: 1.125rem;
+  }
+
+  .kaza-why-choose__card-title {
+    font-size: 1rem;
+  }
+
+  .kaza-cart__empty-title {
+    font-size: 0.9375rem;
+  }
+
+  .kaza-hero__cta,
+  .kaza-hero__nav-btn,
+  .kaza-our-story__text,
+  .kaza-our-story__cta,
+  .kaza-promo-cards__text,
+  .kaza-promo-cards__btn,
+  .kaza-product-promo__steps-heading,
+  .kaza-how-it-works__cta-btn,
+  .kaza-faq__question {
+    font-size: 0.8125rem;
+  }
+
+  .kaza-footer__description,
+  .kaza-footer__cta,
+  .kaza-footer__heading,
+  .kaza-footer__links a,
+  .kaza-footer__contact-label,
+  .kaza-footer__contact-value,
+  .kaza-hero__powered,
+  .kaza-hero__trust-label,
+  .kaza-hero__feature-title,
+  .kaza-our-story__rating-text,
+  .kaza-why-choose__float,
+  .kaza-rootalix__feature-text,
+  .kaza-rootalix__ingredients,
+  .kaza-promo-cards__badge,
+  .kaza-product-promo__step,
+  .kaza-product-promo__badge,
+  .kaza-challenge__review-quote,
+  .kaza-challenge__stat-text,
+  .kaza-product__subtitle,
+  .kaza-product__benefit-title,
+  .kaza-product__powered,
+  .kaza-product__compare-price,
+  .kaza-product__cta,
+  .kaza-whats-inside__footer,
+  .kaza-sub-banner__btn,
+  .kaza-cart__item-title,
+  .kaza-cart__item-price {
+    font-size: 0.8125rem;
+  }
+
+  .kaza-product-trust__text {
+    font-size: 0.875rem;
+  }
+
+  .kaza-why-choose__card-text,
+  .kaza-cart__summary-row dt {
+    font-size: 0.8125rem;
+  }
+
+  .kaza-how-it-works__step-text,
+  .kaza-cart__item-variant,
+  .kaza-cart__item-plan {
+    font-size: 0.75rem;
+  }
+
+  .kaza-hero__feature-text {
+    font-size: 0.75rem;
+  }
+
+  .kaza-hero__trustpilot-text,
+  .kaza-benefits__title,
+  .kaza-benefits__text,
+  .kaza-cart__item-compare,
+  .kaza-cart__summary-note {
+    font-size: 0.75rem;
+  }
+
+  .kaza-cart__summary-title,
+  .kaza-cart__summary-row dd,
+  .kaza-cart__qty-btn {
+    font-size: 0.875rem;
+  }
+
+  .kaza-ba-slider__handle-label {
+    font-size: 14px;
+  }
+
+  .kaza-our-story__media-label span {
+    font-size: 8px;
   }
 }
 
@@ -619,5 +1336,114 @@
     --kaza-fs-section-content: 0.75rem;
     --kaza-fs-hero: 1.75rem;
     --kaza-fs-story-content: 1.75rem;
+    --kaza-header-nav-size: 0.75rem;
+  }
+
+  /* Font sizes — synced from kaza-sections.css */
+  .kaza-promo-cards__heading,
+  .kaza-challenge__review-title {
+    font-size: 1.25rem;
+  }
+
+  .kaza-ba-slider__side-label,
+  .kaza-challenge__stat-title {
+    font-size: 1rem;
+  }
+
+  .kaza-product-promo__heading,
+  .kaza-how-it-works__step-title,
+  .kaza-product__price {
+    font-size: 1rem;
+  }
+
+  .kaza-why-choose__card-title {
+    font-size: 0.9375rem;
+  }
+
+  .kaza-cart__empty-title {
+    font-size: 0.875rem;
+  }
+
+  .kaza-hero__cta,
+  .kaza-hero__nav-btn,
+  .kaza-our-story__text,
+  .kaza-our-story__cta,
+  .kaza-promo-cards__text,
+  .kaza-promo-cards__btn,
+  .kaza-product-promo__steps-heading,
+  .kaza-how-it-works__cta-btn,
+  .kaza-faq__question {
+    font-size: 0.75rem;
+  }
+
+  .kaza-footer__description,
+  .kaza-footer__cta,
+  .kaza-footer__heading,
+  .kaza-footer__links a,
+  .kaza-footer__contact-label,
+  .kaza-footer__contact-value,
+  .kaza-hero__powered,
+  .kaza-hero__trust-label,
+  .kaza-hero__feature-title,
+  .kaza-our-story__rating-text,
+  .kaza-why-choose__float,
+  .kaza-rootalix__feature-text,
+  .kaza-rootalix__ingredients,
+  .kaza-promo-cards__badge,
+  .kaza-product-promo__step,
+  .kaza-product-promo__badge,
+  .kaza-challenge__review-quote,
+  .kaza-challenge__stat-text,
+  .kaza-product__subtitle,
+  .kaza-product__benefit-title,
+  .kaza-product__powered,
+  .kaza-product__compare-price,
+  .kaza-product__cta,
+  .kaza-whats-inside__footer,
+  .kaza-sub-banner__btn,
+  .kaza-cart__item-title,
+  .kaza-cart__item-price {
+    font-size: 0.8125rem;
+  }
+
+  .kaza-product-trust__text {
+    font-size: 0.875rem;
+  }
+
+  .kaza-why-choose__card-text,
+  .kaza-cart__summary-row dt {
+    font-size: 0.75rem;
+  }
+
+  .kaza-how-it-works__step-text,
+  .kaza-cart__item-variant,
+  .kaza-cart__item-plan {
+    font-size: 0.75rem;
+  }
+
+  .kaza-hero__feature-text {
+    font-size: 0.6875rem;
+  }
+
+  .kaza-hero__trustpilot-text,
+  .kaza-benefits__title,
+  .kaza-benefits__text,
+  .kaza-cart__item-compare,
+  .kaza-cart__summary-note {
+    font-size: 0.6875rem;
+  }
+
+  .kaza-cart__summary-title,
+  .kaza-cart__summary-row dd,
+  .kaza-cart__qty-btn {
+    font-size: 0.8125rem;
+  }
+
+  .kaza-ba-slider__handle-label {
+    font-size: 14px;
+  }
+
+  .kaza-our-story__media-label span {
+    font-size: 8px;
   }
 }
