@@ -104,6 +104,7 @@ body.template-index header.kaza-header {
   height: 0.625rem;
   flex-shrink: 0;
   opacity: 0.85;
+  opacity: 0;
 }
 
 .kaza-header__dropdown {
