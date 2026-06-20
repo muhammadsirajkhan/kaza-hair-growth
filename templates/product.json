@@ -211,8 +211,6 @@
         "consistency_card": {
           "type": "consistency_card",
           "settings": {
-            "heading_prefix": "Visible results ",
-            "heading_highlight": "with consistency",
             "text": "Use 1–2× daily on clean, dry scalp. Most users report improved density with less shedding over 8–12 weeks of consistent use. Individual results vary.",
             "steps_heading": "How to Apply",
             "image": "shopify://shop_images/left-new.webp"
@@ -245,8 +243,6 @@
         "men_card": {
           "type": "men_card",
           "settings": {
-            "heading_prefix": "Built for ",
-            "heading_highlight": "men",
             "subheading": "Key Actives — Rootalix™ • Caffeine • Rosemary",
             "show_badges": true,
             "badge_1_text": "non-oily, fast dry-down subtle finish",
