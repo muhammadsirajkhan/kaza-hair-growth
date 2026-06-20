@@ -1973,6 +1973,7 @@ body.template-index header.kaza-header {
   z-index: 4;
   cursor: ew-resize;
   pointer-events: auto;
+  touch-action: none;
   box-shadow: 0 4px 18px rgba(0, 0, 0, 0.1);
   transition: transform var(--kaza-transition), box-shadow var(--kaza-transition);
   outline-offset: -10px;

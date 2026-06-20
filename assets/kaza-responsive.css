@@ -715,6 +715,14 @@
     --kaza-header-height: 4.25rem;
   }
 
+  .kaza-hero__heading {
+    line-height: 1.2;
+  }
+
+  .kaza-hero__cta {
+    padding: 0.6rem 1.2rem;
+  }
+
   .kaza-rootalix__bg::before {
     content: '';
     position: absolute;
@@ -1471,7 +1479,7 @@
     --kaza-fs-section-pill: 1rem;
     --kaza-fs-section: 2rem;
     --kaza-fs-section-content: 1rem;
-    --kaza-fs-hero: 2rem;
+    --kaza-fs-hero: 2.4rem;
     --kaza-fs-story-title: 1.3125rem;
     --kaza-fs-story-content: 1.875rem;
     --kaza-fs-promo: 1.0625rem;

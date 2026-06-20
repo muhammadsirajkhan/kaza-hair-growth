@@ -175,15 +175,9 @@
         dragging = true;
         slider.classList.add('is-dragging');
         control.setPointerCapture(event.pointerId);
-        updateFromPointer(event.clientX);
         window.addEventListener('pointermove', onPointerMove);
         window.addEventListener('pointerup', stopDragging);
         window.addEventListener('pointercancel', stopDragging);
-      });
-
-      viewport.addEventListener('pointerdown', (event) => {
-        if (event.target.closest('[data-kaza-ba-control]')) return;
-        updateFromPointer(event.clientX);
       });
 
       control.addEventListener('keydown', (event) => {
