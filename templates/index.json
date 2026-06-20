@@ -177,6 +177,7 @@
           "type": "feature",
           "settings": {
             "position": "bottom-left",
+            "icon": "shopify://shop_images/choose-icon3.webp",
             "title": "Less shedding on brush and in shower"
           }
         },
@@ -184,6 +185,7 @@
           "type": "feature",
           "settings": {
             "position": "top-right",
+            "icon": "shopify://shop_images/choose-icon2.webp",
             "title": "Healthier scalp feel and appearance"
           }
         },
@@ -191,6 +193,7 @@
           "type": "feature",
           "settings": {
             "position": "bottom-right",
+            "icon": "shopify://shop_images/choose-icon1.webp",
             "title": "Visible Density Improvements."
           }
         }
