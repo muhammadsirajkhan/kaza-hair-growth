@@ -26,6 +26,10 @@
     --kaza-fs-body-lg: 1.0625rem;
     --kaza-header-nav-size: 1rem;
   }
+
+  .kaza-hero__right {
+    right: -2.1vw;
+  }
 }
 
 @media only screen and (min-width: 100px) and (max-width: 1599px) {
