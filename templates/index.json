@@ -260,6 +260,7 @@
         "step_1": {
           "type": "step",
           "settings": {
+            "image": "shopify://shop_images/image-2.webp",
             "title": "Block",
             "text": "Topical DHT Defense (Oleanolic Acid)"
           }
@@ -267,6 +268,7 @@
         "step_2": {
           "type": "step",
           "settings": {
+            "image": "shopify://shop_images/image-1.webp",
             "title": "Anchor",
             "text": "Biotinoyl Tripeptide-1."
           }
@@ -274,6 +276,7 @@
         "step_3": {
           "type": "step",
           "settings": {
+            "image": "shopify://shop_images/image-3.webp",
             "title": "Grow",
             "text": "Redensyl (DHQG + EGCG)."
           }
