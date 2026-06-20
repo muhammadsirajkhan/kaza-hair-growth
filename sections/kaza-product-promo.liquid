@@ -10,8 +10,15 @@
       {% if consistency_card %}
         <article class="kaza-product-promo__card kaza-product-promo__card--left" {{ consistency_card.shopify_attributes }}>
           <div class="kaza-product-promo__content">
-            {% if consistency_card.settings.heading != blank %}
-              <h2 class="kaza-product-promo__heading">{{ consistency_card.settings.heading }}</h2>
+            {% if consistency_card.settings.heading_prefix != blank or consistency_card.settings.heading_highlight != blank %}
+              <h2 class="kaza-product-promo__heading">
+                {% if consistency_card.settings.heading_prefix != blank %}
+                  <span class="kaza-section-heading__prefix">{{ consistency_card.settings.heading_prefix }}</span>
+                {% endif %}
+                {% if consistency_card.settings.heading_highlight != blank %}
+                  <span class="kaza-section-heading__highlight">{{ consistency_card.settings.heading_highlight }}</span>
+                {% endif %}
+              </h2>
             {% endif %}
 
             {% if consistency_card.settings.text != blank %}
@@ -37,11 +44,11 @@
 
           <div class="kaza-product-promo__media kaza-product-promo__media--left">
             {% if consistency_card.settings.image != blank %}
-              {{ consistency_card.settings.image | image_url: width: 900 | image_tag: loading: 'lazy', alt: consistency_card.settings.heading }}
+              {{ consistency_card.settings.image | image_url: width: 900 | image_tag: loading: 'lazy', alt: consistency_card.settings.heading_highlight | default: consistency_card.settings.heading_prefix }}
             {% else %}
               <img
                 src="{{ 'left-new.webp' | asset_url }}"
-                alt="{{ consistency_card.settings.heading | escape }}"
+                alt="{{ consistency_card.settings.heading_highlight | default: consistency_card.settings.heading_prefix | escape }}"
                 width="900"
                 height="700"
                 loading="lazy"
@@ -74,8 +81,15 @@
           </div>
 
           <div class="kaza-product-promo__content">
-            {% if men_card.settings.heading != blank %}
-              <h2 class="kaza-product-promo__heading">{{ men_card.settings.heading }}</h2>
+            {% if men_card.settings.heading_prefix != blank or men_card.settings.heading_highlight != blank %}
+              <h2 class="kaza-product-promo__heading">
+                {% if men_card.settings.heading_prefix != blank %}
+                  <span class="kaza-section-heading__prefix">{{ men_card.settings.heading_prefix }}</span>
+                {% endif %}
+                {% if men_card.settings.heading_highlight != blank %}
+                  <span class="kaza-section-heading__highlight">{{ men_card.settings.heading_highlight }}</span>
+                {% endif %}
+              </h2>
             {% endif %}
 
             {% if men_card.settings.subheading != blank %}
@@ -136,9 +150,15 @@
       "settings": [
         {
           "type": "text",
-          "id": "heading",
-          "label": "t:labels.heading",
-          "default": "Visible results with consistency"
+          "id": "heading_prefix",
+          "label": "t:labels.heading_prefix",
+          "default": "Visible results "
+        },
+        {
+          "type": "text",
+          "id": "heading_highlight",
+          "label": "t:labels.heading_highlight",
+          "default": "with consistency"
         },
         {
           "type": "textarea",
@@ -184,9 +204,15 @@
         },
         {
           "type": "text",
-          "id": "heading",
-          "label": "t:labels.heading",
-          "default": "Built for men"
+          "id": "heading_prefix",
+          "label": "t:labels.heading_prefix",
+          "default": "Built for "
+        },
+        {
+          "type": "text",
+          "id": "heading_highlight",
+          "label": "t:labels.heading_highlight",
+          "default": "men"
         },
         {
           "type": "text",

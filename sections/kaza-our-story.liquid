@@ -25,11 +25,11 @@
 
           <div class="kaza-our-story__media-image">
             {% if section.settings.image != blank %}
-              {{ section.settings.image | image_url: width: 900 | image_tag: loading: 'lazy', alt: section.settings.heading, class: 'kaza-our-story__image' }}
+              {{ section.settings.image | image_url: width: 900 | image_tag: loading: 'lazy', alt: section.settings.heading_highlight | default: section.settings.heading_prefix, class: 'kaza-our-story__image' }}
             {% else %}
               <img
                 src="{{ 'story.webp' | asset_url }}"
-                alt="{{ section.settings.heading | escape }}"
+                alt="{{ section.settings.heading_highlight | default: section.settings.heading_prefix | escape }}"
                 class="kaza-our-story__image"
                 width="900"
                 height="1125"
@@ -41,8 +41,15 @@
       </div>
 
       <div class="kaza-our-story__content">
-        {% if section.settings.heading != blank %}
-          <h2 class="kaza-our-story__heading">{{ section.settings.heading }}</h2>
+        {% if section.settings.heading_prefix != blank or section.settings.heading_highlight != blank %}
+          <h2 class="kaza-our-story__heading">
+            {% if section.settings.heading_prefix != blank %}
+              <span class="kaza-section-heading__prefix">{{ section.settings.heading_prefix }}</span>
+            {% endif %}
+            {% if section.settings.heading_highlight != blank %}
+              <span class="kaza-section-heading__highlight">{{ section.settings.heading_highlight }}</span>
+            {% endif %}
+          </h2>
         {% endif %}
 
         {% if section.settings.text != blank %}
@@ -117,9 +124,15 @@
     },
     {
       "type": "text",
-      "id": "heading",
-      "label": "t:labels.heading",
-      "default": "Our story"
+      "id": "heading_prefix",
+      "label": "t:labels.heading_prefix",
+      "default": "Our "
+    },
+    {
+      "type": "text",
+      "id": "heading_highlight",
+      "label": "t:labels.heading_highlight",
+      "default": "story"
     },
     {
       "type": "richtext",

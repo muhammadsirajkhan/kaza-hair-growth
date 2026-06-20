@@ -63,6 +63,8 @@
     "logo": "Logo",
     "logo_text": "Logo text",
     "heading": "Heading",
+    "heading_prefix": "Heading prefix",
+    "heading_highlight": "Heading highlight",
     "subheading": "Subheading",
     "title": "Title",
     "description": "Description",
@@ -171,6 +173,8 @@
         "badge_text": "Badge text",
         "intro_text": "Intro text",
         "image_label": "Image vertical label",
+        "heading_prefix": "Heading prefix",
+        "heading_highlight": "Heading highlight",
         "show_rating": "Show rating"
       }
     },

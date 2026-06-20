@@ -596,6 +596,14 @@ body.template-index header.kaza-header {
   text-transform: uppercase;
 }
 
+.kaza-hero__heading .kaza-section-heading__prefix {
+  font-weight: 400;
+}
+
+.kaza-hero__heading .kaza-section-heading__highlight {
+  font-weight: 700;
+}
+
 .kaza-hero__subheading {
   margin-top: 1.5rem;
   font-size: var(--kaza-fs-hero-sub);
@@ -945,6 +953,14 @@ body.template-index header.kaza-header {
   letter-spacing: -0.02em;
   color: var(--kaza-black);
   margin-bottom: 1.5rem;
+}
+
+.kaza-our-story__heading .kaza-section-heading__prefix {
+  font-weight: 400;
+}
+
+.kaza-our-story__heading .kaza-section-heading__highlight {
+  font-weight: 700;
 }
 
 .kaza-our-story__text {
@@ -1482,6 +1498,14 @@ body.template-index header.kaza-header {
   margin: 0;
 }
 
+.kaza-promo-cards__heading .kaza-section-heading__prefix {
+  font-weight: 400;
+}
+
+.kaza-promo-cards__heading .kaza-section-heading__highlight {
+  font-weight: 700;
+}
+
 .kaza-promo-cards__text {
   font-size: 1.2rem;
   line-height: 1.55;
@@ -1609,6 +1633,14 @@ body.template-index header.kaza-header {
   color: var(--kaza-black);
   max-width: 35rem;
   margin: 0;
+}
+
+.kaza-product-promo__heading .kaza-section-heading__prefix {
+  font-weight: 400;
+}
+
+.kaza-product-promo__heading .kaza-section-heading__highlight {
+  font-weight: 700;
 }
 
 .kaza-product-promo__text {
@@ -3021,7 +3053,11 @@ body.template-index header.kaza-header {
   margin: 0;
 }
 
-.kaza-sub-banner__heading-highlight {
+.kaza-sub-banner__heading .kaza-section-heading__prefix {
+  font-weight: 400;
+}
+
+.kaza-sub-banner__heading .kaza-section-heading__highlight {
   font-weight: 700;
 }
 

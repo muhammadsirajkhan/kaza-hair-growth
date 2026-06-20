@@ -10,7 +10,7 @@
           {{ block.shopify_attributes }}>
           {% liquid
             assign hero_background = block.settings.background_image
-            assign hero_background_alt = block.settings.heading | default: shop.name
+            assign hero_background_alt = block.settings.heading_highlight | default: block.settings.heading_prefix | default: shop.name
           %}
           <div class="kaza-hero__bg">
             {% if hero_background != blank %}
@@ -29,8 +29,15 @@
           <div class="kaza-hero__content_wrap">
             <div class="kaza-hero__content kaza-container">
               <div class="kaza-hero__left">
-                {% if block.settings.heading != blank %}
-                  <h1 class="kaza-hero__heading">{{ block.settings.heading }}</h1>
+                {% if block.settings.heading_prefix != blank or block.settings.heading_highlight != blank %}
+                  <h1 class="kaza-hero__heading">
+                    {% if block.settings.heading_prefix != blank %}
+                      <span class="kaza-section-heading__prefix">{{ block.settings.heading_prefix }}</span>
+                    {% endif %}
+                    {% if block.settings.heading_highlight != blank %}
+                      <span class="kaza-section-heading__highlight">{{ block.settings.heading_highlight }}</span>
+                    {% endif %}
+                  </h1>
                 {% endif %}
                 {% if block.settings.subheading != blank %}
                   <p class="kaza-hero__subheading">{{ block.settings.subheading }}</p>
@@ -88,7 +95,7 @@
               <div class="kaza-hero__right">
                 {% if block.settings.product_image != blank %}
                   <div class="kaza-hero__product">
-                    {{ block.settings.product_image | image_url: width: 800 | image_tag: loading: 'eager', alt: block.settings.heading }}
+                    {{ block.settings.product_image | image_url: width: 800 | image_tag: loading: 'eager', alt: hero_background_alt }}
                   </div>
                 {% endif %}
                 {% assign feature_blocks = section.blocks | where: 'type', 'feature' %}
@@ -253,9 +260,15 @@
           },
           {
             "type": "text",
-            "id": "heading",
-            "label": "t:labels.heading",
-            "default": "Up to 28,200+ new hairs in 3 months."
+            "id": "heading_prefix",
+            "label": "t:labels.heading_prefix",
+            "default": "Up to "
+          },
+          {
+            "type": "text",
+            "id": "heading_highlight",
+            "label": "t:labels.heading_highlight",
+            "default": "28,200+ new hairs in 3 months."
           },
           {
             "type": "textarea",

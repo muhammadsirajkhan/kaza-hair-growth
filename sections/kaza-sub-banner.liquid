@@ -19,14 +19,13 @@
           {% if section.settings.heading_prefix != blank or section.settings.heading_highlight != blank or section.settings.heading_suffix != blank %}
             <h2 class="kaza-sub-banner__heading">
               {% if section.settings.heading_prefix != blank %}
-                <span class="kaza-sub-banner__heading-prefix">{{ section.settings.heading_prefix }}</span>
+                <span class="kaza-section-heading__prefix">{{ section.settings.heading_prefix }}</span>
               {% endif %}
               {% if section.settings.heading_highlight != blank %}
-                <span class="kaza-sub-banner__heading-highlight">{{ section.settings.heading_highlight }}</span>
+                <span class="kaza-section-heading__highlight">{{ section.settings.heading_highlight }}</span>
               {% endif %}
               {% if section.settings.heading_suffix != blank %}
-                <span class="kaza-sub-banner__heading-suffix">
-                  {{ section.settings.heading_suffix }}</span>
+                <span class="kaza-section-heading__prefix">{{ section.settings.heading_suffix }}</span>
               {% endif %}
             </h2>
           {% endif %}
@@ -104,19 +103,19 @@
       {
         "type": "text",
         "id": "heading_prefix",
-        "label": "t:sections.kaza_sub_banner.settings.heading_prefix",
-        "default": "Add"
+        "label": "t:labels.heading_prefix",
+        "default": "Add "
       },
       {
         "type": "text",
         "id": "heading_highlight",
-        "label": "t:sections.kaza_sub_banner.settings.heading_highlight",
+        "label": "t:labels.heading_highlight",
         "default": "Rootalix™"
       }, {
         "type": "text",
         "id": "heading_suffix",
         "label": "t:sections.kaza_sub_banner.settings.heading_suffix",
-        "default": "to your routine"
+        "default": " to your routine"
       }, {
         "type": "textarea",
         "id": "text",

@@ -31,8 +31,15 @@
           </div>
 
           <div class="kaza-promo-cards__body">
-            {% if block.settings.heading != blank %}
-              <h3 class="kaza-promo-cards__heading">{{ block.settings.heading }}</h3>
+            {% if block.settings.heading_prefix != blank or block.settings.heading_highlight != blank %}
+              <h3 class="kaza-promo-cards__heading">
+                {% if block.settings.heading_prefix != blank %}
+                  <span class="kaza-section-heading__prefix">{{ block.settings.heading_prefix }}</span>
+                {% endif %}
+                {% if block.settings.heading_highlight != blank %}
+                  <span class="kaza-section-heading__highlight">{{ block.settings.heading_highlight }}</span>
+                {% endif %}
+              </h3>
             {% endif %}
             {% if block.settings.text != blank %}
               <p class="kaza-promo-cards__text">{{ block.settings.text }}</p>
@@ -103,9 +110,15 @@
         },
         {
           "type": "text",
-          "id": "heading",
-          "label": "t:labels.heading",
-          "default": "No Prescription Needed."
+          "id": "heading_prefix",
+          "label": "t:labels.heading_prefix",
+          "default": "No Prescription "
+        },
+        {
+          "type": "text",
+          "id": "heading_highlight",
+          "label": "t:labels.heading_highlight",
+          "default": "Needed."
         },
         {
           "type": "textarea",
@@ -163,7 +176,8 @@
           "type": "card",
           "settings": {
             "card_layout": "left",
-            "heading": "No Prescription Needed.",
+            "heading_prefix": "No Prescription ",
+            "heading_highlight": "Needed.",
             "text": "Non-systemic, zero libido impact, no prescription needed.",
             "button_label": "Shop Now"
           }
@@ -172,7 +186,8 @@
           "type": "card",
           "settings": {
             "card_layout": "right",
-            "heading": "Bio-Hacked Plant Science",
+            "heading_prefix": "Bio-Hacked ",
+            "heading_highlight": "Plant Science",
             "text": "Saw Palmetto, Green Tea, Larch Wood, Oleanolic Acid are all botanical-derived.",
             "button_label": "Shop Now",
             "show_badges": true,
