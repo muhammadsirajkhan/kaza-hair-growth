@@ -1154,6 +1154,7 @@
 
   .kaza-rootalix__feature-text {
     text-align: left !important;
+    margin: 0 !important;
   }
 
   .kaza-rootalix__footer {
