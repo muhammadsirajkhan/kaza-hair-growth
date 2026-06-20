@@ -1460,6 +1460,8 @@
     flex-direction: column;
     gap: 15px;
     margin-inline: 15px;
+    margin-top: 15px;
+    margin-bottom: 15px;
   }
 
   .kaza-product-promo__badge {
@@ -1658,7 +1660,7 @@
 }
 
 @media only screen and (min-width: 100px) and (max-width: 399px) {
-  :root {
+  /* :root {
     --kaza-section-y: 2.75rem;
     --kaza-fs-section-pill: 1rem;
     --kaza-fs-section: 1.625rem;
@@ -1669,7 +1671,7 @@
     --kaza-header-height: 3.75rem;
   }
 
-  /* Font sizes — synced from kaza-sections.css */
+  
   .kaza-promo-cards__heading,
   .kaza-challenge__review-title {
     font-size: 1.25rem;
@@ -1775,7 +1777,7 @@
 
   .kaza-our-story__media-label span {
     font-size: 16px;
-  }
+  } */
 
   .kaza-hero__content {
     padding-block: calc(var(--kaza-header-height) + 0.5rem) 5.5rem;
