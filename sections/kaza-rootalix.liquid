@@ -86,13 +86,13 @@
               {% unless is_left %}
                 <div class="kaza-rootalix__feature-icon">
                   {% if feature_icon != blank %}
-                    {{ feature_icon | image_url: full_width: true | image_tag: loading: 'lazy', alt: '' }}
+                    {{ feature_icon | image_url: width: 64 | image_tag: loading: 'lazy', alt: '' }}
                   {% else %}
                     <img
                       src="{{ feature_icon_fallback | asset_url }}"
                       alt=""
-                      width="59"
-                      height="59"
+                      width="24"
+                      height="24"
                       loading="lazy"
                     >
                   {% endif %}
@@ -104,13 +104,13 @@
               {% if is_left %}
                 <div class="kaza-rootalix__feature-icon">
                   {% if feature_icon != blank %}
-                    {{ feature_icon | image_url: full_width: true | image_tag: loading: 'lazy', alt: '' }}
+                    {{ feature_icon | image_url: width: 64 | image_tag: loading: 'lazy', alt: '' }}
                   {% else %}
                     <img
                       src="{{ feature_icon_fallback | asset_url }}"
                       alt=""
-                      width="59"
-                      height="59"
+                      width="24"
+                      height="24"
                       loading="lazy"
                     >
                   {% endif %}
