@@ -123,6 +123,7 @@
         "feature_1": {
           "type": "feature",
           "settings": {
+            "icon": "shopify://shop_images/choose-2.webp",
             "title": "Follicle vitality support",
             "text": "A next-gen catechin system (DHQG + EGCG) paired with Zinc PCA to support a balanced scalp environment and the look of active, energized roots."
           }
@@ -130,6 +131,7 @@
         "feature_2": {
           "type": "feature",
           "settings": {
+            "icon": "shopify://shop_images/choose-1.webp",
             "title": "Root anchoring appearance",
             "text": "Oleanolic acid + apigenin + a peptide (biotinoyl tripeptide-1) to support the look of stronger, better-anchored hair at the scalp surface."
           }
