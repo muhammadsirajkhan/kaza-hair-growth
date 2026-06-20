@@ -14,23 +14,100 @@
     "footer": {
       "type": "footer",
       "blocks": {
-        "nav_1": { "type": "nav_link", "settings": { "title": "Plans & Pricing" } },
-        "nav_2": { "type": "nav_link", "settings": { "title": "About us" } },
-        "nav_3": { "type": "nav_link", "settings": { "title": "Tutorials" } },
-        "nav_4": { "type": "nav_link", "settings": { "title": "FAQ" } },
-        "nav_5": { "type": "nav_link", "settings": { "title": "Resources" } },
-        "nav_6": { "type": "nav_link", "settings": { "title": "Contact" } },
-        "social_1": { "type": "social_link", "settings": { "network": "facebook", "title": "Facebook" } },
-        "social_2": { "type": "social_link", "settings": { "network": "instagram", "title": "Instagram" } },
-        "social_3": { "type": "social_link", "settings": { "network": "linkedin", "title": "Linkedin" } },
-        "social_4": { "type": "social_link", "settings": { "network": "youtube", "title": "Youtube" } }
+        "nav_1": {
+          "type": "nav_link",
+          "settings": {
+            "title": "Plans & Pricing",
+            "url": ""
+          }
+        },
+        "nav_2": {
+          "type": "nav_link",
+          "settings": {
+            "title": "About us",
+            "url": ""
+          }
+        },
+        "nav_3": {
+          "type": "nav_link",
+          "settings": {
+            "title": "Tutorials",
+            "url": ""
+          }
+        },
+        "nav_4": {
+          "type": "nav_link",
+          "settings": {
+            "title": "FAQ",
+            "url": ""
+          }
+        },
+        "nav_5": {
+          "type": "nav_link",
+          "settings": {
+            "title": "Resources",
+            "url": ""
+          }
+        },
+        "nav_6": {
+          "type": "nav_link",
+          "settings": {
+            "title": "Contact",
+            "url": ""
+          }
+        },
+        "social_1": {
+          "type": "social_link",
+          "settings": {
+            "network": "facebook",
+            "title": "Facebook",
+            "url": ""
+          }
+        },
+        "social_2": {
+          "type": "social_link",
+          "settings": {
+            "network": "instagram",
+            "title": "Instagram",
+            "url": ""
+          }
+        },
+        "social_3": {
+          "type": "social_link",
+          "settings": {
+            "network": "linkedin",
+            "title": "Linkedin",
+            "url": ""
+          }
+        },
+        "social_4": {
+          "type": "social_link",
+          "settings": {
+            "network": "youtube",
+            "title": "Youtube",
+            "url": ""
+          }
+        }
       },
-      "block_order": ["nav_1", "nav_2", "nav_3", "nav_4", "nav_5", "nav_6", "social_1", "social_2", "social_3", "social_4"],
+      "block_order": [
+        "nav_1",
+        "nav_2",
+        "nav_3",
+        "nav_4",
+        "nav_5",
+        "nav_6",
+        "social_1",
+        "social_2",
+        "social_3",
+        "social_4"
+      ],
       "settings": {
         "logo_text": "KAZA™",
         "description": "Kaza Gives You a Science-backed Way to Take Control of Thin Before It Becomes Noticeable. Stronger Roots. Thicker Growth. Real Confidence.",
         "cta_label": "Get the serum",
+        "cta_url": "shopify://products/rootalixtm",
         "navigation_heading": "Navigation",
+        "navigation_menu": "",
         "contact_heading": "Contact us",
         "office_sublabel": "Visit our office",
         "office_text": "Loreum ipsum dol-",
@@ -40,9 +117,13 @@
         "language_text": "English (USA)",
         "social_heading": "Social media",
         "copyright_text": "Copyright © 2026 BY KAZA - All Rights Reserved.",
+        "legal_menu": "",
         "legal_terms_label": "Terms of service",
+        "legal_terms_url": "",
         "legal_privacy_label": "Privacy policy",
+        "legal_privacy_url": "",
         "legal_cookie_label": "Cookie policy",
+        "legal_cookie_url": "",
         "show_back_to_top": true
       }
     }

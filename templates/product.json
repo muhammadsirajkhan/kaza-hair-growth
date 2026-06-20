@@ -211,6 +211,8 @@
         "consistency_card": {
           "type": "consistency_card",
           "settings": {
+            "heading_prefix": "Visible results",
+            "heading_highlight": "with consistency",
             "text": "Use 1–2× daily on clean, dry scalp. Most users report improved density with less shedding over 8–12 weeks of consistent use. Individual results vary.",
             "steps_heading": "How to Apply",
             "image": "shopify://shop_images/left-new.webp"
@@ -243,6 +245,8 @@
         "men_card": {
           "type": "men_card",
           "settings": {
+            "heading_prefix": "Built for",
+            "heading_highlight": "men",
             "subheading": "Key Actives — Rootalix™ • Caffeine • Rosemary",
             "show_badges": true,
             "badge_1_text": "non-oily, fast dry-down subtle finish",
@@ -260,61 +264,6 @@
         "men_card"
       ],
       "settings": {}
-    },
-    "kaza_faq": {
-      "type": "kaza-faq",
-      "blocks": {
-        "question_1": {
-          "type": "question",
-          "settings": {
-            "question": "Is Rootalix™ a drug?",
-            "answer": "<p>No. Rootalix™ is a cosmetic active used in leave-on scalp products to improve the appearance of density and reduce visible shedding.</p>"
-          }
-        },
-        "question_2": {
-          "type": "question",
-          "settings": {
-            "question": "Can I stack it with caffeine or rosemary?",
-            "answer": "<p>Yes. Rootalix™ is formulated to work alongside caffeine and rosemary—two actives already included in the KAZA Hair Density Serum formula.</p>"
-          }
-        },
-        "question_3": {
-          "type": "question",
-          "settings": {
-            "question": "When will I see results?",
-            "answer": "<p>Most users report visible improvements in shedding and density over 8–12 weeks of consistent daily use. Individual results vary.</p>"
-          }
-        },
-        "question_4": {
-          "type": "question",
-          "settings": {
-            "question": "Is it safe for daily use?",
-            "answer": "<p>Yes. Rootalix™ is designed for daily, leave-on application on clean, dry scalp.</p>"
-          }
-        }
-      },
-      "block_order": [
-        "question_1",
-        "question_2",
-        "question_3",
-        "question_4"
-      ],
-      "settings": {
-        "badge_text": "Welcome to Kaza",
-        "heading_prefix": "Frequently Asked",
-        "heading_highlight": "Questions"
-      }
-    },
-    "kaza_sub_banner": {
-      "type": "kaza-sub-banner",
-      "settings": {
-        "heading_prefix": "Add ",
-        "heading_highlight": "Rootalix™",
-        "heading_suffix": " to your routine",
-        "text": "KAZA Hair Density Serum — Powered by Rootalix™, Caffeine, and Rosemary",
-        "button_label": "Shop the Serum",
-        "button_url": ""
-      }
     },
     "kaza_challenge_JwDE9z": {
       "type": "kaza-challenge",
@@ -389,6 +338,61 @@
         "subheading": "Real performance. Visible results. Made for men who want impact, not excuses.",
         "handle_label": "Drag",
         "initial_position": 50
+      }
+    },
+    "kaza_faq": {
+      "type": "kaza-faq",
+      "blocks": {
+        "question_1": {
+          "type": "question",
+          "settings": {
+            "question": "Is Rootalix™ a drug?",
+            "answer": "<p>No. Rootalix™ is a cosmetic active used in leave-on scalp products to improve the appearance of density and reduce visible shedding.</p>"
+          }
+        },
+        "question_2": {
+          "type": "question",
+          "settings": {
+            "question": "Can I stack it with caffeine or rosemary?",
+            "answer": "<p>Yes. Rootalix™ is formulated to work alongside caffeine and rosemary—two actives already included in the KAZA Hair Density Serum formula.</p>"
+          }
+        },
+        "question_3": {
+          "type": "question",
+          "settings": {
+            "question": "When will I see results?",
+            "answer": "<p>Most users report visible improvements in shedding and density over 8–12 weeks of consistent daily use. Individual results vary.</p>"
+          }
+        },
+        "question_4": {
+          "type": "question",
+          "settings": {
+            "question": "Is it safe for daily use?",
+            "answer": "<p>Yes. Rootalix™ is designed for daily, leave-on application on clean, dry scalp.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "question_1",
+        "question_2",
+        "question_3",
+        "question_4"
+      ],
+      "settings": {
+        "badge_text": "Welcome to Kaza",
+        "heading_prefix": "Frequently Asked",
+        "heading_highlight": "Questions"
+      }
+    },
+    "kaza_sub_banner": {
+      "type": "kaza-sub-banner",
+      "settings": {
+        "heading_prefix": "Add",
+        "heading_highlight": "Rootalix™",
+        "heading_suffix": "to your routine",
+        "text": "KAZA Hair Density Serum — Powered by Rootalix™, Caffeine, and Rosemary",
+        "button_label": "Shop the Serum",
+        "button_url": "shopify://products/rootalixtm"
       }
     }
   },
