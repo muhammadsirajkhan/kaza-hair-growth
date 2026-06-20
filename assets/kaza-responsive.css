@@ -687,6 +687,10 @@
   .kaza-hero__right {
     right: 0;
   }
+
+  .kaza-challenge__review {
+    flex-basis: min(100%, 28rem);
+  }
 }
 
 @media only screen and (min-width: 100px) and (max-width: 767px) {
@@ -1245,7 +1249,7 @@
   }
 
   .kaza-challenge__review {
-    flex-basis: min(100%, 20rem);
+    flex-basis: 100%;
   }
 
   .kaza-challenge__stats {
@@ -1401,6 +1405,7 @@
     align-items: center;
     gap: 15px;
     margin-top: 15px;
+    margin-bottom: 15px;
   }
 
   .kaza-promo-cards__bg::before {

@@ -2023,6 +2023,18 @@ body.template-index header.kaza-header {
 .kaza-challenge__reviews-viewport {
   overflow: hidden;
   width: 100%;
+  touch-action: pan-y pinch-zoom;
+  cursor: grab;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.kaza-challenge__reviews-viewport.is-dragging {
+  cursor: grabbing;
+}
+
+.kaza-challenge__reviews-viewport.is-dragging .kaza-challenge__reviews-track {
+  transition: none;
 }
 
 .kaza-challenge__reviews-track {
