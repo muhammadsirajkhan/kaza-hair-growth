@@ -139,6 +139,7 @@
         "feature_3": {
           "type": "feature",
           "settings": {
+            "icon": "shopify://shop_images/choose-3.webp",
             "title": "Optimized delivery",
             "text": "Formulated in a lightweight, leave-on base (with DMI + diols) that dries fast and keeps actives where you want them—on your scalp, not your pillow."
           }
