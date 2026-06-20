@@ -169,6 +169,7 @@
           "type": "feature",
           "settings": {
             "position": "top-left",
+            "icon": "shopify://shop_images/choose-icon4.webp",
             "title": "Thicker strands over time"
           }
         },
