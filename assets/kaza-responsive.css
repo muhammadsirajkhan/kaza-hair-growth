@@ -1455,7 +1455,9 @@
     max-width: 100%;
   }
 
-  h2.kaza-product-promo__heading {}
+  .kaza-our-story__media-label::before {
+    display: none;
+  }
 }
 
 @media only screen and (min-width: 100px) and (max-width: 599px) {
@@ -1577,7 +1579,8 @@
   }
 
   .kaza-our-story__media-label span {
-    font-size: 16px;
+    font-size: 12px;
+    text-align: center;
   }
 
   .kaza-hero__content {
