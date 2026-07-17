@@ -28,7 +28,7 @@
             <li class="kaza-product-trust__item" {{ block.shopify_attributes }}>
               <span class="kaza-product-trust__icon" aria-hidden="true">
                 {% if trust_icon != blank %}
-                  {{ trust_icon | image_url: width: 48 | image_tag: loading: 'lazy', alt: '' }}
+                  {{ trust_icon | image_url: width: 60 | image_tag: loading: 'lazy', alt: '' }}
                 {% else %}
                   <img
                     src="{{ trust_icon_fallback | asset_url }}"
