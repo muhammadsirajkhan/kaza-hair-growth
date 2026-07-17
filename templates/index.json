@@ -72,7 +72,7 @@
         "heading_highlight": "Story",
         "text": "<p>Kaza was created with a simple objective: give men a hair growth solution that actually performs. No gimmicks. No empty promises. Just real science, clean formulation, and measurable results.</p><p>We focus on early-stage thinning — the point where action matters most. Our serum is powered by Rootalix™, a proprietary botanical-bioactive complex designed to fuel follicle activity, strengthen roots, and support visible density improvements. Every ingredient serves a purpose. Nothing extra. Nothing watered down.</p>",
         "button_label": "More About Us",
-        "button_url": "shopify://products/rootalixtm",
+        "button_url": "shopify://products/rootalix",
         "show_rating": true,
         "rating": 5,
         "rating_text": ""
@@ -214,7 +214,7 @@
             "heading_highlight": "Needed.",
             "text": "Non-systemic, zero libido impact, no prescription needed.",
             "button_label": "Shop Now",
-            "button_url": "shopify://products/rootalixtm",
+            "button_url": "shopify://products/rootalix",
             "show_badges": false,
             "badge_1_text": "Visible Density Improvements.",
             "badge_2_text": "Supports Fuller Density"
@@ -228,7 +228,7 @@
             "heading_highlight": "Plant Science",
             "text": "Saw Palmetto, Green Tea, Larch Wood, Oleanolic Acid are all botanical-derived.",
             "button_label": "Shop Now",
-            "button_url": "shopify://products/rootalixtm",
+            "button_url": "shopify://products/rootalix",
             "show_badges": true,
             "badge_1_text": "Visible Density Improvements.",
             "badge_1_icon": "shopify://shop_images/choose-icon1.webp",
@@ -282,7 +282,7 @@
         "heading_highlight": "Works",
         "subheading": "Real performance. Visible results. Made for men who want impact, not excuses.",
         "button_label": "Shop the Serum",
-        "button_url": "shopify://products/rootalixtm"
+        "button_url": "shopify://products/rootalix"
       }
     },
     "kaza_challenge": {
