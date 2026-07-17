@@ -354,6 +354,8 @@
         "heading_prefix": "90-Day",
         "heading_highlight": "Challenge",
         "subheading": "Real performance. Visible results. Made for men who want impact, not excuses.",
+        "before_image": "shopify://shop_images/before.webp",
+        "after_image": "shopify://shop_images/after.webp",
         "handle_label": "Drag",
         "initial_position": 50
       }
