@@ -15,6 +15,7 @@
         "slide_1": {
           "type": "slide",
           "settings": {
+            "background_image": "shopify://shop_images/hero.webp",
             "heading_highlight": "Visible Density. Backed",
             "heading_prefix": "by Science.",
             "subheading": "Based on a 3-month clinical study where participants saw an average of 10,000 new hairs and a maximum of 28,200.",
@@ -26,6 +27,7 @@
         "feature_1": {
           "type": "feature",
           "settings": {
+            "icon": "shopify://shop_images/h2.webp",
             "title": "92% success rate",
             "text": "92% of users saw a visible reduction in shedding within 4 weeks."
           }
@@ -33,6 +35,7 @@
         "feature_2": {
           "type": "feature",
           "settings": {
+            "icon": "shopify://shop_images/h1.webp",
             "title": "Zero side effects",
             "text": "Non-systemic • No hormonal disruption • No impact on sex drive"
           }
@@ -40,6 +43,7 @@
         "feature_3": {
           "type": "feature",
           "settings": {
+            "icon": "shopify://shop_images/h3.webp",
             "title": "Botanical-powered",
             "text": "Saw Palmetto, Green Tea, Larch Wood, Oleanolic Acid"
           }
@@ -85,6 +89,7 @@
           "type": "floating",
           "settings": {
             "position": "top-left",
+            "icon": "shopify://shop_images/choose-icon4.webp",
             "text": "Supports the look of active, energized roots"
           }
         },
@@ -92,6 +97,7 @@
           "type": "floating",
           "settings": {
             "position": "bottom-left",
+            "icon": "shopify://shop_images/choose-icon3.webp",
             "text": "Reduces shedding"
           }
         },
@@ -99,6 +105,7 @@
           "type": "floating",
           "settings": {
             "position": "top-right",
+            "icon": "shopify://shop_images/choose-icon2.webp",
             "text": "Supports fuller Density"
           }
         },
@@ -106,6 +113,7 @@
           "type": "floating",
           "settings": {
             "position": "bottom-right",
+            "icon": "shopify://shop_images/choose-icon1.webp",
             "text": "Visible Density Improvements"
           }
         },
@@ -148,6 +156,8 @@
         "heading_prefix": "Why Choose",
         "heading_highlight": "Kaza™",
         "subheading": "Real performance. Visible results. Made for men who want impact, not excuses.",
+        "background_image": "shopify://shop_images/choose-bg.webp",
+        "center_image": "shopify://shop_images/choose-image.webp",
         "show_arc": true
       }
     },

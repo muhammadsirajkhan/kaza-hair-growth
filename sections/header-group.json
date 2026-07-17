@@ -14,10 +14,12 @@
     "header": {
       "type": "header",
       "settings": {
+        "logo": "shopify://shop_images/logo_a514d6ac-5858-4a84-b4ea-87d00ec57574.webp",
         "logo_text": "KAZA",
         "menu": "main-menu",
-        "cta_label": "Get the serum",
         "show_nav_chevrons": true,
+        "cta_label": "Get the serum",
+        "cta_url": "shopify://products/rootalix",
         "enable_sticky": true,
         "overlay_on_hero": true
       }
