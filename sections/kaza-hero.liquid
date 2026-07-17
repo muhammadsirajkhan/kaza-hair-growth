@@ -101,11 +101,11 @@
                             </svg>
                           </span>
                         {% endif %}
+                        {% render 'kaza-star-rating',
+                          rating: section.settings.trust_rating,
+                          label: section.settings.trust_text
+                        %}
                       {% endif %}
-                      {% render 'kaza-star-rating',
-                        rating: section.settings.trust_rating,
-                        label: section.settings.trust_text
-                      %}
                     </div>
                   </div>
                 {% endif %}
