@@ -89,6 +89,7 @@
           "type": "floating",
           "settings": {
             "position": "top-left",
+            "icon": "shopify://shop_images/choose-icon4.webp",
             "text": "Supports the look of active, energized roots"
           }
         },
@@ -96,6 +97,7 @@
           "type": "floating",
           "settings": {
             "position": "bottom-left",
+            "icon": "shopify://shop_images/choose-icon3.webp",
             "text": "Reduces shedding"
           }
         },
@@ -103,6 +105,7 @@
           "type": "floating",
           "settings": {
             "position": "top-right",
+            "icon": "shopify://shop_images/choose-icon2.webp",
             "text": "Supports fuller Density"
           }
         },
@@ -110,6 +113,7 @@
           "type": "floating",
           "settings": {
             "position": "bottom-right",
+            "icon": "shopify://shop_images/choose-icon1.webp",
             "text": "Visible Density Improvements"
           }
         },
@@ -152,6 +156,8 @@
         "heading_prefix": "Why Choose",
         "heading_highlight": "Kaza™",
         "subheading": "Real performance. Visible results. Made for men who want impact, not excuses.",
+        "background_image": "shopify://shop_images/choose-bg.webp",
+        "center_image": "shopify://shop_images/choose-image.webp",
         "show_arc": true
       }
     },
