@@ -94,13 +94,13 @@
               {{ block.shopify_attributes }}
             >
               {% if float_icon != blank %}
-                {{ float_icon | image_url: width: 59 | image_tag: loading: 'lazy', alt: '' }}
+                {{ float_icon | image_url: width: 72 | image_tag: loading: 'lazy', alt: '' }}
               {% else %}
                 <img
                   src="{{ float_icon_fallback | asset_url }}"
                   alt=""
-                  width="160"
-                  height="160"
+                  width="72"
+                  height="71"
                   loading="lazy"
                 >
               {% endif %}
