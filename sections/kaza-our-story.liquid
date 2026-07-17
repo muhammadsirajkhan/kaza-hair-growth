@@ -68,12 +68,10 @@
           </a>
         {% endif %}
 
-        {% if section.settings.show_rating %}
+        {% if section.settings.show_rating and section.settings.rating_text != blank %}
           <div class="kaza-our-story__rating">
             {% render 'kaza-star-rating', rating: section.settings.rating, label: section.settings.rating_text %}
-            {% if section.settings.rating_text != blank %}
-              <span class="kaza-our-story__rating-text">{{ section.settings.rating_text }}</span>
-            {% endif %}
+            <span class="kaza-our-story__rating-text">{{ section.settings.rating_text }}</span>
           </div>
         {% endif %}
       </div>

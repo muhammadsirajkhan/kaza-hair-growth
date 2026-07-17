@@ -16,12 +16,10 @@
 
   <div class="kaza-container kaza-rootalix__inner">
     <div class="kaza-rootalix__header kaza-section-intro kaza-section-intro--dark">
-      {% if section.settings.show_rating %}
+      {% if section.settings.show_rating and section.settings.rating_text != blank %}
         <div class="kaza-rootalix__rating">
           {% render 'kaza-star-rating', rating: section.settings.rating, label: section.settings.rating_text %}
-          {% if section.settings.rating_text != blank %}
-            <span class="kaza-rootalix__rating-text">{{ section.settings.rating_text }}</span>
-          {% endif %}
+          <span class="kaza-rootalix__rating-text">{{ section.settings.rating_text }}</span>
         </div>
       {% endif %}
 
