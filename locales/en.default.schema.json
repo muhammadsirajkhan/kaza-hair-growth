@@ -298,7 +298,10 @@
       "settings": {
         "subtitle": "Product subtitle",
         "powered_by_text": "Powered by ingredients",
-        "cta_label": "Button label"
+        "cta_label": "Button label",
+        "show_intro_price": "Show intro price label",
+        "show_intro_price_info": "When enabled, price shows as \"$49.00 USD until final\". Turn off later to show the price alone.",
+        "price_suffix": "Price suffix"
       },
       "blocks": {
         "benefit": {

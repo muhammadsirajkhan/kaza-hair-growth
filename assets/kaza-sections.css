@@ -2434,6 +2434,13 @@ body.template-index header.kaza-header {
   line-height: 1;
 }
 
+.kaza-product__price-suffix {
+  font-size: 0.55em;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  white-space: nowrap;
+}
+
 .kaza-product__cta {
   min-width: min(100%, 18rem);
   padding: 1rem 2rem;

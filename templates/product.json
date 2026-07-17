@@ -42,7 +42,9 @@
       "settings": {
         "subtitle": "Our breakthrough cosmetic active for visibly fuller-looking hair",
         "powered_by_text": "DHQG • EGCG • Zinc PCA • Oleanolic Acid • Apigenin • Biotinoyl Tripeptide-1 (2.0% total inclusion)",
-        "cta_label": "Shop the Serum"
+        "cta_label": "Shop the Serum",
+        "show_intro_price": true,
+        "price_suffix": "USD until final"
       }
     },
     "kaza_product_trust": {

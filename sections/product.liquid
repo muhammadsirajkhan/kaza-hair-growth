@@ -180,7 +180,14 @@
               {%- if current_variant.compare_at_price > current_variant.price -%}
                 <s class="kaza-product__compare-price">{{ current_variant.compare_at_price | money }}</s>
               {%- endif -%}
-              <span class="kaza-product__price">{{ current_variant.price | money }}</span>
+              <span class="kaza-product__price">
+                {{- current_variant.price | money -}}
+                {%- if section.settings.show_intro_price -%}
+                  {%- if section.settings.price_suffix != blank -%}
+                    <span class="kaza-product__price-suffix"> {{ section.settings.price_suffix }}</span>
+                  {%- endif -%}
+                {%- endif -%}
+              </span>
             </p>
 
             {%- unless current_variant.available -%}
@@ -410,6 +417,20 @@
       "id": "cta_label",
       "label": "t:sections.kaza_product.settings.cta_label",
       "default": "Shop the Serum"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_intro_price",
+      "label": "t:sections.kaza_product.settings.show_intro_price",
+      "info": "t:sections.kaza_product.settings.show_intro_price_info",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "price_suffix",
+      "label": "t:sections.kaza_product.settings.price_suffix",
+      "default": "USD until final",
+      "visible_if": "{{ section.settings.show_intro_price == true }}"
     }
   ],
   "blocks": [
