@@ -351,7 +351,7 @@
           "type": "question",
           "settings": {
             "question": "Is Rootalix™ a drug?",
-            "answer": "<p>No. Rootalix™ is a cosmetic active used in leave-on scalp products to improve the appearance of density and reduce visible shedding.</p>"
+            "answer": "<p>No. Rootalix™ is a cosmetic active complex. KAZA Hair Growth Serum is a leave-on cosmetic serum — no prescription needed, and it is not a treatment for any medical condition.</p>"
           }
         },
         "question_2": {
@@ -365,14 +365,14 @@
           "type": "question",
           "settings": {
             "question": "When will I see results?",
-            "answer": "<p>Most users report visible improvements in shedding and density over 8–12 weeks of consistent daily use. Individual results vary.</p>"
+            "answer": "<p>Most users notice reduced shedding within 4–8 weeks and improved-looking density over 8–12 weeks of consistent daily use. Track progress with monthly photos in the same lighting. Individual results vary.</p>"
           }
         },
         "question_4": {
           "type": "question",
           "settings": {
             "question": "Is it safe for daily use?",
-            "answer": "<p>Yes. Rootalix™ is designed for daily, leave-on application on clean, dry scalp.</p>"
+            "answer": "<p>Yes. The formula is non-systemic, fragrance-free, and designed for 1–2× daily leave-on use. Discontinue if irritation occurs and patch-test if you have sensitive skin.</p>"
           }
         }
       },
