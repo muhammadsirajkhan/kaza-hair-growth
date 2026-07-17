@@ -66,6 +66,7 @@
         "show_intro": true,
         "badge_text": "Welcome to Kaza",
         "intro_text": "Kaza is built for men who take their appearance seriously and want products that match that mindset — clean, modern, and engineered to work.",
+        "image": "shopify://shop_images/story.webp",
         "image_label": "Welcome to Kaza",
         "heading_prefix": "Our",
         "heading_highlight": "Story",
