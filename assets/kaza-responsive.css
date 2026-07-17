@@ -1081,6 +1081,7 @@
     max-width: none;
     justify-content: flex-start;
     padding: 0.5rem 0.75rem;
+    text-align: left;
   }
 
   .kaza-why-choose__float img {
