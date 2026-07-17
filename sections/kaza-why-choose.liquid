@@ -94,13 +94,13 @@
               {{ block.shopify_attributes }}
             >
               {% if float_icon != blank %}
-                {{ float_icon | image_url: width: 48 | image_tag: loading: 'lazy', alt: '' }}
+                {{ float_icon | image_url: width: float_icon.width | image_tag: loading: 'lazy', alt: '' }}
               {% else %}
                 <img
                   src="{{ float_icon_fallback | asset_url }}"
                   alt=""
-                  width="24"
-                  height="24"
+                  width="160"
+                  height="160"
                   loading="lazy"
                 >
               {% endif %}
@@ -136,13 +136,13 @@
           <article class="kaza-card kaza-why-choose__card" {{ block.shopify_attributes }}>
             <div class="kaza-why-choose__card-icon">
               {% if feature_icon != blank %}
-                {{ feature_icon | image_url: width: 64 | image_tag: loading: 'lazy', alt: '' }}
+                {{ feature_icon | image_url: width: feature_icon.width | image_tag: loading: 'lazy', alt: '' }}
               {% else %}
                 <img
                   src="{{ feature_icon_fallback | asset_url }}"
                   alt=""
-                  width="32"
-                  height="32"
+                  width="180"
+                  height="180"
                   loading="lazy"
                 >
               {% endif %}
