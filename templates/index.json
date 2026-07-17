@@ -26,9 +26,9 @@
         "slide_1": {
           "type": "slide",
           "settings": {
-            "heading_highlight": "Clinically Proven Hair Regrowth",
-            "heading_prefix": "in 90 Days.",
-            "subheading": "Participants in a 3-month clinical study saw significant hair regrowth, averaging 10,000 new hairs and reaching up to 28,200 new hairs.",
+            "heading_highlight": "Visible Density. Backed",
+            "heading_prefix": "by Science.",
+            "subheading": "Based on a 3-month clinical study where participants saw an average of 10,000 new hairs and a maximum of 28,200.",
             "button_label": "Shop the Serum",
             "button_url": "shopify://products/rootalixtm",
             "powered_by_text": "Powered by Rootalix™"
@@ -44,8 +44,8 @@
         "feature_2": {
           "type": "feature",
           "settings": {
-            "title": "Zero side effect",
-            "text": "Zero side effects. No hormonal disruption. No impact on sex drive."
+            "title": "Zero side effects",
+            "text": "Non-systemic • No hormonal disruption • No impact on sex drive"
           }
         },
         "feature_3": {
@@ -86,7 +86,7 @@
         "button_url": "shopify://products/rootalixtm",
         "show_rating": true,
         "rating": 5,
-        "rating_text": "5000+ Verified 5-star Reviews"
+        "rating_text": ""
       }
     },
     "kaza_why_choose": {
@@ -96,7 +96,7 @@
           "type": "floating",
           "settings": {
             "position": "top-left",
-            "text": "Instantly Activates the follicle"
+            "text": "Supports the look of active, energized roots"
           }
         },
         "float_2": {
@@ -207,7 +207,7 @@
       "settings": {
         "show_rating": true,
         "rating": 5,
-        "rating_text": "5000+ Verified 5-star Reviews",
+        "rating_text": "",
         "heading_prefix": "Powered by",
         "heading_highlight": "Rootalix™",
         "description": "Rootalix™ is Alphin Labs' proprietary active complex designed to support thicker hair and reduce shedding, built for daily, leave-on use and a modern men's routine. No prescriptions, no heaviness, just clean, cosmetic science that fits your life.",
