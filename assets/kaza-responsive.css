@@ -9,6 +9,7 @@
 @media only screen and (min-width: 100px) and (max-width: 1799px) {
   :root {
     --kaza-container-max: 1400px;
+    --kaza-fs-min: 1rem;
     --kaza-section-y: 6.25rem;
     --kaza-fs-section-pill: 1rem;
     --kaza-fs-section: 4rem;
@@ -22,8 +23,13 @@
     --kaza-fs-footer-logo: 2.25rem;
     --kaza-fs-ba-label: 1.375rem;
     --kaza-fs-review-title: 1.25rem;
-    --kaza-fs-review-quote: 0.9375rem;
+    --kaza-fs-review-quote: 1rem;
     --kaza-fs-body-lg: 1.0625rem;
+    --kaza-header-nav-size: 1rem;
+  }
+
+  .kaza-hero__right {
+    right: -2.1vw;
   }
 }
 
@@ -37,11 +43,11 @@
   :root {
     --kaza-container-max: 1260px;
     --kaza-section-y: 5.75rem;
-    --kaza-fs-section-pill: 0.9375rem;
+    --kaza-fs-section-pill: 1rem;
     --kaza-fs-section: 3.625rem;
     --kaza-fs-section-content: 1.1rem;
     --kaza-fs-hero: 3.5rem;
-    --kaza-fs-hero-sub: 0.96875rem;
+    --kaza-fs-hero-sub: 1rem;
     --kaza-fs-story-title: 2rem;
     --kaza-fs-story-content: 2.5625rem;
     --kaza-fs-promo: 1.5rem;
@@ -49,8 +55,106 @@
     --kaza-fs-footer-logo: 2.125rem;
     --kaza-fs-ba-label: 1.3125rem;
     --kaza-fs-review-title: 1.1875rem;
-    --kaza-fs-review-quote: 0.90625rem;
+    --kaza-fs-review-quote: 1rem;
     --kaza-fs-body-lg: 1.03125rem;
+    --kaza-header-nav-size: 1rem;
+  }
+
+  /* Font sizes — synced from kaza-sections.css */
+  .kaza-promo-cards__heading,
+  .kaza-challenge__review-title {
+    font-size: 2.5rem;
+  }
+
+  .kaza-ba-slider__side-label,
+  .kaza-challenge__stat-title {
+    font-size: 2rem;
+  }
+
+  .kaza-product-promo__heading,
+  .kaza-how-it-works__step-title,
+  .kaza-product__price {
+    font-size: 1.8125rem;
+  }
+
+  .kaza-why-choose__card-title {
+    font-size: 1.375rem;
+  }
+
+  .kaza-cart__empty-title {
+    font-size: 1.25rem;
+  }
+
+  .kaza-hero__cta,
+  .kaza-hero__nav-btn,
+  .kaza-our-story__text,
+  .kaza-our-story__cta,
+  .kaza-promo-cards__text,
+  .kaza-promo-cards__btn,
+  .kaza-product-promo__steps-heading,
+  .kaza-how-it-works__cta-btn,
+  .kaza-faq__question {
+    font-size: 1.1rem;
+  }
+
+  .kaza-footer__description,
+  .kaza-footer__cta,
+  .kaza-footer__heading,
+  .kaza-footer__links a,
+  .kaza-footer__contact-label,
+  .kaza-footer__contact-value,
+  .kaza-hero__powered,
+  .kaza-hero__trust-label,
+  .kaza-hero__feature-title,
+  .kaza-our-story__rating-text,
+  .kaza-why-choose__float,
+  .kaza-rootalix__feature-text,
+  .kaza-rootalix__ingredients,
+  .kaza-promo-cards__badge,
+  .kaza-product-promo__step,
+  .kaza-product-promo__badge,
+  .kaza-challenge__review-quote,
+  .kaza-challenge__stat-text,
+  .kaza-product__subtitle,
+  .kaza-product__benefit-title,
+  .kaza-product__powered,
+  .kaza-product__compare-price,
+  .kaza-product__cta,
+  .kaza-whats-inside__footer,
+  .kaza-sub-banner__btn,
+  .kaza-product-trust__text,
+  .kaza-cart__item-title,
+  .kaza-cart__item-price {
+    font-size: 1rem;
+  }
+
+  .kaza-why-choose__card-text,
+  .kaza-cart__summary-row dt {
+    font-size: 1rem;
+  }
+
+  .kaza-how-it-works__step-text,
+  .kaza-cart__item-variant,
+  .kaza-cart__item-plan {
+    font-size: 1rem;
+  }
+
+  .kaza-hero__feature-text {
+    font-size: 1rem;
+  }
+
+  .kaza-hero__trustpilot-text,
+  .kaza-benefits__title,
+  .kaza-benefits__text,
+  .kaza-cart__item-compare,
+  .kaza-cart__summary-note {
+    font-size: 1rem;
+  }
+
+  .kaza-cart__summary-title,
+  .kaza-cart__summary-row dd,
+  .kaza-cart__qty-btn {
+    font-size: 1.0625rem;
   }
 }
 
@@ -58,11 +162,11 @@
   :root {
     --kaza-container-max: 1260px;
     --kaza-section-y: 5.5rem;
-    --kaza-fs-section-pill: 0.9375rem;
+    --kaza-fs-section-pill: 1rem;
     --kaza-fs-section: 3.5rem;
     --kaza-fs-section-content: 1.0625rem;
     --kaza-fs-hero: 3.3125rem;
-    --kaza-fs-hero-sub: 0.9375rem;
+    --kaza-fs-hero-sub: 1rem;
     --kaza-fs-story-title: 1.9375rem;
     --kaza-fs-story-content: 2.4375rem;
     --kaza-fs-promo: 1.4375rem;
@@ -70,8 +174,106 @@
     --kaza-fs-footer-logo: 2rem;
     --kaza-fs-ba-label: 1.25rem;
     --kaza-fs-review-title: 1.125rem;
-    --kaza-fs-review-quote: 0.875rem;
+    --kaza-fs-review-quote: 1rem;
     --kaza-fs-body-lg: 1rem;
+    --kaza-header-nav-size: 1rem;
+  }
+
+  /* Font sizes — synced from kaza-sections.css */
+  .kaza-promo-cards__heading,
+  .kaza-challenge__review-title {
+    font-size: 2.375rem;
+  }
+
+  .kaza-ba-slider__side-label,
+  .kaza-challenge__stat-title {
+    font-size: 1.9375rem;
+  }
+
+  .kaza-product-promo__heading,
+  .kaza-how-it-works__step-title,
+  .kaza-product__price {
+    font-size: 1.75rem;
+  }
+
+  .kaza-why-choose__card-title {
+    font-size: 1.3125rem;
+  }
+
+  .kaza-cart__empty-title {
+    font-size: 1.1875rem;
+  }
+
+  .kaza-hero__cta,
+  .kaza-hero__nav-btn,
+  .kaza-our-story__text,
+  .kaza-our-story__cta,
+  .kaza-promo-cards__text,
+  .kaza-promo-cards__btn,
+  .kaza-product-promo__steps-heading,
+  .kaza-how-it-works__cta-btn,
+  .kaza-faq__question {
+    font-size: 1.0625rem;
+  }
+
+  .kaza-footer__description,
+  .kaza-footer__cta,
+  .kaza-footer__heading,
+  .kaza-footer__links a,
+  .kaza-footer__contact-label,
+  .kaza-footer__contact-value,
+  .kaza-hero__powered,
+  .kaza-hero__trust-label,
+  .kaza-hero__feature-title,
+  .kaza-our-story__rating-text,
+  .kaza-why-choose__float,
+  .kaza-rootalix__feature-text,
+  .kaza-rootalix__ingredients,
+  .kaza-promo-cards__badge,
+  .kaza-product-promo__step,
+  .kaza-product-promo__badge,
+  .kaza-challenge__review-quote,
+  .kaza-challenge__stat-text,
+  .kaza-product__subtitle,
+  .kaza-product__benefit-title,
+  .kaza-product__powered,
+  .kaza-product__compare-price,
+  .kaza-product__cta,
+  .kaza-whats-inside__footer,
+  .kaza-sub-banner__btn,
+  .kaza-product-trust__text,
+  .kaza-cart__item-title,
+  .kaza-cart__item-price {
+    font-size: 1rem;
+  }
+
+  .kaza-why-choose__card-text,
+  .kaza-cart__summary-row dt {
+    font-size: 1rem;
+  }
+
+  .kaza-how-it-works__step-text,
+  .kaza-cart__item-variant,
+  .kaza-cart__item-plan {
+    font-size: 1rem;
+  }
+
+  .kaza-hero__feature-text {
+    font-size: 1rem;
+  }
+
+  .kaza-hero__trustpilot-text,
+  .kaza-benefits__title,
+  .kaza-benefits__text,
+  .kaza-cart__item-compare,
+  .kaza-cart__summary-note {
+    font-size: 1rem;
+  }
+
+  .kaza-cart__summary-title,
+  .kaza-cart__summary-row dd,
+  .kaza-cart__qty-btn {
+    font-size: 1.0625rem;
   }
 }
 
@@ -79,11 +281,11 @@
   :root {
     --kaza-container-max: 1200px;
     --kaza-section-y: 5.25rem;
-    --kaza-fs-section-pill: 0.875rem;
+    --kaza-fs-section-pill: 1rem;
     --kaza-fs-section: 3.375rem;
     --kaza-fs-section-content: 1rem;
     --kaza-fs-hero: 3.125rem;
-    --kaza-fs-hero-sub: 0.90625rem;
+    --kaza-fs-hero-sub: 1rem;
     --kaza-fs-story-title: 1.875rem;
     --kaza-fs-story-content: 2.3125rem;
     --kaza-fs-promo: 1.375rem;
@@ -91,8 +293,122 @@
     --kaza-fs-footer-logo: 1.9375rem;
     --kaza-fs-ba-label: 1.1875rem;
     --kaza-fs-review-title: 1.0625rem;
-    --kaza-fs-review-quote: 0.875rem;
-    --kaza-fs-body-lg: 0.96875rem;
+    --kaza-fs-review-quote: 1rem;
+    --kaza-fs-body-lg: 1rem;
+    --kaza-header-nav-size: 1rem;
+  }
+
+  /* Font sizes — synced from kaza-sections.css */
+  .kaza-promo-cards__heading,
+  .kaza-challenge__review-title {
+    font-size: 2.25rem;
+  }
+
+  .kaza-ba-slider__side-label,
+  .kaza-challenge__stat-title {
+    font-size: 1.875rem;
+  }
+
+  .kaza-product-promo__heading,
+  .kaza-how-it-works__step-title,
+  .kaza-product__price {
+    font-size: 1.6875rem;
+  }
+
+  .kaza-why-choose__card-title {
+    font-size: 1.25rem;
+  }
+
+  .kaza-cart__empty-title {
+    font-size: 1.125rem;
+  }
+
+  .kaza-hero__cta,
+  .kaza-hero__nav-btn,
+  .kaza-our-story__text,
+  .kaza-our-story__cta,
+  .kaza-promo-cards__text,
+  .kaza-promo-cards__btn,
+  .kaza-product-promo__steps-heading,
+  .kaza-how-it-works__cta-btn,
+  .kaza-faq__question {
+    font-size: 1rem;
+  }
+
+  .kaza-footer__description,
+  .kaza-footer__cta,
+  .kaza-footer__heading,
+  .kaza-footer__links a,
+  .kaza-footer__contact-label,
+  .kaza-footer__contact-value,
+  .kaza-hero__powered,
+  .kaza-hero__trust-label,
+  .kaza-hero__feature-title,
+  .kaza-our-story__rating-text,
+  .kaza-why-choose__float,
+  .kaza-rootalix__feature-text,
+  .kaza-rootalix__ingredients,
+  .kaza-promo-cards__badge,
+  .kaza-product-promo__step,
+  .kaza-product-promo__badge,
+  .kaza-challenge__review-quote,
+  .kaza-challenge__stat-text,
+  .kaza-product__subtitle,
+  .kaza-product__benefit-title,
+  .kaza-product__powered,
+  .kaza-product__compare-price,
+  .kaza-product__cta,
+  .kaza-whats-inside__footer,
+  .kaza-sub-banner__btn,
+  .kaza-product-trust__text,
+  .kaza-cart__item-title,
+  .kaza-cart__item-price {
+    font-size: 1rem;
+  }
+
+  .kaza-why-choose__card-text,
+  .kaza-cart__summary-row dt {
+    font-size: 1rem;
+  }
+
+  .kaza-how-it-works__step-text,
+  .kaza-cart__item-variant,
+  .kaza-cart__item-plan {
+    font-size: 1rem;
+  }
+
+  .kaza-hero__feature-text {
+    font-size: 1rem;
+  }
+
+  .kaza-hero__trustpilot-text,
+  .kaza-benefits__title,
+  .kaza-benefits__text,
+  .kaza-cart__item-compare,
+  .kaza-cart__summary-note {
+    font-size: 1rem;
+  }
+
+  .kaza-cart__summary-title,
+  .kaza-cart__summary-row dd,
+  .kaza-cart__qty-btn {
+    font-size: 1.0625rem;
+  }
+
+
+}
+
+@media only screen and (min-width: 100px) and (max-width: 1199px) {
+  :root {
+    --kaza-container-max: 1140px;
+    --kaza-section-y: 5rem;
+    --kaza-fs-section-pill: 1rem;
+    --kaza-fs-section: 3.25rem;
+    --kaza-fs-section-content: 1rem;
+    --kaza-fs-hero: 3rem;
+    --kaza-fs-story-content: 2.1875rem;
+    --kaza-fs-promo: 1.3125rem;
+    --kaza-header-nav-size: 1rem;
   }
 
   .kaza-footer__main {
@@ -111,18 +427,102 @@
   .kaza-benefits__grid {
     grid-template-columns: repeat(2, 1fr);
   }
-}
 
-@media only screen and (min-width: 100px) and (max-width: 1199px) {
-  :root {
-    --kaza-container-max: 1140px;
-    --kaza-section-y: 5rem;
-    --kaza-fs-section-pill: 0.875rem;
-    --kaza-fs-section: 3.25rem;
-    --kaza-fs-section-content: 0.975rem;
-    --kaza-fs-hero: 3rem;
-    --kaza-fs-story-content: 2.1875rem;
-    --kaza-fs-promo: 1.3125rem;
+  /* Font sizes — synced from kaza-sections.css */
+  .kaza-promo-cards__heading,
+  .kaza-challenge__review-title {
+    font-size: 2.125rem;
+  }
+
+  .kaza-ba-slider__side-label,
+  .kaza-challenge__stat-title {
+    font-size: 1.75rem;
+  }
+
+  .kaza-product-promo__heading,
+  .kaza-how-it-works__step-title,
+  .kaza-product__price {
+    font-size: 1.625rem;
+  }
+
+  .kaza-why-choose__card-title {
+    font-size: 1.1875rem;
+  }
+
+  .kaza-cart__empty-title {
+    font-size: 1.0625rem;
+  }
+
+  .kaza-hero__cta,
+  .kaza-hero__nav-btn,
+  .kaza-our-story__text,
+  .kaza-our-story__cta,
+  .kaza-promo-cards__text,
+  .kaza-promo-cards__btn,
+  .kaza-product-promo__steps-heading,
+  .kaza-how-it-works__cta-btn,
+  .kaza-faq__question {
+    font-size: 1rem;
+  }
+
+  .kaza-footer__description,
+  .kaza-footer__cta,
+  .kaza-footer__heading,
+  .kaza-footer__links a,
+  .kaza-footer__contact-label,
+  .kaza-footer__contact-value,
+  .kaza-hero__powered,
+  .kaza-hero__trust-label,
+  .kaza-hero__feature-title,
+  .kaza-our-story__rating-text,
+  .kaza-why-choose__float,
+  .kaza-rootalix__feature-text,
+  .kaza-rootalix__ingredients,
+  .kaza-promo-cards__badge,
+  .kaza-product-promo__step,
+  .kaza-product-promo__badge,
+  .kaza-challenge__review-quote,
+  .kaza-challenge__stat-text,
+  .kaza-product__subtitle,
+  .kaza-product__benefit-title,
+  .kaza-product__powered,
+  .kaza-product__compare-price,
+  .kaza-product__cta,
+  .kaza-whats-inside__footer,
+  .kaza-sub-banner__btn,
+  .kaza-product-trust__text,
+  .kaza-cart__item-title,
+  .kaza-cart__item-price {
+    font-size: 1rem;
+  }
+
+  .kaza-why-choose__card-text,
+  .kaza-cart__summary-row dt {
+    font-size: 1rem;
+  }
+
+  .kaza-how-it-works__step-text,
+  .kaza-cart__item-variant,
+  .kaza-cart__item-plan {
+    font-size: 1rem;
+  }
+
+  .kaza-hero__feature-text {
+    font-size: 1rem;
+  }
+
+  .kaza-hero__trustpilot-text,
+  .kaza-benefits__title,
+  .kaza-benefits__text,
+  .kaza-cart__item-compare,
+  .kaza-cart__summary-note {
+    font-size: 1rem;
+  }
+
+  .kaza-cart__summary-title,
+  .kaza-cart__summary-row dd,
+  .kaza-cart__qty-btn {
+    font-size: 1rem;
   }
 }
 
@@ -130,11 +530,11 @@
   :root {
     --kaza-container-max: 100%;
     --kaza-section-y: 4.5rem;
-    --kaza-fs-section-pill: 0.875rem;
+    --kaza-fs-section-pill: 1rem;
     --kaza-fs-section: 2.75rem;
-    --kaza-fs-section-content: 0.9375rem;
+    --kaza-fs-section-content: 1rem;
     --kaza-fs-hero: 2.75rem;
-    --kaza-fs-hero-sub: 0.875rem;
+    --kaza-fs-hero-sub: 1rem;
     --kaza-fs-story-title: 1.75rem;
     --kaza-fs-story-content: 2rem;
     --kaza-fs-promo: 1.25rem;
@@ -142,12 +542,122 @@
     --kaza-fs-footer-logo: 1.875rem;
     --kaza-fs-ba-label: 1.125rem;
     --kaza-fs-review-title: 1rem;
-    --kaza-fs-body-lg: 0.9375rem;
+    --kaza-fs-body-lg: 1rem;
+    --kaza-header-nav-size: 1rem;
+  }
+
+  /* Font sizes — synced from kaza-sections.css */
+  .kaza-promo-cards__heading,
+  .kaza-challenge__review-title {
+    font-size: 1.875rem;
+  }
+
+  .kaza-ba-slider__side-label,
+  .kaza-challenge__stat-title {
+    font-size: 1.5rem;
+  }
+
+  .kaza-product-promo__heading,
+  .kaza-how-it-works__step-title,
+  .kaza-product__price {
+    font-size: 1.375rem;
+  }
+
+  .kaza-why-choose__card-title {
+    font-size: 1.125rem;
+  }
+
+  .kaza-cart__empty-title {
+    font-size: 1rem;
+  }
+
+  .kaza-hero__cta,
+  .kaza-hero__nav-btn,
+  .kaza-our-story__text,
+  .kaza-our-story__cta,
+  .kaza-promo-cards__text,
+  .kaza-promo-cards__btn,
+  .kaza-product-promo__steps-heading,
+  .kaza-how-it-works__cta-btn,
+  .kaza-faq__question {
+    font-size: 1rem;
+  }
+
+  .kaza-footer__description,
+  .kaza-footer__cta,
+  .kaza-footer__heading,
+  .kaza-footer__links a,
+  .kaza-footer__contact-label,
+  .kaza-footer__contact-value,
+  .kaza-hero__powered,
+  .kaza-hero__trust-label,
+  .kaza-hero__feature-title,
+  .kaza-our-story__rating-text,
+  .kaza-why-choose__float,
+  .kaza-rootalix__feature-text,
+  .kaza-rootalix__ingredients,
+  .kaza-promo-cards__badge,
+  .kaza-product-promo__step,
+  .kaza-product-promo__badge,
+  .kaza-challenge__review-quote,
+  .kaza-challenge__stat-text,
+  .kaza-product__subtitle,
+  .kaza-product__benefit-title,
+  .kaza-product__powered,
+  .kaza-product__compare-price,
+  .kaza-product__cta,
+  .kaza-whats-inside__footer,
+  .kaza-sub-banner__btn,
+  .kaza-product-trust__text,
+  .kaza-cart__item-title,
+  .kaza-cart__item-price {
+    font-size: 1rem;
+  }
+
+  .kaza-why-choose__card-text,
+  .kaza-cart__summary-row dt {
+    font-size: 1rem;
+  }
+
+  .kaza-how-it-works__step-text,
+  .kaza-cart__item-variant,
+  .kaza-cart__item-plan {
+    font-size: 1rem;
+  }
+
+  .kaza-hero__feature-text {
+    font-size: 1rem;
+  }
+
+  .kaza-hero__trustpilot-text,
+  .kaza-benefits__title,
+  .kaza-benefits__text,
+  .kaza-cart__item-compare,
+  .kaza-cart__summary-note {
+    font-size: 1rem;
+  }
+
+  .kaza-cart__summary-title,
+  .kaza-cart__summary-row dd,
+  .kaza-cart__qty-btn {
+    font-size: 1rem;
+  }
+
+  .kaza-ba-slider__handle-label {
+    font-size: 20px;
+  }
+
+  .kaza-our-story__media-label span {
+    font-size: 16px;
+  }
+
+  .kaza-product__inner {
+    gap: 2rem;
   }
 
   .kaza-why-choose__float {
     max-width: 10rem;
-    font-size: 0.625rem;
+    font-size: 1rem;
     padding: 0.5rem 0.875rem;
   }
 
@@ -161,17 +671,25 @@
   }
 
   .kaza-rootalix__feature-text {
-    font-size: 0.75rem;
+    font-size: 1rem;
   }
 
   .kaza-rootalix__feature-icon {
-    width: 2rem;
-    height: 2rem;
+    width: 3rem;
+    height: 3rem;
   }
 
   .kaza-rootalix__feature-icon img {
-    width: 1rem;
-    height: 1rem;
+    width: 2.8rem;
+    height: 2.8rem;
+  }
+
+  .kaza-hero__right {
+    right: 0;
+  }
+
+  .kaza-challenge__review {
+    flex-basis: min(100%, 28rem);
   }
 }
 
@@ -179,11 +697,11 @@
   :root {
     --kaza-container-max: 100%;
     --kaza-section-y: 3.5rem;
-    --kaza-fs-section-pill: 0.875rem;
+    --kaza-fs-section-pill: 1rem;
     --kaza-fs-section: 2rem;
-    --kaza-fs-section-content: 0.875rem;
+    --kaza-fs-section-content: 1rem;
     --kaza-fs-hero: 2.25rem;
-    --kaza-fs-hero-sub: 0.875rem;
+    --kaza-fs-hero-sub: 1rem;
     --kaza-fs-story-title: 1.375rem;
     --kaza-fs-story-content: 2rem;
     --kaza-fs-promo: 1.125rem;
@@ -191,16 +709,183 @@
     --kaza-fs-footer-logo: 1.75rem;
     --kaza-fs-ba-label: 1.125rem;
     --kaza-fs-review-title: 1rem;
-    --kaza-fs-review-quote: 0.875rem;
-    --kaza-fs-body-lg: 0.9375rem;
+    --kaza-fs-review-quote: 1rem;
+    --kaza-fs-body-lg: 1rem;
+    --kaza-header-nav-size: 1rem;
+    --kaza-header-height: 4.25rem;
+  }
+
+  .kaza-hero__heading {
+    line-height: 1.2;
+  }
+
+  .kaza-hero__cta {
+    padding: 0.6rem 1.2rem;
+  }
+
+  .kaza-rootalix__bg::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: #00000096;
+  }
+
+  .kaza-rootalix__footer {
+    position: unset;
+  }
+
+  .kaza-hero__content_wrap {
+    aspect-ratio: unset;
+  }
+
+  .kaza-rootalix__rating {
+    flex-direction: column;
+  }
+
+  /* Font sizes — synced from kaza-sections.css */
+  .kaza-promo-cards__heading,
+  .kaza-challenge__review-title {
+    font-size: 1.5rem;
+  }
+
+  .kaza-ba-slider__side-label,
+  .kaza-challenge__stat-title {
+    font-size: 1.25rem;
+  }
+
+  .kaza-product-promo__heading,
+  .kaza-how-it-works__step-title,
+  .kaza-product__price {
+    font-size: 1.25rem;
+  }
+
+  .kaza-why-choose__card-title {
+    font-size: 1.0625rem;
+  }
+
+  .kaza-cart__empty-title {
+    font-size: 1rem;
+  }
+
+  .kaza-hero__cta,
+  .kaza-hero__nav-btn,
+  .kaza-our-story__text,
+  .kaza-our-story__cta,
+  .kaza-promo-cards__text,
+  .kaza-promo-cards__btn,
+  .kaza-product-promo__steps-heading,
+  .kaza-how-it-works__cta-btn,
+  .kaza-faq__question {
+    font-size: 1rem;
+  }
+
+  .kaza-footer__description,
+  .kaza-footer__cta,
+  .kaza-footer__heading,
+  .kaza-footer__links a,
+  .kaza-footer__contact-label,
+  .kaza-footer__contact-value,
+  .kaza-hero__powered,
+  .kaza-hero__trust-label,
+  .kaza-hero__feature-title,
+  .kaza-our-story__rating-text,
+  .kaza-why-choose__float,
+  .kaza-rootalix__feature-text,
+  .kaza-rootalix__ingredients,
+  .kaza-promo-cards__badge,
+  .kaza-product-promo__step,
+  .kaza-product-promo__badge,
+  .kaza-challenge__review-quote,
+  .kaza-challenge__stat-text,
+  .kaza-product__subtitle,
+  .kaza-product__benefit-title,
+  .kaza-product__powered,
+  .kaza-product__compare-price,
+  .kaza-product__cta,
+  .kaza-whats-inside__footer,
+  .kaza-sub-banner__btn,
+  .kaza-cart__item-title,
+  .kaza-cart__item-price {
+    font-size: 1rem;
+  }
+
+  .kaza-product-trust__text {
+    font-size: 1rem;
+  }
+
+  .kaza-why-choose__card-text,
+  .kaza-cart__summary-row dt {
+    font-size: 1rem;
+  }
+
+  .kaza-how-it-works__step-text,
+  .kaza-cart__item-variant,
+  .kaza-cart__item-plan {
+    font-size: 1rem;
+  }
+
+  .kaza-hero__feature-text {
+    font-size: 1rem;
+  }
+
+  .kaza-hero__trustpilot-text,
+  .kaza-benefits__title,
+  .kaza-benefits__text,
+  .kaza-cart__item-compare,
+  .kaza-cart__summary-note {
+    font-size: 1rem;
+  }
+
+  .kaza-cart__summary-title,
+  .kaza-cart__summary-row dd,
+  .kaza-cart__qty-btn {
+    font-size: 1rem;
+  }
+
+  .kaza-ba-slider__handle-label {
+    font-size: 16px;
+  }
+
+  .kaza-our-story__media-label span {
+    font-size: 16px;
   }
 
   .kaza-hide-mobile {
     display: none !important;
   }
 
-  .kaza-hide-desktop {
+  .kaza-header__menu-toggle.kaza-hide-desktop {
     display: flex !important;
+  }
+
+  .kaza-header__mobile-nav.kaza-hide-desktop:not([hidden]) {
+    display: flex !important;
+  }
+
+  .kaza-header__mobile-nav[hidden] {
+    display: none !important;
+  }
+
+  .kaza-header {
+    margin-bottom: 0 !important;
+  }
+
+  body.template-index header.kaza-header {
+    position: relative !important;
+  }
+
+  .kaza-header--overlay {
+    position: relative !important;
+  }
+
+  .kaza-header__mobile-nav {
+    padding: 0.5rem var(--page-margin) 1.25rem;
+  }
+
+  .kaza-header__mobile-cta {
+    margin-top: 1rem;
+    margin-bottom: 0.25rem;
   }
 
   .kaza-header__inner {
@@ -230,15 +915,24 @@
     justify-content: center;
   }
 
+  .kaza-hero,
+  .kaza-why-choose,
+  .kaza-rootalix,
+  .kaza-promo-cards,
+  .kaza-product-promo {
+    overflow-x: clip;
+  }
+
   .kaza-hero__content {
     grid-template-columns: 1fr;
-    padding-block: calc(var(--kaza-header-height) + 1.5rem) 6rem;
+    padding-block: calc(var(--kaza-header-height) + 1rem) 7rem;
     text-align: center;
   }
 
   .kaza-hero__left {
     align-items: center;
-    max-width: none;
+    width: 100%;
+    max-width: 100%;
   }
 
   .kaza-hero__subheading {
@@ -250,7 +944,13 @@
   }
 
   .kaza-hero__trust {
+    position: static;
+    bottom: auto;
+    left: auto;
     align-items: center;
+    margin-top: 1.5rem;
+    flex-wrap: wrap;
+    justify-content: center;
   }
 
   .kaza-hero__trust-logos {
@@ -260,6 +960,8 @@
   .kaza-hero__right {
     min-height: auto;
     justify-content: center;
+    right: 0;
+    overflow: hidden;
   }
 
   .kaza-hero__features {
@@ -268,13 +970,50 @@
     margin-inline-start: 0;
   }
 
+  .kaza-hero__feature:nth-child(1) {
+    right: 0;
+  }
+
+  .kaza-hero__feature {
+    width: 100%;
+  }
+
+  .kaza-hero__feature-text {
+    max-width: none;
+  }
+
   .kaza-hero__product {
-    position: static;
+    position: relative;
+    inset: auto;
+    margin-inline: auto;
     margin-bottom: 1rem;
   }
 
+  .kaza-hero__product img {
+    max-height: clamp(220px, 42vw, 320px);
+  }
+
   .kaza-hero__controls {
+    /* position: relative; */
+    margin-top: 1rem;
     justify-content: center;
+  }
+
+  body.template-index header.kaza-header {
+    background-color: #000 !important;
+  }
+
+  .kaza-hero__bg::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: #00000096;
+  }
+
+  .kaza-why-choose__float--top-left,
+  .kaza-why-choose__float--bottom-left {
+    flex-direction: row;
   }
 
   .kaza-our-story__intro {
@@ -306,8 +1045,10 @@
   .kaza-why-choose__visual {
     min-height: auto;
     flex-direction: column;
-    gap: 1.5rem;
+    gap: 0;
     padding-bottom: 0.5rem;
+    margin-bottom: 0;
+    overflow: hidden;
   }
 
   .kaza-why-choose__arc {
@@ -320,6 +1061,7 @@
 
   .kaza-why-choose__portrait {
     max-height: 16rem;
+    margin-bottom: -9px;
   }
 
   .kaza-why-choose__floats {
@@ -328,16 +1070,41 @@
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 0.625rem;
     width: 100%;
+    transform: none;
+    left: auto;
+    inset: auto;
   }
 
   .kaza-why-choose__float {
     position: static;
+    width: 100%;
     max-width: none;
     justify-content: flex-start;
+    padding: 0.5rem 0.75rem;
+  }
+
+  .kaza-why-choose__float img {
+    width: 2.5rem;
+    height: auto;
   }
 
   .kaza-why-choose__cards {
     grid-template-columns: 1fr;
+  }
+
+  .kaza-rootalix {
+    aspect-ratio: auto;
+    min-height: auto;
+    margin-inline: var(--page-margin);
+  }
+
+  .kaza-rootalix__inner {
+    padding: 2rem var(--page-margin) 1.5rem;
+  }
+
+  .kaza-rootalix__header {
+    padding-inline: 0.5rem;
+    margin-bottom: 1.5rem;
   }
 
   .kaza-rootalix__visual {
@@ -347,6 +1114,7 @@
     align-items: center;
     gap: 2rem;
     padding-top: 1rem;
+    margin-bottom: 1.5rem;
   }
 
   .kaza-rootalix__product {
@@ -362,36 +1130,46 @@
     position: static;
     display: grid;
     grid-template-columns: 1fr;
-    gap: 1rem;
+    gap: 0.5rem;
     width: 100%;
     max-width: 24rem;
+    transform: translateX(0%);
   }
 
   .kaza-rootalix__feature {
     position: static;
     max-width: none;
     flex-direction: row !important;
+    gap: 15px;
   }
 
-  .kaza-rootalix__feature--top-left .kaza-rootalix__feature-text,
-  .kaza-rootalix__feature--bottom-left .kaza-rootalix__feature-text {
-    text-align: right;
+  .kaza-rootalix__feature.kaza-rootalix__feature--top-left,
+  .kaza-rootalix__feature.kaza-rootalix__feature--bottom-left {
+    flex-direction: row-reverse !important;
   }
 
-  .kaza-rootalix__feature--top-right .kaza-rootalix__feature-text,
-  .kaza-rootalix__feature--bottom-right .kaza-rootalix__feature-text {
-    text-align: left;
+  .kaza-rootalix__feature-line {
+    display: none;
   }
 
-  .kaza-rootalix__feature-line::after {
-    right: 0;
-    left: auto;
+  .kaza-rootalix__feature-text {
+    text-align: left !important;
+    margin: 0 !important;
   }
 
-  .kaza-rootalix__feature--top-right .kaza-rootalix__feature-line::after,
-  .kaza-rootalix__feature--bottom-right .kaza-rootalix__feature-line::after {
-    left: 0;
-    right: auto;
+  .kaza-rootalix__footer {
+    padding-inline: 0.5rem;
+  }
+
+  .kaza-rootalix__ingredients {
+    padding-inline: 0.5rem;
+    line-height: 1.5;
+    position: unset;
+  }
+
+  .kaza-promo-cards__body,
+  .kaza-product-promo__content {
+    padding: clamp(1.5rem, 4vw, 2rem) clamp(1rem, 3vw, 1.25rem) 0;
   }
 
   .kaza-promo-cards__grid {
@@ -403,8 +1181,10 @@
   }
 
   .kaza-promo-cards__badge {
-    font-size: 0.5625rem;
-    max-width: 8.5rem;
+    font-size: 0.9rem;
+    max-width: 14.2rem;
+    position: unset;
+    text-align: left;
   }
 
   .kaza-promo-cards__badge--1 {
@@ -414,6 +1194,35 @@
 
   .kaza-promo-cards__badge--2 {
     top: 34%;
+    right: 4%;
+  }
+
+  .kaza-product-promo__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .kaza-product-promo__card {
+    min-height: 24rem;
+    aspect-ratio: auto;
+  }
+
+  .kaza-product-promo__badge {
+    font-size: 1rem;
+    max-width: 8.5rem;
+  }
+
+  .kaza-product-promo__badge--1 {
+    top: 28%;
+    right: 4%;
+  }
+
+  .kaza-product-promo__badge--2 {
+    top: 44%;
+    left: 4%;
+  }
+
+  .kaza-product-promo__badge--3 {
+    bottom: 20%;
     right: 4%;
   }
 
@@ -431,12 +1240,12 @@
   }
 
   .kaza-ba-slider__control {
-    width: 3rem;
-    height: 3rem;
+    width: 6rem;
+    height: 6rem;
   }
 
   .kaza-ba-slider__handle-label {
-    font-size: 0.625rem;
+    font-size: 16px;
   }
 
   .kaza-challenge__reviews-shell {
@@ -449,7 +1258,7 @@
   }
 
   .kaza-challenge__review {
-    flex-basis: min(100%, 20rem);
+    flex-basis: 100%;
   }
 
   .kaza-challenge__stats {
@@ -459,28 +1268,544 @@
   .kaza-benefits__grid {
     grid-template-columns: 1fr;
   }
+
+  .kaza-product__inner {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .kaza-product__gallery {
+    position: static;
+  }
+
+  .kaza-product__cta {
+    width: 100%;
+  }
+
+  .kaza-whats-inside__card {
+    flex-direction: column;
+    align-items: stretch;
+    text-align: center;
+  }
+
+  .kaza-whats-inside__card-media {
+    width: 100%;
+    max-width: 14rem;
+    margin-inline: auto;
+  }
+
+  .kaza-faq__trigger {
+    padding: 1rem 1.25rem;
+  }
+
+  .kaza-faq__panel {
+    padding-inline: 1.25rem;
+  }
+
+  .kaza-sub-banner__inner {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    padding: 1.75rem 1.25rem 0;
+  }
+
+  .kaza-sub-banner__content {
+    max-width: none;
+    align-items: center;
+    text-align: center;
+  }
+
+  .kaza-sub-banner__product {
+    justify-content: center;
+    margin-top: 15px;
+  }
+
+  .kaza-sub-banner__product img {
+    width: min(100%, 16rem);
+  }
+
+  .kaza-product-trust__bar {
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: 15px;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    padding: 1rem 1.25rem;
+  }
+
+  .kaza-product-trust__bar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .kaza-product-trust__item {
+    flex: 0 0 auto;
+    min-width: max-content;
+    padding-inline: 0;
+  }
+
+  .kaza-product-trust__item:not(:last-child)::after {
+    display: none;
+  }
+
+  .kaza-product-trust__icon {
+    width: 40px;
+    height: auto;
+  }
+
+  .kaza-product-trust__item:first-child {
+    padding-left: 0;
+  }
+
+  .kaza-product-trust__text {
+    white-space: nowrap;
+  }
+
+  .kaza-promo-cards .kaza-container,
+  .kaza-product-promo .kaza-container {
+    padding-inline: var(--page-margin);
+  }
+
+  .kaza-promo-cards {
+    padding-top: var(--page-margin);
+  }
+
+  .kaza-sub-banner {
+    padding-inline: var(--page-margin);
+    margin-top: 2rem;
+  }
+
+  .kaza-cart__layout {
+    grid-template-columns: 1fr;
+  }
+
+  .kaza-cart__summary {
+    position: static;
+  }
+
+  .kaza-cart__item {
+    grid-template-columns: 5.5rem minmax(0, 1fr);
+    gap: 1rem;
+    padding-block: 1.25rem;
+  }
+
+  .kaza-cart__item-top {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .kaza-cart__item-prices {
+    align-items: flex-start;
+  }
+
+  .kaza-rootalix__bg::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: #00000096;
+  }
+
+  .kaza-promo-cards__badges {
+    position: unset;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+  }
+
+  .kaza-promo-cards__bg::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: #00000096;
+  }
+
+  .kaza-promo-cards__heading,
+  .kaza-promo-cards__text {
+    color: #fff;
+  }
+
+  .kaza-product-promo__media::before,
+  .kaza-product-promo__bg::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: #00000096;
+  }
+
+  .kaza-product-promo__heading,
+  .kaza-product-promo__text,
+  .kaza-product-promo__steps-heading,
+  .kaza-product-promo__step {
+    color: #fff;
+  }
+
+  .kaza-product-promo__steps {
+    margin-bottom: 15px;
+  }
+
+  .kaza-product-promo__media--left img {
+    width: 100%;
+    height: 100%;
+  }
+
+  .kaza-product-promo__badges {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-inline: 15px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+  }
+
+  .kaza-product-promo__badge {
+    position: unset;
+    width: auto;
+    max-width: 100%;
+  }
+
+  .kaza-our-story__media-label::before {
+    display: none;
+  }
 }
 
 @media only screen and (min-width: 100px) and (max-width: 599px) {
   :root {
     --kaza-section-y: 3rem;
-    --kaza-fs-section-pill: 0.8125rem;
-    --kaza-fs-section: 1.75rem;
-    --kaza-fs-section-content: 0.8125rem;
-    --kaza-fs-hero: 2rem;
+    --kaza-fs-section-pill: 1rem;
+    --kaza-fs-section: 2rem;
+    --kaza-fs-section-content: 1rem;
+    --kaza-fs-hero: 2.4rem;
     --kaza-fs-story-title: 1.3125rem;
     --kaza-fs-story-content: 1.875rem;
     --kaza-fs-promo: 1.0625rem;
+    --kaza-header-nav-size: 1rem;
+    --kaza-header-height: 4rem;
+  }
+
+  /* Font sizes — synced from kaza-sections.css */
+  .kaza-promo-cards__heading,
+  .kaza-challenge__review-title {
+    font-size: 1.375rem;
+  }
+
+  .kaza-ba-slider__side-label,
+  .kaza-challenge__stat-title {
+    font-size: 1.125rem;
+  }
+
+  .kaza-product-promo__heading,
+  .kaza-how-it-works__step-title,
+  .kaza-product__price {
+    font-size: 1.525rem;
+  }
+
+  .kaza-why-choose__card-title {
+    font-size: 1rem;
+  }
+
+  .kaza-cart__empty-title {
+    font-size: 1rem;
+  }
+
+  .kaza-hero__cta,
+  .kaza-hero__nav-btn,
+  .kaza-our-story__text,
+  .kaza-our-story__cta,
+  .kaza-promo-cards__text,
+  .kaza-promo-cards__btn,
+  .kaza-product-promo__steps-heading,
+  .kaza-how-it-works__cta-btn,
+  .kaza-faq__question {
+    font-size: 1rem;
+  }
+
+  .kaza-footer__description,
+  .kaza-footer__cta,
+  .kaza-footer__heading,
+  .kaza-footer__links a,
+  .kaza-footer__contact-label,
+  .kaza-footer__contact-value,
+  .kaza-hero__powered,
+  .kaza-hero__trust-label,
+  .kaza-hero__feature-title,
+  .kaza-our-story__rating-text,
+  .kaza-why-choose__float,
+  .kaza-rootalix__feature-text,
+  .kaza-rootalix__ingredients,
+  .kaza-promo-cards__badge,
+  .kaza-product-promo__step,
+  .kaza-product-promo__badge,
+  .kaza-challenge__review-quote,
+  .kaza-challenge__stat-text,
+  .kaza-product__subtitle,
+  .kaza-product__benefit-title,
+  .kaza-product__powered,
+  .kaza-product__compare-price,
+  .kaza-product__cta,
+  .kaza-whats-inside__footer,
+  .kaza-sub-banner__btn,
+  .kaza-cart__item-title,
+  .kaza-cart__item-price {
+    font-size: 1rem;
+  }
+
+  .kaza-product-trust__text {
+    font-size: 1rem;
+  }
+
+  .kaza-why-choose__card-text,
+  .kaza-cart__summary-row dt {
+    font-size: 1rem;
+  }
+
+  .kaza-how-it-works__step-text,
+  .kaza-cart__item-variant,
+  .kaza-cart__item-plan {
+    font-size: 1rem;
+  }
+
+  .kaza-hero__feature-text {
+    font-size: 1rem;
+  }
+
+  .kaza-hero__trustpilot-text,
+  .kaza-benefits__title,
+  .kaza-benefits__text,
+  .kaza-cart__item-compare,
+  .kaza-cart__summary-note {
+    font-size: 1rem;
+  }
+
+  .kaza-cart__summary-title,
+  .kaza-cart__summary-row dd,
+  .kaza-cart__qty-btn {
+    font-size: 1rem;
+  }
+
+  .kaza-ba-slider__handle-label {
+    font-size: 16px;
+  }
+
+  .kaza-our-story__media-label span {
+    font-size: 12px;
+    text-align: center;
+  }
+
+  .kaza-hero__content {
+    padding-block: calc(var(--kaza-header-height) + 0.75rem) 6rem;
+  }
+
+  .kaza-hero__cta-row {
+    gap: 0.875rem;
+  }
+
+  .kaza-hero__feature-icon {
+    width: 2.75rem;
+    height: 2.75rem;
+  }
+
+  .kaza-hero__feature-icon img {
+    width: 2.75rem;
+    height: 2.75rem;
+  }
+
+  .kaza-hero__product img {
+    max-height: clamp(200px, 38vw, 280px);
+  }
+
+  .kaza-why-choose__floats {
+    grid-template-columns: 1fr;
+  }
+
+  .kaza-rootalix__inner {
+    padding: 1.5rem var(--page-margin) 1.25rem;
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .kaza-rootalix__visual {
+    gap: 1.5rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .kaza-promo-cards__badge--1 {
+    left: min(6%, 1rem);
+  }
+
+  .kaza-promo-cards__badge--2 {
+    right: min(6%, 1rem);
+    position: unset;
+  }
+
+  .kaza-product-promo__badge--1,
+  .kaza-product-promo__badge--3 {
+    right: min(6%, 1rem);
+  }
+
+  .kaza-product-promo__badge--2 {
+    left: min(6%, 1rem);
+  }
+
+  .kaza-promo-cards__body,
+  .kaza-product-promo__content {
+    padding-top: clamp(1.25rem, 3.5vw, 1.75rem);
   }
 }
 
 @media only screen and (min-width: 100px) and (max-width: 399px) {
-  :root {
+  /* :root {
     --kaza-section-y: 2.75rem;
-    --kaza-fs-section-pill: 0.75rem;
+    --kaza-fs-section-pill: 1rem;
     --kaza-fs-section: 1.625rem;
-    --kaza-fs-section-content: 0.75rem;
+    --kaza-fs-section-content: 1rem;
     --kaza-fs-hero: 1.75rem;
     --kaza-fs-story-content: 1.75rem;
+    --kaza-header-nav-size: 1rem;
+    --kaza-header-height: 3.75rem;
+  }
+
+  
+  .kaza-promo-cards__heading,
+  .kaza-challenge__review-title {
+    font-size: 1.25rem;
+  }
+
+  .kaza-ba-slider__side-label,
+  .kaza-challenge__stat-title {
+    font-size: 1rem;
+  }
+
+  .kaza-product-promo__heading,
+  .kaza-how-it-works__step-title,
+  .kaza-product__price {
+    font-size: 1rem;
+  }
+
+  .kaza-why-choose__card-title {
+    font-size: 1rem;
+  }
+
+  .kaza-cart__empty-title {
+    font-size: 1rem;
+  }
+
+  .kaza-hero__cta,
+  .kaza-hero__nav-btn,
+  .kaza-our-story__text,
+  .kaza-our-story__cta,
+  .kaza-promo-cards__text,
+  .kaza-promo-cards__btn,
+  .kaza-product-promo__steps-heading,
+  .kaza-how-it-works__cta-btn,
+  .kaza-faq__question {
+    font-size: 1rem;
+  }
+
+  .kaza-footer__description,
+  .kaza-footer__cta,
+  .kaza-footer__heading,
+  .kaza-footer__links a,
+  .kaza-footer__contact-label,
+  .kaza-footer__contact-value,
+  .kaza-hero__powered,
+  .kaza-hero__trust-label,
+  .kaza-hero__feature-title,
+  .kaza-our-story__rating-text,
+  .kaza-why-choose__float,
+  .kaza-rootalix__feature-text,
+  .kaza-rootalix__ingredients,
+  .kaza-promo-cards__badge,
+  .kaza-product-promo__step,
+  .kaza-product-promo__badge,
+  .kaza-challenge__review-quote,
+  .kaza-challenge__stat-text,
+  .kaza-product__subtitle,
+  .kaza-product__benefit-title,
+  .kaza-product__powered,
+  .kaza-product__compare-price,
+  .kaza-product__cta,
+  .kaza-whats-inside__footer,
+  .kaza-sub-banner__btn,
+  .kaza-cart__item-title,
+  .kaza-cart__item-price {
+    font-size: 1rem;
+  }
+
+  .kaza-product-trust__text {
+    font-size: 1rem;
+  }
+
+  .kaza-why-choose__card-text,
+  .kaza-cart__summary-row dt {
+    font-size: 1rem;
+  }
+
+  .kaza-how-it-works__step-text,
+  .kaza-cart__item-variant,
+  .kaza-cart__item-plan {
+    font-size: 1rem;
+  }
+
+  .kaza-hero__feature-text {
+    font-size: 1rem;
+  }
+
+  .kaza-hero__trustpilot-text,
+  .kaza-benefits__title,
+  .kaza-benefits__text,
+  .kaza-cart__item-compare,
+  .kaza-cart__summary-note {
+    font-size: 1rem;
+  }
+
+  .kaza-cart__summary-title,
+  .kaza-cart__summary-row dd,
+  .kaza-cart__qty-btn {
+    font-size: 1rem;
+  }
+
+  .kaza-ba-slider__handle-label {
+    font-size: 16px;
+  }
+
+  .kaza-our-story__media-label span {
+    font-size: 16px;
+  } */
+
+  .kaza-hero__content {
+    padding-block: calc(var(--kaza-header-height) + 0.5rem) 5.5rem;
+  }
+
+  .kaza-hero__feature-icon {
+    width: 2.5rem;
+    height: 2.5rem;
+  }
+
+  .kaza-hero__feature-icon img {
+    width: 2.5rem;
+    height: 2.5rem;
+  }
+
+  .kaza-rootalix__inner {
+    padding: 1.25rem var(--page-margin) 1rem;
+  }
+
+  .kaza-rootalix__header,
+  .kaza-rootalix__footer,
+  .kaza-rootalix__ingredients {
+    padding-inline: 0.25rem;
+  }
+
+  .kaza-promo-cards__card,
+  .kaza-product-promo__card {
+    min-height: 20rem;
   }
 }

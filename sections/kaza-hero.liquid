@@ -7,14 +7,19 @@
         <div
           class="kaza-hero__slide{% if slide_count == 1 %} is-active{% endif %}"
           data-kaza-hero-slide
-          {{ block.shopify_attributes }}>
+          {{ block.shopify_attributes }}
+        >
           {% liquid
             assign hero_background = block.settings.background_image
-            assign hero_background_alt = block.settings.heading | default: shop.name
+            assign hero_background_alt = block.settings.heading_highlight | default: block.settings.heading_prefix | default: shop.name
           %}
           <div class="kaza-hero__bg">
             {% if hero_background != blank %}
-              {{ hero_background | image_url: width: 2400 | image_tag: loading: 'eager', fetchpriority: 'high', alt: hero_background_alt }}
+              {{
+                hero_background
+                | image_url: width: 2400
+                | image_tag: loading: 'eager', fetchpriority: 'high', alt: hero_background_alt
+              }}
             {% else %}
               <img
                 src="{{ 'hero.webp' | asset_url }}"
@@ -22,50 +27,37 @@
                 loading="eager"
                 fetchpriority="high"
                 width="2400"
-                height="1200">
+                height="1200"
+              >
             {% endif %}
           </div>
 
           <div class="kaza-hero__content_wrap">
             <div class="kaza-hero__content kaza-container">
               <div class="kaza-hero__left">
-                {% if block.settings.heading != blank %}
-                  <h1 class="kaza-hero__heading">{{ block.settings.heading }}</h1>
+                {% if block.settings.heading_prefix != blank or block.settings.heading_highlight != blank %}
+                  <h1 class="kaza-hero__heading">
+                    {% if block.settings.heading_highlight != blank %}
+                      <span class="kaza-section-heading__highlight">{{ block.settings.heading_highlight }}</span>
+                    {% endif %}
+                    {% if block.settings.heading_prefix != blank %}
+                      <span class="kaza-section-heading__prefix">{{ block.settings.heading_prefix }}</span>
+                    {% endif %}
+                  </h1>
                 {% endif %}
                 {% if block.settings.subheading != blank %}
                   <p class="kaza-hero__subheading">{{ block.settings.subheading }}</p>
                 {% endif %}
                 {% if block.settings.button_label != blank %}
                   <div class="kaza-hero__cta-row">
-                    <a href="{{ block.settings.button_url | default: routes.all_products_collection_url }}" class="kaza-btn kaza-btn--invert kaza-btn--rect kaza-hero__cta">
+                    <a
+                      href="{{ block.settings.button_url | default: routes.all_products_collection_url }}"
+                      class="kaza-btn kaza-btn--invert kaza-btn--rect kaza-hero__cta"
+                    >
                       {{ block.settings.button_label }}
-                      <svg
-                        class="kaza-hero__cta-icon"
-                        xmlns="http://www.w3.org/2000/svg"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        aria-hidden="true">
-                        <path
-                          d="M6 6h15l-1.5 9h-12z"
-                          stroke="currentColor"
-                          stroke-width="1.5"
-                          stroke-linejoin="round" />
-                        <path
-                          d="M6 6 5 3H2"
-                          stroke="currentColor"
-                          stroke-width="1.5"
-                          stroke-linecap="round"
-                          stroke-linejoin="round" />
-                        <circle
-                          cx="9"
-                          cy="20"
-                          r="1.25"
-                          fill="currentColor" />
-                        <circle
-                          cx="18"
-                          cy="20"
-                          r="1.25"
-                          fill="currentColor" />
+
+                      <svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 37 33" width="37" height="33">
+                        <defs><image  width="37" height="33" id="img1" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACUAAAAhCAMAAABp0ZInAAAAAXNSR0IB2cksfwAAAc5QTFRFAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAd1vHfwAAAJp0Uk5TAAFY7Y0VruAqHPj/S9MP3YwNwpgFiM4MLPA3NennMFTauP6QzIsh5vpZGiRhyREDzWXBlQSHxxtEP+EgMfZRkYnZdZJ8uTv33/38+dQl1VJW7MQQ5fXvnnv7cFt3BqUmvB4OFhTiXfSDrSfXC7OdloG+8UGfhU9X7sOqRqkSApozchPIfilJdjZkr0gybCM9oQenCHHATZzP89FE/DcAAAJwSURBVHicY2RAAoxA8AdIswLpHygSyBxORkaGr0Ca5z8DE+MnXKr4/zCwfgDSgow/GTgY32BXJfqNgZvxJYglATSJ/xlWVdKM74UYH0HY8m8YRB9gUyUo8Eqc8S6Mp/KcgeMtFlWqzxhYPsJ5aoxPZBmvY6jSesjAoHAVYYnOn8dKjJfQVOkz3mZQO4/sYaObDBqMZ1BVmb59qX3+N7Iq89cvGXRPoKiyfP9Yn/EoAwqwOc9gdBiqyu4pA4MM47WvDGaMD1EUKTDeeM9g9eEdgwIDMyM3A2Fgw+jBeIjB/gCQ6Ygpux+IJV4y2DEz+n48y+DMyIipBAzOCynscj9rApQO2e61GqdllrJnmG+D/Bi+hcHwCC5VEZv9GJeBVEVvYAhcgkNRLONao98nQKri1zCELoAImuieuwiik5Z/hwgkn73N9/UTSFUK4zLZG2AxxlRGxhlAWs/69c/NYJGsy+cSpoLDPodxnrjtQpCY/qdX4BRtcZkheRJYFZCVMhGsijF/tjg/OKL1nWal9wHp4usHM3vAqkqnMWR3QeKx/NKhn3+gZuV2MIBjFZoEKycxsL2HqLJ5+C6/DaxKeSfYxuoJDIUtYFXcDIJPGCCqas/vV3oOyjF1jD1Rs4F0w8VdZfUgRU2dEOXgqGnu+JM8DcRIVGasBtFtjJVgozqaGerKYaq6Go38SrEFatRGhsYSmKr2FoamYmyqCmfZuRbBVPXXMLQy5mNRVTHZc+t3mCoGz0MM3/9hqDG54HqonTEXrmpKOYO9yNUHqIpi1HpfxuhnMcBVMU4rweYsBljmgybSJFVBxnXf0JRI6i6D5m4A1t+3Tt3/MoAAAAAASUVORK5CYII="/></defs><style></style><use  href="#img1" x="0" y="0"/>
                       </svg>
                     </a>
                     {% if block.settings.powered_by_text != blank %}
@@ -85,7 +77,10 @@
                             class="kaza-hero__trustpilot-star"
                             xmlns="http://www.w3.org/2000/svg"
                             viewBox="0 0 24 24"
-                            aria-hidden="true"><path fill="#00B67A" d="M12 2l2.9 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" /></svg>
+                            aria-hidden="true"
+                          >
+                            <path fill="#00B67A" d="M12 2l2.9 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+                          </svg>
                           <span class="kaza-hero__trustpilot-text">Trustpilot</span>
                         </span>
                       {% endif %}
@@ -96,7 +91,8 @@
                             viewBox="0 0 24 24"
                             width="18"
                             height="18"
-                            aria-hidden="true">
+                            aria-hidden="true"
+                          >
                             <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 0 1-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z" />
                             <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" />
                             <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" />
@@ -104,9 +100,10 @@
                           </svg>
                         </span>
                       {% endif %}
-                      {% render 'kaza-star-rating'
-                        , rating: section.settings.trust_rating
-                        , label: section.settings.trust_text %}
+                      {% render 'kaza-star-rating',
+                        rating: section.settings.trust_rating,
+                        label: section.settings.trust_text
+                      %}
                     </div>
                   </div>
                 {% endif %}
@@ -114,7 +111,11 @@
               <div class="kaza-hero__right">
                 {% if block.settings.product_image != blank %}
                   <div class="kaza-hero__product">
-                    {{ block.settings.product_image | image_url: width: 800 | image_tag: loading: 'eager', alt: block.settings.heading }}
+                    {{
+                      block.settings.product_image
+                      | image_url: width: 800
+                      | image_tag: loading: 'eager', alt: hero_background_alt
+                    }}
                   </div>
                 {% endif %}
                 {% assign feature_blocks = section.blocks | where: 'type', 'feature' %}
@@ -181,184 +182,200 @@
         type="button"
         class="kaza-hero__nav-btn"
         data-kaza-hero-next
-        aria-label="{{ 'general.accessibility.next' | t }}">
+        aria-label="{{ 'general.accessibility.next' | t }}"
+      >
         ← {{ 'sections.kaza_hero.next' | t }}
       </button>
       <button
         type="button"
         class="kaza-hero__nav-btn"
         data-kaza-hero-prev
-        aria-label="{{ 'general.accessibility.previous' | t }}">
+        aria-label="{{ 'general.accessibility.previous' | t }}"
+      >
         {{ 'sections.kaza_hero.prev' | t }} →
       </button>
     </div>
   {% endif %}
 </div>
 
-
 {% javascript %}
-  (function() {
+  (function () {
     const hero = document.querySelector('[data-kaza-hero]');
-      if (! hero) return;
-      
+    if (!hero) return;
 
-      const slides = [... hero.querySelectorAll('[data-kaza-hero-slide]')];
-      if (slides.length<= 1) return;
+    const slides = [...hero.querySelectorAll('[data-kaza-hero-slide]')];
+    if (slides.length <= 1) return;
 
     let current = 0;
 
     const update = () => {
-        slides.forEach((slide, i) => slide.classList.toggle('is-active', i === current));
-      };
+      slides.forEach((slide, i) => slide.classList.toggle('is-active', i === current));
+    };
 
-      hero.querySelector('[data-kaza-hero-prev]') ?. addEventListener('click', () => {
-        current = (current - 1 + slides.length) % slides.length;
-        update();
-      });
+    hero.querySelector('[data-kaza-hero-prev]')?.addEventListener('click', () => {
+      current = (current - 1 + slides.length) % slides.length;
+      update();
+    });
 
-      hero.querySelector('[data-kaza-hero-next]') ?. addEventListener('click', () => {
-        current = (current + 1) % slides.length;
-        update();
-      });
-    }
-  )();
+    hero.querySelector('[data-kaza-hero-next]')?.addEventListener('click', () => {
+      current = (current + 1) % slides.length;
+      update();
+    });
+  })();
 {% endjavascript %}
 
 {% schema %}
-  {
-    "name": "t:sections.kaza_hero.name",
-    "max_blocks": 8,
-    "settings": [
-      {
-        "type": "checkbox",
-        "id": "show_trust_bar",
-        "label": "t:sections.kaza_hero.settings.show_trust_bar",
-        "default": true
-      },
-      {
-        "type": "text",
-        "id": "trust_text",
-        "label": "t:sections.kaza_hero.settings.trust_text",
-        "default": "Excellent 683 reviews on"
-      },
-      {
-        "type": "range",
-        "id": "trust_rating",
-        "label": "t:labels.rating",
-        "min": 1,
-        "max": 5,
-        "step": 1,
-        "default": 5
-      },
-      {
-        "type": "checkbox",
-        "id": "show_trustpilot",
-        "label": "t:sections.kaza_hero.settings.show_trustpilot",
-        "default": true
-      }, {
-        "type": "checkbox",
-        "id": "show_google",
-        "label": "t:sections.kaza_hero.settings.show_google",
-        "default": true
-      }, {
-        "type": "checkbox",
-        "id": "show_slider_controls",
-        "label": "t:sections.kaza_hero.settings.show_slider_controls",
-        "default": true
-      }
-    ],
-    "blocks": [
-      {
-        "type": "slide",
-        "name": "t:sections.kaza_hero.blocks.slide.name",
-        "settings": [
-          {
-            "type": "image_picker",
-            "id": "background_image",
-            "label": "t:labels.background_image"
-          },
-          {
-            "type": "text",
-            "id": "heading",
-            "label": "t:labels.heading",
-            "default": "Up to 28,200+ new hairs in 3 months."
-          },
-          {
-            "type": "textarea",
-            "id": "subheading",
-            "label": "t:labels.subheading",
-            "default": "Based on a 3-month clinical study where participants saw an average of 10,000 new hairs and a maximum of 28,200."
-          },
-          {
-            "type": "text",
-            "id": "button_label",
-            "label": "t:labels.button_label",
-            "default": "Shop the Serum"
-          }, {
-            "type": "url",
-            "id": "button_url",
-            "label": "t:labels.button_url"
-          }, {
-            "type": "text",
-            "id": "powered_by_text",
-            "label": "t:sections.kaza_hero.settings.powered_by_text",
-            "default": "Powered by Rootalix™"
-          }, {
-            "type": "image_picker",
-            "id": "product_image",
-            "label": "t:labels.product_image",
-            "info": "t:sections.kaza_hero.settings.product_image_info"
+{
+  "name": "t:sections.kaza_hero.name",
+  "max_blocks": 8,
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "show_trust_bar",
+      "label": "t:sections.kaza_hero.settings.show_trust_bar",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "trust_text",
+      "label": "t:sections.kaza_hero.settings.trust_text",
+      "default": "Excellent 683 reviews on"
+    },
+    {
+      "type": "range",
+      "id": "trust_rating",
+      "label": "t:labels.rating",
+      "min": 1,
+      "max": 5,
+      "step": 1,
+      "default": 5
+    },
+    {
+      "type": "checkbox",
+      "id": "show_trustpilot",
+      "label": "t:sections.kaza_hero.settings.show_trustpilot",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_google",
+      "label": "t:sections.kaza_hero.settings.show_google",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_slider_controls",
+      "label": "t:sections.kaza_hero.settings.show_slider_controls",
+      "default": true
+    }
+  ],
+  "blocks": [
+    {
+      "type": "slide",
+      "name": "t:sections.kaza_hero.blocks.slide.name",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "background_image",
+          "label": "t:labels.background_image"
+        },
+        {
+          "type": "text",
+          "id": "heading_highlight",
+          "label": "t:labels.heading_highlight",
+          "default": "28,200+ new hairs in 3 months."
+        },
+        {
+          "type": "text",
+          "id": "heading_prefix",
+          "label": "t:labels.heading_prefix",
+          "default": "Up to "
+        },
+        {
+          "type": "textarea",
+          "id": "subheading",
+          "label": "t:labels.subheading",
+          "default": "Based on a 3-month clinical study where participants saw an average of 10,000 new hairs and a maximum of 28,200."
+        },
+        {
+          "type": "text",
+          "id": "button_label",
+          "label": "t:labels.button_label",
+          "default": "Shop the Serum"
+        },
+        {
+          "type": "url",
+          "id": "button_url",
+          "label": "t:labels.button_url"
+        },
+        {
+          "type": "text",
+          "id": "powered_by_text",
+          "label": "t:sections.kaza_hero.settings.powered_by_text",
+          "default": "Powered by Rootalix™"
+        },
+        {
+          "type": "image_picker",
+          "id": "product_image",
+          "label": "t:labels.product_image",
+          "info": "t:sections.kaza_hero.settings.product_image_info"
+        }
+      ]
+    },
+    {
+      "type": "feature",
+      "name": "t:sections.kaza_hero.blocks.feature.name",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "icon",
+          "label": "t:labels.icon"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "t:labels.title",
+          "default": "92% success rate"
+        },
+        {
+          "type": "textarea",
+          "id": "text",
+          "label": "t:labels.text",
+          "default": "92% of users saw a visible reduction in shedding within 4 weeks."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:sections.kaza_hero.name",
+      "blocks": [
+        {
+          "type": "slide"
+        },
+        {
+          "type": "feature",
+          "settings": {
+            "title": "92% success rate",
+            "text": "92% of users saw a visible reduction in shedding within 4 weeks."
           }
-        ]
-      }, {
-        "type": "feature",
-        "name": "t:sections.kaza_hero.blocks.feature.name",
-        "settings": [
-          {
-            "type": "image_picker",
-            "id": "icon",
-            "label": "t:labels.icon"
-          }, {
-            "type": "text",
-            "id": "title",
-            "label": "t:labels.title",
-            "default": "92% success rate"
-          }, {
-            "type": "textarea",
-            "id": "text",
-            "label": "t:labels.text",
-            "default": "92% of users saw a visible reduction in shedding within 4 weeks."
+        },
+        {
+          "type": "feature",
+          "settings": {
+            "title": "Zero side effect",
+            "text": "Zero side effects. No hormonal disruption. No impact on sex drive."
           }
-        ]
-      }
-    ],
-    "presets": [
-      {
-        "name": "t:sections.kaza_hero.name",
-        "blocks": [
-          {
-            "type": "slide"
-          }, {
-            "type": "feature",
-            "settings": {
-              "title": "92% success rate",
-              "text": "92% of users saw a visible reduction in shedding within 4 weeks."
-            }
-          }, {
-            "type": "feature",
-            "settings": {
-              "title": "Zero side effect",
-              "text": "Zero side effects. No hormonal disruption. No impact on sex drive."
-            }
-          }, {
-            "type": "feature",
-            "settings": {
-              "title": "Botanical-powered",
-              "text": "Saw Palmetto, Green Tea, Larch Wood, Oleanolic Acid"
-            }
+        },
+        {
+          "type": "feature",
+          "settings": {
+            "title": "Botanical-powered",
+            "text": "Saw Palmetto, Green Tea, Larch Wood, Oleanolic Acid"
           }
-        ]
-      }
-    ]
-  }
+        }
+      ]
+    }
+  ]
+}
 {% endschema %}

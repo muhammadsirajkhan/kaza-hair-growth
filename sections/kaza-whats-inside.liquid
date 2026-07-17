@@ -1,0 +1,199 @@
+<section class="kaza-whats-inside full-width">
+  <div class="kaza-whats-inside__bg" aria-hidden="true">
+    {% if section.settings.background_image != blank %}
+      {{ section.settings.background_image | image_url: width: 2400 | image_tag: loading: 'lazy', alt: '' }}
+    {% else %}
+      <img
+        src="{{ 'new-bg.webp' | asset_url }}"
+        alt=""
+        width="2400"
+        height="1200"
+        loading="lazy"
+      >
+    {% endif %}
+  </div>
+
+  <div class="kaza-container kaza-whats-inside__inner">
+    <div class="kaza-whats-inside__header kaza-section-intro kaza-section-intro--dark">
+      {% if section.settings.badge_text != blank %}
+        <span class="kaza-section-pill kaza-section-pill--dark">{{ section.settings.badge_text }}</span>
+      {% endif %}
+
+      {% if section.settings.heading_prefix != blank or section.settings.heading_highlight != blank %}
+        <h2 class="kaza-section-heading">
+          {% if section.settings.heading_prefix != blank %}
+            <span class="kaza-section-heading__prefix">{{ section.settings.heading_prefix }}</span>
+          {% endif %}
+          {% if section.settings.heading_highlight != blank %}
+            <span class="kaza-section-heading__highlight">{{ section.settings.heading_highlight }}</span>
+          {% endif %}
+        </h2>
+      {% endif %}
+
+      {% if section.settings.subheading != blank %}
+        <p class="kaza-section-subheading kaza-section-subheading--light kaza-whats-inside__subheading">
+          {{ section.settings.subheading }}
+        </p>
+      {% endif %}
+    </div>
+
+    {% if section.blocks.size > 0 %}
+      <div class="kaza-whats-inside__cards">
+        {% assign ingredient_index = 0 %}
+        {% for block in section.blocks %}
+          {% if block.type == 'ingredient' %}
+            {% assign ingredient_index = ingredient_index | plus: 1 %}
+            {% liquid
+              assign card_image = block.settings.image
+              if card_image == blank
+                case ingredient_index
+                  when 1
+                    assign card_image_fallback = 'new-1.webp'
+                  when 2
+                    assign card_image_fallback = 'new-2.webp'
+                  when 3
+                    assign card_image_fallback = 'new-3.webp'
+                  when 4
+                    assign card_image_fallback = 'new-4.webp'
+                  else
+                    assign card_image_fallback = 'new-1.webp'
+                endcase
+              endif
+            %}
+            <article class="kaza-whats-inside__card" {{ block.shopify_attributes }}>
+              <div class="kaza-whats-inside__card-media">
+                {% if card_image != blank %}
+                  {{ card_image | image_url: width: 600 | image_tag: loading: 'lazy', alt: block.settings.title }}
+                {% else %}
+                  <img
+                    src="{{ card_image_fallback | asset_url }}"
+                    alt="{{ block.settings.title | escape }}"
+                    width="600"
+                    height="600"
+                    loading="lazy"
+                  >
+                {% endif %}
+              </div>
+              <div class="kaza-whats-inside__card-body">
+                {% if block.settings.title != blank %}
+                  <h3 class="kaza-whats-inside__card-title">{{ block.settings.title }}</h3>
+                {% endif %}
+                {% if block.settings.text != blank %}
+                  <p class="kaza-whats-inside__card-text">{{ block.settings.text }}</p>
+                {% endif %}
+              </div>
+            </article>
+          {% endif %}
+        {% endfor %}
+      </div>
+    {% endif %}
+
+    {% if section.settings.footer_text != blank %}
+      <p class="kaza-whats-inside__footer">{{ section.settings.footer_text }}</p>
+    {% endif %}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "t:sections.kaza_whats_inside.name",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "background_image",
+      "label": "t:labels.background_image"
+    },
+    {
+      "type": "text",
+      "id": "badge_text",
+      "label": "t:sections.kaza_whats_inside.settings.badge_text",
+      "default": "Welcome to Kaza"
+    },
+    {
+      "type": "text",
+      "id": "heading_prefix",
+      "label": "t:sections.kaza_whats_inside.settings.heading_prefix",
+      "default": "What's inside"
+    },
+    {
+      "type": "text",
+      "id": "heading_highlight",
+      "label": "t:sections.kaza_whats_inside.settings.heading_highlight",
+      "default": "Rootalix™"
+    },
+    {
+      "type": "text",
+      "id": "subheading",
+      "label": "t:labels.subheading",
+      "default": "the science, simplified"
+    },
+    {
+      "type": "textarea",
+      "id": "footer_text",
+      "label": "t:sections.kaza_whats_inside.settings.footer_text",
+      "default": "Total Rootalix™ inclusion: 2.0% in the finished formula. Components are listed individually on the INCI panel for full transparency"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "ingredient",
+      "name": "t:sections.kaza_whats_inside.blocks.ingredient.name",
+      "limit": 6,
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "t:labels.image"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "t:labels.title",
+          "default": "DHQG & EGCG"
+        },
+        {
+          "type": "textarea",
+          "id": "text",
+          "label": "t:labels.text",
+          "default": "polyphenol technology used in cosmetic literature to support the appearance of healthy follicle activity"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:sections.kaza_whats_inside.name",
+      "blocks": [
+        {
+          "type": "ingredient",
+          "settings": {
+            "title": "DHQG & EGCG",
+            "text": "polyphenol technology used in cosmetic literature to support the appearance of healthy follicle activity"
+          }
+        },
+        {
+          "type": "ingredient",
+          "settings": {
+            "title": "Zinc PCA",
+            "text": "helps keep the scalp environment balanced and fresh-looking."
+          }
+        },
+        {
+          "type": "ingredient",
+          "settings": {
+            "title": "Oleanolic Acid & Apigenin",
+            "text": "botanical actives used in cosmetic formulas to support stronger roots."
+          }
+        },
+        {
+          "type": "ingredient",
+          "settings": {
+            "title": "Biotinoyl Tripeptide-1",
+            "text": "a cosmetic peptide used to promote the appearance of thicker, more resilient hair."
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin language editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "404": {
     "title": "404",
@@ -16,8 +25,21 @@
   "cart": {
     "checkout": "Checkout",
     "title": "Cart",
-    "update": "Update",
-    "remove": "Remove"
+    "update": "Update cart",
+    "remove": "Remove",
+    "quantity": "Quantity",
+    "subtotal": "Subtotal",
+    "order_summary": "Order summary",
+    "shipping_note": "Shipping and taxes calculated at checkout.",
+    "continue_shopping": "Continue shopping",
+    "empty_title": "Your cart is empty",
+    "empty_text": "Looks like you have not added anything yet.",
+    "increase_quantity": "Increase quantity for {{ product }}",
+    "decrease_quantity": "Decrease quantity for {{ product }}",
+    "item_count": {
+      "one": "{{ count }} item",
+      "other": "{{ count }} items"
+    }
   },
   "customers": {
     "login": {
@@ -29,6 +51,10 @@
   },
   "collections": {
     "title": "Collections"
+  },
+  "products": {
+    "add_to_cart": "Add to cart",
+    "sold_out": "Sold out"
   },
   "general": {
     "accessibility": {
@@ -127,6 +153,30 @@
         }
       }
     },
+    "kaza_product_promo": {
+      "name": "Product promo cards",
+      "settings": {
+        "steps_heading": "Steps heading",
+        "show_badges": "Show callout badges",
+        "badge_1_text": "Badge 1 text",
+        "badge_1_icon": "Badge 1 icon",
+        "badge_2_text": "Badge 2 text",
+        "badge_2_icon": "Badge 2 icon",
+        "badge_3_text": "Badge 3 text",
+        "badge_3_icon": "Badge 3 icon"
+      },
+      "blocks": {
+        "consistency_card": {
+          "name": "Consistency card"
+        },
+        "step": {
+          "name": "Application step"
+        },
+        "men_card": {
+          "name": "Built for men card"
+        }
+      }
+    },
     "kaza_how_it_works": {
       "name": "How it works",
       "blocks": {
@@ -157,6 +207,66 @@
       "blocks": {
         "benefit": {
           "name": "Benefit"
+        }
+      }
+    },
+    "kaza_product": {
+      "powered_by": "Powered by",
+      "gallery_label": "Product images",
+      "gallery_image": "Product image {{ number }}",
+      "blocks": {
+        "benefit": {
+          "name": "Benefit row"
+        }
+      },
+      "settings": {
+        "subtitle": "Product subtitle",
+        "powered_by_text": "Powered by ingredients",
+        "cta_label": "Button label"
+      }
+    },
+    "kaza_whats_inside": {
+      "name": "What's inside",
+      "settings": {
+        "badge_text": "Badge text",
+        "heading_prefix": "Heading prefix",
+        "heading_highlight": "Heading highlight",
+        "footer_text": "Footer text"
+      },
+      "blocks": {
+        "ingredient": {
+          "name": "Ingredient"
+        }
+      }
+    },
+    "kaza_faq": {
+      "name": "FAQ",
+      "settings": {
+        "badge_text": "Badge text",
+        "heading_prefix": "Heading prefix",
+        "heading_highlight": "Heading highlight",
+        "question": "Question",
+        "answer": "Answer"
+      },
+      "blocks": {
+        "question": {
+          "name": "Question"
+        }
+      }
+    },
+    "kaza_sub_banner": {
+      "name": "Sub banner",
+      "settings": {
+        "heading_prefix": "Heading prefix",
+        "heading_highlight": "Heading highlight",
+        "heading_suffix": "Heading suffix"
+      }
+    },
+    "kaza_product_trust": {
+      "name": "Product trust bar",
+      "blocks": {
+        "highlight": {
+          "name": "Highlight"
         }
       }
     },

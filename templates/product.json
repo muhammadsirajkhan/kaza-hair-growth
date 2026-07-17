@@ -11,10 +11,399 @@
   "sections": {
     "main": {
       "type": "product",
+      "blocks": {
+        "benefit_1": {
+          "type": "benefit",
+          "settings": {
+            "title": "Thicker strands over time",
+            "text": "Supports thicker, fuller-looking hair by strengthening follicles."
+          }
+        },
+        "benefit_2": {
+          "type": "benefit",
+          "settings": {
+            "title": "Less shedding on brush and in shower",
+            "text": "Supports thicker, fuller-looking hair by strengthening follicles."
+          }
+        },
+        "benefit_3": {
+          "type": "benefit",
+          "settings": {
+            "title": "Healthier scalp feel and appearance",
+            "text": "Supports thicker, fuller-looking hair by strengthening follicles."
+          }
+        }
+      },
+      "block_order": [
+        "benefit_1",
+        "benefit_2",
+        "benefit_3"
+      ],
+      "settings": {
+        "subtitle": "Our breakthrough cosmetic active for visibly fuller-looking hair",
+        "powered_by_text": "DHQG • EGCG • Zinc PCA • Oleanolic Acid • Apigenin • Biotinoyl Tripeptide-1 (2.0% total inclusion)",
+        "cta_label": "Shop the Serum"
+      }
+    },
+    "kaza_product_trust": {
+      "type": "kaza-product-trust",
+      "blocks": {
+        "highlight_1": {
+          "type": "highlight",
+          "settings": {
+            "text": "DHT Defense in 12 Weeks"
+          }
+        },
+        "highlight_2": {
+          "type": "highlight",
+          "settings": {
+            "text": "Zero Side Effect"
+          }
+        },
+        "highlight_3": {
+          "type": "highlight",
+          "settings": {
+            "text": "No Artificial Colorants"
+          }
+        },
+        "highlight_4": {
+          "type": "highlight",
+          "settings": {
+            "text": "Traceable Ingredients"
+          }
+        },
+        "highlight_5": {
+          "type": "highlight",
+          "settings": {
+            "text": "Botanical-Powered"
+          }
+        }
+      },
+      "block_order": [
+        "highlight_1",
+        "highlight_2",
+        "highlight_3",
+        "highlight_4",
+        "highlight_5"
+      ],
       "settings": {}
+    },
+    "kaza_why_choose_Pf3KHL": {
+      "type": "kaza-why-choose",
+      "blocks": {
+        "floating_nJrpHT": {
+          "type": "floating",
+          "settings": {
+            "position": "top-left",
+            "text": "Instantly Activates the follicle"
+          }
+        },
+        "floating_B6zmkD": {
+          "type": "floating",
+          "settings": {
+            "position": "bottom-left",
+            "text": "Reduces shedding"
+          }
+        },
+        "floating_F4YmRq": {
+          "type": "floating",
+          "settings": {
+            "position": "top-right",
+            "text": "Supports fuller Density"
+          }
+        },
+        "floating_qMQYif": {
+          "type": "floating",
+          "settings": {
+            "position": "bottom-right",
+            "text": "Visible Density Improvements"
+          }
+        },
+        "feature_zFDW4m": {
+          "type": "feature",
+          "settings": {
+            "title": "Follicle vitality support",
+            "text": "A next-gen catechin system (DHQG + EGCG) paired with Zinc PCA to support a balanced scalp environment and the look of active, energized roots."
+          }
+        },
+        "feature_DWiMg4": {
+          "type": "feature",
+          "settings": {
+            "title": "Root anchoring appearance",
+            "text": "Oleanolic acid + apigenin + a peptide (biotinoyl tripeptide-1) to support the look of stronger, better-anchored hair at the scalp surface."
+          }
+        },
+        "feature_gziwkt": {
+          "type": "feature",
+          "settings": {
+            "title": "Optimized delivery",
+            "text": "Formulated in a lightweight, leave-on base (with DMI + diols) that dries fast and keeps actives where you want them—on your scalp, not your pillow."
+          }
+        }
+      },
+      "block_order": [
+        "floating_nJrpHT",
+        "floating_B6zmkD",
+        "floating_F4YmRq",
+        "floating_qMQYif",
+        "feature_zFDW4m",
+        "feature_DWiMg4",
+        "feature_gziwkt"
+      ],
+      "name": "t:sections.kaza_why_choose.name",
+      "settings": {
+        "badge_text": "Welcome to Kaza",
+        "heading_prefix": "Why Choose",
+        "heading_highlight": "Kaza™",
+        "subheading": "Real performance. Visible results. Made for men who want impact, not excuses.",
+        "show_arc": true
+      }
+    },
+    "kaza_whats_inside": {
+      "type": "kaza-whats-inside",
+      "blocks": {
+        "ingredient_1": {
+          "type": "ingredient",
+          "settings": {
+            "title": "DHQG & EGCG",
+            "text": "polyphenol technology used in cosmetic literature to support the appearance of healthy follicle activity"
+          }
+        },
+        "ingredient_2": {
+          "type": "ingredient",
+          "settings": {
+            "title": "Zinc PCA",
+            "text": "helps keep the scalp environment balanced and fresh-looking."
+          }
+        },
+        "ingredient_3": {
+          "type": "ingredient",
+          "settings": {
+            "title": "Oleanolic Acid & Apigenin",
+            "text": "botanical actives used in cosmetic formulas to support stronger roots."
+          }
+        },
+        "ingredient_4": {
+          "type": "ingredient",
+          "settings": {
+            "title": "Biotinoyl Tripeptide-1",
+            "text": "a cosmetic peptide used to promote the appearance of thicker, more resilient hair."
+          }
+        }
+      },
+      "block_order": [
+        "ingredient_1",
+        "ingredient_2",
+        "ingredient_3",
+        "ingredient_4"
+      ],
+      "settings": {
+        "badge_text": "Welcome to Kaza",
+        "heading_prefix": "What's inside",
+        "heading_highlight": "Rootalix™",
+        "subheading": "the science, simplified",
+        "footer_text": "Total Rootalix™ inclusion: 2.0% in the finished formula. Components are listed individually on the INCI panel for full transparency"
+      }
+    },
+    "kaza_product_promo": {
+      "type": "kaza-product-promo",
+      "blocks": {
+        "consistency_card": {
+          "type": "consistency_card",
+          "settings": {
+            "heading_prefix": "Visible results",
+            "heading_highlight": "with consistency",
+            "text": "Use 1–2× daily on clean, dry scalp. Most users report improved density with less shedding over 8–12 weeks of consistent use. Individual results vary.",
+            "steps_heading": "How to Apply",
+            "image": "shopify://shop_images/left-new.webp"
+          }
+        },
+        "step_1": {
+          "type": "step",
+          "settings": {
+            "text": "1. After shower or before bed, apply to target areas."
+          }
+        },
+        "step_2": {
+          "type": "step",
+          "settings": {
+            "text": "2. Massage 10–20 seconds."
+          }
+        },
+        "step_3": {
+          "type": "step",
+          "settings": {
+            "text": "3. Leave on—no rinse."
+          }
+        },
+        "step_4": {
+          "type": "step",
+          "settings": {
+            "text": "4. Track progress with monthly photos (same lighting/angle)."
+          }
+        },
+        "men_card": {
+          "type": "men_card",
+          "settings": {
+            "heading_prefix": "Built for",
+            "heading_highlight": "men",
+            "subheading": "Key Actives — Rootalix™ • Caffeine • Rosemary",
+            "show_badges": true,
+            "badge_1_text": "non-oily, fast dry-down subtle finish",
+            "badge_2_text": "Fragrance: none added",
+            "badge_3_text": "Philosophy: For men, by men."
+          }
+        }
+      },
+      "block_order": [
+        "consistency_card",
+        "step_1",
+        "step_2",
+        "step_3",
+        "step_4",
+        "men_card"
+      ],
+      "settings": {}
+    },
+    "kaza_challenge_JwDE9z": {
+      "type": "kaza-challenge",
+      "blocks": {
+        "testimonial_Pz8q7y": {
+          "type": "testimonial",
+          "settings": {
+            "rating": 5,
+            "title": "My Hair Looks Denser",
+            "quote": "My hair looks denser around the front after a few weeks—love the quick dry."
+          }
+        },
+        "testimonial_FAjD3q": {
+          "type": "testimonial",
+          "settings": {
+            "rating": 5,
+            "title": "Finally Found My Type",
+            "quote": "A serum that feels legit and clean—exactly the type I was looking for."
+          }
+        },
+        "testimonial_rEiU6L": {
+          "type": "testimonial",
+          "settings": {
+            "rating": 5,
+            "title": "Finally Seeing Results",
+            "quote": "I've tried the typical stuff before. This actually works without the hassle."
+          }
+        },
+        "benefit_CQ8A6B": {
+          "type": "benefit",
+          "settings": {
+            "title": "92% SUCCESS RATE",
+            "text": "92% of users saw a visible reduction in shedding within 4 weeks."
+          }
+        },
+        "benefit_kHigai": {
+          "type": "benefit",
+          "settings": {
+            "title": "HORMONE SAFE",
+            "text": "No hormonal disruption. No impact on sex drive."
+          }
+        },
+        "benefit_cc98wL": {
+          "type": "benefit",
+          "settings": {
+            "title": "BOTANICAL POWERED",
+            "text": "Saw Palmetto, Green Tea, Larch Wood, Oleanolic Acid"
+          }
+        },
+        "benefit_LHRnty": {
+          "type": "benefit",
+          "settings": {
+            "title": "12-WEEK DHT SHIELD",
+            "text": "Clinical results show peak anchoring and density improvements in weeks 12"
+          }
+        }
+      },
+      "block_order": [
+        "testimonial_Pz8q7y",
+        "testimonial_FAjD3q",
+        "testimonial_rEiU6L",
+        "benefit_CQ8A6B",
+        "benefit_kHigai",
+        "benefit_cc98wL",
+        "benefit_LHRnty"
+      ],
+      "name": "t:sections.kaza_challenge.name",
+      "settings": {
+        "badge_text": "Welcome to Kaza",
+        "heading_prefix": "90-Day",
+        "heading_highlight": "Challenge",
+        "subheading": "Real performance. Visible results. Made for men who want impact, not excuses.",
+        "handle_label": "Drag",
+        "initial_position": 50
+      }
+    },
+    "kaza_faq": {
+      "type": "kaza-faq",
+      "blocks": {
+        "question_1": {
+          "type": "question",
+          "settings": {
+            "question": "Is Rootalix™ a drug?",
+            "answer": "<p>No. Rootalix™ is a cosmetic active used in leave-on scalp products to improve the appearance of density and reduce visible shedding.</p>"
+          }
+        },
+        "question_2": {
+          "type": "question",
+          "settings": {
+            "question": "Can I stack it with caffeine or rosemary?",
+            "answer": "<p>Yes. Rootalix™ is formulated to work alongside caffeine and rosemary—two actives already included in the KAZA Hair Density Serum formula.</p>"
+          }
+        },
+        "question_3": {
+          "type": "question",
+          "settings": {
+            "question": "When will I see results?",
+            "answer": "<p>Most users report visible improvements in shedding and density over 8–12 weeks of consistent daily use. Individual results vary.</p>"
+          }
+        },
+        "question_4": {
+          "type": "question",
+          "settings": {
+            "question": "Is it safe for daily use?",
+            "answer": "<p>Yes. Rootalix™ is designed for daily, leave-on application on clean, dry scalp.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "question_1",
+        "question_2",
+        "question_3",
+        "question_4"
+      ],
+      "settings": {
+        "badge_text": "Welcome to Kaza",
+        "heading_prefix": "Frequently Asked",
+        "heading_highlight": "Questions"
+      }
+    },
+    "kaza_sub_banner": {
+      "type": "kaza-sub-banner",
+      "settings": {
+        "heading_prefix": "Add",
+        "heading_highlight": "Rootalix™",
+        "heading_suffix": "to your routine",
+        "text": "KAZA Hair Density Serum — Powered by Rootalix™, Caffeine, and Rosemary",
+        "button_label": "Shop the Serum",
+        "button_url": "shopify://products/rootalixtm"
+      }
     }
   },
   "order": [
-    "main"
+    "main",
+    "kaza_product_trust",
+    "kaza_why_choose_Pf3KHL",
+    "kaza_whats_inside",
+    "kaza_product_promo",
+    "kaza_challenge_JwDE9z",
+    "kaza_faq",
+    "kaza_sub_banner"
   ]
 }

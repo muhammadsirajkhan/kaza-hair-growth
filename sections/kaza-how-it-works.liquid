@@ -73,12 +73,8 @@
           class="kaza-btn kaza-btn--primary kaza-how-it-works__cta-btn"
         >
           {{ section.settings.button_label }}
-          <svg class="kaza-how-it-works__cta-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-            <path d="M6 6h15l-1.5 9h-12z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
-            <path d="M6 6 5 3H2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-            <circle cx="9" cy="20" r="1.25" fill="currentColor"/>
-            <circle cx="18" cy="20" r="1.25" fill="currentColor"/>
-          </svg>
+          <img src="{{ 'white-cart.png' | asset_url }}" alt="">
+          
         </a>
       </div>
     {% endif %}

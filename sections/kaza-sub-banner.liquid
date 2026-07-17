@@ -1,0 +1,141 @@
+<section class="kaza-sub-banner full-width">
+  <div class="kaza-sub-banner__card">
+    <div class="kaza-sub-banner__bg" aria-hidden="true">
+      {% if section.settings.background_image != blank %}
+        {{ section.settings.background_image | image_url: width: 2000 | image_tag: loading: 'lazy', alt: '' }}
+      {% else %}
+        <img
+          src="{{ 'sub-banner.webp' | asset_url }}"
+          alt=""
+          width="2000"
+          height="900"
+          loading="lazy">
+      {% endif %}
+    </div>
+
+    <div class="kaza-container">
+      <div class="kaza-sub-banner__inner">
+        <div class="kaza-sub-banner__content">
+          {% if section.settings.heading_prefix != blank or section.settings.heading_highlight != blank or section.settings.heading_suffix != blank %}
+            <h2 class="kaza-sub-banner__heading">
+              {% if section.settings.heading_prefix != blank %}
+                <span class="kaza-section-heading__prefix">{{ section.settings.heading_prefix }}</span>
+              {% endif %}
+              {% if section.settings.heading_highlight != blank %}
+                <span class="kaza-section-heading__highlight">{{ section.settings.heading_highlight }}</span>
+              {% endif %}
+              {% if section.settings.heading_suffix != blank %}
+                <span class="kaza-section-heading__prefix">{{ section.settings.heading_suffix }}</span>
+              {% endif %}
+            </h2>
+          {% endif %}
+
+          {% if section.settings.text != blank %}
+            <p class="kaza-sub-banner__text">{{ section.settings.text }}</p>
+          {% endif %}
+
+          {% if section.settings.button_label != blank %}
+            <a href="{{ section.settings.button_url | default: routes.all_products_collection_url }}" class="kaza-btn kaza-btn--invert kaza-sub-banner__btn">
+              <span>{{ section.settings.button_label }}</span>
+              <svg
+                class="kaza-sub-banner__btn-icon"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="none"
+                aria-hidden="true">
+                <path
+                  d="M6 6h15l-1.5 9h-12z"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  stroke-linejoin="round" />
+                <path
+                  d="M6 6 5 3H2"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round" />
+                <circle
+                  cx="9"
+                  cy="20"
+                  r="1.25"
+                  fill="currentColor" />
+                <circle
+                  cx="18"
+                  cy="20"
+                  r="1.25"
+                  fill="currentColor" />
+              </svg>
+            </a>
+          {% endif %}
+        </div>
+
+        <div class="kaza-sub-banner__product">
+          {% if section.settings.product_image != blank %}
+            {{ section.settings.product_image | image_url: width: 800 | image_tag: loading: 'lazy', alt: section.settings.heading_highlight }}
+          {% else %}
+            <img
+              src="{{ 'sub-banner-image.webp' | asset_url }}"
+              alt="{{ section.settings.heading_highlight | escape }}"
+              width="800"
+              height="700"
+              loading="lazy">
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+  {
+    "name": "t:sections.kaza_sub_banner.name",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "background_image",
+        "label": "t:labels.background_image"
+      },
+      {
+        "type": "image_picker",
+        "id": "product_image",
+        "label": "t:labels.product_image"
+      },
+      {
+        "type": "text",
+        "id": "heading_prefix",
+        "label": "t:labels.heading_prefix",
+        "default": "Add "
+      },
+      {
+        "type": "text",
+        "id": "heading_highlight",
+        "label": "t:labels.heading_highlight",
+        "default": "Rootalix™"
+      }, {
+        "type": "text",
+        "id": "heading_suffix",
+        "label": "t:sections.kaza_sub_banner.settings.heading_suffix",
+        "default": " to your routine"
+      }, {
+        "type": "textarea",
+        "id": "text",
+        "label": "t:labels.text",
+        "default": "KAZA Hair Density Serum — Powered by Rootalix™, Caffeine, and Rosemary"
+      }, {
+        "type": "text",
+        "id": "button_label",
+        "label": "t:labels.button_label",
+        "default": "Shop the Serum"
+      }, {
+        "type": "url",
+        "id": "button_url",
+        "label": "t:labels.button_url"
+      }
+    ],
+    "presets": [
+      {
+        "name": "t:sections.kaza_sub_banner.name"
+      }
+    ]
+  }
+{% endschema %}

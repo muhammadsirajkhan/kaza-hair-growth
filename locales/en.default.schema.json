@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin language editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "general": {
     "404": "Not found",
@@ -54,6 +63,8 @@
     "logo": "Logo",
     "logo_text": "Logo text",
     "heading": "Heading",
+    "heading_prefix": "Heading prefix",
+    "heading_highlight": "Heading highlight",
     "subheading": "Subheading",
     "title": "Title",
     "description": "Description",
@@ -162,6 +173,8 @@
         "badge_text": "Badge text",
         "intro_text": "Intro text",
         "image_label": "Image vertical label",
+        "heading_prefix": "Heading prefix",
+        "heading_highlight": "Heading highlight",
         "show_rating": "Show rating"
       }
     },
@@ -217,6 +230,30 @@
         }
       }
     },
+    "kaza_product_promo": {
+      "name": "Product promo cards",
+      "settings": {
+        "steps_heading": "Steps heading",
+        "show_badges": "Show callout badges",
+        "badge_1_text": "Badge 1 text",
+        "badge_1_icon": "Badge 1 icon",
+        "badge_2_text": "Badge 2 text",
+        "badge_2_icon": "Badge 2 icon",
+        "badge_3_text": "Badge 3 text",
+        "badge_3_icon": "Badge 3 icon"
+      },
+      "blocks": {
+        "consistency_card": {
+          "name": "Consistency card"
+        },
+        "step": {
+          "name": "Application step"
+        },
+        "men_card": {
+          "name": "Built for men card"
+        }
+      }
+    },
     "kaza_how_it_works": {
       "name": "How it works",
       "settings": {
@@ -253,6 +290,77 @@
       "blocks": {
         "benefit": {
           "name": "Benefit"
+        }
+      }
+    },
+    "kaza_product": {
+      "name": "Product",
+      "settings": {
+        "subtitle": "Product subtitle",
+        "powered_by_text": "Powered by ingredients",
+        "cta_label": "Button label"
+      },
+      "blocks": {
+        "benefit": {
+          "name": "Benefit row"
+        }
+      }
+    },
+    "kaza_whats_inside": {
+      "name": "What's inside",
+      "settings": {
+        "badge_text": "Badge text",
+        "heading_prefix": "Heading prefix",
+        "heading_highlight": "Heading highlight",
+        "footer_text": "Footer text"
+      },
+      "blocks": {
+        "ingredient": {
+          "name": "Ingredient"
+        }
+      }
+    },
+    "kaza_faq": {
+      "name": "FAQ",
+      "settings": {
+        "badge_text": "Badge text",
+        "heading_prefix": "Heading prefix",
+        "heading_highlight": "Heading highlight",
+        "question": "Question",
+        "answer": "Answer"
+      },
+      "blocks": {
+        "question": {
+          "name": "Question"
+        }
+      }
+    },
+    "kaza_cart": {
+      "name": "Cart",
+      "settings": {
+        "heading_prefix": "Heading prefix",
+        "heading_highlight": "Heading highlight",
+        "shipping_note": "Shipping note",
+        "show_continue_shopping": "Show continue shopping link",
+        "continue_shopping_url": "Continue shopping URL",
+        "continue_shopping_product": "Continue shopping product",
+        "empty_button_label": "Empty cart button label",
+        "empty_button_url": "Empty cart button URL"
+      }
+    },
+    "kaza_sub_banner": {
+      "name": "Sub banner",
+      "settings": {
+        "heading_prefix": "Heading prefix",
+        "heading_highlight": "Heading highlight",
+        "heading_suffix": "Heading suffix"
+      }
+    },
+    "kaza_product_trust": {
+      "name": "Product trust bar",
+      "blocks": {
+        "highlight": {
+          "name": "Highlight"
         }
       }
     },

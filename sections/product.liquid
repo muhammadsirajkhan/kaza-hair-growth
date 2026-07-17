@@ -1,50 +1,474 @@
-{% comment %}
-  This section is used in the product template to render product page with
-  media, content, and add-to-cart form.
+{%- liquid
+  assign current_variant = product.selected_or_first_available_variant
+  assign product_form_id = 'kaza-product-form-' | append: section.id
+  assign main_image_id = 'kaza-main-img-' | append: section.id
+  assign cart_add_url = routes.cart_add_url | append: '.js'
+  assign use_product_media = false
+  if product.media.size > 0
+    assign use_product_media = true
+  endif
+-%}
 
-  https://shopify.dev/docs/storefronts/themes/architecture/templates/product
-{% endcomment %}
+<section class="kaza-product full-width" data-kaza-product data-section-id="{{ section.id }}">
+  <div class="kaza-container kaza-product__inner">
+    <div class="kaza-product__gallery" id="kaza-gallery-{{ section.id }}">
+      <div class="kaza-product__main-media">
+        {%- if use_product_media -%}
+          {%- assign featured = product.featured_media -%}
+          {%- assign featured_alt = featured.alt | default: product.title | escape -%}
+          {{
+            featured
+            | image_url: width: 1400
+            | image_tag:
+              loading: 'eager',
+              fetchpriority: 'high',
+              alt: featured_alt,
+              id: main_image_id,
+              class: 'kaza-product__main-img'
+          }}
+        {%- else -%}
+          <img
+            id="{{ main_image_id }}"
+            class="kaza-product__main-img"
+            src="{{ 'pro1.webp' | asset_url }}"
+            alt="{{ product.title | escape }}"
+            width="1400"
+            height="1400"
+            loading="eager"
+            fetchpriority="high"
+          >
+        {%- endif -%}
+      </div>
 
-<div class="product-images">
-  {% for image in product.images %}
-    {% render 'image', class: 'product-image', image: image %}
-  {% endfor %}
-</div>
-
-<div class="product-info">
-  <h1>{{ product.title }}</h1>
-  <p>{{ product.price | money }}</p>
-  <p>{{ product.description }}</p>
-</div>
-
-<div class="product-form">
-  {% form 'product', product %}
-    {% assign current_variant = product.selected_or_first_available_variant %}
-
-    <select name="id">
-      {% for variant in product.variants %}
-        <option
-          value="{{ variant.id }}"
-          {% if variant == current_variant %}
-            selected="selected"
-          {% endif %}
+      {%- if use_product_media and product.media.size > 1 -%}
+        <div
+          class="kaza-product__thumbs"
+          role="list"
+          aria-label="{{ 'sections.kaza_product.gallery_label' | t }}"
         >
-          {{ variant.title }} - {{ variant.price | money }}
-        </option>
-      {% endfor %}
-    </select>
+          {%- for media in product.media -%}
+            {%- if media.media_type == 'image' -%}
+              {%- assign media_alt = media.alt | default: product.title | escape -%}
+              {%- assign media_src = media | image_url: width: 1400 -%}
+              {%- assign media_srcset = media | image_url: width: 600 | append: ' 600w, ' -%}
+              {%- assign media_srcset = media_srcset | append: media | image_url: width: 900 | append: ' 900w, ' -%}
+              {%- assign media_srcset = media_srcset | append: media | image_url: width: 1200 | append: ' 1200w, ' -%}
+              {%- assign media_srcset = media_srcset | append: media | image_url: width: 1400 | append: ' 1400w' -%}
+              <button
+                type="button"
+                class="kaza-product__thumb{% if forloop.first %} is-active{% endif %}"
+                data-media-src="{{ media_src }}"
+                data-media-srcset="{{ media_srcset }}"
+                data-media-alt="{{ media_alt }}"
+                aria-label="{{ media_alt }}"
+                aria-pressed="{% if forloop.first %}true{% else %}false{% endif %}"
+                role="listitem"
+              >
+                {{ media | image_url: width: 200 | image_tag: loading: 'lazy', alt: media_alt }}
+              </button>
+            {%- endif -%}
+          {%- endfor -%}
+        </div>
+      {%- elsif use_product_media == false -%}
+        <div
+          class="kaza-product__thumbs"
+          role="list"
+          aria-label="{{ 'sections.kaza_product.gallery_label' | t }}"
+        >
+          {%- assign fallback_gallery = 'pro1.webp,pro2.webp,pro3.webp,pro4.webp' | split: ',' -%}
+          {%- for image_name in fallback_gallery -%}
+            <button
+              type="button"
+              class="kaza-product__thumb{% if forloop.first %} is-active{% endif %}"
+              data-media-src="{{ image_name | asset_url }}"
+              data-media-alt="{{ product.title | escape }}"
+              aria-label="{{ 'sections.kaza_product.gallery_image' | t: number: forloop.index }}"
+              aria-pressed="{% if forloop.first %}true{% else %}false{% endif %}"
+              role="listitem"
+            >
+              <img
+                src="{{ image_name | asset_url }}"
+                alt=""
+                width="200"
+                height="200"
+                loading="lazy"
+              >
+            </button>
+          {%- endfor -%}
+        </div>
+      {%- endif -%}
+    </div>
 
-    <input type="text" name="quantity" min="1" value="1">
+    <div class="kaza-product__content">
+      <h1 class="kaza-product__title">{{ product.title }}</h1>
 
-    <input type="submit" value="Add to cart">
-    {{ form | payment_button }}
-  {% endform %}
-</div>
+      {%- if section.settings.subtitle != blank -%}
+        <p class="kaza-product__subtitle">{{ section.settings.subtitle }}</p>
+      {%- endif -%}
+
+      {%- if product.description != blank -%}
+        <div class="kaza-product__description">{{ product.description }}</div>
+      {%- endif -%}
+
+      {%- assign benefit_blocks = section.blocks | where: 'type', 'benefit' -%}
+      {%- if benefit_blocks.size > 0 -%}
+        <div class="kaza-product__benefits">
+          {%- assign benefit_index = 0 -%}
+          {%- for block in benefit_blocks -%}
+            {%- assign benefit_index = benefit_index | plus: 1 -%}
+            {%- liquid
+              assign benefit_icon = block.settings.icon
+              if benefit_icon == blank
+                case benefit_index
+                  when 1
+                    assign benefit_icon_fallback = 'p1.webp'
+                  when 2
+                    assign benefit_icon_fallback = 'p2.webp'
+                  when 3
+                    assign benefit_icon_fallback = 'p3.webp'
+                  else
+                    assign benefit_icon_fallback = 'p1.webp'
+                endcase
+              endif
+            -%}
+            <div class="kaza-product__benefit" {{ block.shopify_attributes }}>
+              <div class="kaza-product__benefit-icon" aria-hidden="true">
+                {%- if benefit_icon != blank -%}
+                  {{ benefit_icon | image_url: width: 80 | image_tag: loading: 'lazy', alt: '' }}
+                {%- else -%}
+                  <img
+                    src="{{ benefit_icon_fallback | asset_url }}"
+                    alt=""
+                    width="80"
+                    height="80"
+                    loading="lazy"
+                  >
+                {%- endif -%}
+              </div>
+              <div class="kaza-product__benefit-body">
+                {%- if block.settings.title != blank -%}
+                  <strong class="kaza-product__benefit-title">{{ block.settings.title }}</strong>
+                {%- endif -%}
+                {%- if block.settings.text != blank -%}
+                  <p class="kaza-product__benefit-text">{{ block.settings.text }}</p>
+                {%- endif -%}
+              </div>
+            </div>
+          {%- endfor -%}
+        </div>
+      {%- endif -%}
+
+      {%- if section.settings.powered_by_text != blank -%}
+        <p class="kaza-product__powered">
+          <strong>{{ 'sections.kaza_product.powered_by' | t }}:</strong>
+          {{ section.settings.powered_by_text }}
+        </p>
+      {%- endif -%}
+
+      <div
+        class="kaza-product__form-wrapper"
+        data-kaza-product-form
+        data-cart-add-url="{{ cart_add_url }}"
+        data-cart-url="{{ routes.cart_url }}"
+      >
+        {%- form 'product', product, id: product_form_id, class: 'kaza-product__form', novalidate: 'novalidate' -%}
+          <input type="hidden" name="id" value="{{ current_variant.id }}" data-kaza-variant-id>
+          <input type="hidden" name="quantity" value="1">
+
+          <div class="kaza-product__form-footer">
+            <p class="kaza-product__price-line">
+              {%- if current_variant.compare_at_price > current_variant.price -%}
+                <s class="kaza-product__compare-price">{{ current_variant.compare_at_price | money }}</s>
+              {%- endif -%}
+              <span class="kaza-product__price">{{ current_variant.price | money }}</span>
+            </p>
+
+            {%- unless current_variant.available -%}
+              <p class="kaza-product__status" role="status">{{ 'products.sold_out' | t }}</p>
+            {%- endunless -%}
+
+            <div class="kaza-product__subscription">
+              {%- for block in section.blocks -%}
+                {%- if block.type == '@app' -%}
+                  <div {{ block.shopify_attributes }}>
+                    {%- render block -%}
+                  </div>
+                {%- endif -%}
+              {%- endfor -%}
+            </div>
+
+            <p class="kaza-product__form-error" data-kaza-product-error role="alert" hidden></p>
+
+            <button
+              type="submit"
+              name="add"
+              class="kaza-btn kaza-btn--primary kaza-product__cta"
+              {% unless current_variant.available %}disabled aria-disabled="true"{% endunless %}
+            >
+              <span data-kaza-product-cta-label>
+                {%- if current_variant.available -%}
+                  {%- if section.settings.cta_label != blank -%}
+                    {{ section.settings.cta_label }}
+                  {%- else -%}
+                    {{ 'products.add_to_cart' | t }}
+                  {%- endif -%}
+                {%- else -%}
+                  {{ 'products.sold_out' | t }}
+                {%- endif -%}
+              </span>
+              <svg class="kaza-product__cta-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M6 6h15l-1.5 9h-12z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
+                <path d="M6 6 5 3H2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                <circle cx="9" cy="20" r="1.25" fill="currentColor"/>
+                <circle cx="18" cy="20" r="1.25" fill="currentColor"/>
+              </svg>
+            </button>
+          </div>
+        {%- endform -%}
+      </div>
+    </div>
+  </div>
+</section>
+
+{% javascript %}
+  (function () {
+    const updateCartBadge = (count) => {
+      const cartLink = document.querySelector('.kaza-header__cart');
+      if (!cartLink) return;
+
+      let badge = cartLink.querySelector('.kaza-header__cart-badge');
+      if (count > 0) {
+        if (!badge) {
+          badge = document.createElement('span');
+          badge.className = 'kaza-header__cart-badge';
+          cartLink.insertBefore(badge, cartLink.firstChild);
+        }
+        badge.textContent = String(count);
+      } else if (badge) {
+        badge.remove();
+      }
+    };
+
+    document.querySelectorAll('[data-kaza-product-form]').forEach((wrapper) => {
+      const form = wrapper.querySelector('form');
+      const submitButton = form ? form.querySelector('[type="submit"]') : null;
+      const errorEl = wrapper.querySelector('[data-kaza-product-error]');
+      const cartAddUrl = wrapper.dataset.cartAddUrl;
+      const cartUrl = wrapper.dataset.cartUrl || '/cart';
+
+      if (!form || !submitButton || !cartAddUrl) return;
+
+      const buildCartItem = (productForm) => {
+        const formData = new FormData(productForm);
+        const variantId = formData.get('id');
+        if (!variantId) return null;
+
+        const item = {
+          id: Number(variantId),
+          quantity: Number(formData.get('quantity') || 1),
+        };
+
+        const sellingPlan = formData.get('selling_plan');
+        if (sellingPlan) {
+          item.selling_plan = Number(sellingPlan);
+        }
+
+        const properties = {};
+        formData.forEach((value, key) => {
+          const match = key.match(/^properties\[(.+)\]$/);
+          if (match && value !== '') {
+            properties[match[1]] = value;
+          }
+        });
+
+        if (Object.keys(properties).length > 0) {
+          item.properties = properties;
+        }
+
+        return item;
+      };
+
+      form.addEventListener('submit', async (event) => {
+        event.preventDefault();
+
+        if (submitButton.disabled || submitButton.getAttribute('aria-disabled') === 'true') return;
+
+        const cartItem = buildCartItem(form);
+
+        if (!cartItem) {
+          if (errorEl) {
+            errorEl.textContent = 'This product variant is unavailable.';
+            errorEl.hidden = false;
+          }
+          return;
+        }
+
+        submitButton.disabled = true;
+        submitButton.setAttribute('aria-busy', 'true');
+
+        if (errorEl) {
+          errorEl.textContent = '';
+          errorEl.hidden = true;
+        }
+
+        try {
+          const response = await fetch(cartAddUrl, {
+            method: 'POST',
+            headers: {
+              Accept: 'application/json',
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+              items: [cartItem],
+            }),
+          });
+
+          const data = await response.json();
+
+          if (!response.ok) {
+            throw new Error(data.description || data.message || 'Could not add this product to the cart.');
+          }
+
+          const cartResponse = await fetch('/cart.js', {
+            headers: { Accept: 'application/json' },
+          });
+
+          if (cartResponse.ok) {
+            const cart = await cartResponse.json();
+            updateCartBadge(cart.item_count);
+          }
+
+          window.location.assign(cartUrl);
+        } catch (error) {
+          if (errorEl) {
+            errorEl.textContent = error.message || 'Could not add this product to the cart.';
+            errorEl.hidden = false;
+          }
+        } finally {
+          if (submitButton.getAttribute('aria-disabled') !== 'true') {
+            submitButton.disabled = false;
+          }
+          submitButton.removeAttribute('aria-busy');
+        }
+      });
+    });
+
+    document.querySelectorAll('[data-kaza-product]').forEach((section) => {
+      const gallery = section.querySelector('.kaza-product__gallery');
+      if (!gallery) return;
+
+      const mainImg = gallery.querySelector('.kaza-product__main-img');
+      const thumbs = [...gallery.querySelectorAll('.kaza-product__thumb')];
+      if (!mainImg || thumbs.length <= 1) return;
+
+      const setActive = (thumb) => {
+        thumbs.forEach((item) => {
+          item.classList.toggle('is-active', item === thumb);
+          item.setAttribute('aria-pressed', item === thumb ? 'true' : 'false');
+        });
+
+        if (thumb.dataset.mediaSrc) {
+          mainImg.src = thumb.dataset.mediaSrc;
+        }
+
+        if (thumb.dataset.mediaSrcset) {
+          mainImg.srcset = thumb.dataset.mediaSrcset;
+        } else {
+          mainImg.removeAttribute('srcset');
+        }
+
+        if (thumb.dataset.mediaAlt) {
+          mainImg.alt = thumb.dataset.mediaAlt;
+        }
+      };
+
+      thumbs.forEach((thumb) => {
+        thumb.addEventListener('click', () => setActive(thumb));
+      });
+    });
+  })();
+{% endjavascript %}
 
 {% schema %}
 {
   "name": "t:general.product",
-  "settings": [],
+  "settings": [
+    {
+      "type": "text",
+      "id": "subtitle",
+      "label": "t:sections.kaza_product.settings.subtitle",
+      "default": "Our breakthrough cosmetic active for visibly fuller-looking hair"
+    },
+    {
+      "type": "textarea",
+      "id": "powered_by_text",
+      "label": "t:sections.kaza_product.settings.powered_by_text",
+      "default": "DHQG • EGCG • Zinc PCA • Oleanolic Acid • Apigenin • Biotinoyl Tripeptide-1 (2.0% total inclusion)"
+    },
+    {
+      "type": "text",
+      "id": "cta_label",
+      "label": "t:sections.kaza_product.settings.cta_label",
+      "default": "Shop the Serum"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "@app"
+    },
+    {
+      "type": "benefit",
+      "name": "t:sections.kaza_product.blocks.benefit.name",
+      "limit": 6,
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "icon",
+          "label": "t:labels.icon"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "t:labels.title",
+          "default": "Thicker strands over time"
+        },
+        {
+          "type": "textarea",
+          "id": "text",
+          "label": "t:labels.text",
+          "default": "Supports thicker, fuller-looking hair by strengthening follicles."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:general.product",
+      "blocks": [
+        {
+          "type": "benefit",
+          "settings": {
+            "title": "Thicker strands over time",
+            "text": "Supports thicker, fuller-looking hair by strengthening follicles."
+          }
+        },
+        {
+          "type": "benefit",
+          "settings": {
+            "title": "Less shedding on brush and in shower",
+            "text": "Supports thicker, fuller-looking hair by strengthening follicles."
+          }
+        },
+        {
+          "type": "benefit",
+          "settings": {
+            "title": "Healthier scalp feel and appearance",
+            "text": "Supports thicker, fuller-looking hair by strengthening follicles."
+          }
+        }
+      ]
+    }
+  ],
   "disabled_on": {
     "groups": ["header", "footer"]
   }

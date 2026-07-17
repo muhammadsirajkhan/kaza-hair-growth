@@ -1,12 +1,20 @@
 /** KAZA section styles ÃƒÂ¯Ã‚Â¿Ã‚Â½ consolidated */
 
 /* --- header.liquid --- */
+
+body.template-index header.kaza-header {
+  background-color: transparent !important;
+  position: absolute !important;
+}
+
 .kaza-header {
   position: relative;
   z-index: 100;
   width: 100%;
-  background: #000000;
+  background: #000000 !important;
   color: var(--kaza-white);
+  position: relative !important;
+  margin-bottom: 50px !important;
 }
 
 .kaza-header--sticky {
@@ -15,10 +23,13 @@
 }
 
 .kaza-header--overlay {
-  position: absolute;
+  position: absolute !important;
   top: 0;
   left: 0;
-  background: transparent;
+  /* background: transparent !important; */
+  margin-bottom: 0px !important;
+  border-bottom: 1px solid #ffffff1a;
+  position: unset !important;
 }
 
 .kaza-header--overlay.is-scrolled {
@@ -32,6 +43,17 @@
   align-items: center;
   gap: 1.5rem;
   min-height: var(--kaza-header-height);
+  position: relative;
+}
+
+.kaza-header__inner::before {
+  content: '';
+  position: absolute;
+  width: 150px;
+  height: 1px;
+  background-color: #ffffff9e;
+  bottom: -1px;
+  left: 0;
 }
 
 .kaza-header__logo {
@@ -82,6 +104,7 @@
   height: 0.625rem;
   flex-shrink: 0;
   opacity: 0.85;
+  opacity: 0;
 }
 
 .kaza-header__dropdown {
@@ -141,8 +164,8 @@
 }
 
 .kaza-header__cart-icon {
-  width: 1.375rem;
-  height: 1.375rem;
+  width: 1.775rem;
+  height: 1.775rem;
 }
 
 .kaza-header__cart-badge {
@@ -262,7 +285,7 @@
 
 .kaza-footer__description {
   margin-top: 1.25rem;
-  font-size: 0.8125rem;
+  font-size: 1rem;
   line-height: 1.65;
   color: #a0a0a0;
 }
@@ -270,9 +293,9 @@
 .kaza-footer__cta {
   margin-top: 1.75rem;
   padding: 0.875rem 1.5rem;
-  font-size: 0.6875rem;
+  font-size: 1rem;
   font-weight: 700;
-  letter-spacing: 0.1em;
+  /* letter-spacing: 0.1em; */
   text-transform: uppercase;
   gap: 0.5rem;
 }
@@ -316,7 +339,7 @@
 }
 
 .kaza-footer__links a {
-  font-size: 0.875rem;
+  font-size: 1rem;
   font-weight: 400;
   color: var(--kaza-white);
   text-decoration: none;
@@ -375,13 +398,13 @@
 }
 
 .kaza-footer__contact-label {
-  font-size: 0.6875rem;
+  font-size: 1rem;
   color: #a0a0a0;
   line-height: 1.3;
 }
 
 .kaza-footer__contact-value {
-  font-size: 0.875rem;
+  font-size: 1rem;
   color: var(--kaza-white);
   line-height: 1.4;
 }
@@ -409,11 +432,11 @@
   align-items: center;
   gap: 0.75rem;
   padding: 0.875rem 1rem;
-  background: #1a1a1a;
+  /* background: #1a1a1a; */
   border-radius: 0.625rem;
   color: var(--kaza-white);
   text-decoration: none;
-  font-size: 0.875rem;
+  font-size: 1rem;
   font-weight: 500;
   transition: background var(--kaza-transition);
 }
@@ -474,7 +497,7 @@
 }
 
 .kaza-footer__copyright {
-  font-size: 0.75rem;
+  font-size: 1rem;
   color: var(--kaza-white);
   margin: 0;
 }
@@ -487,7 +510,7 @@
 }
 
 .kaza-footer__legal a {
-  font-size: 0.75rem;
+  font-size: 1rem;
   color: var(--kaza-white);
   text-decoration: none;
   transition: opacity var(--kaza-transition);
@@ -572,6 +595,14 @@
   line-height: 0.98;
   letter-spacing: -0.01em;
   text-transform: uppercase;
+}
+
+.kaza-hero__heading .kaza-section-heading__prefix {
+  font-weight: 400;
+}
+
+.kaza-hero__heading .kaza-section-heading__highlight {
+  font-weight: 700;
 }
 
 .kaza-hero__subheading {
@@ -872,6 +903,16 @@
   padding-block: 3.5rem;
   background: #efefef;
   margin: 0;
+  position: relative;
+}
+
+.kaza-our-story__media-label::before {
+  content: '';
+  position: absolute;
+  width: 1px;
+  height: 66%;
+  background-color: #cdcccc;
+  top: 30%;
 }
 
 .kaza-our-story__media-label span {
@@ -907,12 +948,20 @@
 }
 
 .kaza-our-story__heading {
-  font-size: var(--kaza-fs-story-content);
+  font-size: var(--kaza-fs-section);
   font-weight: 700;
   line-height: 1.1;
   letter-spacing: -0.02em;
   color: var(--kaza-black);
   margin-bottom: 1.5rem;
+}
+
+.kaza-our-story__heading .kaza-section-heading__prefix {
+  font-weight: 400;
+}
+
+.kaza-our-story__heading .kaza-section-heading__highlight {
+  font-weight: 700;
 }
 
 .kaza-our-story__text {
@@ -937,8 +986,8 @@
 }
 
 .kaza-our-story__cta-icon {
-  width: 1rem;
-  height: 1rem;
+  width: 1.6rem;
+  height: 1.6rem;
   flex-shrink: 0;
 }
 
@@ -951,7 +1000,7 @@
 }
 
 .kaza-our-story__rating-text {
-  font-size: 1rme;
+  font-size: 1rem;
   font-weight: 500;
   color: var(--kaza-black);
 }
@@ -967,6 +1016,8 @@
   padding-block: var(--kaza-section-y);
   background: #f0dacb;
   overflow: hidden;
+  margin-inline: 15px;
+  border-radius: var(--kaza-radius-card);
 }
 
 .kaza-why-choose__bg {
@@ -1126,8 +1177,8 @@
 }
 
 .kaza-why-choose__card-title {
-  font-size: 1.0625rem;
-  font-weight: 700;
+  font-size: 1.5rem;
+  font-weight: 500;
   line-height: 1.35;
   margin-bottom: 0.75rem;
   color: var(--kaza-black);
@@ -1148,6 +1199,9 @@
   overflow: hidden;
   aspect-ratio: 1903/1362;
   padding: 0;
+  margin-inline: 15px;
+  border-radius: var(--kaza-radius-card);
+  margin-top: 15px;
 }
 
 .kaza-rootalix__bg {
@@ -1408,7 +1462,7 @@
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  aspect-ratio: 939/1043;
+  aspect-ratio: 939/939;
 }
 
 .kaza-promo-cards__bg {
@@ -1436,13 +1490,21 @@
 }
 
 .kaza-promo-cards__heading {
-  font-size: var(--kaza-fs-promo);
-  font-weight: 700;
+  font-size: 2.8rem;
+  font-weight: 500;
   line-height: 1.22;
   letter-spacing: -0.015em;
   color: var(--kaza-black);
   max-width: 22rem;
   margin: 0;
+}
+
+.kaza-promo-cards__heading .kaza-section-heading__prefix {
+  font-weight: 400;
+}
+
+.kaza-promo-cards__heading .kaza-section-heading__highlight {
+  font-weight: 700;
 }
 
 .kaza-promo-cards__text {
@@ -1474,32 +1536,227 @@
   display: inline-flex;
   align-items: center;
   gap: 0.375rem;
-  padding: 0.4375rem 0.6875rem;
-  background: var(--kaza-beige);
+  padding: 0.3rem 0.3rem;
+  background: #fff;
   border-radius: var(--kaza-radius-pill);
-  font-size: 0.625rem;
+  font-size: 1rem;
   font-weight: 600;
   line-height: 1.35;
   color: var(--kaza-black);
   box-shadow: 0 2px 14px rgba(0, 0, 0, 0.08);
   max-width: 9.5rem;
+  max-width: 14.5rem;
 }
 
 .kaza-promo-cards__badge img {
   flex-shrink: 0;
-  width: 0.875rem;
-  height: 0.875rem;
+  width: 59px;
+  height: 59px;
   object-fit: contain;
 }
 
 .kaza-promo-cards__badge--1 {
-  bottom: 24%;
-  left: 8%;
+  bottom: 7%;
+  left: 16%;
 }
 
 .kaza-promo-cards__badge--2 {
-  top: 36%;
-  right: 6%;
+  top: 54%;
+  right: 10%;
+}
+
+/* --- kaza-product-promo.liquid --- */
+.kaza-product-promo {
+  padding-block: var(--kaza-section-y);
+  background: var(--kaza-white);
+  padding-block: 15px;
+}
+
+.kaza-product-promo .kaza-container {
+  width: 100%;
+  padding-inline: 15px;
+}
+
+.kaza-product-promo__grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(0.875rem, 1.5vw, 1.25rem);
+}
+
+.kaza-product-promo__card {
+  position: relative;
+  min-height: clamp(28rem, 46vw, 36rem);
+  border-radius: var(--kaza-radius-card);
+  overflow: hidden;
+  aspect-ratio: 939 / 939;
+}
+
+.kaza-product-promo__card--left {
+  display: flex;
+  flex-direction: column;
+  background: #f5e1d2;
+}
+
+.kaza-product-promo__card--right {
+  display: flex;
+  flex-direction: column;
+}
+
+.kaza-product-promo__bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.kaza-product-promo__bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+}
+
+.kaza-product-promo__content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: clamp(2rem, 3.5vw, 2.75rem) clamp(1.25rem, 2.5vw, 2rem) 0;
+  gap: 0.75rem;
+}
+
+.kaza-product-promo__heading {
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 1.22;
+  letter-spacing: -0.015em;
+  color: var(--kaza-black);
+  max-width: 35rem;
+  margin: 0;
+}
+
+.kaza-product-promo__heading .kaza-section-heading__prefix {
+  font-weight: 400;
+}
+
+.kaza-product-promo__heading .kaza-section-heading__highlight {
+  font-weight: 700;
+}
+
+.kaza-product-promo__text {
+  font-size: var(--kaza-fs-section-content);
+  line-height: 1.55;
+  color: #4a4a4a;
+  max-width: 35rem;
+  margin: 0;
+}
+
+.kaza-product-promo__subheading {
+  font-size: var(--kaza-fs-section-content);
+  line-height: 1.5;
+  color: #5a5a5a;
+  max-width: 24rem;
+  margin: 0;
+}
+
+.kaza-product-promo__steps-heading {
+  font-size: 1.2rem;
+  font-weight: 600;
+  line-height: 1.4;
+  color: var(--kaza-black);
+  margin: 0.5rem 0 0;
+}
+
+.kaza-product-promo__steps {
+  list-style: none;
+  width: min(100%, 35rem);
+  margin: 0.625rem 0 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.kaza-product-promo__step {
+  display: flex;
+  align-items: center;
+  min-height: 2.5rem;
+  padding: 0.625rem 1rem;
+  border-radius: 0.625rem;
+  background: rgba(255, 255, 255, 0.38);
+  font-size: 1rem;
+  line-height: 1.45;
+  color: #000;
+  text-align: left;
+  background: #000000;
+  background: linear-gradient(90deg, rgba(0, 0, 0, 0.37) 0%, rgba(0, 0, 0, 0.05) 71%, rgba(255, 255, 255, 0) 100%);
+  font-weight: 500;
+}
+
+.kaza-product-promo__media--left {
+  position: relative;
+  z-index: 1;
+  margin-top: auto;
+  width: 100%;
+  line-height: 0;
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.kaza-product-promo__media--left img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+  object-position: center bottom;
+}
+
+.kaza-product-promo__badges {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.kaza-product-promo__badge {
+  position: absolute;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4375rem;
+  padding: 0.5rem 0.75rem;
+  background: var(--kaza-white);
+  border-radius: 50px;
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.35;
+  color: var(--kaza-black);
+  box-shadow: 0 2px 14px rgba(0, 0, 0, 0.08);
+  max-width: 14.5rem;
+  padding: 0.3rem 0.3rem;
+}
+
+.kaza-product-promo__badge img {
+  flex-shrink: 0;
+  width: 59px;
+  height: auto;
+  object-fit: contain;
+}
+
+.kaza-product-promo__badge--1 {
+  top: 41%;
+  right: 18%;
+}
+
+.kaza-product-promo__badge--2 {
+  top: 54%;
+  left: 17%;
+}
+
+.kaza-product-promo__badge--3 {
+  bottom: 22%;
+  right: 13%;
 }
 
 /* --- kaza-how-it-works.liquid --- */
@@ -1546,11 +1803,11 @@
 }
 
 .kaza-how-it-works__step-title {
-  font-size: 1.0625rem;
-  font-weight: 700;
+  font-size: 2rem;
+  font-weight: 500;
   line-height: 1.3;
   color: var(--kaza-black);
-  margin-bottom: 0.375rem;
+  margin-bottom: 2rem;
 }
 
 .kaza-how-it-works__step-text {
@@ -1569,7 +1826,7 @@
 
 .kaza-how-it-works__cta-btn {
   padding: 0.9375rem 2rem;
-  font-size: 0.875rem;
+  font-size: 1.2rem;
   font-weight: 600;
   text-transform: none;
   letter-spacing: 0.02em;
@@ -1585,6 +1842,10 @@
 /* --- kaza-challenge.liquid --- */
 .kaza-challenge {
   background: #f3ede4;
+  border-radius: var(--kaza-radius-card);
+  margin-inline: 15px;
+  overflow: hidden;
+  margin-bottom: 15px;
 }
 
 .kaza-challenge__upper {
@@ -1644,7 +1905,7 @@
   position: absolute;
   top: clamp(0.875rem, 2.5vw, 1.5rem);
   z-index: 5;
-  font-size: var(--kaza-fs-ba-label);
+  font-size: 2.2rem;
   font-weight: 500;
   line-height: 1;
   color: var(--kaza-black);
@@ -1713,6 +1974,7 @@
   z-index: 4;
   cursor: ew-resize;
   pointer-events: auto;
+  touch-action: none;
   box-shadow: 0 4px 18px rgba(0, 0, 0, 0.1);
   transition: transform var(--kaza-transition), box-shadow var(--kaza-transition);
   outline-offset: -10px;
@@ -1763,6 +2025,18 @@
 .kaza-challenge__reviews-viewport {
   overflow: hidden;
   width: 100%;
+  touch-action: pan-y pinch-zoom;
+  cursor: grab;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.kaza-challenge__reviews-viewport.is-dragging {
+  cursor: grabbing;
+}
+
+.kaza-challenge__reviews-viewport.is-dragging .kaza-challenge__reviews-track {
+  transition: none;
 }
 
 .kaza-challenge__reviews-track {
@@ -1807,8 +2081,8 @@
 }
 
 .kaza-challenge__review-title {
-  font-size: var(--kaza-fs-review-title);
-  font-weight: 700;
+  font-size: 2.8rem;
+  font-weight: 500;
   line-height: 1.25;
   letter-spacing: -0.01em;
   margin: 0;
@@ -1818,7 +2092,7 @@
 .kaza-challenge__review-quote {
   max-width: 28rem;
   margin: 0;
-  font-size: var(--kaza-fs-review-quote);
+  font-size: 1rem;
   font-weight: 400;
   font-style: normal;
   line-height: 1.55;
@@ -1890,13 +2164,16 @@
 .kaza-challenge__stat-card {
   padding: clamp(1.5rem, 2.5vw, 1.75rem) clamp(1.25rem, 2vw, 1.5rem);
   text-align: left;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .kaza-challenge__stat-title {
-  font-size: 0.8125rem;
-  font-weight: 700;
-  letter-spacing: 0.05em;
-  line-height: 1.35;
+  font-size: 2.2rem;
+  font-weight: 400;
+  /* letter-spacing: 0.05em; */
+  line-height: 1;
   text-transform: uppercase;
   margin: 0 0 0.625rem;
   color: var(--kaza-black);
@@ -1904,8 +2181,8 @@
 
 .kaza-challenge__stat-text {
   margin: 0;
-  font-size: 0.8125rem;
-  line-height: 1.55;
+  font-size: 1rem;
+  line-height: 1.2;
   color: var(--kaza-gray);
 }
 
@@ -1949,6 +2226,971 @@
   font-size: 0.8125rem;
   line-height: 1.5;
   color: var(--kaza-gray);
+}
+
+/* --- product.liquid --- */
+.kaza-product {
+  padding-block: var(--kaza-section-y);
+}
+
+.kaza-product__inner {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: clamp(2rem, 4vw, 4rem);
+  align-items: start;
+}
+
+.kaza-product__gallery {
+  position: sticky;
+  top: calc(var(--kaza-header-height) + 1.5rem);
+  display: flex;
+  flex-direction: column;
+  gap: 0.875rem;
+}
+
+.kaza-product__main-media {
+  border-radius: 1.375rem;
+  overflow: hidden;
+  background: var(--kaza-gray-light);
+  aspect-ratio: 1 / 1;
+}
+
+.kaza-product__main-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.kaza-product__thumbs {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.625rem;
+}
+
+.kaza-product__thumb {
+  aspect-ratio: 1 / 1;
+  border-radius: 0.75rem;
+  overflow: hidden;
+  border: 2px solid transparent;
+  padding: 0;
+  cursor: pointer;
+  background: var(--kaza-gray-light);
+  transition: border-color var(--kaza-transition);
+}
+
+.kaza-product__thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.kaza-product__thumb.is-active,
+.kaza-product__thumb:hover {
+  border-color: var(--kaza-black);
+}
+
+.kaza-product__thumb:focus-visible {
+  outline: 2px solid var(--kaza-gold);
+  outline-offset: 2px;
+}
+
+.kaza-product__content {
+  display: flex;
+  flex-direction: column;
+}
+
+.kaza-product__title {
+  font-size: var(--kaza-fs-section);
+  font-weight: 700;
+  line-height: 1.08;
+  letter-spacing: -0.025em;
+  color: var(--kaza-black);
+  margin: 0 0 0.625rem;
+}
+
+.kaza-product__subtitle {
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.45;
+  color: var(--kaza-black);
+  margin: 0 0 1rem;
+}
+
+.kaza-product__description {
+  font-size: var(--kaza-fs-section-content);
+  line-height: 1.6;
+  color: var(--kaza-black);
+  margin-bottom: 1.5rem;
+}
+
+.kaza-product__description p {
+  margin: 0;
+}
+
+.kaza-product__benefits {
+  margin-bottom: 1.25rem;
+}
+
+.kaza-product__benefit {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding-block: 1rem;
+  border-bottom: 1px dashed #d4cfc4;
+}
+
+.kaza-product__benefit:first-child {
+  border-top: 1px dashed #d4cfc4;
+}
+
+.kaza-product__benefit-icon {
+  flex-shrink: 0;
+  width: 59px;
+  height: 59px;
+  border-radius: 50%;
+  background: #ebe4d8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.kaza-product__benefit-icon img {
+  width: 59px;
+  height: 59px;
+  object-fit: contain;
+}
+
+.kaza-product__benefit-body {
+  flex: 1;
+  min-width: 0;
+}
+
+.kaza-product__benefit-title {
+  display: block;
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--kaza-black);
+  line-height: 1.35;
+  margin-bottom: 0.25rem;
+}
+
+.kaza-product__benefit-text {
+  font-size: var(--kaza-fs-section-content);
+  line-height: 1.5;
+  color: var(--kaza-gray);
+  margin: 0;
+}
+
+.kaza-product__powered {
+  font-size: 1rem;
+  line-height: 1.65;
+  color: var(--kaza-black);
+  margin: 0 0 1.75rem;
+}
+
+.kaza-product__powered strong {
+  font-weight: 700;
+}
+
+.kaza-product__form-footer {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.kaza-product__subscription {
+  width: 100%;
+  margin-bottom: 0.25rem;
+}
+
+.kaza-product__subscription:empty {
+  display: none;
+}
+
+.kaza-product__price-line {
+  display: flex;
+  align-items: baseline;
+  gap: 0.625rem;
+  margin: 0;
+}
+
+.kaza-product__compare-price {
+  font-size: 1rem;
+  font-weight: 400;
+  color: var(--kaza-gray);
+  text-decoration: line-through;
+}
+
+.kaza-product__price {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--kaza-black);
+  line-height: 1;
+}
+
+.kaza-product__cta {
+  min-width: min(100%, 18rem);
+  padding: 1rem 2rem;
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  text-transform: none;
+  gap: 0.75rem;
+  border-radius: var(--kaza-radius-pill);
+}
+
+.kaza-product__cta-icon {
+  width: 1.125rem;
+  height: 1.125rem;
+  flex-shrink: 0;
+}
+
+.kaza-product__cta:disabled,
+.kaza-product__cta[aria-disabled='true'] {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.kaza-product__status,
+.kaza-product__form-error {
+  margin: 0;
+  font-size: 0.875rem;
+  line-height: 1.5;
+}
+
+.kaza-product__status {
+  color: var(--kaza-gray);
+}
+
+.kaza-product__form-error {
+  color: #b42318;
+}
+
+/* --- cart.liquid --- */
+.kaza-cart {
+  padding-block: var(--kaza-section-y);
+}
+
+.kaza-cart__header {
+  margin-bottom: clamp(2rem, 4vw, 3rem);
+}
+
+.kaza-cart__empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 0.75rem;
+  max-width: 28rem;
+  margin-inline: auto;
+  padding: clamp(2.5rem, 5vw, 4rem) 1.5rem;
+  border-radius: var(--kaza-radius-card);
+  background: var(--kaza-gray-light);
+}
+
+.kaza-cart__empty-title {
+  font-size: 1.375rem;
+  font-weight: 700;
+  color: var(--kaza-black);
+  margin: 0;
+}
+
+.kaza-cart__empty-text {
+  font-size: var(--kaza-fs-section-content);
+  line-height: 1.6;
+  color: var(--kaza-gray);
+  margin: 0 0 0.5rem;
+}
+
+.kaza-cart__empty-btn {
+  margin-top: 0.5rem;
+  min-width: min(100%, 16rem);
+  text-transform: none;
+  letter-spacing: 0.01em;
+}
+
+.kaza-cart__layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.4fr) minmax(18rem, 0.8fr);
+  gap: clamp(2rem, 4vw, 3.5rem);
+  align-items: start;
+}
+
+.kaza-cart__items {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  border-top: 1px solid rgba(10, 10, 10, 0.08);
+}
+
+.kaza-cart__item {
+  display: grid;
+  grid-template-columns: 7rem minmax(0, 1fr);
+  gap: 1.25rem;
+  padding-block: 1.5rem;
+  border-bottom: 1px solid rgba(10, 10, 10, 0.08);
+}
+
+.kaza-cart__item-media {
+  display: block;
+  border-radius: 1rem;
+  overflow: hidden;
+  background: var(--kaza-gray-light);
+  aspect-ratio: 1 / 1;
+}
+
+.kaza-cart__item-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.kaza-cart__item-placeholder {
+  width: 100%;
+  height: 100%;
+  background: var(--kaza-beige-dark);
+}
+
+.kaza-cart__item-body {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  min-width: 0;
+}
+
+.kaza-cart__item-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.kaza-cart__item-info {
+  min-width: 0;
+}
+
+.kaza-cart__item-title {
+  display: inline-block;
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.35;
+  color: var(--kaza-black);
+  text-decoration: none;
+  margin-bottom: 0.25rem;
+}
+
+.kaza-cart__item-title:hover {
+  opacity: 0.75;
+}
+
+.kaza-cart__item-variant,
+.kaza-cart__item-plan {
+  font-size: 0.875rem;
+  line-height: 1.45;
+  color: var(--kaza-gray);
+  margin: 0;
+}
+
+.kaza-cart__item-prices {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.125rem;
+  flex-shrink: 0;
+}
+
+.kaza-cart__item-compare {
+  font-size: 0.8125rem;
+  color: var(--kaza-gray);
+  text-decoration: line-through;
+}
+
+.kaza-cart__item-price {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--kaza-black);
+  white-space: nowrap;
+}
+
+.kaza-cart__item-actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.kaza-cart__qty {
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid rgba(10, 10, 10, 0.12);
+  border-radius: var(--kaza-radius-pill);
+  overflow: hidden;
+  background: var(--kaza-white);
+}
+
+.kaza-cart__qty-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--kaza-black);
+  font-size: 1.125rem;
+  line-height: 1;
+  cursor: pointer;
+  transition: background-color var(--kaza-transition);
+}
+
+.kaza-cart__qty-btn:hover {
+  background: var(--kaza-gray-light);
+}
+
+.kaza-cart__qty-btn:focus-visible {
+  outline: 2px solid var(--kaza-gold);
+  outline-offset: -2px;
+}
+
+.kaza-cart__qty-label {
+  display: flex;
+}
+
+.kaza-cart__qty-input {
+  width: 2.75rem;
+  height: 2.25rem;
+  padding: 0;
+  border: 0;
+  border-inline: 1px solid rgba(10, 10, 10, 0.08);
+  background: transparent;
+  text-align: center;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--kaza-black);
+  appearance: textfield;
+  -moz-appearance: textfield;
+}
+
+.kaza-cart__qty-input::-webkit-outer-spin-button,
+.kaza-cart__qty-input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.kaza-cart__remove {
+  font-size: 0.8125rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: var(--kaza-gray);
+  text-decoration: none;
+  transition: color var(--kaza-transition);
+}
+
+.kaza-cart__remove:hover {
+  color: var(--kaza-black);
+}
+
+.kaza-cart__summary {
+  position: sticky;
+  top: calc(var(--kaza-header-height) + 1.5rem);
+}
+
+.kaza-cart__summary-card {
+  padding: 1.75rem;
+  border-radius: var(--kaza-radius-card);
+  background: var(--kaza-beige);
+  box-shadow: var(--kaza-shadow-card);
+}
+
+.kaza-cart__summary-title {
+  font-size: 1.125rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: var(--kaza-black);
+  margin: 0 0 1.25rem;
+}
+
+.kaza-cart__summary-rows {
+  margin: 0 0 1rem;
+}
+
+.kaza-cart__summary-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.kaza-cart__summary-row dt {
+  font-size: 0.9375rem;
+  font-weight: 500;
+  color: var(--kaza-gray);
+}
+
+.kaza-cart__summary-row dd {
+  margin: 0;
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: var(--kaza-black);
+}
+
+.kaza-cart__summary-note {
+  font-size: 0.8125rem;
+  line-height: 1.55;
+  color: var(--kaza-gray);
+  margin: 0 0 1.5rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(10, 10, 10, 0.08);
+}
+
+.kaza-cart__summary-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.kaza-cart__update,
+.kaza-cart__checkout {
+  width: 100%;
+  text-transform: none;
+  letter-spacing: 0.01em;
+  font-size: 0.9375rem;
+  padding: 1rem 1.5rem;
+}
+
+.kaza-cart__checkout {
+  border-radius: var(--kaza-radius-pill);
+}
+
+.kaza-cart__continue {
+  display: block;
+  margin-top: 1rem;
+  text-align: center;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--kaza-gray);
+  text-decoration: none;
+  transition: color var(--kaza-transition);
+}
+
+.kaza-cart__continue:hover {
+  color: var(--kaza-black);
+}
+
+.kaza-cart__apps {
+  margin-top: 1.5rem;
+}
+
+/* --- kaza-whats-inside.liquid --- */
+.kaza-whats-inside {
+  position: relative;
+  padding-block: var(--kaza-section-y);
+  background: #000000;
+  color: var(--kaza-white);
+  overflow: hidden;
+  margin-inline: 15px;
+  margin-top: 15px;
+  /* margin-bottom: 15px; */
+  border-radius: var(--kaza-radius-card);
+}
+
+.kaza-whats-inside__bg {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.kaza-whats-inside__bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+}
+
+.kaza-whats-inside__inner {
+  position: relative;
+  z-index: 1;
+}
+
+.kaza-whats-inside__header {
+  margin-bottom: clamp(2.5rem, 5vw, 3.5rem);
+}
+
+.kaza-whats-inside__subheading {
+  text-transform: lowercase;
+  color: rgba(255, 255, 255, 0.55);
+  max-width: 28rem;
+}
+
+.kaza-whats-inside__cards {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(1rem, 2vw, 1.25rem);
+  /* max-width: 52rem; */
+  margin-inline: auto;
+}
+
+.kaza-whats-inside__card {
+  display: flex;
+  align-items: center;
+  gap: clamp(1.25rem, 3vw, 2rem);
+  padding: clamp(1.25rem, 2.5vw, 1.75rem);
+  border-radius: 1.75rem;
+  background: linear-gradient(135deg,
+      rgba(38, 36, 34, 0.95) 0%,
+      rgba(28, 27, 26, 0.98) 55%,
+      rgba(22, 21, 20, 1) 100%);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06);
+}
+
+.kaza-whats-inside__card-media {
+  flex-shrink: 0;
+  width: clamp(7.5rem, 18vw, 11.5rem);
+  aspect-ratio: 1 / 1;
+  border-radius: 1.125rem;
+  overflow: hidden;
+  background: #1a1a1a;
+}
+
+.kaza-whats-inside__card-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.kaza-whats-inside__card-body {
+  flex: 1;
+  min-width: 0;
+}
+
+.kaza-whats-inside__card-title {
+  font-size: clamp(1.375rem, 2.5vw, 1.75rem);
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.015em;
+  color: var(--kaza-white);
+  margin: 0 0 0.625rem;
+}
+
+.kaza-whats-inside__card-text {
+  font-size: var(--kaza-fs-section-content);
+  line-height: 1.55;
+  color: rgba(255, 255, 255, 0.72);
+  margin: 0;
+}
+
+.kaza-whats-inside__footer {
+  /* max-width: 52rem; */
+  margin: clamp(2.5rem, 5vw, 3.5rem) auto 0;
+  font-size: 1rem;
+  line-height: 1.65;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.55);
+}
+
+/* --- kaza-faq.liquid --- */
+.kaza-faq {
+  padding-block: var(--kaza-section-y);
+  background: var(--kaza-white);
+}
+
+.kaza-faq__header {
+  margin-bottom: clamp(2.5rem, 5vw, 3.5rem);
+}
+
+.kaza-faq__list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.875rem;
+  max-width: 100%;
+  margin-inline: auto;
+}
+
+.kaza-faq__item {
+  border: 1px solid #e3e3e3;
+  border-radius: 50px;
+  background: var(--kaza-white);
+  overflow: hidden;
+  transition: background var(--kaza-transition), border-color var(--kaza-transition), box-shadow var(--kaza-transition);
+}
+
+.kaza-faq__item.is-open {
+  border-color: #fff;
+  background: #fff;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.04);
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  border-bottom-left-radius: unset;
+  border-bottom-right-radius: unset;
+}
+
+.kaza-faq__trigger {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  width: 100%;
+  padding: 1.125rem 3rem;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  text-align: left;
+  font: inherit;
+  color: var(--kaza-black);
+}
+
+.kaza-faq__trigger:focus-visible {
+  outline: 2px solid var(--kaza-gold);
+  outline-offset: -2px;
+}
+
+.kaza-faq__question {
+  font-size: 1.2rem;
+  font-weight: 500;
+  line-height: 1.45;
+  letter-spacing: -0.01em;
+}
+
+.kaza-faq__icon {
+  position: relative;
+  flex-shrink: 0;
+  width: 1.125rem;
+  height: 1.125rem;
+}
+
+.kaza-faq__icon::before,
+.kaza-faq__icon::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  background: var(--kaza-black);
+  transform: translate(-50%, -50%);
+  transition: transform var(--kaza-transition), opacity var(--kaza-transition);
+}
+
+.kaza-faq__icon::before {
+  width: 0.875rem;
+  height: 1.5px;
+}
+
+.kaza-faq__icon::after {
+  width: 1.5px;
+  height: 0.875rem;
+}
+
+.kaza-faq__item.is-open .kaza-faq__icon::after {
+  transform: translate(-50%, -50%) scaleY(0);
+  opacity: 0;
+}
+
+.kaza-faq__panel {
+  padding: 0 3rem 1.25rem;
+}
+
+.kaza-faq__answer {
+  font-size: var(--kaza-fs-section-content);
+  line-height: 1.6;
+  color: var(--kaza-gray);
+}
+
+.kaza-faq__answer p {
+  margin: 0;
+}
+
+/* --- kaza-sub-banner.liquid --- */
+.kaza-sub-banner {
+  padding-block: 0 var(--kaza-section-y);
+  background: var(--kaza-white);
+  padding-inline: 15px;
+  padding-bottom: 15px;
+  margin-top: 60px;
+}
+
+.kaza-sub-banner__card {
+  position: relative;
+  min-height: clamp(18rem, 32vw, 24rem);
+  border-radius: 1.75rem;
+  /* overflow: hidden; */
+}
+
+.kaza-sub-banner__bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  border-radius: 1.75rem;
+  overflow: hidden;
+}
+
+.kaza-sub-banner__bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.kaza-sub-banner__inner {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
+  align-items: center;
+  min-height: inherit;
+  padding: clamp(2rem, 4vw, 3rem) clamp(1.5rem, 3vw, 2.5rem);
+  padding-top: 0;
+}
+
+.kaza-sub-banner__content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1rem;
+  /* max-width: 26rem; */
+}
+
+.kaza-sub-banner__heading {
+  font-size: var(--kaza-fs-section);
+  font-weight: 700;
+  line-height: 1.12;
+  letter-spacing: -0.02em;
+  color: var(--kaza-white);
+  margin: 0;
+}
+
+.kaza-sub-banner__heading .kaza-section-heading__prefix {
+  font-weight: 400;
+}
+
+.kaza-sub-banner__heading .kaza-section-heading__highlight {
+  font-weight: 700;
+}
+
+.kaza-sub-banner__text {
+  font-size: var(--kaza-fs-section-content);
+  line-height: 1.55;
+  color: rgba(255, 255, 255, 0.82);
+  margin: 0;
+  /* max-width: 24rem; */
+}
+
+.kaza-sub-banner__btn {
+  margin-top: 0.25rem;
+  padding: 0.9375rem 1.75rem;
+  font-size: 1rem;
+  font-weight: 600;
+  text-transform: none;
+  letter-spacing: 0.01em;
+  background: #f3ebe3;
+  border-color: #f3ebe3;
+  color: var(--kaza-black);
+  gap: 0.75rem;
+}
+
+.kaza-sub-banner__btn:hover {
+  opacity: 0.92;
+}
+
+.kaza-sub-banner__btn-icon {
+  width: 1.125rem;
+  height: 1.125rem;
+  flex-shrink: 0;
+}
+
+.kaza-sub-banner__product {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  align-self: end;
+  height: 100%;
+  pointer-events: none;
+  margin-top: -100px;
+}
+
+.kaza-sub-banner__product img {
+  width: min(100%, 26rem);
+  height: auto;
+  object-fit: contain;
+  object-position: right bottom;
+  margin-bottom: -0.5rem;
+}
+
+/* --- kaza-product-trust.liquid --- */
+.kaza-product-trust {
+  padding-block: 0 clamp(15px, 4vw, 15px);
+  background: var(--kaza-white);
+}
+
+.kaza-product-trust .kaza-container {
+  width: 100%;
+  padding-inline: 15px;
+}
+
+.kaza-product-trust__bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  margin: 0;
+  padding: 2rem clamp(1.25rem, 3vw, 2.5rem);
+  list-style: none;
+  background: #1a1a1a;
+  border-radius: 0.625rem;
+}
+
+.kaza-product-trust__item {
+  position: relative;
+  display: flex;
+  flex: 1 1 0;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  min-width: 0;
+  padding-inline: clamp(0.5rem, 1.5vw, 1rem);
+}
+
+.kaza-product-trust__item:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  top: 15%;
+  right: 0;
+  width: 1px;
+  height: 70%;
+  background: rgba(255, 255, 255, 0.14);
+}
+
+.kaza-product-trust__icon {
+  display: inline-flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 60px;
+}
+
+.kaza-product-trust__icon img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.kaza-product-trust__text {
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.35;
+  letter-spacing: 0.01em;
+  color: var(--kaza-white);
+  white-space: nowrap;
 }
 
 /* --- kaza-logo.liquid --- */
