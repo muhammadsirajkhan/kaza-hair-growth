@@ -136,7 +136,7 @@
           <article class="kaza-card kaza-why-choose__card" {{ block.shopify_attributes }}>
             <div class="kaza-why-choose__card-icon">
               {% if feature_icon != blank %}
-                {{ feature_icon | image_url: width: feature_icon.width | image_tag: loading: 'lazy', alt: '' }}
+                {{ feature_icon | image_url | image_tag: loading: 'lazy', alt: '' }}
               {% else %}
                 <img
                   src="{{ feature_icon_fallback | asset_url }}"
