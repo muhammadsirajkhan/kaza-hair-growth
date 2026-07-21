@@ -358,7 +358,7 @@
           "type": "question",
           "settings": {
             "question": "Can I stack it with caffeine or rosemary?",
-            "answer": "<p>Yes. Rootalix™ is formulated to work alongside caffeine and rosemary—two actives already included in the KAZA Hair Density Serum formula.</p>"
+            "answer": "<p>Yes. Rootalix™ is formulated to work alongside caffeine and rosemary—two actives already included in the KAZA Hair Growth Serum formula.</p>"
           }
         },
         "question_3": {
@@ -391,10 +391,12 @@
     "kaza_sub_banner": {
       "type": "kaza-sub-banner",
       "settings": {
+        "background_image": "shopify://shop_images/sub-banner.webp",
+        "product_image": "shopify://shop_images/sub-banner-image.webp",
         "heading_prefix": "Add",
         "heading_highlight": "Rootalix™",
         "heading_suffix": "to your routine",
-        "text": "KAZA Hair Density Serum — Powered by Rootalix™, Caffeine, and Rosemary",
+        "text": "KAZA Hair Growth Serum — Powered by Rootalix™, Caffeine, and Rosemary",
         "button_label": "Shop the Serum",
         "button_url": "shopify://products/kaza-hair-growth-serum"
       }
