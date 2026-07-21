@@ -42,7 +42,7 @@
       "settings": {
         "subheading": "Powered by Rootalix™",
         "subtitle": "Our breakthrough cosmetic active for visibly fuller-looking hair",
-        "powered_by_text": "DHQG • EGCG • Zinc PCA • Oleanolic Acid • Apigenin • Biotinoyl Tripeptide-1 (2.0% total inclusion)",
+        "powered_by_text": "DHQG • EGCG • Zinc Chloride • Oleanolic Acid • Apigenin • Biotinoyl Tripeptide-1 (2.0% total inclusion)",
         "cta_label": "Shop the Serum",
         "show_intro_price": true,
         "price_suffix": "USD until final"
@@ -126,7 +126,7 @@
           "type": "feature",
           "settings": {
             "title": "Follicle vitality support",
-            "text": "A next-gen catechin system (DHQG + EGCG) paired with Zinc PCA to support a balanced scalp environment and the look of active, energized roots."
+            "text": "A next-gen catechin system (DHQG + EGCG) paired with Zinc Chloride to support a balanced scalp environment and the look of active, energized roots."
           }
         },
         "feature_DWiMg4": {
@@ -175,7 +175,7 @@
         "ingredient_2": {
           "type": "ingredient",
           "settings": {
-            "title": "Zinc PCA",
+            "title": "Zinc Chloride",
             "text": "helps keep the scalp environment balanced and fresh-looking."
           }
         },
