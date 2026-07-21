@@ -331,25 +331,6 @@
         "show_arc": true
       }
     },
-    "kaza_our_story": {
-      "type": "kaza-our-story",
-      "settings": {
-        "section_id": "our-story",
-        "show_intro": true,
-        "badge_text": "Welcome to Kaza",
-        "intro_text": "Kaza is built for men who take their appearance seriously and want products that match that mindset — clean, modern, and engineered to work.",
-        "image": "shopify://shop_images/story.webp",
-        "image_label": "Welcome to Kaza",
-        "heading_prefix": "Our",
-        "heading_highlight": "Story",
-        "text": "<p>Kaza was created with a simple objective: give men a hair growth solution that actually performs. No gimmicks. No empty promises. Just real science, clean formulation, and measurable results.</p><p>We focus on early-stage thinning — the point where action matters most. Our serum is powered by Rootalix, a proprietary botanical-bioactive complex designed to fuel follicle activity, strengthen roots, and support visible density improvements. Every ingredient serves a purpose. Nothing extra. Nothing watered down.</p>",
-        "button_label": "More About Us",
-        "button_url": "shopify://products/kaza-hair-growth-serum",
-        "show_rating": true,
-        "rating": 5,
-        "rating_text": ""
-      }
-    },
     "kaza_promo_cards": {
       "type": "kaza-promo-cards",
       "blocks": {
@@ -391,6 +372,40 @@
       "settings": {
         "section_id": "promo"
       }
+    },
+    "kaza_our_story": {
+      "type": "kaza-our-story",
+      "settings": {
+        "section_id": "our-story",
+        "show_intro": true,
+        "badge_text": "Welcome to Kaza",
+        "intro_text": "Kaza is built for men who take their appearance seriously and want products that match that mindset — clean, modern, and engineered to work.",
+        "image": "shopify://shop_images/story.webp",
+        "image_label": "Welcome to Kaza",
+        "heading_prefix": "Our",
+        "heading_highlight": "Story",
+        "text": "<p>Kaza was created with a simple objective: give men a hair growth solution that actually performs. No gimmicks. No empty promises. Just real science, clean formulation, and measurable results.</p><p>We focus on early-stage thinning — the point where action matters most. Our serum is powered by Rootalix, a proprietary botanical-bioactive complex designed to fuel follicle activity, strengthen roots, and support visible density improvements. Every ingredient serves a purpose. Nothing extra. Nothing watered down.</p>",
+        "button_label": "More About Us",
+        "button_url": "shopify://products/kaza-hair-growth-serum",
+        "show_rating": true,
+        "rating": 5,
+        "rating_text": ""
+      }
+    },
+    "kaza_sub_banner_BDPNVf": {
+      "type": "kaza-sub-banner",
+      "name": "t:sections.kaza_sub_banner.name",
+      "settings": {
+        "section_id": "shop",
+        "background_image": "shopify://shop_images/sub-banner.webp",
+        "product_image": "shopify://shop_images/sub-banner-image.webp",
+        "heading_prefix": "Add",
+        "heading_highlight": "Rootalix",
+        "heading_suffix": "to your routine",
+        "text": "KAZA Hair Growth Serum — Powered by Rootalix, Caffeine, and Rosemary",
+        "button_label": "Shop the Serum",
+        "button_url": "shopify://products/kaza-hair-growth-serum"
+      }
     }
   },
   "order": [
@@ -399,7 +414,8 @@
     "kaza_how_it_works",
     "kaza_challenge",
     "kaza_why_choose",
+    "kaza_promo_cards",
     "kaza_our_story",
-    "kaza_promo_cards"
+    "kaza_sub_banner_BDPNVf"
   ]
 }
