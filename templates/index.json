@@ -15,11 +15,12 @@
         "slide_qRcnwV": {
           "type": "slide",
           "settings": {
+            "background_image": "shopify://shop_images/hero.webp",
             "heading_highlight": "28,200+ new hairs in 3 months.",
             "heading_prefix": "Up to",
             "subheading": "Based on a 3-month clinical study where participants saw an average of 10,000 new hairs and a maximum of 28,200.",
             "button_label": "Shop the Serum",
-            "button_url": "",
+            "button_url": "shopify://products/rootalix",
             "powered_by_text": "Powered by Rootalix™"
           }
         },
