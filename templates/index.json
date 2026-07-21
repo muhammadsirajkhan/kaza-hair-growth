@@ -322,7 +322,7 @@
       ],
       "settings": {
         "section_id": "why-choose",
-        "badge_text": "Welcome to Kaza",
+        "badge_text": "Made for men",
         "heading_prefix": "Why Choose",
         "heading_highlight": "Kaza",
         "subheading": "Real performance. Visible results. Made for men who want impact, not excuses.",
@@ -378,7 +378,7 @@
       "settings": {
         "section_id": "our-story",
         "show_intro": true,
-        "badge_text": "Welcome to Kaza",
+        "badge_text": "Who we are",
         "intro_text": "Kaza is built for men who take their appearance seriously and want products that match that mindset — clean, modern, and engineered to work.",
         "image": "shopify://shop_images/story.webp",
         "image_label": "Welcome to Kaza",
