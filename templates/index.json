@@ -90,6 +90,58 @@
         "show_slider_controls": true
       }
     },
+    "kaza_rootalix": {
+      "type": "kaza-rootalix",
+      "blocks": {
+        "f1": {
+          "type": "feature",
+          "settings": {
+            "position": "top-left",
+            "icon": "shopify://shop_images/choose-icon4.webp",
+            "title": "Thicker strands over time"
+          }
+        },
+        "f2": {
+          "type": "feature",
+          "settings": {
+            "position": "bottom-left",
+            "icon": "shopify://shop_images/choose-icon3.webp",
+            "title": "Less shedding on brush and in shower"
+          }
+        },
+        "f3": {
+          "type": "feature",
+          "settings": {
+            "position": "top-right",
+            "icon": "shopify://shop_images/choose-icon2.webp",
+            "title": "Healthier scalp feel and appearance"
+          }
+        },
+        "f4": {
+          "type": "feature",
+          "settings": {
+            "position": "bottom-right",
+            "icon": "shopify://shop_images/choose-icon1.webp",
+            "title": "Visible Density Improvements."
+          }
+        }
+      },
+      "block_order": [
+        "f1",
+        "f2",
+        "f3",
+        "f4"
+      ],
+      "settings": {
+        "show_rating": true,
+        "rating": 5,
+        "rating_text": "",
+        "heading_prefix": "Powered by",
+        "heading_highlight": "Rootalix™",
+        "description": "Rootalix™ is Alphin Labs' proprietary active complex designed to support thicker hair and reduce shedding, built for daily, leave-on use and a modern men's routine. No prescriptions, no heaviness, just clean, cosmetic science that fits your life.",
+        "ingredients": "Powered by: DHQG • EGCG • Zinc PCA • Oleanolic Acid • Apigenin • Biotinoyl Tripeptide-1 (2.0% total inclusion)"
+      }
+    },
     "kaza_our_story": {
       "type": "kaza-our-story",
       "settings": {
@@ -185,58 +237,6 @@
         "background_image": "shopify://shop_images/choose-bg.webp",
         "center_image": "shopify://shop_images/choose-image.webp",
         "show_arc": true
-      }
-    },
-    "kaza_rootalix": {
-      "type": "kaza-rootalix",
-      "blocks": {
-        "f1": {
-          "type": "feature",
-          "settings": {
-            "position": "top-left",
-            "icon": "shopify://shop_images/choose-icon4.webp",
-            "title": "Thicker strands over time"
-          }
-        },
-        "f2": {
-          "type": "feature",
-          "settings": {
-            "position": "bottom-left",
-            "icon": "shopify://shop_images/choose-icon3.webp",
-            "title": "Less shedding on brush and in shower"
-          }
-        },
-        "f3": {
-          "type": "feature",
-          "settings": {
-            "position": "top-right",
-            "icon": "shopify://shop_images/choose-icon2.webp",
-            "title": "Healthier scalp feel and appearance"
-          }
-        },
-        "f4": {
-          "type": "feature",
-          "settings": {
-            "position": "bottom-right",
-            "icon": "shopify://shop_images/choose-icon1.webp",
-            "title": "Visible Density Improvements."
-          }
-        }
-      },
-      "block_order": [
-        "f1",
-        "f2",
-        "f3",
-        "f4"
-      ],
-      "settings": {
-        "show_rating": true,
-        "rating": 5,
-        "rating_text": "",
-        "heading_prefix": "Powered by",
-        "heading_highlight": "Rootalix™",
-        "description": "Rootalix™ is Alphin Labs' proprietary active complex designed to support thicker hair and reduce shedding, built for daily, leave-on use and a modern men's routine. No prescriptions, no heaviness, just clean, cosmetic science that fits your life.",
-        "ingredients": "Powered by: DHQG • EGCG • Zinc PCA • Oleanolic Acid • Apigenin • Biotinoyl Tripeptide-1 (2.0% total inclusion)"
       }
     },
     "kaza_promo_cards": {
@@ -400,11 +400,11 @@
   },
   "order": [
     "kaza_hero",
-    "kaza_our_story",
-    "kaza_why_choose",
     "kaza_rootalix",
-    "kaza_promo_cards",
     "kaza_how_it_works",
-    "kaza_challenge"
+    "kaza_challenge",
+    "kaza_why_choose",
+    "kaza_our_story",
+    "kaza_promo_cards"
   ]
 }
