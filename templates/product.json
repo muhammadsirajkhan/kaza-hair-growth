@@ -16,7 +16,7 @@
           "type": "benefit",
           "settings": {
             "title": "Thicker strands over time",
-            "text": "Rootalix™ actives support the look of fuller, denser hair with consistent daily use."
+            "text": "Rootalix actives support the look of fuller, denser hair with consistent daily use."
           }
         },
         "benefit_2": {
@@ -40,7 +40,7 @@
         "benefit_3"
       ],
       "settings": {
-        "subheading": "Powered by Rootalix™",
+        "subheading": "Powered by Rootalix",
         "subtitle": "Our breakthrough cosmetic active for visibly fuller-looking hair",
         "powered_by_text": "DHQG • EGCG • Zinc Chloride • Oleanolic Acid • Apigenin • Biotinoyl Tripeptide-1 (2.0% total inclusion)",
         "cta_label": "Shop the Serum",
@@ -157,7 +157,7 @@
       "settings": {
         "badge_text": "Welcome to Kaza",
         "heading_prefix": "Why Choose",
-        "heading_highlight": "Kaza™",
+        "heading_highlight": "Kaza",
         "subheading": "Real performance. Visible results. Made for men who want impact, not excuses.",
         "show_arc": true
       }
@@ -203,9 +203,9 @@
       "settings": {
         "badge_text": "Welcome to Kaza",
         "heading_prefix": "What's inside",
-        "heading_highlight": "Rootalix™",
+        "heading_highlight": "Rootalix",
         "subheading": "the science, simplified",
-        "footer_text": "Total Rootalix™ inclusion: 2.0% in the finished formula. Components are listed individually on the INCI panel for full transparency"
+        "footer_text": "Total Rootalix inclusion: 2.0% in the finished formula. Components are listed individually on the INCI panel for full transparency"
       }
     },
     "kaza_product_promo": {
@@ -250,7 +250,7 @@
           "settings": {
             "heading_prefix": "Built for",
             "heading_highlight": "men",
-            "subheading": "Key Actives: Rootalix™ • Caffeine • Saw Palmetto",
+            "subheading": "Key Actives: Rootalix • Caffeine • Saw Palmetto",
             "show_badges": true,
             "badge_1_text": "non-oily, fast dry-down subtle finish",
             "badge_2_text": "Fragrance: none added",
@@ -351,15 +351,15 @@
         "question_1": {
           "type": "question",
           "settings": {
-            "question": "Is Rootalix™ a drug?",
-            "answer": "<p>No. Rootalix™ is a cosmetic active complex. KAZA Hair Growth Serum is a leave-on cosmetic serum — no prescription needed, and it is not a treatment for any medical condition.</p>"
+            "question": "Is Rootalix a drug?",
+            "answer": "<p>No. Rootalix is a cosmetic active complex. KAZA Hair Growth Serum is a leave-on cosmetic serum — no prescription needed, and it is not a treatment for any medical condition.</p>"
           }
         },
         "question_2": {
           "type": "question",
           "settings": {
             "question": "Can I stack it with caffeine or rosemary?",
-            "answer": "<p>Yes. Rootalix™ is formulated to work alongside caffeine and rosemary—two actives already included in the KAZA Hair Growth Serum formula.</p>"
+            "answer": "<p>Yes. Rootalix is formulated to work alongside caffeine and rosemary—two actives already included in the KAZA Hair Growth Serum formula.</p>"
           }
         },
         "question_3": {
@@ -395,9 +395,9 @@
         "background_image": "shopify://shop_images/sub-banner.webp",
         "product_image": "shopify://shop_images/sub-banner-image.webp",
         "heading_prefix": "Add",
-        "heading_highlight": "Rootalix™",
+        "heading_highlight": "Rootalix",
         "heading_suffix": "to your routine",
-        "text": "KAZA Hair Growth Serum — Powered by Rootalix™, Caffeine, and Rosemary",
+        "text": "KAZA Hair Growth Serum — Powered by Rootalix, Caffeine, and Rosemary",
         "button_label": "Shop the Serum",
         "button_url": "shopify://products/kaza-hair-growth-serum"
       }
