@@ -358,9 +358,9 @@
             "button_label": "Shop Now",
             "button_url": "shopify://products/kaza-hair-growth-serum",
             "show_badges": true,
-            "badge_1_text": "Visible Density Improvements.",
+            "badge_1_text": "",
             "badge_1_icon": "shopify://shop_images/choose-icon1.webp",
-            "badge_2_text": "Supports Fuller Density",
+            "badge_2_text": "",
             "badge_2_icon": "shopify://shop_images/choose-icon2.webp"
           }
         }
