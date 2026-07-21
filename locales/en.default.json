@@ -220,6 +220,7 @@
         }
       },
       "settings": {
+        "subheading": "Subheading above title",
         "subtitle": "Product subtitle",
         "powered_by_text": "Powered by ingredients",
         "cta_label": "Button label"

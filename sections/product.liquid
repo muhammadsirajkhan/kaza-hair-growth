@@ -100,6 +100,10 @@
     </div>
 
     <div class="kaza-product__content">
+      {%- if section.settings.subheading != blank -%}
+        <p class="kaza-product__subheading">{{ section.settings.subheading }}</p>
+      {%- endif -%}
+
       <h1 class="kaza-product__title">{{ product.title }}</h1>
 
       {%- if section.settings.subtitle != blank -%}
@@ -400,6 +404,12 @@
 {
   "name": "t:general.product",
   "settings": [
+    {
+      "type": "text",
+      "id": "subheading",
+      "label": "t:sections.kaza_product.settings.subheading",
+      "default": "Hair density serum"
+    },
     {
       "type": "text",
       "id": "subtitle",
