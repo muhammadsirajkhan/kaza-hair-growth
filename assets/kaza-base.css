@@ -42,6 +42,16 @@
   margin-inline: auto;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
 .full-width[id],
 .kaza-hero[id] {
   scroll-margin-top: calc(var(--kaza-header-height) + 0.75rem);
