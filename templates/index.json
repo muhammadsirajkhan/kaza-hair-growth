@@ -69,6 +69,7 @@
         "feature_3"
       ],
       "settings": {
+        "section_id": "hero",
         "show_trust_bar": true,
         "trust_text": "",
         "trust_rating": 5,
@@ -120,6 +121,7 @@
         "f4"
       ],
       "settings": {
+        "section_id": "rootalix",
         "show_rating": true,
         "rating": 5,
         "rating_text": "",
@@ -163,6 +165,7 @@
         "step_3"
       ],
       "settings": {
+        "section_id": "how-it-works",
         "badge_text": "Welcome to Kaza",
         "heading_prefix": "How it",
         "heading_highlight": "Works",
@@ -237,6 +240,7 @@
         "benefit_4"
       ],
       "settings": {
+        "section_id": "challenge",
         "badge_text": "Welcome to Kaza",
         "heading_prefix": "90-Day",
         "heading_highlight": "Challenge",
@@ -317,6 +321,7 @@
         "feature_3"
       ],
       "settings": {
+        "section_id": "why-choose",
         "badge_text": "Welcome to Kaza",
         "heading_prefix": "Why Choose",
         "heading_highlight": "Kaza",
@@ -329,6 +334,7 @@
     "kaza_our_story": {
       "type": "kaza-our-story",
       "settings": {
+        "section_id": "our-story",
         "show_intro": true,
         "badge_text": "Welcome to Kaza",
         "intro_text": "Kaza is built for men who take their appearance seriously and want products that match that mindset — clean, modern, and engineered to work.",
@@ -382,7 +388,9 @@
         "card_1",
         "card_2"
       ],
-      "settings": {}
+      "settings": {
+        "section_id": "promo"
+      }
     }
   },
   "order": [

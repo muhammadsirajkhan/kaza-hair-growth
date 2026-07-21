@@ -40,6 +40,7 @@
         "benefit_3"
       ],
       "settings": {
+        "section_id": "product",
         "subheading": "Powered by Rootalix",
         "subtitle": "Our breakthrough cosmetic active for visibly fuller-looking hair",
         "powered_by_text": "EGCG • Zinc Chloride • Oleanolic Acid • Apigenin • Biotinoyl Tripeptide-1 (2.0% total inclusion)",
@@ -89,7 +90,9 @@
         "highlight_4",
         "highlight_5"
       ],
-      "settings": {}
+      "settings": {
+        "section_id": "trust"
+      }
     },
     "kaza_why_choose_Pf3KHL": {
       "type": "kaza-why-choose",
@@ -155,6 +158,7 @@
       ],
       "name": "t:sections.kaza_why_choose.name",
       "settings": {
+        "section_id": "why-choose",
         "badge_text": "Welcome to Kaza",
         "heading_prefix": "Why Choose",
         "heading_highlight": "Kaza",
@@ -201,6 +205,7 @@
         "ingredient_4"
       ],
       "settings": {
+        "section_id": "whats-inside",
         "badge_text": "Welcome to Kaza",
         "heading_prefix": "What's inside",
         "heading_highlight": "Rootalix",
@@ -266,7 +271,9 @@
         "step_4",
         "men_card"
       ],
-      "settings": {}
+      "settings": {
+        "section_id": "product-promo"
+      }
     },
     "kaza_challenge_JwDE9z": {
       "type": "kaza-challenge",
@@ -335,6 +342,7 @@
       ],
       "name": "t:sections.kaza_challenge.name",
       "settings": {
+        "section_id": "challenge",
         "badge_text": "Welcome to Kaza",
         "heading_prefix": "90-Day",
         "heading_highlight": "Challenge",
@@ -384,6 +392,7 @@
         "question_4"
       ],
       "settings": {
+        "section_id": "faq",
         "badge_text": "Welcome to Kaza",
         "heading_prefix": "Frequently Asked",
         "heading_highlight": "Questions"
@@ -392,6 +401,7 @@
     "kaza_sub_banner": {
       "type": "kaza-sub-banner",
       "settings": {
+        "section_id": "shop",
         "background_image": "shopify://shop_images/sub-banner.webp",
         "product_image": "shopify://shop_images/sub-banner-image.webp",
         "heading_prefix": "Add",

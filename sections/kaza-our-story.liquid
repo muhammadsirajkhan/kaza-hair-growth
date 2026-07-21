@@ -1,4 +1,7 @@
-<section class="kaza-our-story full-width">
+<section
+  class="kaza-our-story full-width"
+  {% if section.settings.section_id != blank %}id="{{ section.settings.section_id | handleize }}"{% endif %}
+>
   <div class="kaza-container">
     {% if section.settings.show_intro %}
       <div class="kaza-our-story__intro kaza-section-intro">
@@ -83,6 +86,13 @@
 {
   "name": "t:sections.kaza_our_story.name",
   "settings": [
+    {
+      "type": "text",
+      "id": "section_id",
+      "label": "t:labels.section_id",
+      "info": "t:labels.section_id_info",
+      "default": "our-story"
+    },
     {
       "type": "header",
       "content": "t:sections.kaza_our_story.settings.intro_header"

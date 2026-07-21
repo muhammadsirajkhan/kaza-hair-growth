@@ -4,7 +4,10 @@
   assign men_card = section.blocks | where: 'type', 'men_card' | first
 %}
 
-<section class="kaza-product-promo full-width">
+<section
+  class="kaza-product-promo full-width"
+  {% if section.settings.section_id != blank %}id="{{ section.settings.section_id | handleize }}"{% endif %}
+>
   <div class="kaza-container">
     <div class="kaza-product-promo__grid">
       {% if consistency_card %}
@@ -260,6 +263,15 @@
           "label": "t:sections.kaza_product_promo.settings.badge_3_icon"
         }
       ]
+    }
+  ],
+  "settings": [
+    {
+      "type": "text",
+      "id": "section_id",
+      "label": "t:labels.section_id",
+      "info": "t:labels.section_id_info",
+      "default": "product-promo"
     }
   ],
   "presets": [

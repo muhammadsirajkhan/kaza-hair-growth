@@ -323,6 +323,9 @@
     }
   },
   "labels": {
+    "menu": "Menu",
+    "section_id": "Section ID (menu anchor)",
+    "section_id_info": "Used for menu links. Example: faq becomes #faq. Use lowercase letters, numbers, and hyphens only.",
     "logo": "Logo",
     "logo_text": "Logo text",
     "heading": "Heading",

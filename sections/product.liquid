@@ -9,7 +9,12 @@
   endif
 -%}
 
-<section class="kaza-product full-width" data-kaza-product data-section-id="{{ section.id }}">
+<section
+  class="kaza-product full-width"
+  data-kaza-product
+  data-section-id="{{ section.id }}"
+  {% if section.settings.section_id != blank %}id="{{ section.settings.section_id | handleize }}"{% endif %}
+>
   <div class="kaza-container kaza-product__inner">
     <div class="kaza-product__gallery" id="kaza-gallery-{{ section.id }}">
       <div class="kaza-product__main-media">
@@ -404,6 +409,13 @@
 {
   "name": "t:general.product",
   "settings": [
+    {
+      "type": "text",
+      "id": "section_id",
+      "label": "t:labels.section_id",
+      "info": "t:labels.section_id_info",
+      "default": "product"
+    },
     {
       "type": "text",
       "id": "subheading",
