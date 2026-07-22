@@ -264,8 +264,11 @@
             "subheading": "Key Actives: Rootalix • Caffeine • Saw Palmetto",
             "show_badges": true,
             "badge_1_text": "non-oily, fast dry-down subtle finish",
+            "badge_1_icon": "shopify://shop_images/choose-icon2.webp",
             "badge_2_text": "Fragrance: none added",
-            "badge_3_text": "Philosophy: For men, by men."
+            "badge_2_icon": "shopify://shop_images/choose-icon1.webp",
+            "badge_3_text": "Philosophy: For men, by men.",
+            "badge_3_icon": "shopify://shop_images/icon.webp"
           }
         }
       },
