@@ -214,7 +214,7 @@
       ],
       "settings": {
         "section_id": "whats-inside",
-        "badge_text": "Welcome to Kaza",
+        "badge_text": "The Formula",
         "heading_prefix": "What's inside",
         "heading_highlight": "Rootalix",
         "subheading": "the science, simplified",
@@ -355,7 +355,7 @@
       "name": "t:sections.kaza_challenge.name",
       "settings": {
         "section_id": "challenge",
-        "badge_text": "Welcome to Kaza",
+        "badge_text": "Real Results",
         "heading_prefix": "90-Day",
         "heading_highlight": "Challenge",
         "subheading": "Real performance. Visible results. Made for men who want impact, not excuses.",
@@ -405,7 +405,7 @@
       ],
       "settings": {
         "section_id": "faq",
-        "badge_text": "Welcome to Kaza",
+        "badge_text": "Got Questions",
         "heading_prefix": "Frequently Asked",
         "heading_highlight": "Questions"
       }
