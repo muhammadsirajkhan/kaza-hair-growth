@@ -232,3 +232,119 @@ html {
 .kaza-hide-desktop {
   display: none !important;
 }
+
+
+
+.page-wrapper {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: clamp(60px, 8vw, 120px) 20px;
+}
+
+.page-wrapper h1 {
+  margin: 0 0 40px;
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 600;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+}
+
+.page-wrapper h2,
+.page-wrapper h3,
+.page-wrapper h4,
+.page-wrapper h5,
+.page-wrapper h6 {
+  margin: 2.5em 0 0.8em;
+  font-weight: 600;
+  line-height: 1.25;
+}
+
+.page-wrapper h2 {
+  font-size: clamp(2rem, 3.5vw, 2.75rem);
+}
+
+.page-wrapper h3 {
+  font-size: clamp(1.5rem, 2.5vw, 2rem);
+}
+
+.page-wrapper h4 {
+  font-size: clamp(1.25rem, 2vw, 1.5rem);
+}
+
+.page-wrapper p,
+.page-wrapper li {
+  margin: 0 0 1.25em;
+  font-size: clamp(1rem, 1.2vw, 1.125rem);
+  line-height: 1.8;
+  color: #555;
+}
+
+.page-wrapper ul,
+.page-wrapper ol {
+  margin: 0 0 2rem 1.5rem;
+  padding: 0;
+}
+
+.page-wrapper li+li {
+  margin-top: 0.75rem;
+}
+
+.page-wrapper a {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.page-wrapper strong {
+  font-weight: 600;
+}
+
+.page-wrapper img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+.page-wrapper table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 2rem 0;
+}
+
+.page-wrapper th,
+.page-wrapper td {
+  padding: 12px 16px;
+  border: 1px solid #e5e5e5;
+  text-align: left;
+}
+
+.page-wrapper blockquote {
+  margin: 2rem 0;
+  padding-left: 1.5rem;
+  border-left: 3px solid #ddd;
+  font-style: italic;
+}
+
+.page-wrapper>*:first-child {
+  margin-top: 0;
+}
+
+.page-wrapper>*:last-child {
+  margin-bottom: 0;
+}
+
+@media (max-width: 767px) {
+  .page-wrapper {
+    padding: 50px 20px;
+  }
+
+  .page-wrapper h1 {
+    margin-bottom: 30px;
+  }
+
+  .page-wrapper h2,
+  .page-wrapper h3,
+  .page-wrapper h4 {
+    margin-top: 2em;
+  }
+}

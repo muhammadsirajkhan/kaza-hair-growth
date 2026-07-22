@@ -5,9 +5,12 @@
   https://shopify.dev/docs/storefronts/themes/architecture/templates/page
 {% endcomment %}
 
-<h1>{{ page.title }} 123</h1>
 
-<div class="page-wrapper">{{ page.content }}</div>
+
+<div class="page-wrapper">
+<h1>{{ page.title }}</h1>  
+{{ page.content }}
+</div>
 
 {% schema %}
 {
