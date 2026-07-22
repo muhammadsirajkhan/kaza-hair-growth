@@ -254,6 +254,7 @@
         "men_card": {
           "type": "men_card",
           "settings": {
+            "background_image": "shopify://shop_images/Why-Choose-954x1043.webp",
             "heading_prefix": "Built for",
             "heading_highlight": "men",
             "subheading": "Key Actives: Rootalix • Caffeine • Saw Palmetto",
