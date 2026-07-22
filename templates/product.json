@@ -173,6 +173,7 @@
         "ingredient_1": {
           "type": "ingredient",
           "settings": {
+            "image": "shopify://shop_images/new-4.webp",
             "title": "Dihydroquercetin & EGCG",
             "text": "Polyphenols from larch wood and green tea, used in cosmetic formulas to support the appearance of healthy follicle activity."
           }
@@ -180,6 +181,7 @@
         "ingredient_2": {
           "type": "ingredient",
           "settings": {
+            "image": "shopify://shop_images/new-3.webp",
             "title": "Zinc Chloride",
             "text": "helps keep the scalp environment balanced and fresh-looking."
           }
@@ -187,6 +189,7 @@
         "ingredient_3": {
           "type": "ingredient",
           "settings": {
+            "image": "shopify://shop_images/new-2.webp",
             "title": "Oleanolic Acid & Apigenin",
             "text": "botanical actives used in cosmetic formulas to support stronger roots."
           }
@@ -194,6 +197,7 @@
         "ingredient_4": {
           "type": "ingredient",
           "settings": {
+            "image": "shopify://shop_images/new-1.webp",
             "title": "Biotinoyl Tripeptide-1",
             "text": "a cosmetic peptide used to promote the appearance of thicker, more resilient hair."
           }
