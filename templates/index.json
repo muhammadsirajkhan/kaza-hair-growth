@@ -339,6 +339,7 @@
           "type": "card",
           "settings": {
             "card_layout": "left",
+            "background_image": "shopify://shop_images/Why-Choose-954x1043-2.webp",
             "heading_prefix": "No Prescription",
             "heading_highlight": "Needed.",
             "text": "Non-systemic, zero libido impact, no prescription needed.",
@@ -353,6 +354,7 @@
           "type": "card",
           "settings": {
             "card_layout": "right",
+            "background_image": "shopify://shop_images/Why-Choose-954x1043.webp",
             "heading_prefix": "Bio-Hacked",
             "heading_highlight": "Plant Science",
             "text": "Saw Palmetto, Green Tea, Larch Wood, Oleanolic Acid are all botanical-derived.",
