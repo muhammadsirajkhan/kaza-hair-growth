@@ -16,21 +16,21 @@
           "type": "benefit",
           "settings": {
             "title": "Thicker strands over time",
-            "text": "Supports thicker, fuller-looking hair by strengthening follicles."
+            "text": "Rootalix actives support the look of fuller, denser hair with consistent daily use."
           }
         },
         "benefit_2": {
           "type": "benefit",
           "settings": {
             "title": "Less shedding on brush and in shower",
-            "text": "Supports thicker, fuller-looking hair by strengthening follicles."
+            "text": "Peptide and botanical support for stronger-feeling anchoring at the root."
           }
         },
         "benefit_3": {
           "type": "benefit",
           "settings": {
             "title": "Healthier scalp feel and appearance",
-            "text": "Supports thicker, fuller-looking hair by strengthening follicles."
+            "text": "Ceramides, allantoin, and sodium PCA hydrate and calm the scalp environment."
           }
         }
       },
@@ -40,8 +40,10 @@
         "benefit_3"
       ],
       "settings": {
+        "section_id": "product",
+        "subheading": "Powered by Rootalix",
         "subtitle": "Our breakthrough cosmetic active for visibly fuller-looking hair",
-        "powered_by_text": "DHQG • EGCG • Zinc PCA • Oleanolic Acid • Apigenin • Biotinoyl Tripeptide-1 (2.0% total inclusion)",
+        "powered_by_text": "EGCG • Zinc Chloride • Oleanolic Acid • Apigenin • Biotinoyl Tripeptide-1 (2.0% total inclusion)",
         "cta_label": "Shop the Serum",
         "show_intro_price": true,
         "price_suffix": "USD until final"
@@ -88,7 +90,9 @@
         "highlight_4",
         "highlight_5"
       ],
-      "settings": {}
+      "settings": {
+        "section_id": "trust"
+      }
     },
     "kaza_why_choose_Pf3KHL": {
       "type": "kaza-why-choose",
@@ -125,7 +129,7 @@
           "type": "feature",
           "settings": {
             "title": "Follicle vitality support",
-            "text": "A next-gen catechin system (DHQG + EGCG) paired with Zinc PCA to support a balanced scalp environment and the look of active, energized roots."
+            "text": "A next-gen catechin system (EGCG) paired with Zinc Chloride to support a balanced scalp environment and the look of active, energized roots."
           }
         },
         "feature_DWiMg4": {
@@ -152,11 +156,13 @@
         "feature_DWiMg4",
         "feature_gziwkt"
       ],
+      "disabled": true,
       "name": "t:sections.kaza_why_choose.name",
       "settings": {
+        "section_id": "why-choose",
         "badge_text": "Welcome to Kaza",
         "heading_prefix": "Why Choose",
-        "heading_highlight": "Kaza™",
+        "heading_highlight": "Kaza",
         "subheading": "Real performance. Visible results. Made for men who want impact, not excuses.",
         "show_arc": true
       }
@@ -167,20 +173,23 @@
         "ingredient_1": {
           "type": "ingredient",
           "settings": {
-            "title": "DHQG & EGCG",
-            "text": "polyphenol technology used in cosmetic literature to support the appearance of healthy follicle activity"
+            "image": "shopify://shop_images/new-4.webp",
+            "title": "Dihydroquercetin & EGCG",
+            "text": "Polyphenols from larch wood and green tea, used in cosmetic formulas to support the appearance of healthy follicle activity."
           }
         },
         "ingredient_2": {
           "type": "ingredient",
           "settings": {
-            "title": "Zinc PCA",
+            "image": "shopify://shop_images/new-3.webp",
+            "title": "Zinc Chloride",
             "text": "helps keep the scalp environment balanced and fresh-looking."
           }
         },
         "ingredient_3": {
           "type": "ingredient",
           "settings": {
+            "image": "shopify://shop_images/new-2.webp",
             "title": "Oleanolic Acid & Apigenin",
             "text": "botanical actives used in cosmetic formulas to support stronger roots."
           }
@@ -188,6 +197,7 @@
         "ingredient_4": {
           "type": "ingredient",
           "settings": {
+            "image": "shopify://shop_images/new-1.webp",
             "title": "Biotinoyl Tripeptide-1",
             "text": "a cosmetic peptide used to promote the appearance of thicker, more resilient hair."
           }
@@ -200,11 +210,12 @@
         "ingredient_4"
       ],
       "settings": {
+        "section_id": "whats-inside",
         "badge_text": "Welcome to Kaza",
         "heading_prefix": "What's inside",
-        "heading_highlight": "Rootalix™",
+        "heading_highlight": "Rootalix",
         "subheading": "the science, simplified",
-        "footer_text": "Total Rootalix™ inclusion: 2.0% in the finished formula. Components are listed individually on the INCI panel for full transparency"
+        "footer_text": "Total Rootalix inclusion: 2.0% in the finished formula. Components are listed individually on the INCI panel for full transparency"
       }
     },
     "kaza_product_promo": {
@@ -247,13 +258,17 @@
         "men_card": {
           "type": "men_card",
           "settings": {
+            "background_image": "shopify://shop_images/Why-Choose-954x1043.webp",
             "heading_prefix": "Built for",
             "heading_highlight": "men",
-            "subheading": "Key Actives — Rootalix™ • Caffeine • Rosemary",
+            "subheading": "Key Actives: Rootalix • Caffeine • Saw Palmetto",
             "show_badges": true,
             "badge_1_text": "non-oily, fast dry-down subtle finish",
+            "badge_1_icon": "shopify://shop_images/choose-icon2.webp",
             "badge_2_text": "Fragrance: none added",
-            "badge_3_text": "Philosophy: For men, by men."
+            "badge_2_icon": "shopify://shop_images/choose-icon1.webp",
+            "badge_3_text": "Philosophy: For men, by men.",
+            "badge_3_icon": "shopify://shop_images/icon.webp"
           }
         }
       },
@@ -265,7 +280,9 @@
         "step_4",
         "men_card"
       ],
-      "settings": {}
+      "settings": {
+        "section_id": "product-promo"
+      }
     },
     "kaza_challenge_JwDE9z": {
       "type": "kaza-challenge",
@@ -334,6 +351,7 @@
       ],
       "name": "t:sections.kaza_challenge.name",
       "settings": {
+        "section_id": "challenge",
         "badge_text": "Welcome to Kaza",
         "heading_prefix": "90-Day",
         "heading_highlight": "Challenge",
@@ -350,15 +368,15 @@
         "question_1": {
           "type": "question",
           "settings": {
-            "question": "Is Rootalix™ a drug?",
-            "answer": "<p>No. Rootalix™ is a cosmetic active complex. KAZA Hair Growth Serum is a leave-on cosmetic serum — no prescription needed, and it is not a treatment for any medical condition.</p>"
+            "question": "Is Rootalix a drug?",
+            "answer": "<p>No. Rootalix is a cosmetic active complex. KAZA Hair Growth Serum is a leave-on cosmetic serum — no prescription needed, and it is not a treatment for any medical condition.</p>"
           }
         },
         "question_2": {
           "type": "question",
           "settings": {
             "question": "Can I stack it with caffeine or rosemary?",
-            "answer": "<p>Yes. Rootalix™ is formulated to work alongside caffeine and rosemary—two actives already included in the KAZA Hair Density Serum formula.</p>"
+            "answer": "<p>Yes. Rootalix is formulated to work alongside caffeine and rosemary—two actives already included in the KAZA Hair Growth Serum formula.</p>"
           }
         },
         "question_3": {
@@ -383,6 +401,7 @@
         "question_4"
       ],
       "settings": {
+        "section_id": "faq",
         "badge_text": "Welcome to Kaza",
         "heading_prefix": "Frequently Asked",
         "heading_highlight": "Questions"
@@ -391,12 +410,15 @@
     "kaza_sub_banner": {
       "type": "kaza-sub-banner",
       "settings": {
+        "section_id": "shop",
+        "background_image": "shopify://shop_images/sub-banner.webp",
+        "product_image": "shopify://shop_images/Sub-banner-366x682.webp",
         "heading_prefix": "Add",
-        "heading_highlight": "Rootalix™",
+        "heading_highlight": "Rootalix",
         "heading_suffix": "to your routine",
-        "text": "KAZA Hair Density Serum — Powered by Rootalix™, Caffeine, and Rosemary",
+        "text": "KAZA Hair Growth Serum — Powered by Rootalix, Caffeine, and Rosemary",
         "button_label": "Shop the Serum",
-        "button_url": "shopify://products/rootalix"
+        "button_url": "shopify://products/kaza-hair-growth-serum"
       }
     }
   },

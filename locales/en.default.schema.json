@@ -53,6 +53,8 @@
     "input_corner_radius": "Input corner radius",
     "layout_direction": "Layout direction",
     "menu": "Menu",
+    "section_id": "Section ID (menu anchor)",
+    "section_id_info": "Used for menu links. Example: faq becomes #faq. Use lowercase letters, numbers, and hyphens only.",
     "customer_account_menu": "Customer account menu",
     "padding": "Padding",
     "page_margin": "Page margin",
@@ -296,6 +298,7 @@
     "kaza_product": {
       "name": "Product",
       "settings": {
+        "subheading": "Subheading above title",
         "subtitle": "Product subtitle",
         "powered_by_text": "Powered by ingredients",
         "cta_label": "Button label",

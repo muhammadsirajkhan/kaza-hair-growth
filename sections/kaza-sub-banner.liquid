@@ -1,4 +1,7 @@
-<section class="kaza-sub-banner full-width">
+<section
+  class="kaza-sub-banner full-width"
+  {% if section.settings.section_id != blank %}id="{{ section.settings.section_id | handleize }}"{% endif %}
+>
   <div class="kaza-sub-banner__card">
     <div class="kaza-sub-banner__bg" aria-hidden="true">
       {% if section.settings.background_image != blank %}
@@ -90,6 +93,13 @@
   {
     "name": "t:sections.kaza_sub_banner.name",
     "settings": [
+      {
+        "type": "text",
+        "id": "section_id",
+        "label": "t:labels.section_id",
+        "info": "t:labels.section_id_info",
+        "default": "shop"
+      },
       {
         "type": "image_picker",
         "id": "background_image",

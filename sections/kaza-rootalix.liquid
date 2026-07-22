@@ -1,4 +1,7 @@
-<section class="kaza-rootalix full-width">
+<section
+  class="kaza-rootalix full-width"
+  {% if section.settings.section_id != blank %}id="{{ section.settings.section_id | handleize }}"{% endif %}
+>
   <div class="kaza-rootalix__bg" aria-hidden="true">
     {% if section.settings.background_image != blank %}
       {{ section.settings.background_image | image_url: width: 2400 | image_tag: loading: 'lazy', alt: '' }}
@@ -139,6 +142,13 @@
 {
   "name": "t:sections.kaza_rootalix.name",
   "settings": [
+    {
+      "type": "text",
+      "id": "section_id",
+      "label": "t:labels.section_id",
+      "info": "t:labels.section_id_info",
+      "default": "rootalix"
+    },
     {
       "type": "checkbox",
       "id": "show_rating",

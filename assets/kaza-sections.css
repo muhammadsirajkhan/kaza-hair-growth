@@ -2302,6 +2302,15 @@ body.template-index header.kaza-header {
   flex-direction: column;
 }
 
+.kaza-product__subheading {
+  font-size: var(--kaza-fs-section-content);
+  font-weight: 500;
+  line-height: 1.4;
+  letter-spacing: 0.02em;
+  color: var(--kaza-gray);
+  margin: 0 0 0.75rem;
+}
+
 .kaza-product__title {
   font-size: var(--kaza-fs-section);
   font-weight: 700;

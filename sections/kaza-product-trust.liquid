@@ -1,4 +1,7 @@
-<section class="kaza-product-trust full-width">
+<section
+  class="kaza-product-trust full-width"
+  {% if section.settings.section_id != blank %}id="{{ section.settings.section_id | handleize }}"{% endif %}
+>
   <div class="kaza-container">
     {% if section.blocks.size > 0 %}
       <ul class="kaza-product-trust__bar" role="list">
@@ -71,6 +74,15 @@
           "default": "Trust highlight"
         }
       ]
+    }
+  ],
+  "settings": [
+    {
+      "type": "text",
+      "id": "section_id",
+      "label": "t:labels.section_id",
+      "info": "t:labels.section_id_info",
+      "default": "trust"
     }
   ],
   "presets": [
