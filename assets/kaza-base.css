@@ -236,9 +236,9 @@ html {
 
 
 .page-wrapper {
-  max-width: 900px;
-  margin: 0 auto;
-  padding: clamp(60px, 8vw, 120px) 20px;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: clamp(60px, 8vw, 80px) 0px;
 }
 
 .page-wrapper h1 {
@@ -254,7 +254,7 @@ html {
 .page-wrapper h4,
 .page-wrapper h5,
 .page-wrapper h6 {
-  margin: 2.5em 0 0.8em;
+  /* margin: 2.5em 0 0.8em; */
   font-weight: 600;
   line-height: 1.25;
 }
