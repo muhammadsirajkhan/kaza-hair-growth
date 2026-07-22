@@ -15,6 +15,7 @@
         "benefit_1": {
           "type": "benefit",
           "settings": {
+            "icon": "shopify://shop_images/p3.webp",
             "title": "Thicker strands over time",
             "text": "Rootalix actives support the look of fuller, denser hair with consistent daily use."
           }
@@ -22,6 +23,7 @@
         "benefit_2": {
           "type": "benefit",
           "settings": {
+            "icon": "shopify://shop_images/p1.webp",
             "title": "Less shedding on brush and in shower",
             "text": "Peptide and botanical support for stronger-feeling anchoring at the root."
           }
@@ -29,6 +31,7 @@
         "benefit_3": {
           "type": "benefit",
           "settings": {
+            "icon": "shopify://shop_images/p2.webp",
             "title": "Healthier scalp feel and appearance",
             "text": "Ceramides, allantoin, and sodium PCA hydrate and calm the scalp environment."
           }
