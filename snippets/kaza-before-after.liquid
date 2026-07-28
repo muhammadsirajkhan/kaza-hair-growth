@@ -39,12 +39,12 @@
     <span class="kaza-ba-slider__side-label kaza-ba-slider__side-label--after">{{ after_label }}</span>
 
     <div class="kaza-ba-slider__before">
-      {% if before_image != blank %}
-        {{ before_image | image_url: width: 1400 | image_tag: loading: 'lazy', alt: before_alt, class: 'kaza-ba-slider__image' }}
+      {% if after_image != blank %}
+        {{ after_image | image_url: width: 1400 | image_tag: loading: 'lazy', alt: after_alt, class: 'kaza-ba-slider__image' }}
       {% else %}
         <img
-          src="{{ before_fallback | default: 'before.webp' | asset_url }}"
-          alt="{{ before_alt | escape }}"
+          src="{{ after_fallback | default: 'after.webp' | asset_url }}"
+          alt="{{ after_alt | escape }}"
           class="kaza-ba-slider__image"
           width="1400"
           height="875"
@@ -54,12 +54,12 @@
     </div>
 
     <div class="kaza-ba-slider__after" data-kaza-ba-after>
-      {% if after_image != blank %}
-        {{ after_image | image_url: width: 1400 | image_tag: loading: 'lazy', alt: after_alt, class: 'kaza-ba-slider__image kaza-ba-slider__image--after' }}
+      {% if before_image != blank %}
+        {{ before_image | image_url: width: 1400 | image_tag: loading: 'lazy', alt: before_alt, class: 'kaza-ba-slider__image kaza-ba-slider__image--after' }}
       {% else %}
         <img
-          src="{{ after_fallback | default: 'after.webp' | asset_url }}"
-          alt="{{ after_alt | escape }}"
+          src="{{ before_fallback | default: 'before.webp' | asset_url }}"
+          alt="{{ before_alt | escape }}"
           class="kaza-ba-slider__image kaza-ba-slider__image--after"
           width="1400"
           height="875"
