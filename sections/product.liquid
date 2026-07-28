@@ -55,8 +55,7 @@
             {%- if media.media_type == 'image' -%}
               {%- assign media_alt = media.alt | default: product.title | escape -%}
               {%- assign media_src = media | image_url: width: 1400 -%}
-              {%- assign media_srcset = media | image_url: width: 600 | append: ' 600w, ' -%}
-              {%- assign media_srcset = media_srcset | append: media | image_url: width: 900 | append: ' 900w, ' -%}
+              {%- assign media_srcset = media | image_url: width: 1000 | append: ' 1000w, ' -%}
               {%- assign media_srcset = media_srcset | append: media | image_url: width: 1200 | append: ' 1200w, ' -%}
               {%- assign media_srcset = media_srcset | append: media | image_url: width: 1400 | append: ' 1400w' -%}
               <button
