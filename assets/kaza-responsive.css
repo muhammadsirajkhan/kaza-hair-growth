@@ -1525,6 +1525,16 @@
     --kaza-header-height: 4rem;
   }
 
+  .kaza-hero__heading {
+    line-height: 1.5;
+    font-size: 18px;
+  }
+
+  .kaza-hero__features,
+  .kaza-hero__subheading {
+    display: none;
+  }
+
   /* Font sizes — synced from kaza-sections.css */
   .kaza-promo-cards__heading,
   .kaza-challenge__review-title {
