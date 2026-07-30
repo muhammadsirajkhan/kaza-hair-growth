@@ -1290,7 +1290,7 @@
   }
 
   .kaza-product__content .kaza-product__title,
-  .kaza-product__content .kaza-product__subheading--mobile {
+  .kaza-product__content .kaza-product__subheading {
     display: none;
   }
 
