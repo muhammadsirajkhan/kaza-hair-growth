@@ -42,8 +42,13 @@
         %}
       </div>
 
-      {% if template.name == 'product' and section.settings.cta_product != blank %}
-        {%- assign cta_variant = section.settings.cta_product.selected_or_first_available_variant -%}
+      {% if request.page_type == 'product' %}
+        {%- assign cta_variant = blank -%}
+        {% if section.settings.cta_product != blank %}
+          {%- assign cta_variant = section.settings.cta_product.selected_or_first_available_variant -%}
+        {% elsif product != blank %}
+          {%- assign cta_variant = product.selected_or_first_available_variant -%}
+        {% endif %}
         {% if cta_variant != blank %}
           <div
             class="kaza-challenge__supply-btns"
