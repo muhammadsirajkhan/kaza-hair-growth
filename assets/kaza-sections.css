@@ -2249,6 +2249,10 @@ body.template-index header.kaza-header {
   gap: 0.875rem;
 }
 
+.kaza-product__title--mobile {
+  display: none;
+}
+
 .kaza-product__main-media {
   border-radius: 1.375rem;
   overflow: hidden;

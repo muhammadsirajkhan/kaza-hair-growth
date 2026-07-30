@@ -16,6 +16,7 @@
   {% if section.settings.section_id != blank %}id="{{ section.settings.section_id | handleize }}"{% endif %}
 >
   <div class="kaza-container kaza-product__inner">
+    <p class="kaza-product__title kaza-product__title--mobile" aria-hidden="true">{{ product.title }}</p>
     <div class="kaza-product__gallery" id="kaza-gallery-{{ section.id }}">
       <div class="kaza-product__main-media">
         {%- if use_product_media -%}
@@ -214,6 +215,7 @@
 
             <p class="kaza-product__form-error" data-kaza-product-error role="alert" hidden></p>
 
+            <div class="kaza-product__cta-bar">
             <button
               type="submit"
               name="add"
@@ -238,6 +240,7 @@
                 <circle cx="18" cy="20" r="1.25" fill="currentColor"/>
               </svg>
             </button>
+            </div>
           </div>
         {%- endform -%}
       </div>
@@ -400,6 +403,29 @@
       thumbs.forEach((thumb) => {
         thumb.addEventListener('click', () => setActive(thumb));
       });
+
+      const mainMedia = gallery.querySelector('.kaza-product__main-media');
+      if (mainMedia) {
+        let touchStartX = 0;
+        let touchStartY = 0;
+
+        mainMedia.addEventListener('touchstart', (e) => {
+          touchStartX = e.changedTouches[0].clientX;
+          touchStartY = e.changedTouches[0].clientY;
+        }, { passive: true });
+
+        mainMedia.addEventListener('touchend', (e) => {
+          const dx = e.changedTouches[0].clientX - touchStartX;
+          const dy = e.changedTouches[0].clientY - touchStartY;
+          if (Math.abs(dx) < 40 || Math.abs(dy) > Math.abs(dx)) return;
+          const activeIndex = thumbs.findIndex((t) => t.classList.contains('is-active'));
+          if (dx < 0) {
+            setActive(thumbs[(activeIndex + 1) % thumbs.length]);
+          } else {
+            setActive(thumbs[(activeIndex - 1 + thumbs.length) % thumbs.length]);
+          }
+        }, { passive: true });
+      }
     });
   })();
 {% endjavascript %}
