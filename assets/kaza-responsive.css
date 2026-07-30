@@ -1535,6 +1535,10 @@
     display: none;
   }
 
+  .kaza-hero__cta-row {
+    margin-top: 0;
+  }
+
   .kaza-hero__mobile-dropper-wrap {
     display: block;
     width: 100%;
