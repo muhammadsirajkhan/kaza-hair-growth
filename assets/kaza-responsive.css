@@ -1285,7 +1285,8 @@
 
   .kaza-product__title--mobile,
   .kaza-product__subtitle--mobile,
-  .kaza-product__subheading--mobile {
+  .kaza-product__subheading--mobile,
+  .title-mobile-wrap {
     display: block;
   }
 

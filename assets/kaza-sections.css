@@ -2250,7 +2250,8 @@ body.template-index header.kaza-header {
 }
 
 .kaza-product__title--mobile,
-.kaza-product__subheading--mobile {
+.kaza-product__subheading--mobile,
+.title-mobile-wrap {
   display: none;
 }
 
