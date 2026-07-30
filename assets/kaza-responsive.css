@@ -1283,11 +1283,13 @@
     width: 100%;
   }
 
-  .kaza-product__title--mobile {
+  .kaza-product__title--mobile,
+  .kaza-product__subtitle--mobile {
     display: block;
   }
 
-  .kaza-product__content .kaza-product__title {
+  .kaza-product__content .kaza-product__title,
+  .kaza-product__content .kaza-product__subtitle {
     display: none;
   }
 

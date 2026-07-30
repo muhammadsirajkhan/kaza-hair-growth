@@ -16,7 +16,12 @@
   {% if section.settings.section_id != blank %}id="{{ section.settings.section_id | handleize }}"{% endif %}
 >
   <div class="kaza-container kaza-product__inner">
-    <p class="kaza-product__title kaza-product__title--mobile" aria-hidden="true">{{ product.title }}</p>
+    <div class="title-mobile-wrap">
+      {%- if section.settings.subtitle != blank -%}
+          <p class="kaza-product__subtitle kaza-product__subtitle--mobile">{{ section.settings.subtitle }}</p>
+        {%- endif -%}
+      <h1 class="kaza-product__title kaza-product__title--mobile" aria-hidden="true">{{ product.title }}</h1>
+    </div>
     <div class="kaza-product__gallery" id="kaza-gallery-{{ section.id }}">
       <div class="kaza-product__main-media">
         {%- if use_product_media -%}
