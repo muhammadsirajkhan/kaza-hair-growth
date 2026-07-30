@@ -17,9 +17,9 @@
 >
   <div class="kaza-container kaza-product__inner">
     <div class="title-mobile-wrap">
-      {%- if section.settings.subtitle != blank -%}
-          <p class="kaza-product__subtitle kaza-product__subtitle--mobile">{{ section.settings.subtitle }}</p>
-        {%- endif -%}
+      {%- if section.settings.subheading != blank -%}
+        <p class="kaza-product__subheading kaza-product__subheading--mobile">{{ section.settings.subheading }}</p>
+      {%- endif -%}
       <h1 class="kaza-product__title kaza-product__title--mobile" aria-hidden="true">{{ product.title }}</h1>
     </div>
     <div class="kaza-product__gallery" id="kaza-gallery-{{ section.id }}">

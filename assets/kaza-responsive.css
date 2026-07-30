@@ -1284,12 +1284,13 @@
   }
 
   .kaza-product__title--mobile,
-  .kaza-product__subtitle--mobile {
+  .kaza-product__subtitle--mobile,
+  .kaza-product__subheading--mobile {
     display: block;
   }
 
   .kaza-product__content .kaza-product__title,
-  .kaza-product__content .kaza-product__subtitle {
+  .kaza-product__content .kaza-product__subheading--mobile {
     display: none;
   }
 

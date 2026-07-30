@@ -2249,7 +2249,8 @@ body.template-index header.kaza-header {
   gap: 0.875rem;
 }
 
-.kaza-product__title--mobile {
+.kaza-product__title--mobile,
+.kaza-product__subheading--mobile {
   display: none;
 }
 
