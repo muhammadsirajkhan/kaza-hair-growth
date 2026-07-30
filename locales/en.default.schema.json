@@ -276,7 +276,8 @@
         "heading_prefix": "Heading prefix",
         "heading_highlight": "Heading highlight",
         "handle_label": "Handle label",
-        "initial_position": "Initial slider position"
+        "initial_position": "Initial slider position",
+        "cta_product": "Product for supply buttons"
       },
       "blocks": {
         "testimonial": {
