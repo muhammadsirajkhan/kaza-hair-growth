@@ -1547,6 +1547,10 @@
     margin-bottom: 0.75rem;
   }
 
+  .kaza-hero__mobile-dropper-wrap img {
+    max-width: 280px;
+  }
+
   .kaza-hero__mobile-dropper {
     max-width: 90%;
     height: auto;
