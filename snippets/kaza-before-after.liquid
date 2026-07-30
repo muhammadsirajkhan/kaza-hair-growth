@@ -10,7 +10,7 @@
 {% enddoc %}
 
 {% liquid
-  assign position = initial_position | default: 50
+  assign position = initial_position | default: 25
   if position < 0
     assign position = 0
   endif
