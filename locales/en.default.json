@@ -193,6 +193,9 @@
       "handle_label": "Drag",
       "pagination_label": "Customer reviews",
       "go_to_review": "Go to review {{ number }}",
+      "supply_3": "3 Months",
+      "supply_6": "6 Months",
+      "supply_12": "12 Months",
       "blocks": {
         "testimonial": {
           "name": "Testimonial"
@@ -220,6 +223,7 @@
         }
       },
       "settings": {
+        "subheading": "Subheading above title",
         "subtitle": "Product subtitle",
         "powered_by_text": "Powered by ingredients",
         "cta_label": "Button label"
@@ -322,6 +326,9 @@
     }
   },
   "labels": {
+    "menu": "Menu",
+    "section_id": "Section ID (menu anchor)",
+    "section_id_info": "Used for menu links. Example: faq becomes #faq. Use lowercase letters, numbers, and hyphens only.",
     "logo": "Logo",
     "logo_text": "Logo text",
     "heading": "Heading",

@@ -1081,6 +1081,7 @@
     max-width: none;
     justify-content: flex-start;
     padding: 0.5rem 0.75rem;
+    text-align: left;
   }
 
   .kaza-why-choose__float img {
@@ -1280,6 +1281,40 @@
 
   .kaza-product__cta {
     width: 100%;
+  }
+
+  .kaza-product__title--mobile,
+  .kaza-product__subtitle--mobile,
+  .kaza-product__subheading--mobile,
+  .title-mobile-wrap {
+    display: block;
+  }
+
+  .kaza-product__content .kaza-product__title,
+  .kaza-product__content .kaza-product__subheading {
+    display: none;
+  }
+
+  .kaza-product {
+    padding-bottom: 5.5rem;
+  }
+
+  .kaza-product__cta-bar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 200;
+    padding: 0.75rem 1rem;
+    padding-bottom: calc(0.75rem + env(safe-area-inset-bottom, 0px));
+    background: var(--kaza-white);
+    border-top: 1px solid #e8e3da;
+    box-shadow: 0 -4px 16px rgba(0, 0, 0, 0.08);
+  }
+
+  .kaza-product__cta-bar .kaza-product__cta {
+    width: 100%;
+    min-width: unset;
   }
 
   .kaza-whats-inside__card {
@@ -1488,6 +1523,39 @@
     --kaza-fs-promo: 1.0625rem;
     --kaza-header-nav-size: 1rem;
     --kaza-header-height: 4rem;
+  }
+
+  .kaza-hero__heading {
+    line-height: 1.5;
+    font-size: 18px;
+  }
+
+  .kaza-hero__features,
+  .kaza-hero__subheading {
+    display: none;
+  }
+
+  .kaza-hero__cta-row {
+    margin-top: 0;
+  }
+
+  .kaza-hero__mobile-dropper-wrap {
+        display: flex;
+        width: 100%;
+        text-align: center;
+        margin-top: .75rem;
+        margin-bottom: .75rem;
+        justify-content: center;
+  }
+
+  .kaza-hero__mobile-dropper-wrap img {
+    max-width: 280px;
+  }
+
+  .kaza-hero__mobile-dropper {
+    max-width: 90%;
+    height: auto;
+    margin: 0 auto;
   }
 
   /* Font sizes — synced from kaza-sections.css */

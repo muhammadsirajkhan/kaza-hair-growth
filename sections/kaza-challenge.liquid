@@ -3,7 +3,11 @@
   assign benefit_blocks = section.blocks | where: 'type', 'benefit'
 %}
 
-<section class="kaza-challenge full-width" data-kaza-challenge>
+<section
+  class="kaza-challenge full-width"
+  data-kaza-challenge
+  {% if section.settings.section_id != blank %}id="{{ section.settings.section_id | handleize }}"{% endif %}
+>
   <div class="kaza-challenge__upper">
     <div class="kaza-container">
       <div class="kaza-challenge__header kaza-section-intro">
@@ -27,7 +31,7 @@
         {% endif %}
       </div>
 
-      <div class="kaza-challenge__comparison">
+      <div class="kaza-challenge__comparison" id="comparison">
         {% render 'kaza-before-after',
           before_image: section.settings.before_image,
           after_image: section.settings.after_image,
@@ -37,11 +41,39 @@
           initial_position: section.settings.initial_position
         %}
       </div>
+
+      {% if request.page_type == 'product' %}
+        {%- assign cta_variant = blank -%}
+        {% if section.settings.cta_product != blank %}
+          {%- assign cta_variant = section.settings.cta_product.selected_or_first_available_variant -%}
+        {% elsif product != blank %}
+          {%- assign cta_variant = product.selected_or_first_available_variant -%}
+        {% endif %}
+        {% if cta_variant != blank %}
+          <div
+            class="kaza-challenge__supply-btns"
+            data-kaza-supply
+            data-variant-id="{{ cta_variant.id }}"
+            data-cart-add-url="{{ routes.cart_add_url | append: '.js' }}"
+            data-cart-url="{{ routes.cart_url }}"
+          >
+            <button type="button" class="kaza-btn kaza-btn--primary kaza-challenge__supply-btn" data-quantity="3">
+              {{ 'sections.kaza_challenge.supply_3' | t }}
+            </button>
+            <button type="button" class="kaza-btn kaza-btn--primary kaza-challenge__supply-btn" data-quantity="6">
+              {{ 'sections.kaza_challenge.supply_6' | t }}
+            </button>
+            <button type="button" class="kaza-btn kaza-btn--primary kaza-challenge__supply-btn" data-quantity="12">
+              {{ 'sections.kaza_challenge.supply_12' | t }}
+            </button>
+          </div>
+        {% endif %}
+      {% endif %}
     </div>
   </div>
 
   {% if testimonial_blocks.size > 0 or benefit_blocks.size > 0 %}
-    <div class="kaza-challenge__lower">
+    <div class="kaza-challenge__lower" id="reviews">
       <div class="kaza-container">
         {% if testimonial_blocks.size > 0 %}
           <div class="kaza-challenge__reviews" data-kaza-reviews>
@@ -298,6 +330,35 @@
 
       goTo(0);
     });
+
+    document.querySelectorAll('[data-kaza-supply]').forEach((container) => {
+      const variantId = container.dataset.variantId;
+      const cartAddUrl = container.dataset.cartAddUrl;
+      const cartUrl = container.dataset.cartUrl || '/cart';
+      if (!variantId || !cartAddUrl) return;
+
+      container.querySelectorAll('[data-quantity]').forEach((btn) => {
+        btn.addEventListener('click', async () => {
+          const quantity = Number(btn.dataset.quantity);
+          if (!quantity) return;
+          btn.disabled = true;
+          try {
+            const response = await fetch(cartAddUrl, {
+              method: 'POST',
+              headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
+              body: JSON.stringify({ items: [{ id: Number(variantId), quantity }] }),
+            });
+            if (!response.ok) {
+              const data = await response.json();
+              throw new Error(data.description || 'Could not add to cart.');
+            }
+            window.location.assign(cartUrl);
+          } catch {
+            btn.disabled = false;
+          }
+        });
+      });
+    });
   })();
 {% endjavascript %}
 
@@ -305,6 +366,13 @@
 {
   "name": "t:sections.kaza_challenge.name",
   "settings": [
+    {
+      "type": "text",
+      "id": "section_id",
+      "label": "t:labels.section_id",
+      "info": "t:labels.section_id_info",
+      "default": "challenge"
+    },
     {
       "type": "text",
       "id": "badge_text",
@@ -346,6 +414,11 @@
       "default": "Drag"
     },
     {
+      "type": "product",
+      "id": "cta_product",
+      "label": "t:sections.kaza_challenge.settings.cta_product"
+    },
+    {
       "type": "range",
       "id": "initial_position",
       "label": "t:sections.kaza_challenge.settings.initial_position",
@@ -353,7 +426,7 @@
       "max": 100,
       "step": 1,
       "unit": "%",
-      "default": 50
+      "default": 25
     }
   ],
   "blocks": [

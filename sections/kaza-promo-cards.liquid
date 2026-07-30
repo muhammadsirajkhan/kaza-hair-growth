@@ -1,4 +1,7 @@
-<section class="kaza-promo-cards full-width">
+<section
+  class="kaza-promo-cards full-width"
+  {% if section.settings.section_id != blank %}id="{{ section.settings.section_id | handleize }}"{% endif %}
+>
   <div class="kaza-container">
     <div class="kaza-promo-cards__grid">
       {% for block in section.blocks %}
@@ -166,6 +169,15 @@
           "label": "t:sections.kaza_promo_cards.settings.badge_2_icon"
         }
       ]
+    }
+  ],
+  "settings": [
+    {
+      "type": "text",
+      "id": "section_id",
+      "label": "t:labels.section_id",
+      "info": "t:labels.section_id_info",
+      "default": "promo"
     }
   ],
   "presets": [

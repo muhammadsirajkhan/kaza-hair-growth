@@ -1,4 +1,7 @@
-<section class="kaza-benefits full-width">
+<section
+  class="kaza-benefits full-width"
+  {% if section.settings.section_id != blank %}id="{{ section.settings.section_id | handleize }}"{% endif %}
+>
   <div class="kaza-container">
     <div class="kaza-benefits__grid">
       {% for block in section.blocks %}
@@ -47,6 +50,15 @@
           "label": "t:labels.text"
         }
       ]
+    }
+  ],
+  "settings": [
+    {
+      "type": "text",
+      "id": "section_id",
+      "label": "t:labels.section_id",
+      "info": "t:labels.section_id_info",
+      "default": "benefits"
     }
   ],
   "presets": [

@@ -1,4 +1,7 @@
-<section class="kaza-why-choose full-width">
+<section
+  class="kaza-why-choose full-width"
+  {% if section.settings.section_id != blank %}id="{{ section.settings.section_id | handleize }}"{% endif %}
+>
   <div class="kaza-why-choose__bg" aria-hidden="true">
     {% if section.settings.background_image != blank %}
       {{ section.settings.background_image | image_url: width: 2400 | image_tag: loading: 'lazy', alt: '' }}
@@ -94,13 +97,13 @@
               {{ block.shopify_attributes }}
             >
               {% if float_icon != blank %}
-                {{ float_icon | image_url: width: 48 | image_tag: loading: 'lazy', alt: '' }}
+                {{ float_icon | image_url: width: 72 | image_tag: loading: 'lazy', alt: '' }}
               {% else %}
                 <img
                   src="{{ float_icon_fallback | asset_url }}"
                   alt=""
-                  width="24"
-                  height="24"
+                  width="72"
+                  height="71"
                   loading="lazy"
                 >
               {% endif %}
@@ -136,13 +139,13 @@
           <article class="kaza-card kaza-why-choose__card" {{ block.shopify_attributes }}>
             <div class="kaza-why-choose__card-icon">
               {% if feature_icon != blank %}
-                {{ feature_icon | image_url: width: 64 | image_tag: loading: 'lazy', alt: '' }}
+                {{ feature_icon | image_url: width: 90 | image_tag: loading: 'lazy', alt: '' }}
               {% else %}
                 <img
                   src="{{ feature_icon_fallback | asset_url }}"
                   alt=""
-                  width="32"
-                  height="32"
+                  width="180"
+                  height="180"
                   loading="lazy"
                 >
               {% endif %}
@@ -164,6 +167,13 @@
 {
   "name": "t:sections.kaza_why_choose.name",
   "settings": [
+    {
+      "type": "text",
+      "id": "section_id",
+      "label": "t:labels.section_id",
+      "info": "t:labels.section_id_info",
+      "default": "why-choose"
+    },
     {
       "type": "text",
       "id": "badge_text",

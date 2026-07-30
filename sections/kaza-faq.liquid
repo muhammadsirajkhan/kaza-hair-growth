@@ -1,4 +1,8 @@
-<section class="kaza-faq full-width" data-kaza-faq>
+<section
+  class="kaza-faq full-width"
+  data-kaza-faq
+  {% if section.settings.section_id != blank %}id="{{ section.settings.section_id | handleize }}"{% endif %}
+>
   <div class="kaza-container">
     <div class="kaza-faq__header kaza-section-intro">
       {% if section.settings.badge_text != blank %}
@@ -115,6 +119,13 @@
     }
   ],
   "settings": [
+    {
+      "type": "text",
+      "id": "section_id",
+      "label": "t:labels.section_id",
+      "info": "t:labels.section_id_info",
+      "default": "faq"
+    },
     {
       "type": "text",
       "id": "badge_text",

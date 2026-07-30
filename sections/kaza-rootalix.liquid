@@ -1,4 +1,7 @@
-<section class="kaza-rootalix full-width">
+<section
+  class="kaza-rootalix full-width"
+  {% if section.settings.section_id != blank %}id="{{ section.settings.section_id | handleize }}"{% endif %}
+>
   <div class="kaza-rootalix__bg" aria-hidden="true">
     {% if section.settings.background_image != blank %}
       {{ section.settings.background_image | image_url: width: 2400 | image_tag: loading: 'lazy', alt: '' }}
@@ -16,12 +19,10 @@
 
   <div class="kaza-container kaza-rootalix__inner">
     <div class="kaza-rootalix__header kaza-section-intro kaza-section-intro--dark">
-      {% if section.settings.show_rating %}
+      {% if section.settings.show_rating and section.settings.rating_text != blank %}
         <div class="kaza-rootalix__rating">
           {% render 'kaza-star-rating', rating: section.settings.rating, label: section.settings.rating_text %}
-          {% if section.settings.rating_text != blank %}
-            <span class="kaza-rootalix__rating-text">{{ section.settings.rating_text }}</span>
-          {% endif %}
+          <span class="kaza-rootalix__rating-text">{{ section.settings.rating_text }}</span>
         </div>
       {% endif %}
 
@@ -44,7 +45,7 @@
     <div class="kaza-rootalix__visual">
       {% if section.settings.product_image != blank %}
         <div class="kaza-rootalix__product">
-          {{ section.settings.product_image | image_url: width: 600 | image_tag: loading: 'lazy', alt: section.settings.heading_highlight }}
+          {{ section.settings.product_image | image_url: width: 1000 | image_tag: loading: 'lazy', alt: section.settings.heading_highlight }}
         </div>
       {% endif %}
 
@@ -141,6 +142,13 @@
 {
   "name": "t:sections.kaza_rootalix.name",
   "settings": [
+    {
+      "type": "text",
+      "id": "section_id",
+      "label": "t:labels.section_id",
+      "info": "t:labels.section_id_info",
+      "default": "rootalix"
+    },
     {
       "type": "checkbox",
       "id": "show_rating",

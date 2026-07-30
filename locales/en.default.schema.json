@@ -53,6 +53,8 @@
     "input_corner_radius": "Input corner radius",
     "layout_direction": "Layout direction",
     "menu": "Menu",
+    "section_id": "Section ID (menu anchor)",
+    "section_id_info": "Used for menu links. Example: faq becomes #faq. Use lowercase letters, numbers, and hyphens only.",
     "customer_account_menu": "Customer account menu",
     "padding": "Padding",
     "page_margin": "Page margin",
@@ -149,6 +151,7 @@
         "show_trustpilot": "Show Trustpilot",
         "show_google": "Show Google",
         "show_slider_controls": "Show slider controls",
+        "mobile_dropper_image": "Mobile dropper image",
         "powered_by_text": "Powered by text",
         "product_image_info": "Optional. Leave empty when the background image includes the product."
       },
@@ -274,7 +277,8 @@
         "heading_prefix": "Heading prefix",
         "heading_highlight": "Heading highlight",
         "handle_label": "Handle label",
-        "initial_position": "Initial slider position"
+        "initial_position": "Initial slider position",
+        "cta_product": "Product for supply buttons"
       },
       "blocks": {
         "testimonial": {
@@ -296,9 +300,13 @@
     "kaza_product": {
       "name": "Product",
       "settings": {
+        "subheading": "Subheading above title",
         "subtitle": "Product subtitle",
         "powered_by_text": "Powered by ingredients",
-        "cta_label": "Button label"
+        "cta_label": "Button label",
+        "show_intro_price": "Show intro price label",
+        "show_intro_price_info": "When enabled, price shows as \"$49.00 USD until final\". Turn off later to show the price alone.",
+        "price_suffix": "Price suffix"
       },
       "blocks": {
         "benefit": {

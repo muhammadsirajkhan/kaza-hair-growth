@@ -1,0 +1,39 @@
+---
+description: Use codebase-memory-mcp for structural codebase exploration before broad file searches
+alwaysApply: true
+---
+
+# Codebase Memory MCP
+
+Prefer **codebase-memory-mcp** graph tools over broad Grep/Glob/Read sweeps when answering structural questions about this repo.
+
+## Project identity
+
+- Indexed project name: `D-shopify-projects-kaza-hair-growth`
+- Root: `D:/shopify-projects/kaza-hair-growth`
+
+## When to use it
+
+Use graph tools first for:
+
+- Architecture / overview / “how is this organized?”
+- Finding symbols, sections, snippets, call/usage relationships
+- Impact of a change (“what does this affect?”)
+- Locating where a feature or section lives before opening many files
+
+## Preferred tool order
+
+1. `index_status` or `list_projects` if unsure the index is current
+2. `get_architecture` for high-level orientation
+3. `search_graph` / `search_code` / `semantic_query` to find symbols or text
+4. `trace_path` for callers/callees
+5. `get_code_snippet` or a targeted Read for exact source
+6. `detect_changes` when discussing uncommitted/local diffs
+7. `check_index_coverage` before claiming something is absent
+
+## Rules
+
+- Pass `project: "D-shopify-projects-kaza-hair-growth"` on graph tools that require it.
+- Do not claim absence, dead code, or full impact without graph evidence (and coverage checks when relevant).
+- After finding a symbol/path in the graph, verify important claims with a short Read of the cited file.
+- Fall back to Grep/Glob/Read when the graph has no useful hit, the MCP server is unavailable, or the task is a tiny one-file edit with a known path.

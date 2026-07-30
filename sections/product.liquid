@@ -9,8 +9,19 @@
   endif
 -%}
 
-<section class="kaza-product full-width" data-kaza-product data-section-id="{{ section.id }}">
+<section
+  class="kaza-product full-width"
+  data-kaza-product
+  data-section-id="{{ section.id }}"
+  {% if section.settings.section_id != blank %}id="{{ section.settings.section_id | handleize }}"{% endif %}
+>
   <div class="kaza-container kaza-product__inner">
+    <div class="title-mobile-wrap">
+      {%- if section.settings.subheading != blank -%}
+        <p class="kaza-product__subheading kaza-product__subheading--mobile">{{ section.settings.subheading }}</p>
+      {%- endif -%}
+      <h1 class="kaza-product__title kaza-product__title--mobile" aria-hidden="true">{{ product.title }}</h1>
+    </div>
     <div class="kaza-product__gallery" id="kaza-gallery-{{ section.id }}">
       <div class="kaza-product__main-media">
         {%- if use_product_media -%}
@@ -50,8 +61,7 @@
             {%- if media.media_type == 'image' -%}
               {%- assign media_alt = media.alt | default: product.title | escape -%}
               {%- assign media_src = media | image_url: width: 1400 -%}
-              {%- assign media_srcset = media | image_url: width: 600 | append: ' 600w, ' -%}
-              {%- assign media_srcset = media_srcset | append: media | image_url: width: 900 | append: ' 900w, ' -%}
+              {%- assign media_srcset = media | image_url: width: 1000 | append: ' 1000w, ' -%}
               {%- assign media_srcset = media_srcset | append: media | image_url: width: 1200 | append: ' 1200w, ' -%}
               {%- assign media_srcset = media_srcset | append: media | image_url: width: 1400 | append: ' 1400w' -%}
               <button
@@ -100,6 +110,10 @@
     </div>
 
     <div class="kaza-product__content">
+      {%- if section.settings.subheading != blank -%}
+        <p class="kaza-product__subheading">{{ section.settings.subheading }}</p>
+      {%- endif -%}
+
       <h1 class="kaza-product__title">{{ product.title }}</h1>
 
       {%- if section.settings.subtitle != blank -%}
@@ -180,7 +194,14 @@
               {%- if current_variant.compare_at_price > current_variant.price -%}
                 <s class="kaza-product__compare-price">{{ current_variant.compare_at_price | money }}</s>
               {%- endif -%}
-              <span class="kaza-product__price">{{ current_variant.price | money }}</span>
+              <span class="kaza-product__price">
+                {{- current_variant.price | money -}}
+                {%- if section.settings.show_intro_price -%}
+                  {%- if section.settings.price_suffix != blank -%}
+                    <span class="kaza-product__price-suffix"> {{ section.settings.price_suffix }}</span>
+                  {%- endif -%}
+                {%- endif -%}
+              </span>
             </p>
 
             {%- unless current_variant.available -%}
@@ -199,6 +220,7 @@
 
             <p class="kaza-product__form-error" data-kaza-product-error role="alert" hidden></p>
 
+            <div class="kaza-product__cta-bar">
             <button
               type="submit"
               name="add"
@@ -223,6 +245,7 @@
                 <circle cx="18" cy="20" r="1.25" fill="currentColor"/>
               </svg>
             </button>
+            </div>
           </div>
         {%- endform -%}
       </div>
@@ -385,6 +408,29 @@
       thumbs.forEach((thumb) => {
         thumb.addEventListener('click', () => setActive(thumb));
       });
+
+      const mainMedia = gallery.querySelector('.kaza-product__main-media');
+      if (mainMedia) {
+        let touchStartX = 0;
+        let touchStartY = 0;
+
+        mainMedia.addEventListener('touchstart', (e) => {
+          touchStartX = e.changedTouches[0].clientX;
+          touchStartY = e.changedTouches[0].clientY;
+        }, { passive: true });
+
+        mainMedia.addEventListener('touchend', (e) => {
+          const dx = e.changedTouches[0].clientX - touchStartX;
+          const dy = e.changedTouches[0].clientY - touchStartY;
+          if (Math.abs(dx) < 40 || Math.abs(dy) > Math.abs(dx)) return;
+          const activeIndex = thumbs.findIndex((t) => t.classList.contains('is-active'));
+          if (dx < 0) {
+            setActive(thumbs[(activeIndex + 1) % thumbs.length]);
+          } else {
+            setActive(thumbs[(activeIndex - 1 + thumbs.length) % thumbs.length]);
+          }
+        }, { passive: true });
+      }
     });
   })();
 {% endjavascript %}
@@ -393,6 +439,19 @@
 {
   "name": "t:general.product",
   "settings": [
+    {
+      "type": "text",
+      "id": "section_id",
+      "label": "t:labels.section_id",
+      "info": "t:labels.section_id_info",
+      "default": "product"
+    },
+    {
+      "type": "text",
+      "id": "subheading",
+      "label": "t:sections.kaza_product.settings.subheading",
+      "default": "Hair density serum"
+    },
     {
       "type": "text",
       "id": "subtitle",
@@ -410,6 +469,20 @@
       "id": "cta_label",
       "label": "t:sections.kaza_product.settings.cta_label",
       "default": "Shop the Serum"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_intro_price",
+      "label": "t:sections.kaza_product.settings.show_intro_price",
+      "info": "t:sections.kaza_product.settings.show_intro_price_info",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "price_suffix",
+      "label": "t:sections.kaza_product.settings.price_suffix",
+      "default": "USD until final",
+      "visible_if": "{{ section.settings.show_intro_price == true }}"
     }
   ],
   "blocks": [

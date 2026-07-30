@@ -1,4 +1,8 @@
-<div class="kaza-hero full-width" data-kaza-hero>
+<div
+  class="kaza-hero full-width"
+  data-kaza-hero
+  {% if section.settings.section_id != blank %}id="{{ section.settings.section_id | handleize }}"{% endif %}
+>
   <div class="kaza-hero__slides">
     {% assign slide_count = 0 %}
     {% for block in section.blocks %}
@@ -48,6 +52,17 @@
                 {% if block.settings.subheading != blank %}
                   <p class="kaza-hero__subheading">{{ block.settings.subheading }}</p>
                 {% endif %}
+
+                {% if request.page_type == 'index' and block.settings.mobile_dropper_image != blank %}
+                  <div class="kaza-hero__mobile-dropper-wrap">
+                    {{
+                      block.settings.mobile_dropper_image
+                      | image_url: width: 1000
+                      | image_tag: loading: 'lazy', alt: block.settings.button_label | default: hero_background_alt, class: 'kaza-hero__mobile-dropper'
+                    }}
+                  </div>
+                {% endif %}
+
                 {% if block.settings.button_label != blank %}
                   <div class="kaza-hero__cta-row">
                     <a
@@ -71,39 +86,41 @@
                       <span class="kaza-hero__trust-label">{{ section.settings.trust_text }}</span>
                     {% endif %}
                     <div class="kaza-hero__trust-logos">
-                      {% if section.settings.show_trustpilot %}
-                        <span class="kaza-hero__trustpilot" aria-label="Trustpilot">
-                          <svg
-                            class="kaza-hero__trustpilot-star"
-                            xmlns="http://www.w3.org/2000/svg"
-                            viewBox="0 0 24 24"
-                            aria-hidden="true"
-                          >
-                            <path fill="#00B67A" d="M12 2l2.9 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
-                          </svg>
-                          <span class="kaza-hero__trustpilot-text">Trustpilot</span>
-                        </span>
+                      {% if section.settings.trust_text != blank %}
+                        {% if section.settings.show_trustpilot %}
+                          <span class="kaza-hero__trustpilot" aria-label="Trustpilot">
+                            <svg
+                              class="kaza-hero__trustpilot-star"
+                              xmlns="http://www.w3.org/2000/svg"
+                              viewBox="0 0 24 24"
+                              aria-hidden="true"
+                            >
+                              <path fill="#00B67A" d="M12 2l2.9 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+                            </svg>
+                            <span class="kaza-hero__trustpilot-text">Trustpilot</span>
+                          </span>
+                        {% endif %}
+                        {% if section.settings.show_google %}
+                          <span class="kaza-hero__google" aria-label="Google">
+                            <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              viewBox="0 0 24 24"
+                              width="18"
+                              height="18"
+                              aria-hidden="true"
+                            >
+                              <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 0 1-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z" />
+                              <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" />
+                              <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" />
+                              <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" />
+                            </svg>
+                          </span>
+                        {% endif %}
+                        {% render 'kaza-star-rating',
+                          rating: section.settings.trust_rating,
+                          label: section.settings.trust_text
+                        %}
                       {% endif %}
-                      {% if section.settings.show_google %}
-                        <span class="kaza-hero__google" aria-label="Google">
-                          <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            viewBox="0 0 24 24"
-                            width="18"
-                            height="18"
-                            aria-hidden="true"
-                          >
-                            <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 0 1-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z" />
-                            <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" />
-                            <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" />
-                            <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" />
-                          </svg>
-                        </span>
-                      {% endif %}
-                      {% render 'kaza-star-rating',
-                        rating: section.settings.trust_rating,
-                        label: section.settings.trust_text
-                      %}
                     </div>
                   </div>
                 {% endif %}
@@ -181,18 +198,18 @@
       <button
         type="button"
         class="kaza-hero__nav-btn"
-        data-kaza-hero-next
-        aria-label="{{ 'general.accessibility.next' | t }}"
+        data-kaza-hero-prev
+        aria-label="{{ 'general.accessibility.previous' | t }}"
       >
-        ← {{ 'sections.kaza_hero.next' | t }}
+        ← {{ 'sections.kaza_hero.prev' | t }}
       </button>
       <button
         type="button"
         class="kaza-hero__nav-btn"
-        data-kaza-hero-prev
-        aria-label="{{ 'general.accessibility.previous' | t }}"
+        data-kaza-hero-next
+        aria-label="{{ 'general.accessibility.next' | t }}"
       >
-        {{ 'sections.kaza_hero.prev' | t }} →
+        {{ 'sections.kaza_hero.next' | t }} →
       </button>
     </div>
   {% endif %}
@@ -229,6 +246,13 @@
   "name": "t:sections.kaza_hero.name",
   "max_blocks": 8,
   "settings": [
+    {
+      "type": "text",
+      "id": "section_id",
+      "label": "t:labels.section_id",
+      "info": "t:labels.section_id_info",
+      "default": "hero"
+    },
     {
       "type": "checkbox",
       "id": "show_trust_bar",
@@ -296,6 +320,11 @@
           "id": "subheading",
           "label": "t:labels.subheading",
           "default": "Based on a 3-month clinical study where participants saw an average of 10,000 new hairs and a maximum of 28,200."
+        },
+        {
+          "type": "image_picker",
+          "id": "mobile_dropper_image",
+          "label": "t:sections.kaza_hero.settings.mobile_dropper_image"
         },
         {
           "type": "text",

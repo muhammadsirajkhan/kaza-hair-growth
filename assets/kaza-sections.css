@@ -586,7 +586,7 @@ body.template-index header.kaza-header {
   flex-direction: column;
   align-items: flex-start;
   gap: 0;
-  width: 580px;
+  width: 600px;
 }
 
 .kaza-hero__heading {
@@ -612,6 +612,16 @@ body.template-index header.kaza-header {
   line-height: 1.55;
   color: rgba(255, 255, 255, 0.88);
   max-width: 46ch;
+}
+
+.kaza-hero__mobile-dropper-wrap {
+  display: none;
+}
+
+.kaza-hero__mobile-dropper {
+  display: block;
+  width: 100%;
+  height: auto;
 }
 
 .kaza-hero__cta-row {
@@ -1117,6 +1127,7 @@ body.template-index header.kaza-header {
   font-weight: 600;
   line-height: 1.35;
   width: 14.5rem;
+  width: 16.4em;
   pointer-events: auto;
 }
 
@@ -2186,6 +2197,22 @@ body.template-index header.kaza-header {
   color: var(--kaza-gray);
 }
 
+.kaza-challenge__supply-btns {
+  display: flex;
+  gap: 0.75rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: clamp(1.5rem, 3vw, 2.5rem);
+}
+
+.kaza-challenge__supply-btn {
+  flex: 1;
+  min-width: 8rem;
+  max-width: 14rem;
+  text-transform: none;
+  letter-spacing: 0.01em;
+}
+
 /* --- kaza-benefits.liquid --- */
 .kaza-benefits {
   padding-block: var(--kaza-section-y);
@@ -2241,11 +2268,17 @@ body.template-index header.kaza-header {
 }
 
 .kaza-product__gallery {
-  position: sticky;
+  /* position: sticky; */
   top: calc(var(--kaza-header-height) + 1.5rem);
   display: flex;
   flex-direction: column;
   gap: 0.875rem;
+}
+
+.kaza-product__title--mobile,
+.kaza-product__subheading--mobile,
+.title-mobile-wrap {
+  display: none;
 }
 
 .kaza-product__main-media {
@@ -2299,6 +2332,15 @@ body.template-index header.kaza-header {
 .kaza-product__content {
   display: flex;
   flex-direction: column;
+}
+
+.kaza-product__subheading {
+  font-size: var(--kaza-fs-section-content);
+  font-weight: 500;
+  line-height: 1.4;
+  letter-spacing: 0.02em;
+  color: var(--kaza-gray);
+  margin: 0 0 0.75rem;
 }
 
 .kaza-product__title {
@@ -2432,6 +2474,13 @@ body.template-index header.kaza-header {
   font-weight: 700;
   color: var(--kaza-black);
   line-height: 1;
+}
+
+.kaza-product__price-suffix {
+  font-size: 0.55em;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  white-space: nowrap;
 }
 
 .kaza-product__cta {
