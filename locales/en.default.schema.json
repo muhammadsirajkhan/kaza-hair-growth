@@ -151,6 +151,7 @@
         "show_trustpilot": "Show Trustpilot",
         "show_google": "Show Google",
         "show_slider_controls": "Show slider controls",
+        "mobile_dropper_image": "Mobile dropper image",
         "powered_by_text": "Powered by text",
         "product_image_info": "Optional. Leave empty when the background image includes the product."
       },

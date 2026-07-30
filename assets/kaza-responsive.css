@@ -1535,6 +1535,20 @@
     display: none;
   }
 
+  .kaza-hero__mobile-dropper-wrap {
+    display: block;
+    width: 100%;
+    text-align: center;
+    margin-top: 0.75rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .kaza-hero__mobile-dropper {
+    max-width: 90%;
+    height: auto;
+    margin: 0 auto;
+  }
+
   /* Font sizes — synced from kaza-sections.css */
   .kaza-promo-cards__heading,
   .kaza-challenge__review-title {

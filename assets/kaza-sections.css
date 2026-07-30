@@ -614,6 +614,16 @@ body.template-index header.kaza-header {
   max-width: 46ch;
 }
 
+.kaza-hero__mobile-dropper-wrap {
+  display: none;
+}
+
+.kaza-hero__mobile-dropper {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
 .kaza-hero__cta-row {
   display: flex;
   align-items: center;
