@@ -1540,11 +1540,12 @@
   }
 
   .kaza-hero__mobile-dropper-wrap {
-    display: block;
-    width: 100%;
-    text-align: center;
-    margin-top: 0.75rem;
-    margin-bottom: 0.75rem;
+        display: flex;
+        width: 100%;
+        text-align: center;
+        margin-top: .75rem;
+        margin-bottom: .75rem;
+        justify-content: center;
   }
 
   .kaza-hero__mobile-dropper-wrap img {
