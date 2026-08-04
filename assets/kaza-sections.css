@@ -2197,22 +2197,6 @@ body.template-index header.kaza-header {
   color: var(--kaza-gray);
 }
 
-.kaza-challenge__supply-btns {
-  display: flex;
-  gap: 0.75rem;
-  justify-content: center;
-  flex-wrap: wrap;
-  margin-top: clamp(1.5rem, 3vw, 2.5rem);
-}
-
-.kaza-challenge__supply-btn {
-  flex: 1;
-  min-width: 8rem;
-  max-width: 14rem;
-  text-transform: none;
-  letter-spacing: 0.01em;
-}
-
 /* --- kaza-benefits.liquid --- */
 .kaza-benefits {
   padding-block: var(--kaza-section-y);
@@ -2504,6 +2488,22 @@ body.template-index header.kaza-header {
 .kaza-product__cta[aria-disabled='true'] {
   opacity: 0.45;
   cursor: not-allowed;
+}
+
+.kaza-product__supply-btns {
+  display: flex;
+  gap: 0.75rem;
+  justify-content: stretch;
+  flex-wrap: wrap;
+  width: 100%;
+  margin-top: 0.25rem;
+}
+
+.kaza-product__supply-btn {
+  flex: 1;
+  min-width: 6.5rem;
+  text-transform: none;
+  letter-spacing: 0.01em;
 }
 
 .kaza-product__status,

@@ -246,6 +246,26 @@
               </svg>
             </button>
             </div>
+
+            {%- if current_variant.available -%}
+              <div
+                class="kaza-product__supply-btns"
+                data-kaza-supply
+                data-variant-id="{{ current_variant.id }}"
+                data-cart-add-url="{{ cart_add_url }}"
+                data-cart-url="{{ routes.cart_url }}"
+              >
+                <button type="button" class="kaza-btn kaza-btn--primary kaza-product__supply-btn" data-quantity="3">
+                  {{ 'sections.kaza_product.supply_3' | t }}
+                </button>
+                <button type="button" class="kaza-btn kaza-btn--primary kaza-product__supply-btn" data-quantity="6">
+                  {{ 'sections.kaza_product.supply_6' | t }}
+                </button>
+                <button type="button" class="kaza-btn kaza-btn--primary kaza-product__supply-btn" data-quantity="12">
+                  {{ 'sections.kaza_product.supply_12' | t }}
+                </button>
+              </div>
+            {%- endif -%}
           </div>
         {%- endform -%}
       </div>
@@ -373,6 +393,44 @@
           }
           submitButton.removeAttribute('aria-busy');
         }
+      });
+    });
+
+    document.querySelectorAll('[data-kaza-supply]').forEach((container) => {
+      const variantId = container.dataset.variantId;
+      const cartAddUrl = container.dataset.cartAddUrl;
+      const cartUrl = container.dataset.cartUrl || '/cart';
+      if (!variantId || !cartAddUrl) return;
+
+      container.querySelectorAll('[data-quantity]').forEach((btn) => {
+        btn.addEventListener('click', async () => {
+          const quantity = Number(btn.dataset.quantity);
+          if (!quantity) return;
+          btn.disabled = true;
+          try {
+            const response = await fetch(cartAddUrl, {
+              method: 'POST',
+              headers: { Accept: 'application/json', 'Content-Type': 'application/json' },
+              body: JSON.stringify({ items: [{ id: Number(variantId), quantity }] }),
+            });
+            if (!response.ok) {
+              const data = await response.json();
+              throw new Error(data.description || 'Could not add to cart.');
+            }
+
+            const cartResponse = await fetch('/cart.js', {
+              headers: { Accept: 'application/json' },
+            });
+            if (cartResponse.ok) {
+              const cart = await cartResponse.json();
+              updateCartBadge(cart.item_count);
+            }
+
+            window.location.assign(cartUrl);
+          } catch {
+            btn.disabled = false;
+          }
+        });
       });
     });
 

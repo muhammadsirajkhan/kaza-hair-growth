@@ -41,34 +41,6 @@
           initial_position: section.settings.initial_position
         %}
       </div>
-
-      {% if request.page_type == 'product' %}
-        {%- assign cta_variant = blank -%}
-        {% if section.settings.cta_product != blank %}
-          {%- assign cta_variant = section.settings.cta_product.selected_or_first_available_variant -%}
-        {% elsif product != blank %}
-          {%- assign cta_variant = product.selected_or_first_available_variant -%}
-        {% endif %}
-        {% if cta_variant != blank %}
-          <div
-            class="kaza-challenge__supply-btns"
-            data-kaza-supply
-            data-variant-id="{{ cta_variant.id }}"
-            data-cart-add-url="{{ routes.cart_add_url | append: '.js' }}"
-            data-cart-url="{{ routes.cart_url }}"
-          >
-            <button type="button" class="kaza-btn kaza-btn--primary kaza-challenge__supply-btn" data-quantity="3">
-              {{ 'sections.kaza_challenge.supply_3' | t }}
-            </button>
-            <button type="button" class="kaza-btn kaza-btn--primary kaza-challenge__supply-btn" data-quantity="6">
-              {{ 'sections.kaza_challenge.supply_6' | t }}
-            </button>
-            <button type="button" class="kaza-btn kaza-btn--primary kaza-challenge__supply-btn" data-quantity="12">
-              {{ 'sections.kaza_challenge.supply_12' | t }}
-            </button>
-          </div>
-        {% endif %}
-      {% endif %}
     </div>
   </div>
 
@@ -330,35 +302,6 @@
 
       goTo(0);
     });
-
-    document.querySelectorAll('[data-kaza-supply]').forEach((container) => {
-      const variantId = container.dataset.variantId;
-      const cartAddUrl = container.dataset.cartAddUrl;
-      const cartUrl = container.dataset.cartUrl || '/cart';
-      if (!variantId || !cartAddUrl) return;
-
-      container.querySelectorAll('[data-quantity]').forEach((btn) => {
-        btn.addEventListener('click', async () => {
-          const quantity = Number(btn.dataset.quantity);
-          if (!quantity) return;
-          btn.disabled = true;
-          try {
-            const response = await fetch(cartAddUrl, {
-              method: 'POST',
-              headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
-              body: JSON.stringify({ items: [{ id: Number(variantId), quantity }] }),
-            });
-            if (!response.ok) {
-              const data = await response.json();
-              throw new Error(data.description || 'Could not add to cart.');
-            }
-            window.location.assign(cartUrl);
-          } catch {
-            btn.disabled = false;
-          }
-        });
-      });
-    });
   })();
 {% endjavascript %}
 
@@ -412,11 +355,6 @@
       "id": "handle_label",
       "label": "t:sections.kaza_challenge.settings.handle_label",
       "default": "Drag"
-    },
-    {
-      "type": "product",
-      "id": "cta_product",
-      "label": "t:sections.kaza_challenge.settings.cta_product"
     },
     {
       "type": "range",

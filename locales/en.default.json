@@ -193,9 +193,6 @@
       "handle_label": "Drag",
       "pagination_label": "Customer reviews",
       "go_to_review": "Go to review {{ number }}",
-      "supply_3": "3 Months",
-      "supply_6": "6 Months",
-      "supply_12": "12 Months",
       "blocks": {
         "testimonial": {
           "name": "Testimonial"
@@ -217,6 +214,9 @@
       "powered_by": "Powered by",
       "gallery_label": "Product images",
       "gallery_image": "Product image {{ number }}",
+      "supply_3": "3 Months",
+      "supply_6": "6 Months",
+      "supply_12": "12 Months",
       "blocks": {
         "benefit": {
           "name": "Benefit row"
