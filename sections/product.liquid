@@ -248,6 +248,11 @@
             </div>
 
             {%- if current_variant.available -%}
+              <div class="kaza-product__supply-divider" role="separator" aria-label="{{ 'sections.kaza_product.supply_divider' | t }}">
+                <span class="kaza-product__supply-divider-line" aria-hidden="true"></span>
+                <span class="kaza-product__supply-divider-text">{{ 'sections.kaza_product.supply_divider' | t }}</span>
+                <span class="kaza-product__supply-divider-line" aria-hidden="true"></span>
+              </div>
               <div
                 class="kaza-product__supply-btns"
                 data-kaza-supply
