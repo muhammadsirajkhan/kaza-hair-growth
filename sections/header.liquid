@@ -55,14 +55,7 @@
 
       {% if section.settings.cta_label != blank %}
         <div class="kaza-header__cta-wrap kaza-hide-mobile">
-          {% render 'kaza-button',
-            label: section.settings.cta_label,
-            url: section.settings.cta_url | default: routes.all_products_collection_url,
-            style: 'primary',
-            rect: true,
-            invert: true,
-            class: 'kaza-header__cta'
-          %}
+          {% render 'kaza-button', label: section.settings.cta_label, url: section.settings.cta_url, default: routes.all_products_collection_url, style: 'primary', rect: true, invert: true, class: 'kaza-header__cta' %}
         </div>
       {% endif %}
 
@@ -91,14 +84,7 @@
       {% endif %}
     {% endfor %}
     {% if section.settings.cta_label != blank %}
-      {% render 'kaza-button',
-        label: section.settings.cta_label,
-        url: section.settings.cta_url | default: routes.all_products_collection_url,
-        style: 'primary',
-        rect: true,
-        invert: true,
-        class: 'kaza-header__mobile-cta'
-      %}
+      {% render 'kaza-button', label: section.settings.cta_label, url: section.settings.cta_url, default: routes.all_products_collection_url, style: 'primary', rect: true, invert: true, class: 'kaza-header__mobile-cta' %}
     {% endif %}
   </nav>
 </header>
@@ -193,3 +179,36 @@
   ]
 }
 {% endschema %}
+{% comment %}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: |-
+    {% render 'kaza-button',
+                label: section.settings.cta_label,
+                url: section.settings.cta_url | default: routes.all_products_collection_url,
+                style: 'primary',
+                rect: true,
+                invert: true,
+                class: 'kaza-header__cta'
+              %}
+  to: "{% render 'kaza-button', label: section.settings.cta_label, url: section.settings.cta_url,
+    default: routes.all_products_collection_url, style: 'primary', rect: true, invert:
+    true, class: 'kaza-header__cta' %}"
+  position: 3178..3386
+- from: |-
+    {% render 'kaza-button',
+            label: section.settings.cta_label,
+            url: section.settings.cta_url | default: routes.all_products_collection_url,
+            style: 'primary',
+            rect: true,
+            invert: true,
+            class: 'kaza-header__mobile-cta'
+          %}
+  to: "{% render 'kaza-button', label: section.settings.cta_label, url: section.settings.cta_url,
+    default: routes.all_products_collection_url, style: 'primary', rect: true, invert:
+    true, class: 'kaza-header__mobile-cta' %}"
+  position: 4365..4580
+{% endcomment %}
